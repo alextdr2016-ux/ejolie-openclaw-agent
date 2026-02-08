@@ -15,10 +15,26 @@ def main():
     command = sys.argv[1]
 
     if command == 'sales':
-        if len(sys.argv) != 4:
-            print("Usage: python cli.py sales START_DATE END_DATE")
+        # Parse arguments: sales START_DATE END_DATE [--status STATUS_ID]
+        if len(sys.argv) < 4:
+            print(
+                "Usage: python cli.py sales START_DATE END_DATE [--status STATUS_ID]")
+            print("Status IDs: 14=INCASATA, 9=RETURNATA, 38=REFUZATA, 37=SCHIMB")
             sys.exit(1)
-        report = generator.sales_report(sys.argv[2], sys.argv[3])
+
+        start_date = sys.argv[2]
+        end_date = sys.argv[3]
+        status_id = None
+
+        # Check for --status flag
+        if len(sys.argv) > 4 and sys.argv[4] == '--status':
+            if len(sys.argv) < 6:
+                print("Error: --status requires a status ID")
+                sys.exit(1)
+            status_id = int(sys.argv[5])
+
+        report = generator.sales_report(
+            start_date, end_date, status_id=status_id)
         print(report)
 
     elif command == 'profit':
