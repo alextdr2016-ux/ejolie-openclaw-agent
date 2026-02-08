@@ -411,3 +411,123 @@ def format_report(report_type: str, period_label: str, metrics: dict, brand_name
 
     lines.append("━" * 35)
     return "\n".join(lines)
+
+
+
+# ──────────────────────────────────────────────
+# Product Report
+# ──────────────────────────────────────────────
+
+def calculate_product_report(orders: dict, brand_filter: str = None) -> dict:
+    """Calculate product-level metrics from orders."""
+    from collections import Counter, defaultdict
+
+    if not orders:
+        return {"products": Counter(), "sizes": Counter(), "models": Counter(), 
+                "total_products": 0, "total_qty": 0}
+
+    products = Counter()       # "Rochie X (Marime: 38)" → qty
+    sizes = Counter()          # "38" → qty
+    models = Counter()         # "Rochie X" → qty
+    brand_products = Counter() # brand → qty
+
+    total_qty = 0
+
+    for oid, order in orders.items():
+        if not isinstance(order, dict):
+            continue
+        for pid, prod in order.get("produse", {}).items():
+            if not isinstance(prod, dict):
+                continue
+
+            # Brand filter
+            if brand_filter:
+                prod_brand = prod.get("brand_nume", "").strip().lower()
+                if brand_filter.lower() not in prod_brand:
+                    continue
+
+            nume = prod.get("nume", "Produs necunoscut")
+            try:
+                qty = int(float(str(prod.get("cantitate", 1)).replace(",", ".")))
+            except (ValueError, TypeError):
+                qty = 1
+
+            if "discount" in nume.lower():
+                continue
+
+            total_qty += qty
+            products[nume] += qty
+
+            # Extract size
+            if "Marime:" in nume:
+                size = nume.split("Marime:")[1].split(")")[0].strip()
+                # Handle multiple sizes like "Marime Sacou: 46, Marime Fusta: 46"
+                if "," not in size:
+                    sizes[size] += qty
+
+            # Extract base model (without size)
+            if "(Marime" in nume:
+                base = nume.split("(Marime")[0].strip()
+            elif "(Marime Sacou" in nume:
+                base = nume.split("(Marime Sacou")[0].strip()
+            else:
+                base = nume
+            models[base] += qty
+
+            # Brand stats
+            brand = prod.get("brand_nume", "Necunoscut")
+            brand_products[brand] += qty
+
+    return {
+        "products": products,
+        "sizes": sizes,
+        "models": models,
+        "brands": brand_products,
+        "total_products": len(products),
+        "total_qty": total_qty,
+    }
+
+
+def format_product_report(period_label: str, metrics: dict, brand_name: str = None) -> str:
+    """Format product report for WhatsApp."""
+    brand_tag = f" [🏷️ {brand_name.capitalize()}]" if brand_name else ""
+
+    lines = [
+        f"👗 RAPORT PRODUSE - {period_label}{brand_tag}",
+        "━" * 35,
+        f"📦 Total produse unice: {metrics['total_products']}",
+        f"🛒 Total bucăți vândute: {metrics['total_qty']}",
+    ]
+
+    # Top models (aggregated without size)
+    if metrics["models"]:
+        lines.append("━" * 35)
+        lines.append("🏆 Top 10 modele (toate mărimile):")
+        for i, (name, qty) in enumerate(metrics["models"].most_common(10), 1):
+            short = name[:35] + "..." if len(name) > 35 else name
+            lines.append(f"  {i}. {short} — {qty} buc")
+
+    # Top products with size
+    if metrics["products"]:
+        lines.append("━" * 35)
+        lines.append("📏 Top 10 produse + mărime:")
+        for i, (name, qty) in enumerate(metrics["products"].most_common(10), 1):
+            short = name[:40] + "..." if len(name) > 40 else name
+            lines.append(f"  {i}. {short} — {qty} buc")
+
+    # Top sizes
+    if metrics["sizes"]:
+        lines.append("━" * 35)
+        lines.append("📐 Top mărimi vândute:")
+        for size, qty in metrics["sizes"].most_common():
+            lines.append(f"  • Mărime {size}: {qty} buc")
+
+    # Brand breakdown
+    if metrics["brands"] and not brand_name:
+        lines.append("━" * 35)
+        lines.append("🏷️ Pe branduri:")
+        for brand, qty in metrics["brands"].most_common():
+            lines.append(f"  • {brand}: {qty} buc")
+
+    lines.append("━" * 35)
+    return "\n".join(lines)

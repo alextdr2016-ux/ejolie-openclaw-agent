@@ -13,6 +13,8 @@ from utils import (
     fetch_orders,
     calculate_report,
     format_report,
+    calculate_product_report,
+    format_product_report,
     filter_orders_by_brand,
     REPORT_STATUS,
 )
@@ -23,10 +25,10 @@ RESULT_FILE = "/tmp/ejolie_last_report.txt"
 
 def main():
     parser = argparse.ArgumentParser(description="Ejolie.ro Sales Report Generator")
-    parser.add_argument("--type", choices=["vanzari", "incasate", "returnate"], required=True)
+    parser.add_argument("--type", choices=["vanzari", "incasate", "returnate", "produse"], required=True)
     parser.add_argument("--period", required=True)
     parser.add_argument("--brand", default=None, help="Filter by brand: ejolie, trendya, artista")
-    parser.add_argument("--furnizor", default=None, help="Alias for --brand (same filter)")
+    parser.add_argument("--furnizor", default=None, help="Alias for --brand")
     parser.add_argument("--check", action="store_true", help="Check last report result")
     args = parser.parse_args()
 
@@ -38,26 +40,33 @@ def main():
             print("⏳ Raportul nu este încă gata.")
         return
 
-    # furnizor is alias for brand
     brand = args.brand or args.furnizor
 
     data_start, data_end, period_label = parse_period(args.period)
     filter_label = f" [🏷️ {brand.capitalize()}]" if brand else ""
     print(f"📅 Perioadă: {period_label}{filter_label}", flush=True)
 
-    idstatus = REPORT_STATUS.get(args.type)
-
-    print("📡 Se preiau comenzile din API...", flush=True)
-    orders = fetch_orders(data_start, data_end, idstatus)
-
-    if brand:
-        orders = filter_orders_by_brand(orders, brand)
-        print(f"🏷️ Filtrat după '{brand}': {len(orders)} comenzi rămase.", flush=True)
-    else:
+    # For product report, fetch all orders (no status filter)
+    if args.type == "produse":
+        print("📡 Se preiau comenzile din API...", flush=True)
+        orders = fetch_orders(data_start, data_end)
         print(f"✅ {len(orders)} comenzi găsite.", flush=True)
 
-    metrics = calculate_report(orders, brand_filter=brand)
-    report = format_report(args.type, period_label, metrics, brand_name=brand)
+        metrics = calculate_product_report(orders, brand_filter=brand)
+        report = format_product_report(period_label, metrics, brand_name=brand)
+    else:
+        idstatus = REPORT_STATUS.get(args.type)
+        print("📡 Se preiau comenzile din API...", flush=True)
+        orders = fetch_orders(data_start, data_end, idstatus)
+
+        if brand:
+            orders = filter_orders_by_brand(orders, brand)
+            print(f"🏷️ Filtrat după '{brand}': {len(orders)} comenzi rămase.", flush=True)
+        else:
+            print(f"✅ {len(orders)} comenzi găsite.", flush=True)
+
+        metrics = calculate_report(orders, brand_filter=brand)
+        report = format_report(args.type, period_label, metrics, brand_name=brand)
 
     with open(RESULT_FILE, "w") as f:
         f.write(report)
