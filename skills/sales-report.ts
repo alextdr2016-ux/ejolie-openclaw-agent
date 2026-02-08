@@ -98,7 +98,9 @@ function formatDate(date: Date): string {
  */
 async function generateReport(params: SalesReportParams): Promise<string> {
   const scriptPath = path.join(__dirname, '../../scripts/cli.py');
-  const venvPython = path.join(__dirname, '../../venv/bin/python3');
+  const venvPython = process.platform === 'win32'
+    ? path.join(__dirname, '../../venv/Scripts/python.exe')
+    : path.join(__dirname, '../../venv/bin/python3');
   
   let command = `${venvPython} ${scriptPath} sales ${params.startDate} ${params.endDate}`;
   
