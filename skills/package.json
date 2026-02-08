@@ -1,0 +1,16 @@
+{
+  "name": "ejolie-sales-skills",
+  "version": "1.0.0",
+  "description": "OpenClaw skills for ejolie.ro sales reporting",
+  "main": "sales-report.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@openclaw/skill-utils": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
