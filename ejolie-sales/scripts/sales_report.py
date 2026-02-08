@@ -15,6 +15,8 @@ from utils import (
     format_report,
     calculate_product_report,
     format_product_report,
+    calculate_profit_report,
+    format_profit_report,
     filter_orders_by_brand,
     REPORT_STATUS,
 )
@@ -25,7 +27,7 @@ RESULT_FILE = "/tmp/ejolie_last_report.txt"
 
 def main():
     parser = argparse.ArgumentParser(description="Ejolie.ro Sales Report Generator")
-    parser.add_argument("--type", choices=["vanzari", "incasate", "returnate", "produse"], required=True)
+    parser.add_argument("--type", choices=["vanzari", "incasate", "returnate", "produse", "profit"], required=True)
     parser.add_argument("--period", required=True)
     parser.add_argument("--brand", default=None, help="Filter by brand: ejolie, trendya, artista")
     parser.add_argument("--furnizor", default=None, help="Alias for --brand")
@@ -46,25 +48,29 @@ def main():
     filter_label = f" [🏷️ {brand.capitalize()}]" if brand else ""
     print(f"📅 Perioadă: {period_label}{filter_label}", flush=True)
 
-    # For product report, fetch all orders (no status filter)
-    if args.type == "produse":
-        print("📡 Se preiau comenzile din API...", flush=True)
+    print("📡 Se preiau comenzile din API...", flush=True)
+
+    if args.type == "profit":
+        # Profit uses incasate (status 14) by default
+        orders = fetch_orders(data_start, data_end, "14")
+        print(f"✅ {len(orders)} comenzi încasate găsite.", flush=True)
+        metrics = calculate_profit_report(orders, brand_filter=brand)
+        report = format_profit_report(period_label, metrics, brand_name=brand)
+
+    elif args.type == "produse":
         orders = fetch_orders(data_start, data_end)
         print(f"✅ {len(orders)} comenzi găsite.", flush=True)
-
         metrics = calculate_product_report(orders, brand_filter=brand)
         report = format_product_report(period_label, metrics, brand_name=brand)
+
     else:
         idstatus = REPORT_STATUS.get(args.type)
-        print("📡 Se preiau comenzile din API...", flush=True)
         orders = fetch_orders(data_start, data_end, idstatus)
-
         if brand:
             orders = filter_orders_by_brand(orders, brand)
             print(f"🏷️ Filtrat după '{brand}': {len(orders)} comenzi rămase.", flush=True)
         else:
             print(f"✅ {len(orders)} comenzi găsite.", flush=True)
-
         metrics = calculate_report(orders, brand_filter=brand)
         report = format_report(args.type, period_label, metrics, brand_name=brand)
 

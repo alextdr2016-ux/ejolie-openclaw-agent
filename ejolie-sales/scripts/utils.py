@@ -531,3 +531,169 @@ def format_product_report(period_label: str, metrics: dict, brand_name: str = No
 
     lines.append("━" * 35)
     return "\n".join(lines)
+
+
+
+# ──────────────────────────────────────────────
+# Profit Report
+# ──────────────────────────────────────────────
+
+COST_CACHE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cost_cache.json")
+
+
+def load_cost_cache() -> dict:
+    """Load cost cache from file."""
+    if os.path.exists(COST_CACHE_FILE):
+        with open(COST_CACHE_FILE) as f:
+            return json.load(f)
+    return {}
+
+
+def calculate_profit_report(orders: dict, brand_filter: str = None) -> dict:
+    """Calculate profit metrics using cost cache."""
+    cost_map = load_cost_cache()
+
+    if not orders:
+        return {
+            "total_revenue": 0, "total_cost": 0, "total_profit": 0,
+            "margin": 0, "products": [], "missing_cost": 0,
+            "total_comenzi": 0,
+        }
+
+    total_revenue = 0.0
+    total_cost = 0.0
+    missing_cost = 0
+    products = []
+    order_ids = set()
+
+    for oid, order in orders.items():
+        if not isinstance(order, dict):
+            continue
+
+        for pid, prod in order.get("produse", {}).items():
+            if not isinstance(prod, dict):
+                continue
+
+            # Brand filter
+            if brand_filter:
+                prod_brand = prod.get("brand_nume", "").strip().lower()
+                if brand_filter.lower() not in prod_brand:
+                    continue
+
+            opt_id = str(prod.get("id_optiune", ""))
+            try:
+                sell = float(str(prod.get("pret_unitar", 0)).replace(",", "."))
+                qty = int(float(str(prod.get("cantitate", 1)).replace(",", ".")))
+            except (ValueError, TypeError):
+                continue
+
+            if "discount" in prod.get("nume", "").lower():
+                continue
+
+            cost_data = cost_map.get(opt_id)
+            cost = cost_data["pret_lista"] if cost_data else 0
+            if not cost_data:
+                missing_cost += 1
+
+            profit = (sell - cost) * qty
+            total_revenue += sell * qty
+            total_cost += cost * qty
+            order_ids.add(oid)
+
+            products.append({
+                "nume": prod.get("nume", "?"),
+                "sell": sell,
+                "cost": cost,
+                "profit": profit,
+                "qty": qty,
+                "brand": prod.get("brand_nume", "?"),
+            })
+
+    total_profit = total_revenue - total_cost
+    margin = (total_profit / total_revenue * 100) if total_revenue > 0 else 0
+
+    # Sort by profit descending
+    products.sort(key=lambda x: x["profit"], reverse=True)
+
+    return {
+        "total_revenue": total_revenue,
+        "total_cost": total_cost,
+        "total_profit": total_profit,
+        "margin": margin,
+        "products": products,
+        "missing_cost": missing_cost,
+        "total_comenzi": len(order_ids),
+    }
+
+
+def format_profit_report(period_label: str, metrics: dict, brand_name: str = None) -> str:
+    """Format profit report for WhatsApp."""
+    brand_tag = f" [🏷️ {brand_name.capitalize()}]" if brand_name else ""
+
+    # Split products with known cost vs unknown
+    with_cost = [p for p in metrics["products"] if p["cost"] > 0]
+    without_cost = [p for p in metrics["products"] if p["cost"] == 0 and p["sell"] > 0]
+    returns = [p for p in metrics["products"] if p["sell"] < 0]
+
+    rev_known = sum(p["sell"] * p["qty"] for p in with_cost)
+    cost_known = sum(p["cost"] * p["qty"] for p in with_cost)
+    profit_known = rev_known - cost_known
+    margin_known = (profit_known / rev_known * 100) if rev_known > 0 else 0
+    rev_unknown = sum(p["sell"] * p["qty"] for p in without_cost)
+    rev_returns = sum(p["sell"] * p["qty"] for p in returns)
+
+    lines = [
+        f"💵 RAPORT PROFIT - {period_label}{brand_tag}",
+        "━" * 35,
+        f"📦 Total comenzi: {metrics['total_comenzi']}",
+        f"💰 Venituri totale: {format_number(metrics['total_revenue'])} RON",
+    ]
+
+    if returns:
+        lines.append(f"🔄 Retururi/Discount: {format_number(rev_returns)} RON")
+
+    lines.append("━" * 35)
+    lines.append("✅ PROFIT CALCULAT (produse cu cost cunoscut):")
+    lines.append(f"  💰 Venituri: {format_number(rev_known)} RON ({len(with_cost)} produse)")
+    lines.append(f"  📦 Cost achiziție: {format_number(cost_known)} RON")
+    lines.append(f"  💵 PROFIT: {format_number(profit_known)} RON")
+    lines.append(f"  📈 Marjă: {margin_known:.1f}%")
+
+    if without_cost:
+        lines.append("")
+        lines.append(f"⚠️ FĂRĂ COST ({len(without_cost)} produse, {format_number(rev_unknown)} RON venituri)")
+        lines.append(f"  Profitul real e mai mare, dar nu poate fi calculat exact")
+
+    # Top profitable (only with known cost)
+    top = sorted(with_cost, key=lambda x: x["profit"], reverse=True)
+    if top:
+        lines.append("━" * 35)
+        lines.append("🏆 Top 10 cele mai profitabile:")
+        for i, p in enumerate(top[:10], 1):
+            short = p["nume"][:30] + "..." if len(p["nume"]) > 30 else p["nume"]
+            margin_p = ((p["sell"] - p["cost"]) / p["sell"] * 100) if p["sell"] > 0 else 0
+            lines.append(f"  {i}. {short}")
+            lines.append(f"     {format_number(p['sell'])} → cost {format_number(p['cost'])} = {format_number(p['profit'])} ({margin_p:.0f}%)")
+
+    # Least profitable (only with known cost, excluding returns)
+    low = sorted(with_cost, key=lambda x: (x["sell"] - x["cost"]) / x["sell"] if x["sell"] > 0 else 999)
+    if len(low) > 3:
+        lines.append("━" * 35)
+        lines.append("⚠️ Marjă mică (sub 40%):")
+        shown = 0
+        for p in low:
+            if p["sell"] <= 0:
+                continue
+            margin_p = ((p["sell"] - p["cost"]) / p["sell"] * 100)
+            if margin_p < 40:
+                short = p["nume"][:30] + "..." if len(p["nume"]) > 30 else p["nume"]
+                lines.append(f"  • {short}")
+                lines.append(f"    {format_number(p['sell'])} → cost {format_number(p['cost'])} = {format_number(p['profit'])} ({margin_p:.0f}%)")
+                shown += 1
+                if shown >= 5:
+                    break
+        if shown == 0:
+            lines.append("  Toate produsele au marjă peste 40% 👍")
+
+    lines.append("━" * 35)
+    return "\n".join(lines)
