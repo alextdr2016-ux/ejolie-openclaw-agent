@@ -30,9 +30,26 @@ class EjolieAPI:
         params['apikey'] = self.api_key
 
         try:
-            response = requests.get(self.base_url, params=params, timeout=30)
+            # Build URL with params
+            url_params = '&'.join(
+                [f"{k}={v}" if v else k for k, v in params.items()])
+            full_url = f"{self.base_url}?{url_params}"
+            print(f"DEBUG: Calling URL: {full_url}")
+
+            response = requests.get(full_url, timeout=30)
             response.raise_for_status()
-            return response.json()
+
+            # Parse JSON
+            data = response.json()
+
+            # Check for API error
+            if isinstance(data, dict) and data.get('eroare') == 1:
+                return {"eroare": 1, "mesaj": data.get('mesaj', 'Unknown error')}
+
+            return data
+
+        except requests.exceptions.JSONDecodeError as e:
+            return {"eroare": 1, "mesaj": f"Invalid JSON response: {str(e)}"}
         except requests.exceptions.RequestException as e:
             return {"eroare": 1, "mesaj": str(e)}
 
@@ -49,17 +66,35 @@ class EjolieAPI:
         Returns:
             Dict with orders data
         """
-        params = {
-            'comenzi': '',
-            'data_start': start_date,
-            'data_end': end_date,
-            'limit': 2000
-        }
+        # Build URL manually for Extended API
+        url = f"{self.base_url}?comenzi&apikey={self.api_key}&data_start={start_date}&data_end={end_date}&limit=2000"
 
         if status_id:
-            params['idstatus'] = status_id
+            url += f"&idstatus={status_id}"
 
-        return self._make_request('comenzi', params)
+        print(f"DEBUG: Calling URL: {url}")
+
+        try:
+            response = requests.get(url, timeout=30)
+            response.raise_for_status()
+
+            # Check if response is empty
+            if not response.text:
+                return {"eroare": 1, "mesaj": "Empty response from API"}
+
+            data = response.json()
+
+            # Check for API error
+            if isinstance(data, dict) and data.get('eroare') == 1:
+                return data
+
+            return data
+
+        except requests.exceptions.JSONDecodeError as e:
+            print(f"DEBUG: Response text: {response.text[:200]}")
+            return {"eroare": 1, "mesaj": f"Invalid JSON: {str(e)}"}
+        except Exception as e:
+            return {"eroare": 1, "mesaj": str(e)}
 
     def get_products(self, category: Optional[str] = None) -> Dict:
         """Get products list"""
