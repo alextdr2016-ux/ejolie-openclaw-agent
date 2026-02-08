@@ -13,8 +13,26 @@ from datetime import datetime, timedelta
 from collections import Counter
 
 # ──────────────────────────────────────────────
-# Configuration
+# Configuration - load .env if env vars not set
 # ──────────────────────────────────────────────
+
+def _load_env_file():
+    """Load variables from .env file in skill root directory."""
+    env_paths = [
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".env"),
+        os.path.expanduser("~/.openclaw/workspace/skills/ejolie-sales/.env"),
+    ]
+    for env_path in env_paths:
+        if os.path.exists(env_path):
+            with open(env_path) as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith("#") and "=" in line:
+                        key, value = line.split("=", 1)
+                        os.environ.setdefault(key.strip(), value.strip())
+            break
+
+_load_env_file()
 
 API_KEY = os.environ.get("EJOLIE_API_KEY", "")
 DOMAIN = os.environ.get("EJOLIE_DOMAIN", "ejolie.ro")
@@ -91,6 +109,12 @@ def parse_period(period_text: str) -> tuple[str, str, str]:
             last_prev.strftime("%d-%m-%Y"),
             f"Luna trecută ({start_prev.strftime('%d-%m-%Y')} - {last_prev.strftime('%d-%m-%Y')})",
         )
+
+    # Strip "luna " prefix: "luna ianuarie" → "ianuarie"
+    if text.startswith("luna "):
+        month_candidate = text[5:].strip()
+        if month_candidate in MONTHS_RO:
+            text = month_candidate
 
     # Specific month name: "ianuarie", "februarie" etc.
     if text in MONTHS_RO:
@@ -187,8 +211,8 @@ def api_get(endpoint: str, params: dict = None) -> dict:
         sys.exit(1)
 
 
-def fetch_orders(data_start: str, data_end: str, idstatus: str = None) -> dict:
-    """Fetch orders from Extended API for a given period and optional status."""
+def fetch_orders(data_start: str, data_end: str, idstatus: str = None, idfurnizor: str = None) -> dict:
+    """Fetch orders from Extended API for a given period, optional status and supplier."""
     params = {
         "comenzi": "",
         "data_start": data_start,
@@ -197,15 +221,89 @@ def fetch_orders(data_start: str, data_end: str, idstatus: str = None) -> dict:
     }
     if idstatus:
         params["idstatus"] = idstatus
+    if idfurnizor:
+        params["idfurnizor"] = idfurnizor
 
     return api_get("comenzi", params)
+
+
+# ──────────────────────────────────────────────
+# Brand Filtering
+# ──────────────────────────────────────────────
+
+# Brand name aliases for flexible matching
+BRAND_ALIASES = {
+    "ejolie": ["ejolie", "e-jolie"],
+    "trendya": ["trendya"],
+    "artista": ["artista"],
+    "godeea": ["godeea", "go deea"],
+    "benush": ["benush"],
+    "fabrex": ["fabrex"],
+}
+
+
+# Furnizor name → API id
+FURNIZORI = {
+    "ejolie": "1",
+    "trendya": "2",
+    "artista": "3",
+    "godeea": "4",
+    "benush": "5",
+    "fabrex": "6",
+}
+
+
+def filter_orders_by_brand(orders: dict, brand_name: str) -> dict:
+    """Filter orders to only include products matching the given brand.
+    Returns orders that have at least one product from the brand,
+    with non-matching products removed."""
+    if not brand_name or not orders:
+        return orders
+
+    brand_lower = brand_name.strip().lower()
+    # Find matching aliases
+    match_names = BRAND_ALIASES.get(brand_lower, [brand_lower])
+
+    filtered = {}
+    for order_id, order in orders.items():
+        if not isinstance(order, dict):
+            continue
+
+        produse = order.get("produse", {})
+        if not isinstance(produse, dict):
+            continue
+
+        # Filter products by brand
+        filtered_products = {}
+        brand_total = 0.0
+        for prod_id, prod in produse.items():
+            if not isinstance(prod, dict):
+                continue
+            prod_brand = prod.get("brand_nume", "").strip().lower()
+            if any(alias in prod_brand for alias in match_names):
+                filtered_products[prod_id] = prod
+                try:
+                    brand_total += float(prod.get("pret_unitar", 0)) * float(prod.get("cantitate", 1))
+                except (ValueError, TypeError):
+                    pass
+
+        if filtered_products:
+            # Clone order with only matching products
+            order_copy = dict(order)
+            order_copy["produse"] = filtered_products
+            # Recalculate order total based on filtered products
+            order_copy["total_comanda"] = brand_total
+            order_copy["pret_livrare"] = 0  # Can't split shipping per brand
+            filtered[order_id] = order_copy
+
+    return filtered
 
 
 # ──────────────────────────────────────────────
 # Report Calculations
 # ──────────────────────────────────────────────
 
-def calculate_report(orders: dict) -> dict:
+def calculate_report(orders: dict, brand_filter: str = None) -> dict:
     """Calculate report metrics from orders data."""
     if not orders or (isinstance(orders, dict) and orders.get("eroare")):
         return {
@@ -283,12 +381,13 @@ def format_number(n: float) -> str:
     return f"{n:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 
-def format_report(report_type: str, period_label: str, metrics: dict) -> str:
+def format_report(report_type: str, period_label: str, metrics: dict, brand_name: str = None) -> str:
     """Format report for WhatsApp output."""
     emoji, label = REPORT_LABELS.get(report_type, ("📊", "VÂNZĂRI"))
 
+    brand_tag = f" [🏷️ {brand_name.capitalize()}]" if brand_name else ""
     lines = [
-        f"{emoji} RAPORT {label} - {period_label}",
+        f"{emoji} RAPORT {label} - {period_label}{brand_tag}",
         "━" * 35,
         f"📦 Total comenzi: {metrics['total_comenzi']}",
         f"💰 Valoare totală: {format_number(metrics['valoare_totala'])} RON",

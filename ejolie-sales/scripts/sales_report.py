@@ -1,65 +1,67 @@
 #!/usr/bin/env python3
-"""
-Ejolie.ro Sales Report Generator
-Generates sales, collected, and returned order reports via Extended API.
+"""Ejolie.ro Sales Report Generator"""
 
-Usage:
-    python3 ejolie-sales/scripts/sales_report.py --type vanzari --period "azi"
-    python3 ejolie-sales/scripts/sales_report.py --type incasate --period "luna asta"
-    python3 ejolie-sales/scripts/sales_report.py --type returnate --period "ianuarie"
-    python3 ejolie-sales/scripts/sales_report.py --type vanzari --period "de la 01-01-2026 pana la 31-01-2026"
+import sys
+import os
 
-Environment variables:
-    EJOLIE_API_KEY  - Extended API key (required)
-    EJOLIE_DOMAIN   - Domain name (default: ejolie.ro)
-"""
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+print("⏳ Se generează raportul... (poate dura până la 60s)", flush=True)
 
 from utils import (
     parse_period,
     fetch_orders,
     calculate_report,
     format_report,
+    filter_orders_by_brand,
     REPORT_STATUS,
 )
 import argparse
-import sys
-import os
 
-# Add scripts directory to path for imports
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+RESULT_FILE = "/tmp/ejolie_last_report.txt"
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Ejolie.ro Sales Report Generator")
-    parser.add_argument(
-        "--type",
-        choices=["vanzari", "incasate", "returnate"],
-        required=True,
-        help="Report type: vanzari (all), incasate (paid), returnate (returned)",
-    )
-    parser.add_argument(
-        "--period",
-        required=True,
-        help='Period: "azi", "ieri", "luna asta", "luna trecuta", "ianuarie"..."decembrie", '
-             'or "de la DD-MM-YYYY pana la DD-MM-YYYY"',
-    )
+    parser = argparse.ArgumentParser(description="Ejolie.ro Sales Report Generator")
+    parser.add_argument("--type", choices=["vanzari", "incasate", "returnate"], required=True)
+    parser.add_argument("--period", required=True)
+    parser.add_argument("--brand", default=None, help="Filter by brand: ejolie, trendya, artista")
+    parser.add_argument("--furnizor", default=None, help="Alias for --brand (same filter)")
+    parser.add_argument("--check", action="store_true", help="Check last report result")
     args = parser.parse_args()
 
-    # 1. Parse period
-    data_start, data_end, period_label = parse_period(args.period)
+    if args.check:
+        if os.path.exists(RESULT_FILE):
+            with open(RESULT_FILE) as f:
+                print(f.read())
+        else:
+            print("⏳ Raportul nu este încă gata.")
+        return
 
-    # 2. Get status filter
+    # furnizor is alias for brand
+    brand = args.brand or args.furnizor
+
+    data_start, data_end, period_label = parse_period(args.period)
+    filter_label = f" [🏷️ {brand.capitalize()}]" if brand else ""
+    print(f"📅 Perioadă: {period_label}{filter_label}", flush=True)
+
     idstatus = REPORT_STATUS.get(args.type)
 
-    # 3. Fetch orders from API
+    print("📡 Se preiau comenzile din API...", flush=True)
     orders = fetch_orders(data_start, data_end, idstatus)
 
-    # 4. Calculate metrics
-    metrics = calculate_report(orders)
+    if brand:
+        orders = filter_orders_by_brand(orders, brand)
+        print(f"🏷️ Filtrat după '{brand}': {len(orders)} comenzi rămase.", flush=True)
+    else:
+        print(f"✅ {len(orders)} comenzi găsite.", flush=True)
 
-    # 5. Format and print report
-    report = format_report(args.type, period_label, metrics)
+    metrics = calculate_report(orders, brand_filter=brand)
+    report = format_report(args.type, period_label, metrics, brand_name=brand)
+
+    with open(RESULT_FILE, "w") as f:
+        f.write(report)
+
     print(report)
 
 
