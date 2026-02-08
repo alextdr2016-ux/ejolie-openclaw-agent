@@ -67,7 +67,7 @@ class EjolieAPI:
             Dict with orders data
         """
         # Build URL manually for Extended API
-        url = f"{self.base_url}?comenzi&apikey={self.api_key}&data_start={start_date}&data_end={end_date}&limit=2000"
+        url = f"{self.base_url}?comenzi&apikey={self.api_key}&data_start={start_date}&data_end={end_date}&limit=500"
 
         if status_id:
             url += f"&idstatus={status_id}"
@@ -78,7 +78,7 @@ class EjolieAPI:
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
             }
-            response = requests.get(url, headers=headers, timeout=30)
+            response = requests.get(url, headers=headers, timeout=90)
             response.raise_for_status()
 
             # Check if response is empty
