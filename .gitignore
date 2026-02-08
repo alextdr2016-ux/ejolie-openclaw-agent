@@ -1,0 +1,36 @@
+# Secrets și API Keys
+.env
+config/openclaw.json
+*.key
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# OpenClaw specific
+.openclaw/
+node_modules/
+
+# Temporary files
+*.tmp
+*.bak
+
