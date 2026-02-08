@@ -38,10 +38,16 @@ class ReportGenerator:
             if 'produse' in order:
                 # produse is a dict of products, not a list
                 for product_id, product in order['produse'].items():
+                    # Skip discount lines (vouchers/promotional codes)
+                    pret = product.get('pret_unitar')
+                    if not isinstance(pret, (int, float)):
+                        # Skip non-numeric prices (discounts, vouchers)
+                        continue
+
                     # Calculate product total
                     # cantitate is string!
                     quantity = float(product.get('cantitate', 0))
-                    price = float(product.get('pret_unitar', 0))
+                    price = float(pret)
                     product_total = quantity * price
                     total_sales += product_total
                     total_items += quantity
