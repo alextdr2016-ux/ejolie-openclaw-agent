@@ -133,18 +133,56 @@ def parse_period(period_text: str) -> tuple[str, str, str]:
             f"{text.capitalize()} {year} ({start.strftime('%d-%m-%Y')} - {end.strftime('%d-%m-%Y')})",
         )
 
+    # Normalize text for range parsing
+    normalized = text.replace("până", "pana").replace("pînă", "pana")
+
     # Explicit range: "de la DD-MM-YYYY pana la DD-MM-YYYY"
-    if "de la" in text and "pana" in text:
+    if "de la" in normalized and "pana" in normalized:
         try:
-            parts = text.replace("până", "pana")
-            start_str = parts.split("de la")[1].split("pana")[0].strip()
-            end_str = parts.split("pana la")[1].strip(
-            ) if "pana la" in parts else parts.split("pana")[1].strip()
+            start_str = normalized.split("de la")[1].split("pana")[0].strip()
+            end_str = normalized.split("pana la")[1].strip() if "pana la" in normalized else normalized.split("pana")[1].strip()
             start_dt = datetime.strptime(start_str, "%d-%m-%Y")
             end_dt = datetime.strptime(end_str, "%d-%m-%Y")
             return (
                 start_str,
                 end_str,
+                f"{start_dt.strftime('%d-%m-%Y')} - {end_dt.strftime('%d-%m-%Y')}",
+            )
+        except (ValueError, IndexError):
+            pass
+
+    # Range with "pana la" without "de la": "06-02-2026 pana la 08-02-2026"
+    if "pana la" in normalized or "pana" in normalized:
+        try:
+            sep = "pana la" if "pana la" in normalized else "pana"
+            parts = normalized.split(sep)
+            start_str = parts[0].strip()
+            end_str = parts[1].strip()
+            start_dt = datetime.strptime(start_str, "%d-%m-%Y")
+            end_dt = datetime.strptime(end_str, "%d-%m-%Y")
+            return (
+                start_str,
+                end_str,
+                f"{start_dt.strftime('%d-%m-%Y')} - {end_dt.strftime('%d-%m-%Y')}",
+            )
+        except (ValueError, IndexError):
+            pass
+
+    # Range with dash or "to": "06-02-2026 - 08-02-2026" or "06-02-2026 to 08-02-2026"
+    import re as _re
+    range_match = _re.match(
+        r"(\d{2}[-.]\d{2}[-.]\d{4})\s*(?:-|to|la|–|—)\s*(\d{2}[-.]\d{2}[-.]\d{4})",
+        normalized,
+    )
+    if range_match:
+        try:
+            s = range_match.group(1).replace(".", "-")
+            e = range_match.group(2).replace(".", "-")
+            start_dt = datetime.strptime(s, "%d-%m-%Y")
+            end_dt = datetime.strptime(e, "%d-%m-%Y")
+            return (
+                s,
+                e,
                 f"{start_dt.strftime('%d-%m-%Y')} - {end_dt.strftime('%d-%m-%Y')}",
             )
         except (ValueError, IndexError):
