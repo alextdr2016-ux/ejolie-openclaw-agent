@@ -8,7 +8,7 @@ import argparse
 from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from utils import parse_period, fetch_orders, filter_orders_by_brand
+from utils import parse_period, fetch_orders, filter_orders_by_brand, REPORT_STATUS
 
 try:
     import openpyxl
@@ -28,17 +28,19 @@ def safe_float(val, default=0.0):
         return default
 
 
-def export_orders_xlsx(period="luna trecuta", brand=None, output=None):
+def export_orders_xlsx(period="luna trecuta", brand=None, output=None, report_type="vanzari"):
     data_start, data_end, label = parse_period(period)
 
     if output is None:
         safe_label = label.replace(" ", "_").replace("/", "-").replace("(", "").replace(")", "")
-        output = f"/home/ubuntu/raport_vanzari_{safe_label}.xlsx"
+        prefix = "raport_vanzari" if report_type == "vanzari" else f"raport_{report_type}"
+        output = f"/home/ubuntu/{prefix}_{safe_label}.xlsx"
 
     print(f"📅 Perioadă: {label}")
     print(f"📡 Se preiau comenzile...")
 
-    orders = fetch_orders(data_start, data_end)
+    idstatus = REPORT_STATUS.get(report_type)
+    orders = fetch_orders(data_start, data_end, idstatus=idstatus)
     if brand:
         orders = filter_orders_by_brand(orders, brand)
 
@@ -194,12 +196,11 @@ def export_orders_xlsx(period="luna trecuta", brand=None, output=None):
             if not isinstance(p, dict):
                 continue
             name = p.get("nume", "?")
-            brand_name = p.get("brand_nume", "?")
             qty = int(float(p.get("cantitate", 1)))
             pret = safe_float(p.get("pret_unitar", 0))
             key = name
             if key not in prod_stats:
-                prod_stats[key] = {"qty": 0, "revenue": 0, "brand": brand_name}
+                prod_stats[key] = {"qty": 0, "revenue": 0, "brand": p.get("brand_nume", "")}
             prod_stats[key]["qty"] += qty
             prod_stats[key]["revenue"] += pret * qty
 
@@ -214,8 +215,9 @@ def export_orders_xlsx(period="luna trecuta", brand=None, output=None):
         brand_stats[b]["qty"] += stats["qty"]
         brand_stats[b]["revenue"] += stats["revenue"]
 
+    report_title = "RAPORT VÂNZĂRI" if report_type == "vanzari" else ("RAPORT ÎNCASATE" if report_type == "incasate" else "RAPORT RETURNATE")
     summary_data = [
-        ["RAPORT VÂNZĂRI - " + label, ""],
+        [report_title + " - " + label, ""],
         ["", ""],
         ["Total comenzi", len(orders)],
         ["Valoare totală", total_val],
@@ -265,9 +267,10 @@ def main():
     parser.add_argument("--period", default="luna trecuta")
     parser.add_argument("--brand", default=None)
     parser.add_argument("--output", default=None)
+    parser.add_argument("--type", default="vanzari", choices=["vanzari", "incasate", "returnate"], help="Tip raport: vanzari (toate), incasate (status 14), returnate (status 9)")
     args = parser.parse_args()
 
-    output = export_orders_xlsx(args.period, args.brand, args.output)
+    output = export_orders_xlsx(args.period, args.brand, args.output, args.type)
     print(f"XLSX {output}")
 
 
