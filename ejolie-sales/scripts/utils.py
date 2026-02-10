@@ -234,7 +234,7 @@ def api_get(endpoint: str, params: dict = None) -> dict:
     try:
         req = urllib.request.Request(
             url, headers={"User-Agent": "Extended API"})
-        with urllib.request.urlopen(req, timeout=60) as resp:
+        with urllib.request.urlopen(req, timeout=180) as resp:
             data = json.loads(resp.read().decode("utf-8"))
             if isinstance(data, dict) and data.get("eroare") == 1:
                 print(
