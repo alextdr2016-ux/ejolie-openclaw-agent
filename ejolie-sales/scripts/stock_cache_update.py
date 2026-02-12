@@ -44,10 +44,14 @@ def update_cache():
                 sizes = {}
                 if isinstance(optiuni, dict):
                     for oid, opt in optiuni.items():
+                        if not isinstance(opt, dict):
+                            continue
                         sizes[opt.get("nume_optiune", "?")] = {
                             "stoc": opt.get("stoc", "?"),
+                            "stoc_fizic": int(opt.get("stoc_fizic", 0) or 0),
                             "in_stock": "In stoc" in str(opt.get("stoc", "")),
                             "pret": opt.get("pret", "0"),
+                            "pret_discount": opt.get("pret_discount", "0"),
                         }
                 
                 all_products[pid] = {

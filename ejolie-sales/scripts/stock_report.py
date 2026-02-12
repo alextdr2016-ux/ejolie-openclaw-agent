@@ -42,11 +42,15 @@ def generate_report(brand=None, only_in_stock=True):
         for size_name, size_data in sizes.items():
             if only_in_stock and not size_data["in_stock"]:
                 continue
+            pret_normal = float(size_data["pret"] or 0)
+            pret_disc = float(size_data.get("pret_discount") or 0)
+            pret_final = pret_disc if pret_disc > 0 and pret_disc < pret_normal else pret_normal
             rows.append({
                 "produs": prod["nume"], "cod": prod["cod"], "brand": prod["brand"],
                 "marime": size_name, "stoc": size_data["stoc"],
+                "stoc_fizic": size_data.get("stoc_fizic", 0),
                 "in_stock": size_data["in_stock"],
-                "pret": float(size_data["pret"] or 0),
+                "pret": pret_final,
             })
     
     in_stock = sum(1 for r in rows if r["in_stock"])
@@ -73,7 +77,7 @@ def export_xlsx(rows, brand=None, output=None):
     ws = wb.active
     ws.title = "Stoc pe Mărimi"
     
-    headers = ["Produs", "Cod", "Brand", "Mărime", "Stoc", "Preț (RON)"]
+    headers = ["Produs", "Cod", "Brand", "Mărime", "Stoc", "Bucăți", "Preț (RON)", "Valoare (RON)"]
     header_fill = PatternFill(start_color="1F4E79", end_color="1F4E79", fill_type="solid")
     header_font = Font(color="FFFFFF", bold=True, size=11)
     green_fill = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")
@@ -90,19 +94,31 @@ def export_xlsx(rows, brand=None, output=None):
         cell.border = thin_border
     
     for row_idx, r in enumerate(rows, 2):
-        data = [r["produs"], r["cod"], r["brand"], r["marime"], r["stoc"], r["pret"]]
+        data = [r["produs"], r["cod"], r["brand"], r["marime"], r["stoc"], r.get("stoc_fizic", 0), r["pret"], r.get("stoc_fizic", 0) * r["pret"]]
         for col, val in enumerate(data, 1):
             cell = ws.cell(row=row_idx, column=col, value=val)
             cell.border = thin_border
             if col == 5:
                 cell.fill = green_fill if r["in_stock"] else PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
-            if col == 6:
+            if col in (7, 8):
                 cell.number_format = '#,##0.00'
     
-    widths = [45, 15, 12, 10, 12, 12]
+    widths = [45, 15, 12, 10, 12, 8, 12, 14]
     for col, w in enumerate(widths, 1):
         ws.column_dimensions[get_column_letter(col)].width = w
     
+    # Add TOTAL row
+    total_row = len(rows) + 2
+    total_buc = sum(r.get("stoc_fizic", 0) for r in rows)
+    total_val = sum(r.get("stoc_fizic", 0) * r["pret"] for r in rows)
+    ws.cell(row=total_row, column=1, value="TOTAL").font = Font(bold=True, size=12)
+    ws.cell(row=total_row, column=6, value=total_buc).font = Font(bold=True, size=12)
+    ws.cell(row=total_row, column=8, value=total_val).font = Font(bold=True, size=12)
+    ws.cell(row=total_row, column=8).number_format = '#,##0.00'
+    for col in range(1, 9):
+        ws.cell(row=total_row, column=col).border = thin_border
+        ws.cell(row=total_row, column=col).fill = PatternFill(start_color="FFD700", end_color="FFD700", fill_type="solid")
+
     # Sheet 2: Sumar
     ws2 = wb.create_sheet("Sumar Produse")
     sum_headers = ["Produs", "Cod", "Brand", "Mărimi în Stoc", "Total Mărimi", "Preț"]
@@ -169,7 +185,7 @@ def main():
                 current_prod = r["produs"]
                 print(f"\n{r['produs']} ({r['cod']}) - {r['pret']} RON")
             status = "✅" if r["in_stock"] else "❌"
-            print(f"  {status} Mărime {r['marime']}: {r['stoc']}")
+            print(f"  {status} Mărime {r['marime']}: {r['stoc']} ({r.get('stoc_fizic', 0)} buc)")
 
 
 if __name__ == "__main__":
