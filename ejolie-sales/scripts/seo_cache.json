@@ -1,6 +1,6 @@
 {
- "updated": "2026-02-12 13:59:32",
- "total_scanned": 5,
+ "updated": "2026-02-12 14:05:15",
+ "total_scanned": 109,
  "results": [
   {
    "id": "12351",
@@ -27,7 +27,7 @@
     "h1_text": "Rochie Elysia neagra",
     "images_total": 30,
     "images_no_alt": 5,
-    "load_time": 1.7,
+    "load_time": 1.84,
     "canonical": "https://ejolie.ro/product/rochie-elysia-neagra"
    },
    "score": 80
@@ -57,7 +57,7 @@
     "h1_text": "Rochie Valery neagra",
     "images_total": 35,
     "images_no_alt": 5,
-    "load_time": 1.96,
+    "load_time": 1.82,
     "canonical": "https://ejolie.ro/product/rochie-valery-bordo-12350"
    },
    "score": 80
@@ -87,7 +87,7 @@
     "h1_text": "Rochie Odessa bordo",
     "images_total": 29,
     "images_no_alt": 5,
-    "load_time": 1.56,
+    "load_time": 1.53,
     "canonical": "https://ejolie.ro/product/rochie-odessa-aurie-12348"
    },
    "score": 80
@@ -147,8 +147,2878 @@
     "h1_text": "Rochie Ambra neagra",
     "images_total": 32,
     "images_no_alt": 5,
-    "load_time": 1.57,
+    "load_time": 1.54,
     "canonical": "https://ejolie.ro/product/rochie-ambra-neagra"
+   },
+   "score": 80
+  },
+  {
+   "id": "12345",
+   "name": "Rochie Odessa aurie",
+   "cod": "FBR-D8147",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-odessa-aurie",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (28 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Odessa aurie - eJolie",
+    "meta_description": "Comanda online Rochie Odessa aurie! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 1.439,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Odessa aurie",
+    "images_total": 34,
+    "images_no_alt": 5,
+    "load_time": 1.73,
+    "canonical": "https://ejolie.ro/product/rochie-odessa-aurie"
+   },
+   "score": 80
+  },
+  {
+   "id": "12340",
+   "name": "Rochie Savine bej",
+   "cod": "FBR-B25280",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-savine-verde-12340",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (26 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/36 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Savine bej - eJolie",
+    "meta_description": "Comanda online Rochie Savine bej! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 591,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Savine bej",
+    "images_total": 36,
+    "images_no_alt": 5,
+    "load_time": 2.02,
+    "canonical": "https://ejolie.ro/product/rochie-savine-verde-12340"
+   },
+   "score": 80
+  },
+  {
+   "id": "12334",
+   "name": "Rochie Savine verde",
+   "cod": "FBR-B25280",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-savine-neagra-12334",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (28 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/36 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Savine verde - eJolie",
+    "meta_description": "Comanda online Rochie Savine verde! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 591,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Savine verde",
+    "images_total": 36,
+    "images_no_alt": 5,
+    "load_time": 1.78,
+    "canonical": "https://ejolie.ro/product/rochie-savine-neagra-12334"
+   },
+   "score": 80
+  },
+  {
+   "id": "12330",
+   "name": "Rochie Sabina neagra",
+   "cod": "FBR-11532",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-sabina-verde-12330",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Sabina neagra - eJolie",
+    "meta_description": "Comanda online Rochie Sabina neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 471,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Sabina neagra",
+    "images_total": 34,
+    "images_no_alt": 5,
+    "load_time": 1.72,
+    "canonical": "https://ejolie.ro/product/rochie-sabina-verde-12330"
+   },
+   "score": 80
+  },
+  {
+   "id": "12328",
+   "name": "Rochie Fiorelle neagra",
+   "cod": "FBR-C2964",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-fiorelle-rosie-12328",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Fiorelle neagra - eJolie",
+    "meta_description": "Comanda online Rochie Fiorelle neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 434,72 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Fiorelle neagra",
+    "images_total": 34,
+    "images_no_alt": 5,
+    "load_time": 1.71,
+    "canonical": "https://ejolie.ro/product/rochie-fiorelle-rosie-12328"
+   },
+   "score": 90
+  },
+  {
+   "id": "12327",
+   "name": "Rochie Tesia bordo",
+   "cod": "FBR-E58246",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-tesia-bordo",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (27 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/33 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Tesia bordo - eJolie",
+    "meta_description": "Comanda online Rochie Tesia bordo! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 488,80 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Tesia bordo",
+    "images_total": 33,
+    "images_no_alt": 5,
+    "load_time": 1.7,
+    "canonical": "https://ejolie.ro/product/rochie-tesia-bordo"
+   },
+   "score": 80
+  },
+  {
+   "id": "12326",
+   "name": "Rochie Dianne bordo",
+   "cod": "FBR-P1443",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-dianne-bej-12326",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (28 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/35 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Dianne bordo - eJolie",
+    "meta_description": "Comanda online Rochie Dianne bordo! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 423,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Dianne bordo",
+    "images_total": 35,
+    "images_no_alt": 5,
+    "load_time": 1.71,
+    "canonical": "https://ejolie.ro/product/rochie-dianne-bej-12326"
+   },
+   "score": 80
+  },
+  {
+   "id": "12324",
+   "name": "Rochie Selma bordo",
+   "cod": "FBR-E58217",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-selma-bordo",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (27 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/33 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Selma bordo - eJolie",
+    "meta_description": "Comanda online Rochie Selma bordo! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 554,40 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Selma bordo",
+    "images_total": 33,
+    "images_no_alt": 5,
+    "load_time": 1.72,
+    "canonical": "https://ejolie.ro/product/rochie-selma-bordo"
+   },
+   "score": 80
+  },
+  {
+   "id": "12315",
+   "name": "Rochie Adara maro",
+   "cod": "FBR-W1430",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-adara-neagra-12315",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (26 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/37 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Adara maro - eJolie",
+    "meta_description": "Comanda online Rochie Adara maro! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 423,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Adara maro",
+    "images_total": 37,
+    "images_no_alt": 5,
+    "load_time": 1.75,
+    "canonical": "https://ejolie.ro/product/rochie-adara-neagra-12315"
+   },
+   "score": 80
+  },
+  {
+   "id": "12314",
+   "name": "Rochie Vivienne maro",
+   "cod": "FBR-K2530",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-vivienne-neagra-12314",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Vivienne maro - eJolie",
+    "meta_description": "Comanda online Rochie Vivienne maro! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 513,60 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Vivienne maro",
+    "images_total": 34,
+    "images_no_alt": 5,
+    "load_time": 1.71,
+    "canonical": "https://ejolie.ro/product/rochie-vivienne-neagra-12314"
+   },
+   "score": 80
+  },
+  {
+   "id": "12313",
+   "name": "Rochie Mirelle maro",
+   "cod": "FBR-J107041",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-mirelle-turcoaz-12313",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (28 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Mirelle maro - eJolie",
+    "meta_description": "Comanda online Rochie Mirelle maro! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 447,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Mirelle maro",
+    "images_total": 34,
+    "images_no_alt": 5,
+    "load_time": 1.71,
+    "canonical": "https://ejolie.ro/product/rochie-mirelle-turcoaz-12313"
+   },
+   "score": 80
+  },
+  {
+   "id": "12310",
+   "name": "Rochie Savine maro",
+   "cod": "FBR-B25280",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-savine-neagra-12310",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (27 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/36 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Savine maro - eJolie",
+    "meta_description": "Comanda online Rochie Savine maro! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 591,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Savine maro",
+    "images_total": 36,
+    "images_no_alt": 5,
+    "load_time": 1.71,
+    "canonical": "https://ejolie.ro/product/rochie-savine-neagra-12310"
+   },
+   "score": 80
+  },
+  {
+   "id": "12309",
+   "name": "Rochie Althea maro",
+   "cod": "FBR-B25336",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-althea-neagra-12309",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (27 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Althea maro - eJolie",
+    "meta_description": "Comanda online Rochie Althea maro! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 591,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Althea maro",
+    "images_total": 34,
+    "images_no_alt": 5,
+    "load_time": 1.85,
+    "canonical": "https://ejolie.ro/product/rochie-althea-neagra-12309"
+   },
+   "score": 80
+  },
+  {
+   "id": "12308",
+   "name": "Rochie Tess cu imprimeu maro",
+   "cod": "FBR-C1525",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-tess-cu-imprimeu-maro",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/33 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Tess cu imprimeu maro - eJolie",
+    "meta_description": "Comanda online Rochie Tess cu imprimeu maro! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 343,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Tess cu imprimeu maro",
+    "images_total": 33,
+    "images_no_alt": 5,
+    "load_time": 1.72,
+    "canonical": "https://ejolie.ro/product/rochie-tess-cu-imprimeu-maro"
+   },
+   "score": 90
+  },
+  {
+   "id": "12303",
+   "name": "Rochie Dalia bej",
+   "cod": "FBR-B25303",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-dalia-bej",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (25 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/33 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Dalia bej - eJolie",
+    "meta_description": "Comanda online Rochie Dalia bej! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 543,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Dalia bej",
+    "images_total": 33,
+    "images_no_alt": 5,
+    "load_time": 1.74,
+    "canonical": "https://ejolie.ro/product/rochie-dalia-bej"
+   },
+   "score": 80
+  },
+  {
+   "id": "12302",
+   "name": "Rochie Adara bej",
+   "cod": "FBR-W1429",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-adara-neagra-12302",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (25 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/39 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Adara bej - eJolie",
+    "meta_description": "Comanda online Rochie Adara bej! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 423,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Adara bej",
+    "images_total": 39,
+    "images_no_alt": 5,
+    "load_time": 1.72,
+    "canonical": "https://ejolie.ro/product/rochie-adara-neagra-12302"
+   },
+   "score": 80
+  },
+  {
+   "id": "12301",
+   "name": "Rochie Dianne bej",
+   "cod": "FBR-P1443",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-dianne-neagra-12301",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (26 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/35 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Dianne bej - eJolie",
+    "meta_description": "Comanda online Rochie Dianne bej! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 423,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Dianne bej",
+    "images_total": 35,
+    "images_no_alt": 5,
+    "load_time": 1.69,
+    "canonical": "https://ejolie.ro/product/rochie-dianne-neagra-12301"
+   },
+   "score": 80
+  },
+  {
+   "id": "12300",
+   "name": "Rochie Odette bej",
+   "cod": "FBR-C3702",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-odette-neagra-12300",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (26 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Odette bej - eJolie",
+    "meta_description": "Comanda online Rochie Odette bej! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 359,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Odette bej",
+    "images_total": 34,
+    "images_no_alt": 5,
+    "load_time": 1.72,
+    "canonical": "https://ejolie.ro/product/rochie-odette-neagra-12300"
+   },
+   "score": 80
+  },
+  {
+   "id": "12299",
+   "name": "Rochie Alira neagra",
+   "cod": "FBR-C2231",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-alira-neagra",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (28 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/33 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Alira neagra - eJolie",
+    "meta_description": "Comanda online Rochie Alira neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 519,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Alira neagra",
+    "images_total": 33,
+    "images_no_alt": 5,
+    "load_time": 1.72,
+    "canonical": "https://ejolie.ro/product/rochie-alira-neagra"
+   },
+   "score": 80
+  },
+  {
+   "id": "12298",
+   "name": "Rochie Isolde neagra",
+   "cod": "FBR-C2058",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-isolde-neagra",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/33 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Isolde neagra - eJolie",
+    "meta_description": "Comanda online Rochie Isolde neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 476,80 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Isolde neagra",
+    "images_total": 33,
+    "images_no_alt": 5,
+    "load_time": 1.7,
+    "canonical": "https://ejolie.ro/product/rochie-isolde-neagra"
+   },
+   "score": 80
+  },
+  {
+   "id": "12297",
+   "name": "Rochie Savine neagra",
+   "cod": "FBR-B25280",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-savine-neagra",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/38 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Savine neagra - eJolie",
+    "meta_description": "Comanda online Rochie Savine neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 591,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Savine neagra",
+    "images_total": 38,
+    "images_no_alt": 5,
+    "load_time": 1.72,
+    "canonical": "https://ejolie.ro/product/rochie-savine-neagra"
+   },
+   "score": 80
+  },
+  {
+   "id": "12296",
+   "name": "Rochie Althea neagra",
+   "cod": "FBR-B25336",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-althea-neagra",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Althea neagra - eJolie",
+    "meta_description": "Comanda online Rochie Althea neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 591,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Althea neagra",
+    "images_total": 34,
+    "images_no_alt": 5,
+    "load_time": 1.75,
+    "canonical": "https://ejolie.ro/product/rochie-althea-neagra"
+   },
+   "score": 80
+  },
+  {
+   "id": "12295",
+   "name": "Rochie Adara neagra",
+   "cod": "FBR-W1430",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-adara-magenta-12295",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (28 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/37 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Adara neagra - eJolie",
+    "meta_description": "Comanda online Rochie Adara neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 423,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Adara neagra",
+    "images_total": 37,
+    "images_no_alt": 5,
+    "load_time": 1.71,
+    "canonical": "https://ejolie.ro/product/rochie-adara-magenta-12295"
+   },
+   "score": 80
+  },
+  {
+   "id": "12294",
+   "name": "Rochie Dianne neagra",
+   "cod": "FBR-P1443",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-dianne-neagra",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/35 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Dianne neagra - eJolie",
+    "meta_description": "Comanda online Rochie Dianne neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 423,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Dianne neagra",
+    "images_total": 35,
+    "images_no_alt": 5,
+    "load_time": 1.68,
+    "canonical": "https://ejolie.ro/product/rochie-dianne-neagra"
+   },
+   "score": 80
+  },
+  {
+   "id": "12293",
+   "name": "Rochie Margot neagra",
+   "cod": "FBR-C3542",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-margot-neagra-12293",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/33 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Margot neagra - eJolie",
+    "meta_description": "Comanda online Rochie Margot neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 329,60 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Margot neagra",
+    "images_total": 33,
+    "images_no_alt": 5,
+    "load_time": 1.76,
+    "canonical": "https://ejolie.ro/product/rochie-margot-neagra-12293"
+   },
+   "score": 80
+  },
+  {
+   "id": "12292",
+   "name": "Rochie Vivienne neagra",
+   "cod": "FBR-K2530",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-vivienne-neagra",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Vivienne neagra - eJolie",
+    "meta_description": "Comanda online Rochie Vivienne neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 513,60 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Vivienne neagra",
+    "images_total": 34,
+    "images_no_alt": 5,
+    "load_time": 1.74,
+    "canonical": "https://ejolie.ro/product/rochie-vivienne-neagra"
+   },
+   "score": 90
+  },
+  {
+   "id": "12291",
+   "name": "Rochie Fiorelle rosie",
+   "cod": "FBR-C2964",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-fiorelle-rosie",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Fiorelle rosie - eJolie",
+    "meta_description": "Comanda online Rochie Fiorelle rosie! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 434,72 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Fiorelle rosie",
+    "images_total": 34,
+    "images_no_alt": 5,
+    "load_time": 1.88,
+    "canonical": "https://ejolie.ro/product/rochie-fiorelle-rosie"
+   },
+   "score": 90
+  },
+  {
+   "id": "12287",
+   "name": "Body Amara negru",
+   "cod": "FBR-18763",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/body-amara-alb-12287",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (25 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Body Amara negru - eJolie",
+    "meta_description": "Comanda online Body Amara negru! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 308,00 lei",
+    "h1_count": 1,
+    "h1_text": "Body Amara negru",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.75,
+    "canonical": "https://ejolie.ro/product/body-amara-alb-12287"
+   },
+   "score": 80
+  },
+  {
+   "id": "12285",
+   "name": "Pantaloni Ameline negri",
+   "cod": "FBR-42800",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/pantaloni-ameline-negri",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Pantaloni Ameline negri - eJolie",
+    "meta_description": "Comanda online Pantaloni Ameline negri! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 297,44 lei",
+    "h1_count": 1,
+    "h1_text": "Pantaloni Ameline negri",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.73,
+    "canonical": "https://ejolie.ro/product/pantaloni-ameline-negri"
+   },
+   "score": 90
+  },
+  {
+   "id": "12284",
+   "name": "Body Amara alb",
+   "cod": "FBR-18763",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/body-amara-maro-12284",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (23 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    },
+    {
+     "type": "TITLE",
+     "severity": "LOW",
+     "msg": "Nume produs scurt (14 chars)"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Body Amara alb - eJolie",
+    "meta_description": "Comanda online Body Amara alb! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 308,00 lei",
+    "h1_count": 1,
+    "h1_text": "Body Amara alb",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.74,
+    "canonical": "https://ejolie.ro/product/body-amara-maro-12284"
+   },
+   "score": 75
+  },
+  {
+   "id": "12277",
+   "name": "Body Amara maro",
+   "cod": "FBR-18763",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/body-amara-maro",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (24 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Body Amara maro - eJolie",
+    "meta_description": "Comanda online Body Amara maro! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 308,00 lei",
+    "h1_count": 1,
+    "h1_text": "Body Amara maro",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.72,
+    "canonical": "https://ejolie.ro/product/body-amara-maro"
+   },
+   "score": 80
+  },
+  {
+   "id": "12276",
+   "name": "Pantaloni Alix bej",
+   "cod": "FBR-42794",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/pantaloni-alix-bej",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (27 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Pantaloni Alix bej - eJolie",
+    "meta_description": "Comanda online Pantaloni Alix bej! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 376,80 lei",
+    "h1_count": 1,
+    "h1_text": "Pantaloni Alix bej",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.68,
+    "canonical": "https://ejolie.ro/product/pantaloni-alix-bej"
+   },
+   "score": 80
+  },
+  {
+   "id": "12270",
+   "name": "Rochie Odette neagra",
+   "cod": "FBR-C3702",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-odette-neagra",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Odette neagra - eJolie",
+    "meta_description": "Comanda online Rochie Odette neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 359,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Odette neagra",
+    "images_total": 34,
+    "images_no_alt": 5,
+    "load_time": 1.73,
+    "canonical": "https://ejolie.ro/product/rochie-odette-neagra"
+   },
+   "score": 80
+  },
+  {
+   "id": "12269",
+   "name": "Rochie Clarisse bej cu imprimeu",
+   "cod": "FBR-L4048",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-clarisse-bej-cu-imprimeu",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/33 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Clarisse bej cu imprimeu - eJolie",
+    "meta_description": "Comanda online Rochie Clarisse bej cu imprimeu! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 359,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Clarisse bej cu imprimeu",
+    "images_total": 33,
+    "images_no_alt": 5,
+    "load_time": 1.74,
+    "canonical": "https://ejolie.ro/product/rochie-clarisse-bej-cu-imprimeu"
+   },
+   "score": 90
+  },
+  {
+   "id": "12265",
+   "name": "Rochie Sabina verde",
+   "cod": "FBR-11532",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-sabina-verde",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (28 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Sabina verde - eJolie",
+    "meta_description": "Comanda online Rochie Sabina verde! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 471,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Sabina verde",
+    "images_total": 34,
+    "images_no_alt": 5,
+    "load_time": 1.72,
+    "canonical": "https://ejolie.ro/product/rochie-sabina-verde"
+   },
+   "score": 80
+  },
+  {
+   "id": "12264",
+   "name": "Rochie Mirelle turcoaz",
+   "cod": "FBR-J107041",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-mirelle-verde-turcoaz",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Mirelle turcoaz - eJolie",
+    "meta_description": "Comanda online Rochie Mirelle turcoaz! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 447,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Mirelle turcoaz",
+    "images_total": 34,
+    "images_no_alt": 5,
+    "load_time": 1.75,
+    "canonical": "https://ejolie.ro/product/rochie-mirelle-verde-turcoaz"
+   },
+   "score": 90
+  },
+  {
+   "id": "12261",
+   "name": "Rochie Adara magenta",
+   "cod": "FBR-W1429",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-adara-verde-12261",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/37 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Adara magenta - eJolie",
+    "meta_description": "Comanda online Rochie Adara magenta! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 423,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Adara magenta",
+    "images_total": 37,
+    "images_no_alt": 5,
+    "load_time": 1.77,
+    "canonical": "https://ejolie.ro/product/rochie-adara-verde-12261"
+   },
+   "score": 80
+  },
+  {
+   "id": "12260",
+   "name": "Rochie Lara cu imprimeu",
+   "cod": "FBR-C2064",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-lara-cu-imprimeu",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/33 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Lara cu imprimeu - eJolie",
+    "meta_description": "Comanda online Rochie Lara cu imprimeu! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 311,60 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Lara cu imprimeu",
+    "images_total": 33,
+    "images_no_alt": 5,
+    "load_time": 1.75,
+    "canonical": "https://ejolie.ro/product/rochie-lara-cu-imprimeu"
+   },
+   "score": 90
+  },
+  {
+   "id": "12259",
+   "name": "Rochie Amelie neagra cu imprimeu",
+   "cod": "FBR-R9377",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-amelie-neagra-cu-imprimeu",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/33 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Amelie neagra cu imprimeu - eJolie",
+    "meta_description": "Comanda online Rochie Amelie neagra cu imprimeu! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 543,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Amelie neagra cu imprimeu",
+    "images_total": 33,
+    "images_no_alt": 5,
+    "load_time": 1.72,
+    "canonical": "https://ejolie.ro/product/rochie-amelie-neagra-cu-imprimeu"
+   },
+   "score": 90
+  },
+  {
+   "id": "12258",
+   "name": "Rochie Nolia bleumarin cu buline",
+   "cod": "FBR-W1451",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-nolia-bej-cu-buline-12258",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/35 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Nolia bleumarin cu buline - eJolie",
+    "meta_description": "Comanda online Rochie Nolia bleumarin cu buline! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 447,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Nolia bleumarin cu buline",
+    "images_total": 35,
+    "images_no_alt": 5,
+    "load_time": 1.74,
+    "canonical": "https://ejolie.ro/product/rochie-nolia-bej-cu-buline-12258"
+   },
+   "score": 90
+  },
+  {
+   "id": "12257",
+   "name": "Rochie Nolia maro cu buline",
+   "cod": "FBR-W1451",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-nolia-bej-cu-buline-12257",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/35 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Nolia maro cu buline - eJolie",
+    "meta_description": "Comanda online Rochie Nolia maro cu buline! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 447,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Nolia maro cu buline",
+    "images_total": 35,
+    "images_no_alt": 5,
+    "load_time": 1.73,
+    "canonical": "https://ejolie.ro/product/rochie-nolia-bej-cu-buline-12257"
+   },
+   "score": 90
+  },
+  {
+   "id": "12256",
+   "name": "Rochie Nolia bej cu buline",
+   "cod": "FBR-W1451",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-nolia-bej-cu-buline",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/35 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Nolia bej cu buline - eJolie",
+    "meta_description": "Comanda online Rochie Nolia bej cu buline! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 447,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Nolia bej cu buline",
+    "images_total": 35,
+    "images_no_alt": 5,
+    "load_time": 1.68,
+    "canonical": "https://ejolie.ro/product/rochie-nolia-bej-cu-buline"
+   },
+   "score": 90
+  },
+  {
+   "id": "12255",
+   "name": "Rochie Adara verde",
+   "cod": "FBR-W1429",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-adara-verde",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (27 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/37 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Adara verde - eJolie",
+    "meta_description": "Comanda online Rochie Adara verde! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 423,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Adara verde",
+    "images_total": 37,
+    "images_no_alt": 5,
+    "load_time": 1.93,
+    "canonical": "https://ejolie.ro/product/rochie-adara-verde"
+   },
+   "score": 80
+  },
+  {
+   "id": "12195",
+   "name": "Rochie lunga Melisa bordo",
+   "cod": "FBR-Y5213",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-lunga-melisa-neagra-12195",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/30 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie lunga Melisa bordo - eJolie",
+    "meta_description": "Comanda online Rochie lunga Melisa bordo! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 990,00 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie lunga Melisa bordo",
+    "images_total": 30,
+    "images_no_alt": 4,
+    "load_time": 1.6,
+    "canonical": "https://ejolie.ro/product/rochie-lunga-melisa-neagra-12195"
+   },
+   "score": 90
+  },
+  {
+   "id": "12000",
+   "name": "Rochie Zondra neagra cu franjuri",
+   "cod": "FBR-7690",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-zondra-neagra-cu-franjuri",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Zondra neagra cu franjuri - eJolie",
+    "meta_description": "Comanda online Rochie Zondra neagra cu franjuri! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 959,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Zondra neagra cu franjuri",
+    "images_total": 34,
+    "images_no_alt": 4,
+    "load_time": 1.84,
+    "canonical": "https://ejolie.ro/product/rochie-zondra-neagra-cu-franjuri"
+   },
+   "score": 90
+  },
+  {
+   "id": "11995",
+   "name": "Rochie Dorina neagra",
+   "cod": "FBR-7705",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-doris-neagra",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Dorina neagra - eJolie",
+    "meta_description": "Comanda online Rochie Dorina neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 799,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Dorina neagra",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.59,
+    "canonical": "https://ejolie.ro/product/rochie-doris-neagra"
+   },
+   "score": 80
+  },
+  {
+   "id": "11959",
+   "name": "Rochie Isra verde",
+   "cod": "6011",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-isra-albastra-11959",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (26 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Isra verde - eJolie",
+    "meta_description": "Comanda online Rochie Isra verde! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 584,35 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Isra verde",
+    "images_total": 34,
+    "images_no_alt": 4,
+    "load_time": 1.77,
+    "canonical": "https://ejolie.ro/product/rochie-isra-albastra-11959"
+   },
+   "score": 80
+  },
+  {
+   "id": "11908",
+   "name": "Camasa Bianca neagra",
+   "cod": "5211",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/camasa-bianca-neagra-cu-accesoriu-trandafir",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/36 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Camasa Bianca neagra - eJolie",
+    "meta_description": "Comanda online Camasa Bianca neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 326,83 lei",
+    "h1_count": 1,
+    "h1_text": "Camasa Bianca neagra",
+    "images_total": 36,
+    "images_no_alt": 4,
+    "load_time": 1.57,
+    "canonical": "https://ejolie.ro/product/camasa-bianca-neagra-cu-accesoriu-trandafir"
+   },
+   "score": 80
+  },
+  {
+   "id": "11685",
+   "name": "Rochie Priya neagra",
+   "cod": "3142",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-priya-neagra",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (28 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Priya neagra - eJolie",
+    "meta_description": "Comanda online Rochie Priya neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 560,63 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Priya neagra",
+    "images_total": 34,
+    "images_no_alt": 4,
+    "load_time": 1.68,
+    "canonical": "https://ejolie.ro/product/rochie-priya-neagra"
+   },
+   "score": 80
+  },
+  {
+   "id": "11658",
+   "name": "Rochie Malvina fucsia",
+   "cod": "3148",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-malvina-fucsia",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Malvina fucsia - eJolie",
+    "meta_description": "Comanda online Rochie Malvina fucsia! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 575,58 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Malvina fucsia",
+    "images_total": 34,
+    "images_no_alt": 4,
+    "load_time": 1.75,
+    "canonical": "https://ejolie.ro/product/rochie-malvina-fucsia"
+   },
+   "score": 90
+  },
+  {
+   "id": "11653",
+   "name": "Rochie Ramona rosie cu perle",
+   "cod": "3155",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-verona-rosie-cu-perle",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Ramona rosie cu perle - eJolie",
+    "meta_description": "Comanda online Rochie Ramona rosie cu perle! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 551,85 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Ramona rosie cu perle",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.82,
+    "canonical": "https://ejolie.ro/product/rochie-verona-rosie-cu-perle"
+   },
+   "score": 90
+  },
+  {
+   "id": "11652",
+   "name": "Rochie Laurentina portocalie",
+   "cod": "35280",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-laurentina-maro-11652",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Laurentina portocalie - eJolie",
+    "meta_description": "Comanda online Rochie Laurentina portocalie! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 393,30 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Laurentina portocalie",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.81,
+    "canonical": "https://ejolie.ro/product/rochie-laurentina-maro-11652"
+   },
+   "score": 90
+  },
+  {
+   "id": "11533",
+   "name": "Rochie Kiara galbena cu animal print",
+   "cod": "105701",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-kiara-galbana-cu-animal-print",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/30 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Kiara galbena cu animal print - eJolie",
+    "meta_description": "Comanda online Rochie Kiara galbena cu animal print! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 292,50 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Kiara galbena cu animal print",
+    "images_total": 30,
+    "images_no_alt": 4,
+    "load_time": 1.85,
+    "canonical": "https://ejolie.ro/product/rochie-kiara-galbana-cu-animal-print"
+   },
+   "score": 90
+  },
+  {
+   "id": "11530",
+   "name": "Rochie Harper neagra",
+   "cod": "105711",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-harper-rosie-11530",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/35 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Harper neagra - eJolie",
+    "meta_description": "Comanda online Rochie Harper neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 292,50 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Harper neagra",
+    "images_total": 35,
+    "images_no_alt": 4,
+    "load_time": 1.88,
+    "canonical": "https://ejolie.ro/product/rochie-harper-rosie-11530"
+   },
+   "score": 80
+  },
+  {
+   "id": "11528",
+   "name": "Rochie Priscilla neagra",
+   "cod": "104821",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-priscilla-neagra-cu-buline-albe-11528",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/30 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Priscilla neagra - eJolie",
+    "meta_description": "Comanda online Rochie Priscilla neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 255,30 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Priscilla neagra",
+    "images_total": 30,
+    "images_no_alt": 4,
+    "load_time": 1.96,
+    "canonical": "https://ejolie.ro/product/rochie-priscilla-neagra-cu-buline-albe-11528"
+   },
+   "score": 90
+  },
+  {
+   "id": "11527",
+   "name": "Rochie Harper rosie",
+   "cod": "105711",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-harper-rosie",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (28 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/31 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Harper rosie - eJolie",
+    "meta_description": "Comanda online Rochie Harper rosie! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 292,50 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Harper rosie",
+    "images_total": 31,
+    "images_no_alt": 4,
+    "load_time": 1.84,
+    "canonical": "https://ejolie.ro/product/rochie-harper-rosie"
+   },
+   "score": 80
+  },
+  {
+   "id": "11517",
+   "name": "Rochie Pilar rosie",
+   "cod": "MIS1038",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-pilar-albastra-11517",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (27 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/31 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Pilar rosie - eJolie",
+    "meta_description": "Comanda online Rochie Pilar rosie! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 209,40 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Pilar rosie",
+    "images_total": 31,
+    "images_no_alt": 4,
+    "load_time": 1.69,
+    "canonical": "https://ejolie.ro/product/rochie-pilar-albastra-11517"
+   },
+   "score": 80
+  },
+  {
+   "id": "11491",
+   "name": "Rochie Pilar albastra",
+   "cod": "MIS1038",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-pilar-verde-11491",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/31 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Pilar albastra - eJolie",
+    "meta_description": "Comanda online Rochie Pilar albastra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 209,40 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Pilar albastra",
+    "images_total": 31,
+    "images_no_alt": 4,
+    "load_time": 1.67,
+    "canonical": "https://ejolie.ro/product/rochie-pilar-verde-11491"
+   },
+   "score": 90
+  },
+  {
+   "id": "11441",
+   "name": "Rochie Lora verde",
+   "cod": "61851",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-lora-albastra-11441",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (26 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/30 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Lora verde - eJolie",
+    "meta_description": "Comanda online Rochie Lora verde! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 268,13 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Lora verde",
+    "images_total": 30,
+    "images_no_alt": 4,
+    "load_time": 1.71,
+    "canonical": "https://ejolie.ro/product/rochie-lora-albastra-11441"
+   },
+   "score": 80
+  },
+  {
+   "id": "11367",
+   "name": "Rochie Ruth verde cu fulgi",
+   "cod": "3787-roz-40",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-ruth-neagra-cu-fulgi-11367",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Ruth verde cu fulgi - eJolie",
+    "meta_description": "Comanda online Rochie Ruth verde cu fulgi! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 288,75 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Ruth verde cu fulgi",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.76,
+    "canonical": "https://ejolie.ro/product/rochie-ruth-neagra-cu-fulgi-11367"
+   },
+   "score": 90
+  },
+  {
+   "id": "11348",
+   "name": "Rochie Iman neagra",
+   "cod": "9598",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-camilla-neagra",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (27 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/30 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Iman neagra - eJolie",
+    "meta_description": "Comanda online Rochie Iman neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 369,60 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Iman neagra",
+    "images_total": 30,
+    "images_no_alt": 4,
+    "load_time": 1.78,
+    "canonical": "https://ejolie.ro/product/rochie-camilla-neagra"
+   },
+   "score": 80
+  },
+  {
+   "id": "11299",
+   "name": "Rochie Beatriz neagra cu flori",
+   "cod": "8699",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-beatriz-neagra-cu-maneci-brodate-11299",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/36 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Beatriz neagra cu flori - eJolie",
+    "meta_description": "Comanda online Rochie Beatriz neagra cu flori! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 425,00 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Beatriz neagra cu flori",
+    "images_total": 36,
+    "images_no_alt": 4,
+    "load_time": 1.79,
+    "canonical": "https://ejolie.ro/product/rochie-beatriz-neagra-cu-maneci-brodate-11299"
+   },
+   "score": 90
+  },
+  {
+   "id": "11295",
+   "name": "Rochie Beatriz verde cu maneci brodate",
+   "cod": "8699",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-beatriz-neagra-cu-maneci-brodate-11295",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Beatriz verde cu maneci brodate - eJolie",
+    "meta_description": "Comanda online Rochie Beatriz verde cu maneci brodate! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 449,00 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Beatriz verde cu maneci brodate",
+    "images_total": 34,
+    "images_no_alt": 4,
+    "load_time": 1.82,
+    "canonical": "https://ejolie.ro/product/rochie-beatriz-neagra-cu-maneci-brodate-11295"
+   },
+   "score": 90
+  },
+  {
+   "id": "11294",
+   "name": "Rochie Beatriz neagra cu maneci brodate",
+   "cod": "8699",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-beatriz-neagra-cu-maneci-brodate",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Beatriz neagra cu maneci brodate - eJolie",
+    "meta_description": "Comanda online Rochie Beatriz neagra cu maneci brodate! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 425,00 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Beatriz neagra cu maneci brodate",
+    "images_total": 34,
+    "images_no_alt": 4,
+    "load_time": 1.81,
+    "canonical": "https://ejolie.ro/product/rochie-beatriz-neagra-cu-maneci-brodate"
+   },
+   "score": 90
+  },
+  {
+   "id": "11228",
+   "name": "Rochie Violeta lila",
+   "cod": "5217",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-violeta-roz-11228",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (28 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/30 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Violeta lila - eJolie",
+    "meta_description": "Comanda online Rochie Violeta lila! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 257,40 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Violeta lila",
+    "images_total": 30,
+    "images_no_alt": 4,
+    "load_time": 1.62,
+    "canonical": "https://ejolie.ro/product/rochie-violeta-roz-11228"
+   },
+   "score": 80
+  },
+  {
+   "id": "11214",
+   "name": "Rochie Violeta alba",
+   "cod": "5217",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-violeta-maro-11214",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (28 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Violeta alba - eJolie",
+    "meta_description": "Comanda online Rochie Violeta alba! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 257,40 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Violeta alba",
+    "images_total": 34,
+    "images_no_alt": 4,
+    "load_time": 1.82,
+    "canonical": "https://ejolie.ro/product/rochie-violeta-maro-11214"
+   },
+   "score": 80
+  },
+  {
+   "id": "11199",
+   "name": "Rochie Soledad neagra",
+   "cod": "5739",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-soledad-crem-11199",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Soledad neagra - eJolie",
+    "meta_description": "Comanda online Rochie Soledad neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 599,40 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Soledad neagra",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.71,
+    "canonical": "https://ejolie.ro/product/rochie-soledad-crem-11199"
+   },
+   "score": 90
+  },
+  {
+   "id": "11195",
+   "name": "Rochie Doris neagra cu strasuri aplicate",
+   "cod": "2413",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-doris-neagra-cu-strasuri-aplicate",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Doris neagra cu strasuri aplicate - eJolie",
+    "meta_description": "Comanda online Rochie Doris neagra cu strasuri aplicate! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 959,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Doris neagra cu strasuri aplicate",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.7,
+    "canonical": "https://ejolie.ro/product/rochie-doris-neagra-cu-strasuri-aplicate"
+   },
+   "score": 90
+  },
+  {
+   "id": "11167",
+   "name": "Rochie Tea verde",
+   "cod": "17819",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-tea-rosie-11167",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (25 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/30 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Tea verde - eJolie",
+    "meta_description": "Comanda online Rochie Tea verde! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 584,35 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Tea verde",
+    "images_total": 30,
+    "images_no_alt": 4,
+    "load_time": 1.75,
+    "canonical": "https://ejolie.ro/product/rochie-tea-rosie-11167"
+   },
+   "score": 80
+  },
+  {
+   "id": "11163",
+   "name": "Rochie Tea rosie",
+   "cod": "17819",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-tea-alba-11163",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (25 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Tea rosie - eJolie",
+    "meta_description": "Comanda online Rochie Tea rosie! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 584,35 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Tea rosie",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 2.01,
+    "canonical": "https://ejolie.ro/product/rochie-tea-alba-11163"
+   },
+   "score": 80
+  },
+  {
+   "id": "11156",
+   "name": "Rochie Milena neagra cu umarul gol",
+   "cod": "2042",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-milena-fucsia-cu-umarul-gol-11156",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/30 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Milena neagra cu umarul gol - eJolie",
+    "meta_description": "Comanda online Rochie Milena neagra cu umarul gol! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 636,75 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Milena neagra cu umarul gol",
+    "images_total": 30,
+    "images_no_alt": 4,
+    "load_time": 1.74,
+    "canonical": "https://ejolie.ro/product/rochie-milena-fucsia-cu-umarul-gol-11156"
+   },
+   "score": 90
+  },
+  {
+   "id": "11086",
+   "name": "Rochie Sidonia rosie",
+   "cod": "1496",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-sidonia-fucsia-11086",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/33 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Sidonia rosie - eJolie",
+    "meta_description": "Comanda online Rochie Sidonia rosie! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 575,19 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Sidonia rosie",
+    "images_total": 33,
+    "images_no_alt": 4,
+    "load_time": 1.66,
+    "canonical": "https://ejolie.ro/product/rochie-sidonia-fucsia-11086"
+   },
+   "score": 80
+  },
+  {
+   "id": "11045",
+   "name": "Rochie Hanna verde satinata cu imprimeu rosu",
+   "cod": "7722-caramizie-38",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-hanna-verde-satinata-cu-imprimeu-mov-11045",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Hanna verde satinata cu imprimeu rosu - eJolie",
+    "meta_description": "Comanda online Rochie Hanna verde satinata cu imprimeu rosu! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 350,00 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Hanna verde satinata cu imprimeu rosu",
+    "images_total": 34,
+    "images_no_alt": 4,
+    "load_time": 1.82,
+    "canonical": "https://ejolie.ro/product/rochie-hanna-verde-satinata-cu-imprimeu-mov-11045"
+   },
+   "score": 90
+  },
+  {
+   "id": "11039",
+   "name": "Rochie Hanna verde satinata cu imprimeu mov",
+   "cod": "FBR-7723",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-hanna-gri-satinata-cu-imprimeu-maro-11039",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Hanna verde satinata cu imprimeu mov - eJolie",
+    "meta_description": "Comanda online Rochie Hanna verde satinata cu imprimeu mov! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 396,00 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Hanna verde satinata cu imprimeu mov",
+    "images_total": 34,
+    "images_no_alt": 4,
+    "load_time": 1.8,
+    "canonical": "https://ejolie.ro/product/rochie-hanna-gri-satinata-cu-imprimeu-maro-11039"
+   },
+   "score": 90
+  },
+  {
+   "id": "11032",
+   "name": "Rochie Hanna portocalie cu imprimeu bleu",
+   "cod": "7722-caramizie-50",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-hanna-satinata-cu-imprimeu-caramiziu-11032",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Hanna portocalie cu imprimeu bleu - eJolie",
+    "meta_description": "Comanda online Rochie Hanna portocalie cu imprimeu bleu! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 350,00 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Hanna portocalie cu imprimeu bleu",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.81,
+    "canonical": "https://ejolie.ro/product/rochie-hanna-satinata-cu-imprimeu-caramiziu-11032"
+   },
+   "score": 90
+  },
+  {
+   "id": "11007",
+   "name": "Rochie Raven crem cu rosu",
+   "cod": "RD8472",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-raven-turcoaz-cu-mov-11007",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Raven crem cu rosu - eJolie",
+    "meta_description": "Comanda online Rochie Raven crem cu rosu! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 323,75 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Raven crem cu rosu",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 2.09,
+    "canonical": "https://ejolie.ro/product/rochie-raven-turcoaz-cu-mov-11007"
+   },
+   "score": 90
+  },
+  {
+   "id": "10926",
+   "name": "Rochie Sidonia neagra",
+   "cod": "1496",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-sidonia-verde-lime-10926",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/35 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Sidonia neagra - eJolie",
+    "meta_description": "Comanda online Rochie Sidonia neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 627,48 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Sidonia neagra",
+    "images_total": 35,
+    "images_no_alt": 4,
+    "load_time": 1.76,
+    "canonical": "https://ejolie.ro/product/rochie-sidonia-verde-lime-10926"
+   },
+   "score": 90
+  },
+  {
+   "id": "10829",
+   "name": "Rochie lunga Zeny mov",
+   "cod": "Y3225",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rozie-lunga-zeny-neagra-10829",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie lunga Zeny mov - eJolie",
+    "meta_description": "Comanda online Rochie lunga Zeny mov! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 824,45 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie lunga Zeny mov",
+    "images_total": 34,
+    "images_no_alt": 4,
+    "load_time": 1.7,
+    "canonical": "https://ejolie.ro/product/rozie-lunga-zeny-neagra-10829"
+   },
+   "score": 90
+  },
+  {
+   "id": "10828",
+   "name": "Rochie lunga Zeny neagra",
+   "cod": "Y3225",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rozie-lunga-zeny-neagra",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/36 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie lunga Zeny neagra - eJolie",
+    "meta_description": "Comanda online Rochie lunga Zeny neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 824,45 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie lunga Zeny neagra",
+    "images_total": 36,
+    "images_no_alt": 4,
+    "load_time": 1.7,
+    "canonical": "https://ejolie.ro/product/rozie-lunga-zeny-neagra"
+   },
+   "score": 90
+  },
+  {
+   "id": "10820",
+   "name": "Rochie lunga Aida neagra",
+   "cod": "5857",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-lunga-aida-neagra",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie lunga Aida neagra - eJolie",
+    "meta_description": "Comanda online Rochie lunga Aida neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 680,63 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie lunga Aida neagra",
+    "images_total": 34,
+    "images_no_alt": 4,
+    "load_time": 1.68,
+    "canonical": "https://ejolie.ro/product/rochie-lunga-aida-neagra"
+   },
+   "score": 90
+  },
+  {
+   "id": "10709",
+   "name": "Rochie Sinan neagra",
+   "cod": "1461",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-sinan-fucsia-10709",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (28 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Sinan neagra - eJolie",
+    "meta_description": "Comanda online Rochie Sinan neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 784,35 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Sinan neagra",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.62,
+    "canonical": "https://ejolie.ro/product/rochie-sinan-fucsia-10709"
+   },
+   "score": 80
+  },
+  {
+   "id": "10637",
+   "name": "Rochie lunga Maja neagra",
+   "cod": "FBR-Y4208",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-lunga-maja-neagra",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/36 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie lunga Maja neagra - eJolie",
+    "meta_description": "Comanda online Rochie lunga Maja neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 1.044,45 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie lunga Maja neagra",
+    "images_total": 36,
+    "images_no_alt": 4,
+    "load_time": 1.76,
+    "canonical": "https://ejolie.ro/product/rochie-lunga-maja-neagra"
+   },
+   "score": 90
+  },
+  {
+   "id": "10610",
+   "name": "Rochie lunga Devon satinata verde cu fucsia",
+   "cod": "FBR-9825",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-lunga-devon-verde-cu-fucsia-10610",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie lunga Devon satinata verde cu fucsia - eJolie",
+    "meta_description": "Comanda online Rochie lunga Devon satinata verde cu fucsia! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 928,13 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie lunga Devon satinata verde cu fucsia",
+    "images_total": 34,
+    "images_no_alt": 4,
+    "load_time": 1.77,
+    "canonical": "https://ejolie.ro/product/rochie-lunga-devon-verde-cu-fucsia-10610"
+   },
+   "score": 90
+  },
+  {
+   "id": "10546",
+   "name": "Rochie Ofelia cu imprimeu roz",
+   "cod": "TYA2337",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-10546",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/30 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Ofelia cu imprimeu roz - eJolie",
+    "meta_description": "Comanda online Rochie Ofelia cu imprimeu roz! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 135,00 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Ofelia cu imprimeu roz",
+    "images_total": 30,
+    "images_no_alt": 4,
+    "load_time": 1.95,
+    "canonical": "https://ejolie.ro/product/rochie-10546"
+   },
+   "score": 90
+  },
+  {
+   "id": "10392",
+   "name": "Rochie lunga Devon albastra cu portocaliu",
+   "cod": "FBR-9825",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-lunga-devon-glben-cu-portocaliu-10392",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/30 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie lunga Devon albastra cu portocaliu - eJolie",
+    "meta_description": "Comanda online Rochie lunga Devon albastra cu portocaliu! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 928,13 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie lunga Devon albastra cu portocaliu",
+    "images_total": 30,
+    "images_no_alt": 4,
+    "load_time": 1.81,
+    "canonical": "https://ejolie.ro/product/rochie-lunga-devon-glben-cu-portocaliu-10392"
+   },
+   "score": 90
+  },
+  {
+   "id": "10232",
+   "name": "Costum Jennifer verde mint",
+   "cod": "19736",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/costum-jennifer-baby-blue-10232",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/33 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Costum Jennifer verde mint - eJolie",
+    "meta_description": "Comanda online Costum Jennifer verde mint! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 346,50 lei",
+    "h1_count": 1,
+    "h1_text": "Costum Jennifer verde mint",
+    "images_total": 33,
+    "images_no_alt": 4,
+    "load_time": 1.73,
+    "canonical": "https://ejolie.ro/product/costum-jennifer-baby-blue-10232"
+   },
+   "score": 90
+  },
+  {
+   "id": "9150",
+   "name": "Rochie Adina verde",
+   "cod": "TYA54446",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-adina-neagra-9150",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (27 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/30 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Adina verde - eJolie",
+    "meta_description": "Comanda online Rochie Adina verde! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 77,92 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Adina verde",
+    "images_total": 30,
+    "images_no_alt": 4,
+    "load_time": 1.58,
+    "canonical": "https://ejolie.ro/product/rochie-adina-neagra-9150"
+   },
+   "score": 80
+  },
+  {
+   "id": "9148",
+   "name": "Rochie Josephine roz",
+   "cod": "12445-roz-38",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-ramya-roz",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Josephine roz - eJolie",
+    "meta_description": "Comanda online Rochie Josephine roz! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 213,60 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Josephine roz",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.67,
+    "canonical": "https://ejolie.ro/product/rochie-ramya-roz"
+   },
+   "score": 80
+  },
+  {
+   "id": "9147",
+   "name": "Rochie Ines fucsia",
+   "cod": "12443-fucsia-38",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-delilah-fucsia",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (27 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Ines fucsia - eJolie",
+    "meta_description": "Comanda online Rochie Ines fucsia! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 206,10 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Ines fucsia",
+    "images_total": 34,
+    "images_no_alt": 4,
+    "load_time": 1.72,
+    "canonical": "https://ejolie.ro/product/rochie-delilah-fucsia"
+   },
+   "score": 80
+  },
+  {
+   "id": "9049",
+   "name": "Rochie Evelyn fucsia",
+   "cod": "TYA76345",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-evelyn-fucsia",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/33 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Evelyn fucsia - eJolie",
+    "meta_description": "Comanda online Rochie Evelyn fucsia! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 165,00 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Evelyn fucsia",
+    "images_total": 33,
+    "images_no_alt": 4,
+    "load_time": 1.79,
+    "canonical": "https://ejolie.ro/product/rochie-evelyn-fucsia"
+   },
+   "score": 80
+  },
+  {
+   "id": "9044",
+   "name": "Rochie Catrina neagra",
+   "cod": "4677-neagra-36",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-zaila-neagra",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/33 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Catrina neagra - eJolie",
+    "meta_description": "Comanda online Rochie Catrina neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 341,25 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Catrina neagra",
+    "images_total": 33,
+    "images_no_alt": 4,
+    "load_time": 1.76,
+    "canonical": "https://ejolie.ro/product/rochie-zaila-neagra"
+   },
+   "score": 90
+  },
+  {
+   "id": "8891",
+   "name": "Rochie Ryna galbena cu dungi negre",
+   "cod": "3110-galbena-40",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-ryna-galbena-cu-dungi-negre",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie midi Ryna galbena cu dungi negre",
+    "meta_description": "Comanda online Rochie Ryna galbena cu dungi negre! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 138,60 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Ryna galbena cu dungi negre",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.77,
+    "canonical": "https://ejolie.ro/product/rochie-ryna-galbena-cu-dungi-negre"
+   },
+   "score": 90
+  },
+  {
+   "id": "8649",
+   "name": "Camasa Timea albastra",
+   "cod": "TYA3154",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/camasa-timea-albastra",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/43 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Camasa Timea albastra - eJolie",
+    "meta_description": "Comanda online Camasa Timea albastra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 237,60 lei",
+    "h1_count": 1,
+    "h1_text": "Camasa Timea albastra",
+    "images_total": 43,
+    "images_no_alt": 4,
+    "load_time": 1.76,
+    "canonical": "https://ejolie.ro/product/camasa-timea-albastra"
+   },
+   "score": 90
+  },
+  {
+   "id": "8010",
+   "name": "Rochie Cleopatra ivoar din dantela cu trena",
+   "cod": "3233-ivoar-40",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-cleopatra-bordo-din-dantela-cu-trena-8010",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Cleopatra ivoar din dantela cu trena - eJolie",
+    "meta_description": "Comanda online Rochie Cleopatra ivoar din dantela cu trena! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 437,25 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Cleopatra ivoar din dantela cu trena",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.71,
+    "canonical": "https://ejolie.ro/product/rochie-cleopatra-bordo-din-dantela-cu-trena-8010"
+   },
+   "score": 90
+  },
+  {
+   "id": "7941",
+   "name": "Rochie Calipso verde cu umar gol si volan lateral",
+   "cod": "964205-verde-40",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-calipso-verde-cu-umar-gol-si-volan-lateral",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/26 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Calipso verde cu umar gol si volan lateral - eJolie",
+    "meta_description": "Comanda online Rochie Calipso verde cu umar gol si volan lateral! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 145,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Calipso verde cu umar gol si volan lateral",
+    "images_total": 26,
+    "images_no_alt": 4,
+    "load_time": 1.66,
+    "canonical": "https://ejolie.ro/product/rochie-calipso-verde-cu-umar-gol-si-volan-lateral"
+   },
+   "score": 90
+  },
+  {
+   "id": "7579",
+   "name": "Rochie Marta turcoaz din neopren",
+   "cod": "2233-turcoaz-38",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-marta-turcoaz-din-neopren-cu-cordon-maxi",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Marta turcoaz din neopren - eJolie",
+    "meta_description": "Comanda online Rochie Marta turcoaz din neopren! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 154,00 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Marta turcoaz din neopren",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 1.74,
+    "canonical": "https://ejolie.ro/product/rochie-marta-turcoaz-din-neopren-cu-cordon-maxi"
+   },
+   "score": 90
+  },
+  {
+   "id": "7138",
+   "name": "Rochie Veda neagra asimetrica din organza cu insertii din catifea",
+   "cod": "3049-neagra-40",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-veda-neagra-asimetrica-din-organza-cu-insertii-din-catifea",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/41 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Veda neagra asimetrica organza insertii catifea",
+    "meta_description": "Comanda online Rochie Veda neagra asimetrica din organza cu insertii din catifea! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 687,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Veda neagra asimetrica din organza cu insertii din catifea",
+    "images_total": 41,
+    "images_no_alt": 4,
+    "load_time": 2.09,
+    "canonical": "https://ejolie.ro/product/rochie-veda-neagra-asimetrica-din-organza-cu-insertii-din-catifea"
+   },
+   "score": 90
+  },
+  {
+   "id": "6905",
+   "name": "Salopeta Gloria fucsia din voal plisat cu decolteu adanc",
+   "cod": "FBR-5838",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/salopeta-gloria-neagra-din-voal-plisat-cu-decolteu-adanc-6905",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/35 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Salopeta Gloria fucsia din voal plisat cu decolteu adanc - eJolie",
+    "meta_description": "Comanda online Salopeta Gloria fucsia din voal plisat cu decolteu adanc! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 828,00 lei",
+    "h1_count": 1,
+    "h1_text": "Salopeta Gloria fucsia din voal plisat cu decolteu adanc",
+    "images_total": 35,
+    "images_no_alt": 4,
+    "load_time": 1.81,
+    "canonical": "https://ejolie.ro/product/salopeta-gloria-neagra-din-voal-plisat-cu-decolteu-adanc-6905"
+   },
+   "score": 90
+  },
+  {
+   "id": "6050",
+   "name": "Rochie Lucia neagra din licra",
+   "cod": "4813-neagra-38",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-lucia-crem-aurie-din-licra-6050",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Lucia neagra din licra - eJolie",
+    "meta_description": "Comanda online Rochie Lucia neagra din licra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 99,00 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Lucia neagra din licra",
+    "images_total": 32,
+    "images_no_alt": 4,
+    "load_time": 2.0,
+    "canonical": "https://ejolie.ro/product/rochie-lucia-crem-aurie-din-licra-6050"
+   },
+   "score": 90
+  },
+  {
+   "id": "5021",
+   "name": "Rochie Ronia neagra cu buline argintii din catifea cu decolteu adanc si maneci bufante",
+   "cod": "EJ77318-Negru-Buline-36",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-ronia-neagra-buline-catifea-decolteu-adanc-maneci-bufante",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/26 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Ronia neagra buline catifea, decolteu adanc - eJolie",
+    "meta_description": "Comanda online Rochie Ronia neagra cu buline argintii din catifea cu decolteu adanc si maneci bufante! Livrare GRATUITA! Doar la 209,24 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Ronia neagra cu buline argintii din catifea cu decolteu adanc si maneci bufante",
+    "images_total": 26,
+    "images_no_alt": 4,
+    "load_time": 1.77,
+    "canonical": "https://ejolie.ro/product/rochie-ronia-neagra-buline-catifea-decolteu-adanc-maneci-bufante"
+   },
+   "score": 90
+  },
+  {
+   "id": "651",
+   "name": "Compleu Aria verde",
+   "cod": "TYA5007",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/sacou-iustina-white-cu-imprimeu-colorat",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (27 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/34 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Compleu Aria verde - eJolie",
+    "meta_description": "Comanda online Compleu Aria verde! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 290,40 lei",
+    "h1_count": 1,
+    "h1_text": "Compleu Aria verde",
+    "images_total": 34,
+    "images_no_alt": 4,
+    "load_time": 1.76,
+    "canonical": "https://ejolie.ro/product/sacou-iustina-white-cu-imprimeu-colorat"
+   },
+   "score": 80
+  },
+  {
+   "id": "647",
+   "name": "Sacou Alani alb",
+   "cod": "228012",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/sacou-ines-purple",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (24 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/36 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Sacou Alani alb - eJolie",
+    "meta_description": "Comanda online Sacou Alani alb! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 71,60 lei",
+    "h1_count": 1,
+    "h1_text": "Sacou Alani alb",
+    "images_total": 36,
+    "images_no_alt": 4,
+    "load_time": 1.73,
+    "canonical": "https://ejolie.ro/product/sacou-ines-purple"
+   },
+   "score": 80
+  },
+  {
+   "id": "645",
+   "name": "Sacou Agapia albastru",
+   "cod": "TYA4046",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/sacou-ines-green",
+   "issues": [
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/36 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Sacou Agapia albastru - eJolie",
+    "meta_description": "Comanda online Sacou Agapia albastru! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 143,20 lei",
+    "h1_count": 1,
+    "h1_text": "Sacou Agapia albastru",
+    "images_total": 36,
+    "images_no_alt": 4,
+    "load_time": 1.78,
+    "canonical": "https://ejolie.ro/product/sacou-ines-green"
+   },
+   "score": 90
+  },
+  {
+   "id": "641",
+   "name": "Sacou Ines verde",
+   "cod": "22801",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/sacou-ines-marsala",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (25 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "4/36 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Sacou Ines verde - eJolie",
+    "meta_description": "Comanda online Sacou Ines verde! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 191,66 lei",
+    "h1_count": 1,
+    "h1_text": "Sacou Ines verde",
+    "images_total": 36,
+    "images_no_alt": 4,
+    "load_time": 1.8,
+    "canonical": "https://ejolie.ro/product/sacou-ines-marsala"
    },
    "score": 80
   }
