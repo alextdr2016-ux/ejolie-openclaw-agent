@@ -1,0 +1,156 @@
+{
+ "updated": "2026-02-12 13:59:32",
+ "total_scanned": 5,
+ "results": [
+  {
+   "id": "12351",
+   "name": "Rochie Elysia neagra",
+   "cod": "FBR-E25302",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-elysia-neagra",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/30 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Elysia neagra - eJolie",
+    "meta_description": "Comanda online Rochie Elysia neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 1.150,80 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Elysia neagra",
+    "images_total": 30,
+    "images_no_alt": 5,
+    "load_time": 1.7,
+    "canonical": "https://ejolie.ro/product/rochie-elysia-neagra"
+   },
+   "score": 80
+  },
+  {
+   "id": "12350",
+   "name": "Rochie Valery neagra",
+   "cod": "FBR-E25279",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-valery-bordo-12350",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (29 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/35 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Valery neagra - eJolie",
+    "meta_description": "Comanda online Rochie Valery neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 950,98 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Valery neagra",
+    "images_total": 35,
+    "images_no_alt": 5,
+    "load_time": 1.96,
+    "canonical": "https://ejolie.ro/product/rochie-valery-bordo-12350"
+   },
+   "score": 80
+  },
+  {
+   "id": "12348",
+   "name": "Rochie Odessa bordo",
+   "cod": "FBR-D8147",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-odessa-aurie-12348",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (28 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/29 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Odessa bordo - eJolie",
+    "meta_description": "Comanda online Rochie Odessa bordo! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 1.439,20 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Odessa bordo",
+    "images_total": 29,
+    "images_no_alt": 5,
+    "load_time": 1.56,
+    "canonical": "https://ejolie.ro/product/rochie-odessa-aurie-12348"
+   },
+   "score": 80
+  },
+  {
+   "id": "12347",
+   "name": "Rochie Esme neagra",
+   "cod": "FBR-A5215",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-esme-neagra",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (27 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/28 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Esme neagra - eJolie",
+    "meta_description": "Comanda online Rochie Esme neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 1.038,40 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Esme neagra",
+    "images_total": 28,
+    "images_no_alt": 5,
+    "load_time": 1.56,
+    "canonical": "https://ejolie.ro/product/rochie-esme-neagra"
+   },
+   "score": 80
+  },
+  {
+   "id": "12346",
+   "name": "Rochie Ambra neagra",
+   "cod": "FBR-A5282",
+   "brand": "Ejolie",
+   "link": "https://ejolie.ro/product/rochie-ambra-neagra",
+   "issues": [
+    {
+     "type": "META_TITLE",
+     "severity": "MEDIUM",
+     "msg": "Meta title prea scurt (28 chars)"
+    },
+    {
+     "type": "IMG_ALT",
+     "severity": "MEDIUM",
+     "msg": "5/32 imagini fără alt tag"
+    }
+   ],
+   "seo_data": {
+    "meta_title": "Rochie Ambra neagra - eJolie",
+    "meta_description": "Comanda online Rochie Ambra neagra! Preturi accesibile si calitate garantata! Livrare GRATUITA! Doar la 1.046,40 lei",
+    "h1_count": 1,
+    "h1_text": "Rochie Ambra neagra",
+    "images_total": 32,
+    "images_no_alt": 5,
+    "load_time": 1.57,
+    "canonical": "https://ejolie.ro/product/rochie-ambra-neagra"
+   },
+   "score": 80
+  }
+ ]
+}
