@@ -252,14 +252,25 @@ def export_template(products, output=None, only_in_stock=True):
                     else:
                         row.append("")
 
-                # Add specs (up to 2)
-                for spec_idx in range(2):
-                    if spec_idx < len(spec_list):
-                        row.append(spec_list[spec_idx][0])
-                        row.append(spec_list[spec_idx][1])
+                # Add color as first spec, then other specs
+                color = extract_color(prod.get("nume", ""))
+                if color:
+                    row.append("Culoare")
+                    row.append(color)
+                    if len(spec_list) > 0:
+                        row.append(spec_list[0][0])
+                        row.append(spec_list[0][1])
                     else:
                         row.append("")
                         row.append("")
+                else:
+                    for spec_idx in range(2):
+                        if spec_idx < len(spec_list):
+                            row.append(spec_list[spec_idx][0])
+                            row.append(spec_list[spec_idx][1])
+                        else:
+                            row.append("")
+                            row.append("")
 
                 for col, val in enumerate(row, 1):
                     ws.cell(row=row_idx, column=col, value=val)
@@ -298,13 +309,24 @@ def export_template(products, output=None, only_in_stock=True):
                 else:
                     row.append("")
 
-            for spec_idx in range(2):
-                if spec_idx < len(spec_list):
-                    row.append(spec_list[spec_idx][0])
-                    row.append(spec_list[spec_idx][1])
+            color = extract_color(prod.get("nume", ""))
+            if color:
+                row.append("Culoare")
+                row.append(color)
+                if len(spec_list) > 0:
+                    row.append(spec_list[0][0])
+                    row.append(spec_list[0][1])
                 else:
                     row.append("")
                     row.append("")
+            else:
+                for spec_idx in range(2):
+                    if spec_idx < len(spec_list):
+                        row.append(spec_list[spec_idx][0])
+                        row.append(spec_list[spec_idx][1])
+                    else:
+                        row.append("")
+                        row.append("")
 
             for col, val in enumerate(row, 1):
                 ws.cell(row=row_idx, column=col, value=val)
