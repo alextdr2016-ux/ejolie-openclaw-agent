@@ -6,7 +6,7 @@ import os, json, re, argparse, urllib.request, time
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Load env
-env_path = os.path.join(SCRIPT_DIR, ".env")
+env_path = os.path.join(SCRIPT_DIR, "..", ".env")
 if os.path.exists(env_path):
     with open(env_path) as f:
         for line in f:
