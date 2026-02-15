@@ -6,6 +6,40 @@ import openpyxl
 from openpyxl.styles import Font, Alignment
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Color extraction from product names
+COLOR_MAP = {
+    "neagra": "Negru", "negru": "Negru", "negra": "Negru", "black": "Negru",
+    "alba": "Alb", "alb": "Alb", "white": "Alb", "ivory": "Ivory", "ivoar": "Ivory",
+    "rosie": "Rosu", "rosu": "Rosu", "red": "Rosu",
+    "verde": "Verde", "green": "Verde",
+    "albastra": "Albastru", "albastru": "Albastru", "blue": "Albastru",
+    "galbena": "Galben", "galben": "Galben",
+    "roz": "Roz", "pink": "Roz", "fucsia": "Fucsia",
+    "bordo": "Bordo", "burgundy": "Bordo", "visiniu": "Visiniu",
+    "mov": "Mov", "lila": "Lila", "purple": "Mov",
+    "gri": "Gri", "grey": "Gri", "gray": "Gri",
+    "bej": "Bej", "nude": "Nude", "crem": "Crem",
+    "turcoaz": "Turcoaz", "coral": "Coral", "portocalie": "Portocaliu",
+    "argintiu": "Argintiu", "argintii": "Argintiu", "auriu": "Auriu", "aurie": "Auriu",
+    "maro": "Maro", "camel": "Camel", "kaki": "Kaki",
+    "multicolor": "Multicolor", "imprimeu": "Imprimeu",
+    "bleumarin": "Bleumarin", "navy": "Bleumarin",
+    "somon": "Somon", "lavanda": "Lavanda", "mint": "Mint",
+}
+
+def extract_color(name):
+    """Extract color from product name"""
+    words = name.lower().split()
+    for word in words:
+        if word in COLOR_MAP:
+            return COLOR_MAP[word]
+    # Try compound: "cu dungi negre" etc
+    name_lower = name.lower()
+    for key, val in COLOR_MAP.items():
+        if key in name_lower:
+            return val
+    return ""
 CACHE_FILE = os.path.join(SCRIPT_DIR, "stock_cache.json")
 FEED_FILE = os.path.join(SCRIPT_DIR, "product_feed.json")
 
@@ -197,7 +231,8 @@ def export_template(products, output=None, only_in_stock=True):
                     cat_str,
                     brand_name,
                     f"Marime:{size_name}" if size_name else "",
-                    "", "", "", "",  # Optiune 2-5
+                    f"Culoare:{extract_color(prod.get('nume', ''))}" if extract_color(prod.get("nume", "")) else "",
+                    "", "", "",  # Optiune 3-5
                     "",  # Furnizor
                     float(opt_pret) if opt_pret else 0,
                     0,  # Pret intrare
@@ -242,7 +277,9 @@ def export_template(products, output=None, only_in_stock=True):
                 clean_html(prod.get("descriere", "")),
                 cat_str,
                 brand_name,
-                "", "", "", "", "",  # Optiuni
+                "",
+                f"Culoare:{extract_color(prod.get('nume', ''))}" if extract_color(prod.get("nume", "")) else "",
+                "", "", "",  # Optiuni 3-5
                 "",  # Furnizor
                 float(pret) if pret else 0,
                 0,
