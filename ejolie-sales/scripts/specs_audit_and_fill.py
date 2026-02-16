@@ -406,7 +406,8 @@ def main():
                         help='Completeaza cu GPT')
     parser.add_argument('--limit', type=int, default=0,
                         help='Limita produse (0=toate)')
-    parser.add_argument('--brand', type=str, default='ejolie', help='Brand')
+    parser.add_argument('--brand', type=str, nargs='+',
+                        default=['ejolie', 'trendya'], help='Brand-uri (default: ejolie trendya)')
     parser.add_argument('--in-stock', action='store_true', default=True,
                         help='Doar produse cu stoc > 0 (default: True)')
     parser.add_argument('--all-stock', action='store_true',
@@ -430,10 +431,17 @@ def main():
     if OPENAI_KEY:
         print(f"✅ OpenAI Key: ...{OPENAI_KEY[-6:]}")
 
-    # Pas 1: Preia ID-uri produse
-    print(f"\n📦 Pas 1: Preiau ID-uri produse (brand={args.brand})...")
-    ids = fetch_product_ids(args.brand)
-    print(f"   Gasite: {len(ids)} ID-uri")
+    # Pas 1: Preia ID-uri produse (pentru toate brandurile)
+    all_ids = []
+    for brand in args.brand:
+        print(f"\n📦 Pas 1: Preiau ID-uri produse (brand={brand})...")
+        brand_ids = fetch_product_ids(brand)
+        print(f"   Gasite: {len(brand_ids)} ID-uri pentru {brand}")
+        all_ids.extend(brand_ids)
+
+    # Elimina duplicate
+    ids = list(dict.fromkeys(all_ids))
+    print(f"\n   📊 Total ID-uri unice: {len(ids)} (din {len(all_ids)} total)")
 
     if not ids:
         print("❌ Nu am gasit produse! Verifica API key si brand.")
