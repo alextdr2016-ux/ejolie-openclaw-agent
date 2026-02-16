@@ -46,6 +46,23 @@ ALLOWED_MATERIAL = ["Amestec poliester", "Catifea", "Crepe", "Cu paiete", "Dante
 ALLOWED_TIP_MATERIAL = ["Knit", "Laced", "Țesut", "Nespecificat"]
 
 
+_ean_counter = 0
+def generate_ean13():
+    """Generate unique valid EAN-13 barcode with sequential counter"""
+    global _ean_counter
+    _ean_counter += 1
+    # 200 prefix = internal use (safe for private labels)
+    base = "200" + str(_ean_counter).zfill(9)
+    base = base[:12]
+    # Calculate check digit
+    total = 0
+    for i, digit in enumerate(base):
+        d = int(digit)
+        total += d if i % 2 == 0 else d * 3
+    check = (10 - (total % 10)) % 10
+    return base + str(check)
+
+
 def extract_color(name):
     words = name.lower().split()
     for word in words:
@@ -239,9 +256,11 @@ def export_trendyol(products, output=None):
                     op = p
                     opt_sell = sell_price
 
-                barcode = f"{cod}-{size}" if cod else f"{pid}-{size}"
+                barcode = generate_ean13()
+                brand_data = prod.get("brand", {})
+                brand_name = brand_data.get("nume", "Ejolie") if isinstance(brand_data, dict) else str(brand_data)
                 row = [
-                    barcode, cod or pid, "Ejolie", 543,
+                    barcode, cod or pid, brand_name, 543,
                     name, clean_desc[:5000], op, opt_sell,
                     stoc_fizic, f"{cod}-{size}", 21,
                 ]
@@ -261,7 +280,7 @@ def export_trendyol(products, output=None):
                     "Simplu", attrs.get("MODEL", "Simplu"),
                     attrs.get("TIP_MATERIAL", "Țesut"),
                     "RO", attrs.get("INCHIDERE", "Cu fermoar"),
-                    "", "Adult", "", "Ejolie", "Fără centură",
+                    "", "Adult", "", brand_name, "Fără centură",
                     color, "Femeie", "Feminin",
                     attrs.get("MATERIAL", "Amestec poliester"),
                     "Elegant / Noapte", "",
