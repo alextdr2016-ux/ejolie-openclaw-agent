@@ -407,6 +407,10 @@ def main():
     parser.add_argument('--limit', type=int, default=0,
                         help='Limita produse (0=toate)')
     parser.add_argument('--brand', type=str, default='ejolie', help='Brand')
+    parser.add_argument('--in-stock', action='store_true', default=True,
+                        help='Doar produse cu stoc > 0 (default: True)')
+    parser.add_argument('--all-stock', action='store_true',
+                        help='Include si produse fara stoc')
     parser.add_argument('--output', type=str, default='',
                         help='Output Excel path')
     args = parser.parse_args()
@@ -435,15 +439,38 @@ def main():
         print("❌ Nu am gasit produse! Verifica API key si brand.")
         sys.exit(1)
 
-    # Aplica limita
-    if args.limit > 0:
-        ids = ids[:args.limit]
-        print(f"   ⚡ Limitat la {args.limit} produse")
-
     # Pas 2: Preia detalii produse in batch
     print(f"\n📦 Pas 2: Preiau detalii produse...")
     products = fetch_products_batch(ids)
     print(f"   Total produse cu detalii: {len(products)}")
+
+    # Pas 2.5: Filtreaza dupa stoc
+    if not args.all_stock:
+        before = len(products)
+        filtered = []
+        for p in products:
+            stoc = p.get('stoc', '')
+            stoc_fizic = p.get('stoc_fizic', 0)
+
+            # Verifica stoc: "in stoc", "In stoc" sau stoc_fizic > 0
+            has_stock = False
+            if isinstance(stoc_fizic, (int, float)) and stoc_fizic > 0:
+                has_stock = True
+            elif isinstance(stoc_fizic, str) and stoc_fizic.isdigit() and int(stoc_fizic) > 0:
+                has_stock = True
+            elif isinstance(stoc, str) and 'stoc' in stoc.lower() and 'fara' not in stoc.lower() and 'indisponibil' not in stoc.lower():
+                has_stock = True
+
+            if has_stock:
+                filtered.append(p)
+
+        products = filtered
+        print(f"   🏷️ Filtru stoc > 0: {before} → {len(products)} produse")
+
+    # Aplica limita
+    if args.limit > 0:
+        products = products[:args.limit]
+        print(f"   ⚡ Limitat la {args.limit} produse")
 
     # Pas 3: Analizeaza specificatii
     print(f"\n🔎 Pas 3: Analizez specificatii...")
