@@ -3,7 +3,7 @@
 EJOLIE.RO - Audit & Auto-Fill Product Specifications
 =====================================================
 Script care:
-1. Exporta produsele din Extended API
+1. Exporta produsele din Extended API (folosind aceeasi logica ca export_trendyol.py)
 2. Identifica produsele fara specificatii completate
 3. Foloseste GPT pentru a genera specificatii lipsa
 4. Genereaza fisier Excel pentru import in Extended
@@ -11,10 +11,10 @@ Script care:
 Specificatii tracked: Culoare, Material, Lungime, Croi, Stil, Model
 
 Utilizare:
-  python3 specs_audit_and_fill.py --audit          # Doar audit - vezi ce lipseste
-  python3 specs_audit_and_fill.py --fill --limit 5  # Completeaza cu GPT (test 5 produse)
+  python3 specs_audit_and_fill.py --audit          # Doar audit
+  python3 specs_audit_and_fill.py --fill --limit 5  # Completeaza cu GPT (test 5)
   python3 specs_audit_and_fill.py --fill             # Completeaza toate
-  
+
 Autor: Claude AI pentru Alex Tudor
 Data: 16 Februarie 2026
 """
@@ -24,31 +24,46 @@ import sys
 import json
 import time
 import argparse
-import requests
+import urllib.request
 from pathlib import Path
 
 # ============================================================
-# CONFIGURARE
+# CONFIGURARE - folosim aceleasi variabile ca celelalte scripturi
 # ============================================================
 
-# Calea catre .env (pe EC2: ~/ejolie-openclaw-agent/ejolie-sales/.env)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-ENV_PATH = os.path.join(SCRIPT_DIR, '..', '.env')
 
-# Alternativa: cauta .env in mai multe locuri
-ENV_PATHS = [
-    ENV_PATH,
+# Incarca .env manual
+
+
+def load_dotenv(path):
+    if not os.path.exists(path):
+        return
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if '=' in line and not line.startswith('#'):
+                k, v = line.split('=', 1)
+                os.environ.setdefault(
+                    k.strip(), v.strip().strip('"').strip("'"))
+
+
+# Cauta .env
+for env_path in [
+    os.path.join(SCRIPT_DIR, '..', '.env'),
     os.path.join(SCRIPT_DIR, '.env'),
     os.path.expanduser('~/ejolie-openclaw-agent/ejolie-sales/.env'),
-]
+]:
+    if os.path.exists(env_path):
+        load_dotenv(env_path)
+        print(f"📁 .env din: {env_path}")
+        break
 
-# Extended API
-EXTENDED_API_URL = "https://www.ejolie.ro/api/"
-EXTENDED_API_KEY = None  # Se incarca din .env
-
-# OpenAI
-OPENAI_API_KEY = None  # Se incarca din .env
-GPT_MODEL = "gpt-4o-mini"  # Ieftin si rapid
+# Aceleasi variabile ca in export_trendyol.py si utils.py
+API_KEY = os.environ.get("EJOLIE_API_KEY", "")
+API_URL = os.environ.get("EJOLIE_API_URL", "https://ejolie.ro/api/")
+OPENAI_KEY = os.environ.get("OPENAI_API_KEY", "")
+GPT_MODEL = "gpt-4o-mini"
 
 # Specificatiile pe care le tracked
 SPEC_NAMES = ["Culoare", "Material", "Lungime", "Croi", "Stil", "Model"]
@@ -89,358 +104,290 @@ VALID_VALUES = {
     ]
 }
 
+
 # ============================================================
-# FUNCTII HELPER
+# API FUNCTIONS - exact ca in export_trendyol.py
 # ============================================================
 
-
-def load_env():
-    """Incarca variabilele din .env"""
-    global EXTENDED_API_KEY, OPENAI_API_KEY
-
-    env_file = None
-    for path in ENV_PATHS:
-        if os.path.exists(path):
-            env_file = path
-            break
-
-    if not env_file:
-        print("❌ Nu am gasit fisierul .env!")
-        print(f"   Am cautat in: {ENV_PATHS}")
-        print("   Creaza un fisier .env cu:")
-        print("   EXTENDED_API_KEY=cheia_ta")
-        print("   OPENAI_API_KEY=cheia_ta")
-        sys.exit(1)
-
-    print(f"📁 Incarc .env din: {env_file}")
-    with open(env_file, 'r') as f:
-        for line in f:
-            line = line.strip()
-            if '=' in line and not line.startswith('#'):
-                key, value = line.split('=', 1)
-                key = key.strip()
-                value = value.strip().strip('"').strip("'")
-                if key == 'EXTENDED_API_KEY':
-                    EXTENDED_API_KEY = value
-                elif key == 'OPENAI_API_KEY':
-                    OPENAI_API_KEY = value
-
-    if not EXTENDED_API_KEY:
-        print("❌ EXTENDED_API_KEY nu e setat in .env!")
-        sys.exit(1)
-
-    print(f"✅ Extended API Key: ...{EXTENDED_API_KEY[-6:]}")
-    if OPENAI_API_KEY:
-        print(f"✅ OpenAI API Key: ...{OPENAI_API_KEY[-6:]}")
+def api_fetch(url):
+    """Fetch URL cu User-Agent (asa functioneaza Extended API)"""
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    resp = urllib.request.urlopen(req, timeout=180)
+    return json.loads(resp.read().decode("utf-8"))
 
 
-def fetch_all_products():
-    """Preia TOATE produsele din Extended API"""
-    print("\n📦 Preiau lista de produse din Extended API...")
+def fetch_product_ids(brand="ejolie"):
+    """Pas 1: Preia lista de ID-uri produse (ca export_trendyol.py)"""
+    url = f"{API_URL}?produse&brand={brand}&apikey={API_KEY}"
+    print(f"   URL: {url[:80]}...")
+    data = api_fetch(url)
 
-    all_products = []
-    page = 1
+    if isinstance(data, list):
+        # API returneaza lista de ID-uri sau lista de produse
+        if data and isinstance(data[0], dict):
+            ids = [str(p.get('id', p.get('id_produs', ''))) for p in data]
+        else:
+            ids = [str(x) for x in data]
+    elif isinstance(data, dict):
+        ids = list(data.keys())
+    else:
+        ids = []
 
-    while True:
-        params = {
-            'produse': '',
-            'apikey': EXTENDED_API_KEY,
-            'pagina': page,
-            'per_pagina': 20  # Extended default
-        }
+    return ids
+
+
+def fetch_products_batch(ids):
+    """Pas 2: Preia detalii produse in batch (ca export_trendyol.py)"""
+    products = []
+    batch_size = 20
+
+    for i in range(0, len(ids), batch_size):
+        batch = ids[i:i+batch_size]
+        url = f"{API_URL}?produse&id_produse={','.join(batch)}&apikey={API_KEY}"
 
         try:
-            resp = requests.get(EXTENDED_API_URL, params=params, timeout=30)
-            data = resp.json()
+            data = api_fetch(url)
+            if isinstance(data, list):
+                products.extend(data)
+            elif isinstance(data, dict):
+                products.extend(data.values())
+            print(
+                f"   Batch {i//batch_size + 1}: {len(batch)} IDs → {len(products)} total")
         except Exception as e:
-            print(f"❌ Eroare la pagina {page}: {e}")
-            break
+            print(f"   ❌ Eroare batch {i//batch_size + 1}: {e}")
 
-        if not data or (isinstance(data, dict) and 'error' in data):
-            break
+        time.sleep(0.5)
 
-        # Extended API returneaza lista de produse sau dict cu produse
-        products = data if isinstance(data, list) else data.get('produse', [])
-
-        if not products:
-            break
-
-        all_products.extend(products)
-        print(
-            f"   Pagina {page}: {len(products)} produse (total: {len(all_products)})")
-
-        if len(products) < 20:
-            break
-
-        page += 1
-        time.sleep(0.3)  # Rate limiting
-
-    print(f"\n✅ Total produse gasite: {len(all_products)}")
-    return all_products
+    return products
 
 
-def fetch_product_details(product_id):
-    """Preia detalii complete pentru un produs (inclusiv specificatii)"""
-    params = {
-        'id_produs': product_id,
-        'apikey': EXTENDED_API_KEY
-    }
+# ============================================================
+# SPECS ANALYSIS
+# ============================================================
 
-    try:
-        resp = requests.get(EXTENDED_API_URL, params=params, timeout=15)
-        return resp.json()
-    except Exception as e:
-        print(f"   ❌ Eroare la produsul {product_id}: {e}")
-        return None
-
-
-def analyze_specs(product_detail):
+def analyze_specs(product):
     """Analizeaza ce specificatii are/nu are un produs"""
-    specs = product_detail.get('specificatii', [])
+    specs = product.get('specificatii', [])
 
-    # Construieste un dict cu specificatiile existente
     existing = {}
-    if specs:
+    if isinstance(specs, list):
         for spec in specs:
             name = spec.get('nume', '')
             values = spec.get('valoare', [])
-            if values and values[0]:  # Nu e gol
+            if values and values[0]:
                 existing[name] = values
+    elif isinstance(specs, dict):
+        for name, values in specs.items():
+            if values:
+                existing[name] = values if isinstance(
+                    values, list) else [values]
 
-    # Verifica ce lipseste
-    missing = []
-    for spec_name in SPEC_NAMES:
-        if spec_name not in existing:
-            missing.append(spec_name)
-
+    missing = [s for s in SPEC_NAMES if s not in existing]
     return existing, missing
 
 
+# ============================================================
+# GPT - exact ca in export_trendyol.py (urllib, nu openai lib)
+# ============================================================
+
 def gpt_generate_specs(product_name, product_description, missing_specs):
     """Foloseste GPT pentru a genera specificatiile lipsa"""
-    if not OPENAI_API_KEY:
-        print("❌ OPENAI_API_KEY nu e setat! Nu pot folosi GPT.")
+    if not OPENAI_KEY:
         return {}
 
-    # Construieste prompt-ul cu valorile valide
     valid_options = ""
     for spec in missing_specs:
         if spec in VALID_VALUES:
             valid_options += f"\n{spec} - alege DOAR din: {', '.join(VALID_VALUES[spec])}"
 
-    prompt = f"""Esti un expert in fashion e-commerce. Analizeaza acest produs si completeaza specificatiile lipsa.
+    prompt = f"""Esti expert fashion e-commerce. Analizeaza produsul si completeaza specificatiile lipsa.
 
 PRODUS: {product_name}
-DESCRIERE: {product_description[:500] if product_description else 'Fara descriere'}
+DESCRIERE: {str(product_description)[:500]}
 
 SPECIFICATII DE COMPLETAT (alege EXACT din valorile date):
 {valid_options}
 
-REGULI IMPORTANTE:
-- Alege DOAR valori din listele de mai sus, nu inventa altele
-- Pentru Culoare: extrage din numele produsului daca e posibil
-- Pentru Material: analizeaza descrierea
-- Pentru Lungime: Lungi = rochii lungi/maxi, Medii = midi/pana la genunchi, Scurte = mini
-- Pentru Croi: analizeaza silueta din descriere
-- Pentru Stil: analizeaza contextul (seara, casual, office etc.)
-- Pentru Model: analizeaza detaliile (maneci, decolteu, accesorii)
+REGULI:
+- Alege DOAR valori din listele de mai sus
+- Pentru Culoare: extrage din numele produsului
+- Lungime: Lungi=maxi/lunga, Medii=midi, Scurte=mini
 - Daca nu esti sigur, pune cea mai probabila valoare
 
-Raspunde DOAR in format JSON, fara alte explicatii:
-{{"Culoare": "valoare", "Material": "valoare", "Lungime": "valoare", "Croi": "valoare", "Stil": "valoare", "Model": "valoare"}}
+Raspunde DOAR JSON, fara alte texte:
+{{{', '.join(f'"{s}": "valoare"' for s in missing_specs)}}}"""
 
-Include DOAR specificatiile cerute: {', '.join(missing_specs)}"""
+    url = "https://api.openai.com/v1/chat/completions"
+    payload = json.dumps({
+        "model": GPT_MODEL,
+        "messages": [
+            {"role": "system", "content": "Raspunzi DOAR in JSON valid. Esti expert fashion."},
+            {"role": "user", "content": prompt}
+        ],
+        "temperature": 0.3,
+        "max_tokens": 200
+    }).encode("utf-8")
+
+    req = urllib.request.Request(url, data=payload, headers={
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {OPENAI_KEY}"
+    })
 
     try:
-        import openai
-        client = openai.OpenAI(api_key=OPENAI_API_KEY)
+        resp = urllib.request.urlopen(req, timeout=30)
+        result = json.loads(resp.read().decode("utf-8"))
+        text = result["choices"][0]["message"]["content"].strip()
+        text = text.replace('```json', '').replace('```', '').strip()
+        specs = json.loads(text)
 
-        response = client.chat.completions.create(
-            model=GPT_MODEL,
-            messages=[
-                {"role": "system", "content": "Esti un expert in fashion care completeaza specificatii de produs. Raspunzi DOAR in JSON valid."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.3,
-            max_tokens=200
-        )
-
-        result_text = response.choices[0].message.content.strip()
-        # Curata JSON-ul
-        result_text = result_text.replace(
-            '```json', '').replace('```', '').strip()
-
-        result = json.loads(result_text)
-
-        # Valideaza ca valorile sunt din lista permisa
+        # Valideaza valorile
         validated = {}
-        for spec_name, value in result.items():
-            if spec_name in VALID_VALUES:
-                if value in VALID_VALUES[spec_name]:
-                    validated[spec_name] = value
+        for name, value in specs.items():
+            if name in VALID_VALUES:
+                if value in VALID_VALUES[name]:
+                    validated[name] = value
                 else:
-                    # Cauta cea mai apropiata valoare
-                    closest = find_closest_value(
-                        value, VALID_VALUES[spec_name])
+                    closest = find_closest(value, VALID_VALUES[name])
                     if closest:
-                        validated[spec_name] = closest
-                        print(
-                            f"      ⚠️ {spec_name}: '{value}' → '{closest}' (corectat)")
-                    else:
-                        print(
-                            f"      ❌ {spec_name}: '{value}' nu e valid, skip")
-
+                        validated[name] = closest
         return validated
-
-    except json.JSONDecodeError as e:
-        print(f"      ❌ GPT a returnat JSON invalid: {e}")
-        return {}
     except Exception as e:
-        print(f"      ❌ Eroare GPT: {e}")
+        print(f"      ❌ GPT eroare: {e}")
         return {}
 
 
-def find_closest_value(value, valid_list):
-    """Gaseste cea mai apropiata valoare din lista valida"""
-    value_lower = value.lower().strip()
-    for valid in valid_list:
-        if valid.lower() == value_lower:
-            return valid
-    # Cautare partiala
-    for valid in valid_list:
-        if value_lower in valid.lower() or valid.lower() in value_lower:
-            return valid
+def find_closest(value, valid_list):
+    """Gaseste cea mai apropiata valoare"""
+    vl = value.lower().strip()
+    for v in valid_list:
+        if v.lower() == vl:
+            return v
+    for v in valid_list:
+        if vl in v.lower() or v.lower() in vl:
+            return v
     return None
 
 
-def generate_excel(products_with_specs, output_path):
-    """Genereaza fisierul Excel pentru import in Extended"""
+# ============================================================
+# EXCEL GENERATION
+# ============================================================
+
+def generate_excel(results, output_path, mode="audit"):
+    """Genereaza Excel cu raport + fisier import"""
     import openpyxl
     from openpyxl.styles import Font, PatternFill, Alignment
 
     wb = openpyxl.Workbook()
 
-    # === Sheet 1: Fisier pentru Import Extended ===
-    ws_import = wb.active
-    ws_import.title = "Import Specificatii"
+    # === Sheet 1: Raport Audit ===
+    ws = wb.active
+    ws.title = "Raport Audit"
 
-    # Headers conform template-ului Extended
-    # Coloanele A-AH sunt obligatorii (chiar daca goale), apoi specificatiile
-    headers = [
-        "Nume produs",      # A
-        "Descriere",         # B
-        "Categorie",         # C
-        "Brand",             # D
-        "Optiune 1",         # E
-        "Optiune 2",         # F
-        "Optiune 3",         # G
-        "Optiune 4",         # H
-        "Optiune 5",         # I
-        "Furnizor",          # J
-        "Pret vanzare",      # K
-        "Pret intrare",      # L
-        "Adaos %",           # M
-        "Discount %",        # N
-        "Moneda",            # O
-        "Cod produs",        # P
-        "Stoc",              # Q
-        "Stoc fizic",        # R
-        "Greutate (KG)",     # S
-    ]
-    # Imagini T-AH (15 coloane)
-    for i in range(1, 16):
-        headers.append(f"Imagine {i}")
+    headers = ["ID", "Cod Produs", "Nume Produs",
+               "Categorie"] + SPEC_NAMES + ["Lipsa", "Status"]
 
-    # Specificatii
-    for spec_name in SPEC_NAMES:
-        headers.append(spec_name)
+    hfill = PatternFill(start_color="4472C4",
+                        end_color="4472C4", fill_type="solid")
+    hfont = Font(color="FFFFFF", bold=True, size=11)
 
-    # Scrie headers
-    header_fill = PatternFill(start_color="4472C4",
-                              end_color="4472C4", fill_type="solid")
-    header_font = Font(color="FFFFFF", bold=True, size=11)
-
-    for col, header in enumerate(headers, 1):
-        cell = ws_import.cell(row=1, column=col, value=header)
-        cell.fill = header_fill
-        cell.font = header_font
+    for col, h in enumerate(headers, 1):
+        cell = ws.cell(row=1, column=col, value=h)
+        cell.fill = hfill
+        cell.font = hfont
         cell.alignment = Alignment(horizontal="center")
 
-    # Scrie datele
-    row = 2
-    for prod in products_with_specs:
-        ws_import.cell(row=row, column=1, value=prod.get('nume', ''))
-        ws_import.cell(row=row, column=4, value=prod.get('brand', ''))
-        ws_import.cell(row=row, column=16, value=prod.get('cod_produs', ''))
+    green = PatternFill(start_color="C6EFCE",
+                        end_color="C6EFCE", fill_type="solid")
+    yellow = PatternFill(start_color="FFEB9C",
+                         end_color="FFEB9C", fill_type="solid")
+    red = PatternFill(start_color="FFC7CE",
+                      end_color="FFC7CE", fill_type="solid")
 
-        # Specificatii (incep de la coloana 35 = AI dupa 15 imagini)
-        spec_start_col = 20 + 15  # Dupa S + 15 imagini = coloana 35
-        for i, spec_name in enumerate(SPEC_NAMES):
-            value = prod.get('specs_new', {}).get(spec_name, '')
-            ws_import.cell(row=row, column=spec_start_col + i, value=value)
-
-        row += 1
-
-    # Auto-width
-    for col in ws_import.columns:
-        max_length = 0
-        for cell in col:
-            if cell.value:
-                max_length = max(max_length, len(str(cell.value)))
-        ws_import.column_dimensions[col[0].column_letter].width = min(
-            max_length + 2, 40)
-
-    # === Sheet 2: Raport Audit ===
-    ws_audit = wb.create_sheet("Raport Audit")
-    audit_headers = ["Cod Produs", "Nume Produs", "Culoare", "Material", "Lungime",
-                     "Croi", "Stil", "Model", "Specs Lipsa", "Status"]
-
-    for col, header in enumerate(audit_headers, 1):
-        cell = ws_audit.cell(row=1, column=col, value=header)
-        cell.fill = PatternFill(start_color="70AD47",
-                                end_color="70AD47", fill_type="solid")
-        cell.font = Font(color="FFFFFF", bold=True)
-
-    row = 2
-    for prod in products_with_specs:
-        ws_audit.cell(row=row, column=1, value=prod.get('cod_produs', ''))
-        ws_audit.cell(row=row, column=2, value=prod.get('nume', ''))
+    for row_idx, prod in enumerate(results, 2):
+        ws.cell(row=row_idx, column=1, value=prod.get('id', ''))
+        ws.cell(row=row_idx, column=2, value=prod.get('cod_produs', ''))
+        ws.cell(row=row_idx, column=3, value=prod.get('nume', '')[:50])
+        ws.cell(row=row_idx, column=4, value=prod.get('categorie', ''))
 
         existing = prod.get('specs_existing', {})
         new_specs = prod.get('specs_new', {})
         missing = prod.get('specs_missing', [])
 
         for i, spec_name in enumerate(SPEC_NAMES):
-            val = existing.get(spec_name, new_specs.get(spec_name, ''))
-            if isinstance(val, list):
-                val = ', '.join(val)
-            cell = ws_audit.cell(row=row, column=3 + i, value=val or '-')
+            val = ''
+            fill = red
 
-            # Coloreaza: verde = existent, galben = completat de GPT, rosu = lipsa
             if spec_name in existing:
-                cell.fill = PatternFill(
-                    start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")
+                val = ', '.join(existing[spec_name]) if isinstance(
+                    existing[spec_name], list) else existing[spec_name]
+                fill = green
             elif spec_name in new_specs:
-                cell.fill = PatternFill(
-                    start_color="FFEB9C", end_color="FFEB9C", fill_type="solid")
+                val = new_specs[spec_name]
+                fill = yellow
             else:
-                cell.fill = PatternFill(
-                    start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
+                val = '❌ LIPSA'
 
-        ws_audit.cell(row=row, column=9, value=len(missing))
-        status = "✅ Complet" if not missing else f"⚠️ Lipsesc {len(missing)}"
-        ws_audit.cell(row=row, column=10, value=status)
+            cell = ws.cell(row=row_idx, column=5 + i, value=val)
+            cell.fill = fill
 
-        row += 1
+        ws.cell(row=row_idx, column=11, value=len(missing))
+        ws.cell(row=row_idx, column=12,
+                value="✅ OK" if not missing else f"⚠️ {len(missing)} lipsa")
 
-    # Auto-width sheet 2
-    for col in ws_audit.columns:
-        max_length = 0
-        for cell in col:
-            if cell.value:
-                max_length = max(max_length, len(str(cell.value)))
-        ws_audit.column_dimensions[col[0].column_letter].width = min(
-            max_length + 2, 40)
+    # === Sheet 2: Import Extended (doar produsele cu specs noi) ===
+    if mode == "fill":
+        ws2 = wb.create_sheet("Import Extended")
+
+        import_headers = [
+            "Nume produs", "Descriere", "Categorie", "Brand",
+            "Optiune 1", "Optiune 2", "Optiune 3", "Optiune 4", "Optiune 5",
+            "Furnizor", "Pret vanzare", "Pret intrare", "Adaos %", "Discount %",
+            "Moneda", "Cod produs", "Stoc", "Stoc fizic", "Greutate (KG)"
+        ]
+        for i in range(1, 16):
+            import_headers.append(f"Imagine {i}")
+        for spec in SPEC_NAMES:
+            import_headers.append(spec)
+
+        ifill = PatternFill(start_color="70AD47",
+                            end_color="70AD47", fill_type="solid")
+        for col, h in enumerate(import_headers, 1):
+            cell = ws2.cell(row=1, column=col, value=h)
+            cell.fill = ifill
+            cell.font = hfont
+
+        row_idx = 2
+        for prod in results:
+            new_specs = prod.get('specs_new', {})
+            if not new_specs:
+                continue
+
+            ws2.cell(row=row_idx, column=1, value=prod.get('nume', ''))
+            ws2.cell(row=row_idx, column=4, value=prod.get('brand', ''))
+            ws2.cell(row=row_idx, column=16, value=prod.get('cod_produs', ''))
+
+            # Specificatii - coloana 35+ (dupa 19 cols + 15 imagini)
+            spec_start = 20 + 15  # col 35
+            for i, spec_name in enumerate(SPEC_NAMES):
+                # Pune existent sau nou
+                existing = prod.get('specs_existing', {})
+                if spec_name in existing:
+                    val = existing[spec_name][0] if isinstance(
+                        existing[spec_name], list) else existing[spec_name]
+                elif spec_name in new_specs:
+                    val = new_specs[spec_name]
+                else:
+                    val = ''
+                ws2.cell(row=row_idx, column=spec_start + i, value=val)
+
+            row_idx += 1
+
+    # Auto-width
+    for sheet in wb.worksheets:
+        for col in sheet.columns:
+            max_len = max((len(str(c.value or '')) for c in col), default=0)
+            sheet.column_dimensions[col[0].column_letter].width = min(
+                max_len + 2, 40)
 
     wb.save(output_path)
     print(f"\n📊 Excel salvat: {output_path}")
@@ -452,132 +399,143 @@ def generate_excel(products_with_specs, output_path):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Ejolie.ro - Audit & Fill Product Specifications')
+        description='Ejolie.ro - Audit & Fill Specs')
     parser.add_argument('--audit', action='store_true',
-                        help='Doar audit - vezi ce specificatii lipsesc')
+                        help='Audit specificatii')
     parser.add_argument('--fill', action='store_true',
-                        help='Completeaza specificatiile lipsa cu GPT')
+                        help='Completeaza cu GPT')
     parser.add_argument('--limit', type=int, default=0,
-                        help='Limiteaza numarul de produse (0 = toate)')
-    parser.add_argument('--brand', type=str, default='ejolie',
-                        help='Brand de filtrat (default: ejolie)')
+                        help='Limita produse (0=toate)')
+    parser.add_argument('--brand', type=str, default='ejolie', help='Brand')
     parser.add_argument('--output', type=str, default='',
-                        help='Calea fisierului Excel output')
+                        help='Output Excel path')
     args = parser.parse_args()
 
     if not args.audit and not args.fill:
-        args.audit = True  # Default: audit
+        args.audit = True
 
     print("=" * 60)
     print("🔍 EJOLIE.RO - Audit & Fill Product Specifications")
     print("=" * 60)
 
-    # 1. Incarca .env
-    load_env()
-
-    # 2. Preia lista de produse
-    products = fetch_all_products()
-
-    if not products:
-        print("❌ Nu am gasit produse!")
+    if not API_KEY:
+        print("❌ EJOLIE_API_KEY nu e setat in .env!")
         sys.exit(1)
 
-    # 3. Preia detalii + specificatii pentru fiecare produs
-    print(f"\n🔎 Verific specificatiile pentru fiecare produs...")
+    print(f"✅ API Key: ...{API_KEY[-6:]}")
+    if OPENAI_KEY:
+        print(f"✅ OpenAI Key: ...{OPENAI_KEY[-6:]}")
+
+    # Pas 1: Preia ID-uri produse
+    print(f"\n📦 Pas 1: Preiau ID-uri produse (brand={args.brand})...")
+    ids = fetch_product_ids(args.brand)
+    print(f"   Gasite: {len(ids)} ID-uri")
+
+    if not ids:
+        print("❌ Nu am gasit produse! Verifica API key si brand.")
+        sys.exit(1)
+
+    # Aplica limita
+    if args.limit > 0:
+        ids = ids[:args.limit]
+        print(f"   ⚡ Limitat la {args.limit} produse")
+
+    # Pas 2: Preia detalii produse in batch
+    print(f"\n📦 Pas 2: Preiau detalii produse...")
+    products = fetch_products_batch(ids)
+    print(f"   Total produse cu detalii: {len(products)}")
+
+    # Pas 3: Analizeaza specificatii
+    print(f"\n🔎 Pas 3: Analizez specificatii...")
 
     results = []
-    total = len(products)
-    if args.limit > 0:
-        total = min(total, args.limit)
+    stats = {"complete": 0, "missing": 0}
+    missing_per_spec = {s: 0 for s in SPEC_NAMES}
 
-    products_missing = 0
-    products_complete = 0
+    for i, prod in enumerate(products):
+        name = prod.get('nume', prod.get('nume_scurt', 'N/A'))
+        cod = prod.get('cod_produs', '')
+        pid = prod.get('id', prod.get('id_produs', ''))
+        brand = prod.get('brand', '')
+        if isinstance(brand, dict):
+            brand = brand.get('nume', '')
 
-    for i, prod in enumerate(products[:total]):
-        product_id = prod.get('id', prod.get('id_produs', ''))
-        product_name = prod.get('nume', prod.get('nume_scurt', ''))
-        product_code = prod.get('cod_produs', '')
-        product_brand = prod.get('brand', '')
+        categorie = ''
+        cats = prod.get('categorii', [])
+        if isinstance(cats, list) and cats:
+            categorie = cats[0].get('nume', '') if isinstance(
+                cats[0], dict) else str(cats[0])
+        elif isinstance(cats, dict):
+            first = list(cats.values())[0] if cats else {}
+            categorie = first.get('nume', '') if isinstance(
+                first, dict) else str(first)
 
-        if isinstance(product_brand, dict):
-            product_brand = product_brand.get('nume', '')
-
-        print(
-            f"\n   [{i+1}/{total}] {product_name[:50]}... (cod: {product_code})")
-
-        # Preia detalii complete
-        details = fetch_product_details(product_id)
-        if not details:
-            continue
-
-        # Analizeaza specificatii
-        existing_specs, missing_specs = analyze_specs(details)
+        existing, missing = analyze_specs(prod)
 
         result = {
-            'id': product_id,
-            'nume': product_name,
-            'cod_produs': product_code,
-            'brand': product_brand,
-            'descriere': details.get('descriere', ''),
-            'specs_existing': existing_specs,
-            'specs_missing': missing_specs,
+            'id': pid,
+            'cod_produs': cod,
+            'nume': name,
+            'brand': brand,
+            'categorie': categorie,
+            'descriere': prod.get('continut', prod.get('descriere', '')),
+            'specs_existing': existing,
+            'specs_missing': missing,
             'specs_new': {}
         }
 
-        if missing_specs:
-            products_missing += 1
-            print(f"      ⚠️ Lipsesc: {', '.join(missing_specs)}")
+        if missing:
+            stats["missing"] += 1
+            for s in missing:
+                missing_per_spec[s] += 1
 
-            # Daca fill mode, completeaza cu GPT
-            if args.fill:
-                print(f"      🤖 Generez cu GPT...")
+            if args.fill and OPENAI_KEY:
+                print(
+                    f"   [{i+1}/{len(products)}] 🤖 {name[:40]}... → {', '.join(missing)}")
                 new_specs = gpt_generate_specs(
-                    product_name,
-                    details.get('continut', details.get('descriere', '')),
-                    missing_specs
-                )
+                    name, result['descriere'], missing)
                 result['specs_new'] = new_specs
                 if new_specs:
-                    print(f"      ✅ Generat: {new_specs}")
-                time.sleep(0.5)  # Rate limiting OpenAI
+                    print(f"      ✅ {new_specs}")
+                time.sleep(0.5)
+            else:
+                if i < 10 or i % 50 == 0:
+                    print(
+                        f"   [{i+1}/{len(products)}] ⚠️ {name[:40]}... → lipsa: {', '.join(missing)}")
         else:
-            products_complete += 1
-            print(f"      ✅ Toate specificatiile complete!")
+            stats["complete"] += 1
 
         results.append(result)
-        time.sleep(0.3)  # Rate limiting Extended API
 
-    # 4. Raport
+    # Pas 4: Raport
     print("\n" + "=" * 60)
     print("📊 RAPORT FINAL")
     print("=" * 60)
-    print(f"   Total produse verificate: {len(results)}")
-    print(f"   ✅ Complete (toate specs): {products_complete}")
-    print(f"   ⚠️ Cu specificatii lipsa: {products_missing}")
+    print(f"   Total produse: {len(results)}")
+    print(f"   ✅ Complete: {stats['complete']}")
+    print(f"   ⚠️ Cu lipsa: {stats['missing']}")
 
-    if products_missing > 0:
-        # Statistici per specificatie
-        print(f"\n   Detalii per specificatie:")
-        for spec_name in SPEC_NAMES:
-            missing_count = sum(
-                1 for r in results if spec_name in r['specs_missing'])
-            pct = (missing_count / len(results)) * 100 if results else 0
+    if stats['missing'] > 0:
+        print(f"\n   Per specificatie:")
+        for spec in SPEC_NAMES:
+            cnt = missing_per_spec[spec]
+            pct = (cnt / len(results)) * 100 if results else 0
             bar = "█" * int(pct / 5) + "░" * (20 - int(pct / 5))
-            print(
-                f"   {spec_name:12s}: {missing_count:4d} lipsa ({pct:.0f}%) {bar}")
+            print(f"   {spec:12s}: {cnt:4d} lipsa ({pct:5.1f}%) {bar}")
 
-    # 5. Genereaza Excel
-    if args.output:
-        output_path = args.output
-    else:
-        output_path = os.path.expanduser(
-            f'~/ejolie_specs_{"fill" if args.fill else "audit"}.xlsx')
-
-    generate_excel(results, output_path)
-
-    print(f"\n🎯 Gata! Fisierul Excel e la: {output_path}")
     if args.fill:
-        print(f"   Importa-l in Extended: Manager → Actualizari → Import produse")
+        filled = sum(1 for r in results if r['specs_new'])
+        print(f"\n   🤖 GPT a completat: {filled} produse")
+
+    # Pas 5: Excel
+    output = args.output or os.path.expanduser(
+        f'~/ejolie_specs_{"fill" if args.fill else "audit"}.xlsx'
+    )
+    generate_excel(results, output, "fill" if args.fill else "audit")
+
+    print(f"\n🎯 Gata! Fisierul: {output}")
+    if args.fill:
+        print(f"   Importa in Extended: Manager → Actualizari → Import produse")
     print()
 
 
