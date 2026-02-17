@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Blog Auto-Publisher for ejolie.ro
-Runs via cron: generates article + posts to Extended as draft
+Runs via cron: generates article + DALL-E images + posts to Extended as draft
 Sends Telegram notification when done.
 
 Cron: 0 8 * * 1,4  (Luni și Joi la 08:00)
@@ -9,7 +9,6 @@ Cron: 0 8 * * 1,4  (Luni și Joi la 08:00)
 import os
 import sys
 import json
-import random
 import requests
 from datetime import datetime
 
@@ -76,7 +75,6 @@ KEYWORDS = [
 
 
 def load_published():
-    """Load list of already published keywords"""
     if os.path.exists(PUBLISHED_LOG):
         with open(PUBLISHED_LOG, "r") as f:
             return json.load(f)
@@ -90,18 +88,16 @@ def save_published(published):
 
 
 def get_next_keyword():
-    """Pick next unpublished keyword"""
     published = load_published()
     published_kws = [p["keyword"] for p in published]
     available = [kw for kw in KEYWORDS if kw not in published_kws]
     if not available:
         print("⚠️ Toate keyword-urile au fost publicate!")
         return None
-    return available[0]  # In order of priority
+    return available[0]
 
 
 def login_extended():
-    """Login to Extended admin, return session"""
     s = requests.Session()
     s.get("https://www.ejolie.ro/manager/login", timeout=30)
     r = s.post(
@@ -117,31 +113,38 @@ def login_extended():
     return None
 
 
-def post_article(session, article_data):
-    """POST article to Extended blog as draft"""
+def post_article(session, article_data, cover_bytes=None):
+    """POST article to Extended blog with optional cover image"""
     data = {
         "trimite": "value",
         "camp_nume": article_data["title"],
         "camp_data": datetime.now().strftime("%d-%m-%Y"),
         "camp_descriere": article_data.get("short_description", article_data.get("meta_description", "")),
         "camp_continut": article_data["content_html"],
-        "camp_categorie": "1",  # Blog
+        "camp_categorie": "1",
         "camp_linkpublic": article_data["slug"],
         "camp_title": article_data["meta_title"],
         "camp_keywords": article_data["meta_keywords"],
         "camp_description": article_data["meta_description"],
         "id_autosave": "",
     }
+
+    files = None
+    if cover_bytes:
+        files = {
+            "imagine": (f"{article_data['slug']}-coperta.webp", cover_bytes, "image/webp"),
+        }
+
     r = session.post(
         "https://www.ejolie.ro/manager/blog/adauga_articol/0",
         data=data,
+        files=files,
         timeout=60,
     )
     return r.status_code == 200
 
 
 def send_telegram(message):
-    """Send notification via Telegram"""
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         print("⚠️ Telegram not configured")
         return
@@ -181,7 +184,7 @@ def main():
     if result.returncode != 0:
         print(f"❌ Generator error:\n{result.stderr}")
         send_telegram(
-            f"❌ Blog generator FAILED pentru: {keyword}\n{result.stderr[:200]}")
+            f"❌ Blog generator FAILED: {keyword}\n{result.stderr[:200]}")
         return
 
     # 3. Load generated article
@@ -202,18 +205,47 @@ def main():
     print(f"  ✅ Articol: {article['title']}")
     print(f"  📝 Content: {len(article['content_html'])} chars")
 
-    # 4. Login & post
-    print("\n2️⃣ Postez pe Extended...")
+    # 4. Login
+    print("\n2️⃣ Login Extended...")
     session = login_extended()
     if not session:
-        send_telegram(f"❌ Blog: Login Extended FAILED")
+        send_telegram("❌ Blog: Login Extended FAILED")
         return
 
-    success = post_article(session, article)
-    if success:
-        print(f"  ✅ Articol postat ca DRAFT!")
+    # 5. Generate images with DALL-E
+    cover_bytes = None
+    print("\n3️⃣ Generez imagini DALL-E...")
+    try:
+        from blog_images import generate_blog_images, inject_images_into_html
 
-        # 5. Log published
+        images = generate_blog_images(keyword, session, num_inline=2)
+
+        # Inject inline images into HTML
+        if images["inline_images"]:
+            article["content_html"] = inject_images_into_html(
+                article["content_html"], images["inline_images"]
+            )
+            print(
+                f"  ✅ {len(images['inline_images'])} imagini inline injectate")
+
+        # Cover image bytes for form upload
+        cover_bytes = images.get("cover_bytes")
+        if cover_bytes:
+            print(f"  ✅ Copertă: {len(cover_bytes)//1024}KB")
+
+    except ImportError:
+        print("  ⚠️ blog_images.py not found, skipping images")
+    except Exception as e:
+        print(f"  ⚠️ Image generation error: {e}")
+        print("  📝 Continuă fără imagini...")
+
+    # 6. Post article
+    print("\n4️⃣ Postez pe Extended...")
+    success = post_article(session, article, cover_bytes=cover_bytes)
+    if success:
+        print(f"  ✅ Articol postat!")
+
+        # 7. Log published
         published = load_published()
         published.append({
             "keyword": keyword,
@@ -221,17 +253,24 @@ def main():
             "slug": slug,
             "date": datetime.now().isoformat(),
             "url": f"https://www.ejolie.ro/blog/{slug}",
+            "has_images": cover_bytes is not None,
         })
         save_published(published)
 
-        # 6. Notify
+        # 8. Update JSON with images
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(article, f, ensure_ascii=False, indent=2)
+
+        # 9. Notify
+        img_status = "cu imagini DALL-E" if cover_bytes else "fara imagini"
         msg = (
-            f"✅ <b>Articol blog nou (DRAFT)</b>\n\n"
+            f"✅ <b>Articol blog nou</b>\n\n"
             f"📌 <b>{article['title']}</b>\n"
             f"🔑 Keyword: {keyword}\n"
             f"📎 Slug: {slug}\n"
-            f"📊 {len(article['content_html'])} caractere\n\n"
-            f"👉 Verifică și activează din admin:\n"
+            f"📊 {len(article['content_html'])} caractere\n"
+            f"🎨 {img_status}\n\n"
+            f"👉 Verifică în admin:\n"
             f"https://www.ejolie.ro/manager/blog"
         )
         send_telegram(msg)
