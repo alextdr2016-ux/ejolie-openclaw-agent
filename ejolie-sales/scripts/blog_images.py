@@ -27,6 +27,32 @@ ELFINDER_URL = "https://www.ejolie.ro/manager/application/views/platforma/module
 ELFINDER_PARAMS = "?url=https://www.ejolie.ro/continut/upload"
 BLOG_FOLDER_HASH = "l1_QmxvZw"  # elfinder hash for /continut/upload/Blog/
 IMAGE_BASE_URL = "https://www.ejolie.ro/continut/upload/Blog"
+IMAGES_LOG = os.path.expanduser("~/blog_articles/images_log.json")
+
+
+def load_images_log():
+    """Track all generated images to avoid reuse"""
+    if os.path.exists(IMAGES_LOG):
+        with open(IMAGES_LOG, "r") as f:
+            return json.load(f)
+    return {}
+
+
+def save_images_log(log):
+    os.makedirs(os.path.dirname(IMAGES_LOG), exist_ok=True)
+    with open(IMAGES_LOG, "w") as f:
+        json.dump(log, f, ensure_ascii=False, indent=2)
+
+
+def get_used_product_images():
+    """Get set of product image URLs already used in previous articles"""
+    log = load_images_log()
+    used = set()
+    for article_slug, data in log.items():
+        for img_url in data.get("product_images", []):
+            used.add(img_url)
+    return used
+
 
 # DALL-E prompt templates for fashion blog
 COVER_PROMPT_TEMPLATE = """Professional fashion photography style image for a Romanian fashion blog article about "{keyword}". 
@@ -187,13 +213,19 @@ def generate_blog_images(keyword, session, num_inline=2):
         "inline_images": [],
     }
 
+    # Load log for uniqueness
+    images_log = load_images_log()
+    dalle_urls = []
+
     # 1. Generate cover image
-    print(f"  🎨 Generez copertă DALL-E...", flush=True)
+    print(f"  🎨 Generez copertă DALL-E (landscape)...", flush=True)
     cover_prompt = COVER_PROMPT_TEMPLATE.format(keyword=keyword, **visuals)
+    # Add uniqueness: include slug in prompt
+    cover_prompt += f"\nUnique scene variation for: {slug}"
 
     try:
         img_bytes, revised = generate_dalle_image(
-            cover_prompt, size="1024x1792")
+            cover_prompt, size="1792x1024")
         webp_bytes = convert_to_webp(img_bytes, quality=85)
 
         cover_filename = f"{slug}-coperta-{timestamp}.webp"
@@ -201,6 +233,7 @@ def generate_blog_images(keyword, session, num_inline=2):
 
         result["cover_url"] = cover_url
         result["cover_bytes"] = webp_bytes  # For form upload as "imagine"
+        dalle_urls.append(cover_url)
         print(f"  ✅ Copertă: {cover_url} ({len(webp_bytes)//1024}KB)")
     except Exception as e:
         print(f"  ❌ Copertă DALL-E error: {e}")
@@ -209,6 +242,8 @@ def generate_blog_images(keyword, session, num_inline=2):
     for i in range(min(num_inline, len(INLINE_PROMPTS))):
         print(f"  🎨 Generez imagine inline {i+1}...", flush=True)
         prompt = INLINE_PROMPTS[i].format(**visuals)
+        # Add uniqueness
+        prompt += f"\nUnique variation {i+1} for article: {slug}"
 
         try:
             img_bytes, revised = generate_dalle_image(prompt, size="1024x1024")
@@ -227,16 +262,22 @@ def generate_blog_images(keyword, session, num_inline=2):
             result["inline_images"].append({
                 "url": inline_url,
                 "alt": alt_texts[i % len(alt_texts)],
-                "position": i,  # 0 = after first section, 1 = middle, 2 = before conclusion
+                "position": i,
             })
+            dalle_urls.append(inline_url)
             print(
                 f"  ✅ Inline {i+1}: {inline_url} ({len(webp_bytes)//1024}KB)")
 
-            # Small delay between DALL-E calls
             time.sleep(2)
 
         except Exception as e:
             print(f"  ❌ Inline {i+1} DALL-E error: {e}")
+
+    # Save DALL-E images to log
+    images_log[slug] = images_log.get(slug, {})
+    images_log[slug]["dalle_images"] = dalle_urls
+    images_log[slug]["date"] = datetime.now().isoformat()
+    save_images_log(images_log)
 
     return result
 
@@ -265,13 +306,17 @@ def inject_images_into_html(content_html, inline_images):
     return ''.join(sections)
 
 
-def inject_product_images(content_html, products):
+def inject_product_images(content_html, products, article_slug=""):
     """
     Insert real product images next to their links in the article.
     Finds <a href="product_url"> and adds <img> after the paragraph.
+    Skips images already used in previous articles.
     """
     if not products:
         return content_html
+
+    # Load previously used images
+    used_images = get_used_product_images()
 
     # Build URL→image map from products that have images
     url_to_img = {}
@@ -279,19 +324,19 @@ def inject_product_images(content_html, products):
         img = p.get("image", "")
         url = p.get("url", "")
         name = p.get("name", "")
-        if img and url:
+        if img and url and img not in used_images:
             url_to_img[url] = {"img": img, "name": name}
 
     if not url_to_img:
         return content_html
 
+    # Track which product images we use in this article
+    used_in_this_article = []
+
     # Find all product links and add images after their containing paragraph
     for url, info in url_to_img.items():
-        # Escape URL for regex
         escaped_url = re.escape(url)
 
-        # Find <a> tag with this URL inside a <p> or <li>
-        # Add product image after the closing </p> or </li>
         pattern = r'(<(?:p|li)[^>]*>(?:(?!</(?:p|li)>).)*' + \
             escaped_url + r'(?:(?!</(?:p|li)>).)*</(?:p|li)>)'
 
@@ -308,6 +353,15 @@ def inject_product_images(content_html, products):
             )
             content_html = content_html[:match.end(
             )] + product_img_html + content_html[match.end():]
+            used_in_this_article.append(info["img"])
+
+    # Log used images for this article
+    if article_slug and used_in_this_article:
+        log = load_images_log()
+        if article_slug not in log:
+            log[article_slug] = {}
+        log[article_slug]["product_images"] = used_in_this_article
+        save_images_log(log)
 
     return content_html
 
