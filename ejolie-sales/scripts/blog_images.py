@@ -193,7 +193,7 @@ def generate_blog_images(keyword, session, num_inline=2):
 
     try:
         img_bytes, revised = generate_dalle_image(
-            cover_prompt, size="1792x1024")
+            cover_prompt, size="1024x1792")
         webp_bytes = convert_to_webp(img_bytes, quality=85)
 
         cover_filename = f"{slug}-coperta-{timestamp}.webp"
@@ -250,17 +250,11 @@ def inject_images_into_html(content_html, inline_images):
     sections = re.split(r'(<h2[^>]*>)', content_html)
 
     if len(sections) < 3:
-        # Few sections, just append images at the end
         for img in inline_images:
             content_html += f'\n<p style="text-align:center;"><img src="{img["url"]}" alt="{img["alt"]}" style="max-width:100%;border-radius:8px;margin:20px 0;" /></p>\n'
         return content_html
 
-    # Insert images after specific H2 sections
-    # Image 0 → after section 2 (first content section)
-    # Image 1 → after section 4 (middle)
-    # Image 2 → after section 6 (before conclusion)
-
-    insert_positions = [3, 5, 7]  # After 2nd, 3rd, 4th h2 section content
+    insert_positions = [3, 5, 7]
 
     for img_idx, img in enumerate(inline_images):
         pos = insert_positions[img_idx % len(insert_positions)]
@@ -269,6 +263,53 @@ def inject_images_into_html(content_html, inline_images):
             sections[pos] = sections[pos] + img_html
 
     return ''.join(sections)
+
+
+def inject_product_images(content_html, products):
+    """
+    Insert real product images next to their links in the article.
+    Finds <a href="product_url"> and adds <img> after the paragraph.
+    """
+    if not products:
+        return content_html
+
+    # Build URL→image map from products that have images
+    url_to_img = {}
+    for p in products:
+        img = p.get("image", "")
+        url = p.get("url", "")
+        name = p.get("name", "")
+        if img and url:
+            url_to_img[url] = {"img": img, "name": name}
+
+    if not url_to_img:
+        return content_html
+
+    # Find all product links and add images after their containing paragraph
+    for url, info in url_to_img.items():
+        # Escape URL for regex
+        escaped_url = re.escape(url)
+
+        # Find <a> tag with this URL inside a <p> or <li>
+        # Add product image after the closing </p> or </li>
+        pattern = r'(<(?:p|li)[^>]*>(?:(?!</(?:p|li)>).)*' + \
+            escaped_url + r'(?:(?!</(?:p|li)>).)*</(?:p|li)>)'
+
+        match = re.search(pattern, content_html, re.DOTALL)
+        if match:
+            product_img_html = (
+                f'\n<div style="text-align:center;margin:15px 0;">'
+                f'<a href="{url}" title="{info["name"]}">'
+                f'<img src="{info["img"]}" alt="{info["name"]} - ejolie.ro" '
+                f'style="max-width:350px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" />'
+                f'</a>'
+                f'<br><em style="font-size:0.9em;color:#666;">{info["name"]}</em>'
+                f'</div>\n'
+            )
+            content_html = content_html[:match.end(
+            )] + product_img_html + content_html[match.end():]
+
+    return content_html
 
 
 # ── Main (for testing) ──

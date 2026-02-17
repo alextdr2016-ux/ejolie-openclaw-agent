@@ -216,11 +216,11 @@ def main():
     cover_bytes = None
     print("\n3️⃣ Generez imagini DALL-E...")
     try:
-        from blog_images import generate_blog_images, inject_images_into_html
+        from blog_images import generate_blog_images, inject_images_into_html, inject_product_images
 
         images = generate_blog_images(keyword, session, num_inline=2)
 
-        # Inject inline images into HTML
+        # Inject inline DALL-E images into HTML
         if images["inline_images"]:
             article["content_html"] = inject_images_into_html(
                 article["content_html"], images["inline_images"]
@@ -228,10 +228,24 @@ def main():
             print(
                 f"  ✅ {len(images['inline_images'])} imagini inline injectate")
 
+        # Inject real product images next to product links
+        try:
+            import json as _json
+            cache_path = os.path.expanduser("~/blog_products.json")
+            if os.path.exists(cache_path):
+                with open(cache_path, "r") as _f:
+                    all_products = _json.load(_f)
+                article["content_html"] = inject_product_images(
+                    article["content_html"], all_products
+                )
+                print(f"  ✅ Poze produse reale injectate")
+        except Exception as e:
+            print(f"  ⚠️ Product images error: {e}")
+
         # Cover image bytes for form upload
         cover_bytes = images.get("cover_bytes")
         if cover_bytes:
-            print(f"  ✅ Copertă: {len(cover_bytes)//1024}KB")
+            print(f"  ✅ Copertă portret: {len(cover_bytes)//1024}KB")
 
     except ImportError:
         print("  ⚠️ blog_images.py not found, skipping images")
