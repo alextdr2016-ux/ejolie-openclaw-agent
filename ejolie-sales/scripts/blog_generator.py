@@ -3,17 +3,14 @@
 Blog Auto-Generator pentru ejolie.ro
 =====================================
 Generează articole SEO cu linkuri interne spre produse.
-Folosește GPT-4o-mini pentru conținut și API Extended pentru produse.
+Folosește GPT-4o-mini pentru conținut și cache local pentru produse.
 
 Utilizare:
   python3 blog_generator.py --keyword "rochii cununie civila 2026"
-  python3 blog_generator.py --keyword "rochii cununie civila 2026" --publish
-  python3 blog_generator.py --keyword "rochii cununie civila 2026" --dry-run
   python3 blog_generator.py --list-keywords
-  python3 blog_generator.py --batch 5
 
 Cerințe:
-  pip install openai requests openpyxl
+  pip install openai
 """
 
 import argparse
@@ -22,19 +19,14 @@ import os
 import re
 import sys
 import time
-import urllib.request
-import urllib.parse
 from datetime import datetime
 
 # ============================================================
 # CONFIGURARE
 # ============================================================
 
-# Citește din .env sau setează direct
-
 
 def load_env(path=None):
-    """Încarcă variabilele din .env"""
     paths_to_try = [
         path,
         os.path.expanduser("~/ejolie-openclaw-agent/ejolie-sales/.env"),
@@ -51,31 +43,25 @@ def load_env(path=None):
                         os.environ.setdefault(k.strip(), v.strip())
             print(f"📂 Loaded env: {p}")
             return
-    print("⚠️ No .env found, using environment variables")
 
 
 load_env()
 
-EJOLIE_API_KEY = os.environ.get("EJOLIE_API_KEY", "")
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
-EXTENDED_SESSION = os.environ.get(
-    "EXTENDED_SESSION", "")  # Cookie session pentru admin
-
-EJOLIE_API_URL = "https://ejolie.ro/api/"
 EJOLIE_SITE_URL = "https://www.ejolie.ro"
-BLOG_POST_URL = f"{EJOLIE_SITE_URL}/manager/blog/adauga_articol/0"
 
 GPT_MODEL = "gpt-4o-mini"
-MAX_ARTICLE_WORDS = 2000
 MIN_PRODUCTS_IN_ARTICLE = 3
 MAX_PRODUCTS_IN_ARTICLE = 8
+
+PRODUCTS_CACHE_PATH = os.path.expanduser("~/blog_products.json")
+IMAGES_LOG_PATH = os.path.expanduser("~/blog_articles/images_log.json")
 
 # ============================================================
 # KEYWORDS DATABASE
 # ============================================================
 
 KEYWORDS_DB = [
-    # Nuntă & Cununie
     {"keyword": "rochii pentru invitate la nunta 2026",
         "category": "nunta", "priority": 1},
     {"keyword": "rochii cununie civila 2026", "category": "nunta", "priority": 1},
@@ -86,12 +72,8 @@ KEYWORDS_DB = [
         "category": "nunta", "priority": 2},
     {"keyword": "ce rochie port la nunta vara 2026",
         "category": "nunta", "priority": 2},
-    {"keyword": "rochii elegante nunta biserica",
-        "category": "nunta", "priority": 3},
     {"keyword": "ce culori se poarta la nunta 2026",
         "category": "nunta", "priority": 2},
-
-    # Ghiduri Stil
     {"keyword": "rochii elegante femei 40 ani", "category": "stil", "priority": 1},
     {"keyword": "rochii elegante femei 50 ani", "category": "stil", "priority": 1},
     {"keyword": "rochii pentru femei plinute elegante",
@@ -100,10 +82,7 @@ KEYWORDS_DB = [
         "category": "stil", "priority": 2},
     {"keyword": "rochii de seara lungi elegante",
         "category": "stil", "priority": 2},
-    {"keyword": "rochii de ocazie midi", "category": "stil", "priority": 3},
     {"keyword": "ce rochie port la botez 2026", "category": "stil", "priority": 1},
-
-    # Tendinte
     {"keyword": "tendinte rochii elegante 2026",
         "category": "tendinte", "priority": 1},
     {"keyword": "rochii de seara primavara 2026",
@@ -112,183 +91,153 @@ KEYWORDS_DB = [
         "category": "tendinte", "priority": 2},
     {"keyword": "rochii de ocazie vara 2026",
         "category": "tendinte", "priority": 2},
-    {"keyword": "rochii revelion 2026 2027",
-        "category": "tendinte", "priority": 3},
-
-    # Categorii SEO
     {"keyword": "rochii lungi de ocazie online romania",
         "category": "categorie", "priority": 2},
     {"keyword": "rochii elegante de seara preturi bune",
         "category": "categorie", "priority": 2},
-    {"keyword": "rochii de ocazie ieftine romania",
-        "category": "categorie", "priority": 3},
-    {"keyword": "rochii elegante din voal satin",
-        "category": "categorie", "priority": 3},
-    {"keyword": "rochii din satin pentru evenimente",
-        "category": "categorie", "priority": 3},
-
-    # Intrebari
-    {"keyword": "ce rochie sa port la un eveniment elegant",
-        "category": "intrebari", "priority": 2},
-    {"keyword": "cum aleg lungimea rochiei pentru nunta",
-        "category": "intrebari", "priority": 3},
-    {"keyword": "ce material e cel mai bun pentru rochii de seara",
-        "category": "intrebari", "priority": 3},
     {"keyword": "se poate purta negru la nunta",
         "category": "intrebari", "priority": 2},
     {"keyword": "cum ma imbrac la cununie civila",
         "category": "intrebari", "priority": 1},
 ]
 
-
 # ============================================================
-# FUNCȚII API EJOLIE
+# PRODUCT CACHE + UNIQUENESS
 # ============================================================
 
-def fetch_products(search_terms=None, category=None, limit=30):
-    """Ia produse din API ejolie.ro"""
-    url = f"{EJOLIE_API_URL}?produse&apikey={EJOLIE_API_KEY}"
-    if category:
-        url += f"&categorie={category}"
 
+def load_products_cache():
+    if os.path.exists(PRODUCTS_CACHE_PATH):
+        with open(PRODUCTS_CACHE_PATH, "r", encoding="utf-8") as f:
+            products = json.load(f)
+        print(f"  📦 Cache: {len(products)} produse")
+        return products
+    print("  ⚠️ Cache not found!")
+    return []
+
+
+def load_used_products():
+    if not os.path.exists(IMAGES_LOG_PATH):
+        return set()
     try:
-        req = urllib.request.Request(
-            url, headers={"User-Agent": "Mozilla/5.0"})
-        data = json.loads(urllib.request.urlopen(
-            req, timeout=30).read().decode("utf-8"))
-    except Exception as e:
-        print(f"⚠️ API Error: {e}")
-        return []
-
-    products = []
-    for pid, prod in data.items():
-        if not isinstance(prod, dict):
-            continue
-
-        name = prod.get("nume", "")
-        slug = prod.get("link_public", "")
-        price = prod.get("pret", "0")
-        images = prod.get("imagini", {})
-        first_img = ""
-        if isinstance(images, dict):
-            for img_id, img_data in images.items():
-                if isinstance(img_data, dict):
-                    first_img = img_data.get("imagine", "")
-                    break
-
-        # Stoc
-        options = prod.get("optiuni", {})
-        total_stock = 0
-        sizes = []
-        if isinstance(options, dict):
-            for oid, opt in options.items():
-                if isinstance(opt, dict):
-                    stoc = int(opt.get("stoc_fizic", 0))
-                    total_stock += stoc
-                    if stoc > 0:
-                        sizes.append(opt.get("nume", ""))
-
-        # Brand
-        brand_data = prod.get("brand", {})
-        brand = brand_data.get("nume", "Ejolie") if isinstance(
-            brand_data, dict) else "Ejolie"
-
-        products.append({
-            "id": pid,
-            "name": name,
-            "slug": slug,
-            "price": price,
-            "image": first_img,
-            "stock": total_stock,
-            "sizes": sizes,
-            "brand": brand,
-            "url": f"{EJOLIE_SITE_URL}/{slug}" if slug else "",
-        })
-
-    # Filtrare cu stoc
-    in_stock = [p for p in products if p["stock"] > 0]
-
-    # Filtrare pe search terms
-    if search_terms and in_stock:
-        terms = [t.lower() for t in search_terms]
-        scored = []
-        for p in in_stock:
-            name_lower = p["name"].lower()
-            score = sum(1 for t in terms if t in name_lower)
-            scored.append((score, p))
-        scored.sort(key=lambda x: -x[0])
-        # Ia produse cu cel puțin 1 match, sau top produse
-        matched = [p for s, p in scored if s > 0]
-        if len(matched) >= MIN_PRODUCTS_IN_ARTICLE:
-            return matched[:limit]
-
-    return in_stock[:limit]
+        with open(IMAGES_LOG_PATH, "r") as f:
+            log = json.load(f)
+        used = set()
+        for slug, data in log.items():
+            for url in data.get("product_urls", []):
+                used.add(url)
+            for img in data.get("product_images", []):
+                used.add(img)
+        return used
+    except Exception:
+        return set()
 
 
 def get_relevant_products(keyword, limit=MAX_PRODUCTS_IN_ARTICLE):
-    """Selectează produse relevante pentru keyword"""
-    # Extrage termeni de căutare din keyword
     stop_words = {"de", "la", "in", "din", "pentru", "ce", "cum", "sa", "port",
                   "alegi", "aleg", "se", "pot", "poate", "mai", "cel", "cea",
                   "un", "o", "e", "si", "sau", "2026", "2025", "ani"}
 
     terms = [w for w in keyword.lower().split(
     ) if w not in stop_words and len(w) > 2]
-
     print(f"🔍 Caut produse pentru: {terms}")
-    products = fetch_products(search_terms=terms)
 
-    if len(products) < MIN_PRODUCTS_IN_ARTICLE:
-        print(
-            f"⚠️ Doar {len(products)} produse cu stoc. Iau toate produsele...")
-        products = fetch_products()
+    all_prods = load_products_cache()
+    if not all_prods:
+        return []
 
-    # Scorare pe relevanță
-    scored = []
-    for p in products:
-        name = p["name"].lower()
+    scored_cache = []
+    for p in all_prods:
+        name = p.get("name", "").lower()
+        cat = p.get("category", "").lower()
+        specs = " ".join([
+            p.get("culoare", ""), p.get("material", ""),
+            p.get("stil", ""), p.get("croi", ""), p.get("lungime", "")
+        ]).lower()
         score = 0
         for t in terms:
             if t in name:
+                score += 3
+            if t in cat:
                 score += 2
-        # Bonus pentru preț > 500 (produse premium)
-        try:
-            if float(p["price"]) > 500:
+            if t in specs:
                 score += 1
-        except:
-            pass
-        scored.append((score, p))
+        if score > 0:
+            scored_cache.append((score, p))
 
-    scored.sort(key=lambda x: -x[0])
-    result = [p for _, p in scored[:limit]]
+    scored_cache.sort(key=lambda x: -x[0])
+    products = [p for _, p in scored_cache]
 
-    print(f"✅ {len(result)} produse selectate")
-    for p in result:
-        print(f"   • {p['name'][:50]} - {p['price']} lei")
+    # Exclude products used in previous articles
+    used = load_used_products()
+    if used:
+        fresh = [p for p in products if p.get(
+            "url", "") not in used and p.get("image", "") not in used]
+        if len(fresh) >= MIN_PRODUCTS_IN_ARTICLE:
+            products = fresh
+            print(f"  🆕 Filtru unicitate: {len(products)} produse nefolosite")
+        else:
+            print(
+                f"  ⚠️ Doar {len(fresh)} nefolosite, folosesc toate {len(products)}")
 
-    return result
+    # For events, exclude black dresses
+    event_keywords = ["nunta", "cununie", "botez",
+                      "nasa", "soacra", "invitate", "domnisoare"]
+    is_event = any(ek in keyword.lower() for ek in event_keywords)
+    if is_event and len(products) > MIN_PRODUCTS_IN_ARTICLE:
+        non_black = [
+            p for p in products if "Negru" not in p.get("culoare", "")]
+        if len(non_black) >= MIN_PRODUCTS_IN_ARTICLE:
+            products = non_black
+            print(
+                f"  🎨 Filtru eveniment: exclus rochii negre, {len(products)} rămase")
 
+    # Fallback
+    if len(products) < MIN_PRODUCTS_IN_ARTICLE:
+        cat_terms = ["ocazie", "seara", "elegante", "lungi"]
+        for p in all_prods:
+            cat = p.get("category", "").lower()
+            if any(ct in cat for ct in cat_terms) and p not in products:
+                products.append(p)
+                if len(products) >= limit:
+                    break
+
+    products = products[:limit]
+    print(f"✅ {len(products)} produse selectate")
+    for p in products:
+        has_img = "📷" if p.get("image") else "  "
+        print(f"   {has_img} {p['name'][:50]}")
+
+    return products
 
 # ============================================================
 # GENERARE CONȚINUT CU GPT
 # ============================================================
 
-def generate_article(keyword, products):
-    """Generează articol HTML cu GPT"""
 
-    # Pregătește lista de produse pentru prompt
-    products_text = ""
+def generate_article(keyword, products):
+    products_with_images = ""
     for i, p in enumerate(products, 1):
-        products_text += f"""
+        img_url = p.get("image", "")
+        img_line = f"- Imagine: {img_url}" if img_url else "- Imagine: (nu are)"
+        specs = []
+        if p.get('culoare') and p['culoare'] != '❌ LIPSA':
+            specs.append(f"Culoare: {p['culoare']}")
+        if p.get('material') and p['material'] != '❌ LIPSA':
+            specs.append(f"Material: {p['material']}")
+        if p.get('stil') and p['stil'] != '❌ LIPSA':
+            specs.append(f"Stil: {p['stil']}")
+        specs_str = ", ".join(specs) if specs else "Rochie elegantă"
+
+        products_with_images += f"""
 Produs {i}:
 - Nume: {p['name']}
-- Preț: {p['price']} lei
 - URL: {p['url']}
-- Imagine: {EJOLIE_SITE_URL}/continut/upload/{p['image']}
-- Mărimi disponibile: {', '.join(p['sizes'][:5])}
+{img_line}
+- Specificații: {specs_str}
 """
 
-    system_prompt = """Ești un expert SEO și copywriter pentru un magazin online de rochii elegante din România (ejolie.ro). 
+    system_prompt = """Ești un expert SEO și copywriter pentru un magazin online de rochii elegante din România (ejolie.ro).
 Scrii în limba română, cu diacritice corecte (ă, â, î, ș, ț).
 Stilul tău este: cald, profesional, informativ, orientat spre vânzare subtilă.
 Publicul țintă: femei 25-55 ani din România care caută rochii elegante.
@@ -310,33 +259,79 @@ CERINȚE SEO:
 3. Meta title: max 60 caractere, include keyword
 4. Meta description: max 155 caractere, include keyword, CTA
 5. URL slug: max 5-6 cuvinte, cu cratimă
+6. Minimum 8 keywords relevante în meta_keywords
 
 CERINȚE LINKURI INTERNE:
-Include EXACT aceste produse cu linkuri în articol, natural integrate în text:
-{products_text}
+Include aceste produse cu linkuri și imagini în articol:
+{products_with_images}
 
-Format link produs: <a href="URL_PRODUS" title="NUME_PRODUS">text ancoră natural</a>
-Inserează 1-2 produse per secțiune, cu text de recomandare natural.
-Opțional: include imagini produse cu format: <img src="URL_IMAGINE" alt="DESCRIERE" style="max-width:300px;margin:10px;" />
+CERINȚE DESIGN - FOARTE IMPORTANT:
+Folosește EXACT acest format HTML cu CSS inline pentru un design profesional de revistă de modă:
+
+Pentru fiecare H2 secțiune:
+<h2 style="font-family:Georgia,serif;font-size:1.6em;color:#2c2c2c;border-bottom:2px solid #c8a165;padding-bottom:8px;margin-top:35px;">Titlu Secțiune</h2>
+
+Pentru paragrafe:
+<p style="font-family:Georgia,serif;font-size:1.05em;line-height:1.8;color:#444;margin:15px 0;">Text paragraf</p>
+
+Pentru PRIMUL paragraf al articolului, adaugă drop cap:
+<p style="font-family:Georgia,serif;font-size:1.05em;line-height:1.8;color:#444;margin:15px 0;"><span style="float:left;font-size:3.5em;line-height:0.8;padding-right:8px;color:#c8a165;font-family:Georgia,serif;">P</span>rimul paragraf...</p>
+
+Pentru H3:
+<h3 style="font-family:Georgia,serif;font-size:1.2em;color:#555;margin-top:20px;">Subtitlu</h3>
+
+Pentru produse - CARD cu imagine lângă text (imagine stânga, text dreapta):
+<div style="display:flex;align-items:center;gap:20px;background:#faf8f5;border-radius:10px;padding:15px;margin:20px 0;border:1px solid #e8e0d4;">
+  <a href="URL_PRODUS" title="NUME_PRODUS" style="flex-shrink:0;">
+    <img src="URL_IMAGINE" alt="NUME_PRODUS" style="width:140px;height:180px;object-fit:cover;border-radius:8px;" />
+  </a>
+  <div>
+    <p style="font-family:Georgia,serif;font-size:1em;color:#444;margin:0 0 8px 0;">Text recomandare natural despre produs.</p>
+    <a href="URL_PRODUS" title="NUME_PRODUS" style="display:inline-block;background:#c8a165;color:#fff;padding:8px 20px;border-radius:20px;text-decoration:none;font-size:0.9em;font-family:Arial,sans-serif;">Vezi produsul &#8594;</a>
+  </div>
+</div>
+
+Dacă produsul NU are imagine, folosește card fără imagine:
+<div style="background:#faf8f5;border-radius:10px;padding:15px;margin:20px 0;border:1px solid #e8e0d4;">
+  <p style="font-family:Georgia,serif;font-size:1em;color:#444;margin:0 0 8px 0;">Text recomandare.</p>
+  <a href="URL_PRODUS" title="NUME_PRODUS" style="display:inline-block;background:#c8a165;color:#fff;padding:8px 20px;border-radius:20px;text-decoration:none;font-size:0.9em;">Vezi produsul &#8594;</a>
+</div>
+
+Pentru lista de sfaturi, folosește iconuri:
+<div style="background:#faf8f5;border-radius:10px;padding:20px;margin:20px 0;">
+  <p style="margin:8px 0;font-family:Georgia,serif;color:#444;">&#10024; <strong>Sfat 1</strong> — text sfat</p>
+  <p style="margin:8px 0;font-family:Georgia,serif;color:#444;">&#128087; <strong>Sfat 2</strong> — text sfat</p>
+  <p style="margin:8px 0;font-family:Georgia,serif;color:#444;">&#128161; <strong>Sfat 3</strong> — text sfat</p>
+</div>
+
+Separator între secțiuni majore:
+<hr style="border:none;height:1px;background:linear-gradient(to right,transparent,#c8a165,transparent);margin:30px 0;" />
+
+CTA final:
+<div style="text-align:center;background:linear-gradient(135deg,#2c2c2c,#444);border-radius:12px;padding:30px;margin:30px 0;">
+  <p style="font-family:Georgia,serif;font-size:1.3em;color:#c8a165;margin:0 0 15px 0;">Descoperă colecția completă pe ejolie.ro</p>
+  <a href="https://www.ejolie.ro" style="display:inline-block;background:#c8a165;color:#fff;padding:12px 35px;border-radius:25px;text-decoration:none;font-size:1.1em;font-family:Arial,sans-serif;">Explorează Rochiile &#8594;</a>
+</div>
+
+REGULI STRICTE:
+- Alternează 1-2 paragrafe text cu un card produs — NU pune 3+ paragrafe consecutive fără card
+- Folosește maxim 1 card produs per secțiune H2
+- Adaugă separator hr între secțiuni majore
+- NU include h1, html, head, body
+- content_html TREBUIE să fie HTML valid cu CSS inline
+- Scrie EXCLUSIV în română cu diacritice corecte
 
 CERINȚE TEHNICE:
-- Output STRICT în format JSON cu aceste câmpuri:
+Output STRICT în format JSON:
 {{
     "title": "Titlu articol H1",
     "meta_title": "Meta title SEO (max 60 char)",
     "meta_description": "Meta description (max 155 char)",
-    "meta_keywords": "keyword1, keyword2, keyword3",
+    "meta_keywords": "keyword1, keyword2, keyword3, ..., keyword8",
     "slug": "url-slug-seo",
-    "short_description": "Descriere scurtă 150-200 caractere pentru preview",
-    "content_html": "<h2>...</h2><p>...</p>... conținut HTML complet"
+    "short_description": "Descriere scurtă 150-200 caractere",
+    "content_html": "HTML complet cu CSS inline"
 }}
-
-IMPORTANT:
-- content_html trebuie să fie HTML valid cu <h2>, <h3>, <p>, <ul>, <li>, <a>, <strong>, <em>
-- NU include tag-ul <h1> în content_html (titlul vine separat)
-- NU include <html>, <head>, <body>
-- Include linkuri spre produse OBLIGATORIU
-- Scrie EXCLUSIV în română cu diacritice
 """
 
     print(f"\n🤖 Generez articol cu {GPT_MODEL}...")
@@ -352,116 +347,48 @@ IMPORTANT:
                 {"role": "user", "content": user_prompt}
             ],
             temperature=0.7,
-            max_tokens=4000,
+            max_tokens=8000,
             response_format={"type": "json_object"}
         )
 
-        result = json.loads(response.choices[0].message.content)
+        raw_content = response.choices[0].message.content
+        print(f"📝 Raw response length: {len(raw_content)}")
+        result = json.loads(raw_content)
 
         tokens_used = response.usage.total_tokens
-        cost = tokens_used * 0.00000015  # gpt-4o-mini pricing approx
+        cost = tokens_used * 0.00000015
         print(f"✅ Articol generat! Tokens: {tokens_used}, Cost: ~${cost:.4f}")
-
         return result
 
+    except json.JSONDecodeError as e:
+        print(f"❌ JSON Parse Error: {e}")
+        return None
     except Exception as e:
         print(f"❌ GPT Error: {e}")
         return None
 
-
 # ============================================================
-# PUBLICARE ÎN EXTENDED BLOG
+# SALVARE LOCALĂ
 # ============================================================
-
-def publish_article(article_data, category=1, status="draft"):
-    """Publică articolul în Extended Blog via POST"""
-
-    if not EXTENDED_SESSION:
-        print("⚠️ EXTENDED_SESSION cookie nu e setat. Articolul va fi salvat local.")
-        return save_article_local(article_data)
-
-    form_data = {
-        "trimite": "value",
-        "camp_nume": article_data["title"],
-        "camp_data": datetime.now().strftime("%d-%m-%Y"),
-        "camp_descriere": article_data.get("short_description", ""),
-        "camp_continut": article_data["content_html"],
-        "camp_categorie": str(category),
-        "camp_linkpublic": article_data["slug"],
-        "camp_title": article_data["meta_title"],
-        "camp_keywords": article_data["meta_keywords"],
-        "camp_description": article_data["meta_description"],
-        "id_autosave": "",
-    }
-
-    encoded = urllib.parse.urlencode(form_data).encode("utf-8")
-
-    headers = {
-        "User-Agent": "Mozilla/5.0",
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Cookie": EXTENDED_SESSION,
-        "Referer": f"{EJOLIE_SITE_URL}/manager/blog",
-    }
-
-    try:
-        req = urllib.request.Request(
-            BLOG_POST_URL, data=encoded, headers=headers, method="POST")
-        resp = urllib.request.urlopen(req, timeout=30)
-
-        if resp.status == 200:
-            print(f"✅ Articol publicat ca {status}!")
-            print(f"   URL: {EJOLIE_SITE_URL}/blog/{article_data['slug']}")
-            return True
-        else:
-            print(f"❌ Error: HTTP {resp.status}")
-            return save_article_local(article_data)
-
-    except Exception as e:
-        print(f"❌ POST Error: {e}")
-        return save_article_local(article_data)
 
 
 def save_article_local(article_data):
-    """Salvează articolul local ca HTML și JSON"""
     slug = article_data.get("slug", "articol")
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-
-    # Salvează JSON
     json_path = os.path.expanduser(f"~/blog_articles/{slug}.json")
     os.makedirs(os.path.dirname(json_path), exist_ok=True)
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(article_data, f, ensure_ascii=False, indent=2)
 
-    # Salvează HTML preview
     html_path = os.path.expanduser(f"~/blog_articles/{slug}.html")
     html_content = f"""<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <title>{article_data['meta_title']}</title>
-    <meta name="description" content="{article_data['meta_description']}">
-    <meta name="keywords" content="{article_data['meta_keywords']}">
-    <style>
-        body {{ font-family: Georgia, serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; line-height: 1.7; }}
-        h1 {{ color: #c8a165; border-bottom: 2px solid #c8a165; padding-bottom: 10px; }}
-        h2 {{ color: #333; margin-top: 30px; }}
-        h3 {{ color: #555; }}
-        a {{ color: #c8a165; text-decoration: none; font-weight: bold; }}
-        a:hover {{ text-decoration: underline; }}
-        img {{ max-width: 100%; height: auto; border-radius: 8px; }}
-        .meta {{ background: #f5f5f5; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 14px; }}
-        .meta strong {{ color: #c8a165; }}
-    </style>
+    <style>body{{font-family:Georgia,serif;max-width:800px;margin:40px auto;padding:0 20px;color:#333;line-height:1.7;}}</style>
 </head>
 <body>
-    <div class="meta">
-        <strong>SEO Title:</strong> {article_data['meta_title']}<br>
-        <strong>Meta Description:</strong> {article_data['meta_description']}<br>
-        <strong>Keywords:</strong> {article_data['meta_keywords']}<br>
-        <strong>Slug:</strong> {article_data['slug']}<br>
-        <strong>Short Description:</strong> {article_data.get('short_description', '')}
-    </div>
-    <h1>{article_data['title']}</h1>
+    <h1 style="color:#c8a165;border-bottom:2px solid #c8a165;padding-bottom:10px;">{article_data['title']}</h1>
     {article_data['content_html']}
 </body>
 </html>"""
@@ -472,18 +399,10 @@ def save_article_local(article_data):
     print(f"💾 Salvat local:")
     print(f"   JSON: {json_path}")
     print(f"   HTML: {html_path}")
-
     return json_path
 
 
-# ============================================================
-# PUBLICARE VIA BROWSER (CLAUDE IN CHROME)
-# ============================================================
-
 def generate_browser_js(article_data, category=1):
-    """Generează JavaScript pentru publicare din consolă browser"""
-
-    # Escape content for JS
     content = article_data["content_html"].replace(
         "\\", "\\\\").replace("`", "\\`").replace("${", "\\${")
     title = article_data["title"].replace("'", "\\'")
@@ -506,44 +425,28 @@ def generate_browser_js(article_data, category=1):
     formData.append('camp_keywords', '{meta_keywords}');
     formData.append('camp_description', '{meta_description}');
     formData.append('id_autosave', '');
-    
-    const resp = await fetch('/manager/blog/adauga_articol/0', {{
-        method: 'POST',
-        body: formData,
-        credentials: 'same-origin'
-    }});
-    
-    console.log('Status:', resp.status);
-    if (resp.ok) {{
-        console.log('✅ Articol creat! Slug: {slug}');
-    }} else {{
-        console.log('❌ Error:', resp.statusText);
-    }}
+    const resp = await fetch('/manager/blog/adauga_articol/0', {{method:'POST',body:formData,credentials:'same-origin'}});
+    console.log(resp.ok ? '✅ Creat: {slug}' : '❌ Error');
 }})();"""
 
     js_path = os.path.expanduser(f"~/blog_articles/{slug}_publish.js")
     os.makedirs(os.path.dirname(js_path), exist_ok=True)
     with open(js_path, "w", encoding="utf-8") as f:
         f.write(js)
-
-    print(f"📋 JavaScript pentru browser salvat: {js_path}")
+    print(f"📋 JS salvat: {js_path}")
     return js_path
-
 
 # ============================================================
 # MAIN
 # ============================================================
 
-def process_keyword(keyword, publish=False, dry_run=False):
-    """Pipeline complet pentru un keyword"""
 
+def process_keyword(keyword, publish=False, dry_run=False):
     print(f"\n{'='*60}")
     print(f"📝 KEYWORD: {keyword}")
     print(f"{'='*60}")
 
-    # 1. Ia produse relevante
     products = get_relevant_products(keyword)
-
     if not products:
         print("❌ Nu s-au găsit produse. Skip.")
         return None
@@ -552,14 +455,11 @@ def process_keyword(keyword, publish=False, dry_run=False):
         print("🏃 DRY RUN - nu generez articol")
         return None
 
-    # 2. Generează articol
     article = generate_article(keyword, products)
-
     if not article:
         print("❌ Generarea articolului a eșuat.")
         return None
 
-    # 3. Afișează preview
     print(f"\n📰 PREVIEW:")
     print(f"   Titlu: {article['title']}")
     print(f"   SEO Title: {article['meta_title']}")
@@ -567,64 +467,42 @@ def process_keyword(keyword, publish=False, dry_run=False):
     print(f"   Slug: {article['slug']}")
     print(f"   Conținut: {len(article['content_html'])} caractere HTML")
 
-    # 4. Salvează local
-    json_path = save_article_local(article)
-
-    # 5. Generează JS pentru publicare prin browser
-    js_path = generate_browser_js(article)
-
-    # 6. Publică dacă cerut
-    if publish:
-        publish_article(article)
-
+    save_article_local(article)
+    generate_browser_js(article)
     return article
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Blog Auto-Generator pentru ejolie.ro")
+        description="Blog Auto-Generator ejolie.ro")
     parser.add_argument("--keyword", "-k", help="Keyword pentru articol")
-    parser.add_argument("--publish", "-p", action="store_true",
-                        help="Publică direct în Extended")
-    parser.add_argument("--dry-run", "-d", action="store_true",
-                        help="Doar arată produsele, nu genera")
-    parser.add_argument("--list-keywords", "-l",
-                        action="store_true", help="Arată toate keywords")
-    parser.add_argument("--batch", "-b", type=int,
-                        help="Generează N articole (prioritate 1 first)")
-    parser.add_argument("--category", "-c", type=int, default=1,
-                        help="Categorie blog (1=Blog, 2=Lifestyle)")
+    parser.add_argument("--publish", "-p", action="store_true")
+    parser.add_argument("--dry-run", "-d", action="store_true")
+    parser.add_argument("--list-keywords", "-l", action="store_true")
+    parser.add_argument("--batch", "-b", type=int)
 
     args = parser.parse_args()
 
-    # Verificări
-    if not EJOLIE_API_KEY:
-        print("❌ EJOLIE_API_KEY nu e setat! Adaugă în .env sau export.")
-        sys.exit(1)
     if not OPENAI_API_KEY and not args.list_keywords and not args.dry_run:
-        print("❌ OPENAI_API_KEY nu e setat! Adaugă în .env sau export.")
+        print("❌ OPENAI_API_KEY nu e setat!")
         sys.exit(1)
 
     if args.list_keywords:
         print("\n📋 KEYWORDS DATABASE:")
-        print(f"{'Prio':>4} | {'Categorie':<12} | Keyword")
-        print("-" * 70)
         for kw in sorted(KEYWORDS_DB, key=lambda x: (x["priority"], x["category"])):
             print(
-                f"  {kw['priority']}  | {kw['category']:<12} | {kw['keyword']}")
+                f"  P{kw['priority']} | {kw['category']:<12} | {kw['keyword']}")
         print(f"\nTotal: {len(KEYWORDS_DB)} keywords")
         return
 
     if args.batch:
-        # Generează N articole, prioritate 1 first
         keywords = sorted(KEYWORDS_DB, key=lambda x: x["priority"])[
             :args.batch]
-        print(f"\n🚀 BATCH MODE: Generez {len(keywords)} articole")
         for kw in keywords:
             process_keyword(
                 kw["keyword"], publish=args.publish, dry_run=args.dry_run)
             if not args.dry_run:
-                time.sleep(2)  # Pauză între articole
+                time.sleep(2)
         return
 
     if args.keyword:
