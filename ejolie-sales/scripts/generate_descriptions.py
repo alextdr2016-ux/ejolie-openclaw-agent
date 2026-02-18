@@ -1,24 +1,25 @@
+import argparse
+import requests
+import base64
+import time
+import re
+import json
+import sys
+import os
+from datetime import datetime
+cat > ~/ejolie-openclaw-agent/ejolie-sales/scripts/generate_descriptions.py << 'SCRIPTEOF'
 #!/usr/bin/env python3
 """
 generate_descriptions.py - Generează descrieri produse din poze cu Gemini Vision
-v3 - Fix: disable Gemini thinking (cauza output scurt) + tabel mărimi la final
+v4 - Added --id, --limit, --no-table argparse support
 """
 
-import os
-import sys
-import json
-import re
-import time
-import base64
-import requests
-from datetime import datetime
 
-# --- Config ---
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ENV_PATH = os.path.join(SCRIPT_DIR, '..', '.env')
 
-# Imaginea tabelului de mărimi - se adaugă la finalul fiecărei descrieri
-SIZE_TABLE_IMG = '<p><img src="https://www.ejolie.ro/continut/upload/Tabel M General Trendya.png" style="width:512px;height:764px"></p>'
+SIZE_TABLE_4COL = '<p><img src="https://ejolie.ro/continut/upload/Tabel%20M%20General%20Trendya.png" width="512" height="764"></p>'
+SIZE_TABLE_3COL = '<p><img src="https://ejolie-assets.s3.eu-north-1.amazonaws.com/images/Tabel-Marimi-3col.png" width="512" height="764"></p>'
 
 
 def load_env(path):
@@ -34,6 +35,9 @@ def load_env(path):
 load_env(ENV_PATH)
 
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
+API_KEY = os.environ.get('EJOLIE_API_KEY', '')
+API_URL = os.environ.get('EJOLIE_API_URL', 'https://ejolie.ro/api/')
+
 if not GEMINI_API_KEY:
     print("❌ GEMINI_API_KEY nu e setat in .env!")
     sys.exit(1)
@@ -43,9 +47,7 @@ GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.
 INPUT_FILE = os.path.join(SCRIPT_DIR, 'products_no_description.json')
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, 'generated_descriptions.json')
 LOG_FILE = os.path.join(SCRIPT_DIR, 'description_generation_log.json')
-EXCEL_FILE = os.path.join(SCRIPT_DIR, 'review_descriptions.xlsx')
 
-# --- Prompt template with EXAMPLE ---
 PROMPT = """Ești copywriter expert pentru magazinul online ejolie.ro (rochii elegante din România).
 Analizează imaginea rochiei "{product_name}" și scrie o descriere de produs în limba română.
 
@@ -79,8 +81,6 @@ ACUM scrie o descriere SIMILARĂ ca lungime și structură pentru rochia din ima
 - NU pune prețuri sau mărimi
 - Scrie DOAR descrierea, fără alte comentarii"""
 
-# --- Helper: Download image as base64 ---
-
 
 def download_image_base64(url):
     try:
@@ -105,62 +105,38 @@ def download_image_base64(url):
         print(f"    ❌ Download err: {e}")
         return None, None
 
-# --- Helper: Call Gemini Vision ---
-
 
 def generate_with_gemini(product_name, image_b64, mime_type, retry=0):
     prompt_text = PROMPT.format(product_name=product_name)
-
     payload = {
-        "contents": [{
-            "parts": [
-                {"text": prompt_text},
-                {
-                    "inline_data": {
-                        "mime_type": mime_type,
-                        "data": image_b64
-                    }
-                }
-            ]
-        }],
+        "contents": [{"parts": [
+            {"text": prompt_text},
+            {"inline_data": {"mime_type": mime_type, "data": image_b64}}
+        ]}],
         "generationConfig": {
             "temperature": 0.7,
             "maxOutputTokens": 2000,
             "topP": 0.9,
-            "thinkingConfig": {
-                "thinkingBudget": 0
-            }
+            "thinkingConfig": {"thinkingBudget": 0}
         }
     }
-
     try:
         r = requests.post(GEMINI_URL, json=payload, timeout=90)
         if r.status_code == 200:
             data = r.json()
             if 'candidates' not in data or not data['candidates']:
-                print(f"⚠️ No candidates")
                 return None
             candidate = data['candidates'][0]
             if candidate.get('finishReason') == 'SAFETY':
-                print(f"⚠️ Safety block")
                 return None
-            # Gemini poate returna mai multe parts (thinking + text)
-            # Luam doar text parts, ignoram thinking
-            text_parts = []
-            for part in candidate['content']['parts']:
-                if 'text' in part:
-                    text_parts.append(part['text'])
-            if text_parts:
-                return '\n'.join(text_parts).strip()
-            return None
-        elif r.status_code == 429:
-            if retry < 3:
-                wait = 10 * (retry + 1)
-                print(f"⏳ Rate limit - aștept {wait}s...")
-                time.sleep(wait)
-                return generate_with_gemini(product_name, image_b64, mime_type, retry + 1)
-            print(f"❌ Rate limit persistent")
-            return None
+            text_parts = [part['text']
+                          for part in candidate['content']['parts'] if 'text' in part]
+            return '\n'.join(text_parts).strip() if text_parts else None
+        elif r.status_code == 429 and retry < 3:
+            wait = 10 * (retry + 1)
+            print(f"⏳ Rate limit - aștept {wait}s...")
+            time.sleep(wait)
+            return generate_with_gemini(product_name, image_b64, mime_type, retry + 1)
         else:
             print(f"❌ API {r.status_code}: {r.text[:200]}")
             return None
@@ -168,10 +144,8 @@ def generate_with_gemini(product_name, image_b64, mime_type, retry=0):
         print(f"❌ Error: {e}")
         return None
 
-# --- Helper: Convert text to HTML + append size table ---
 
-
-def text_to_html(raw_text):
+def text_to_html(raw_text, add_table=None):
     lines = raw_text.strip().split('\n')
     html_parts = []
     in_list = False
@@ -183,18 +157,14 @@ def text_to_html(raw_text):
                 html_parts.append('</ul>')
                 in_list = False
             continue
-
-        # Skip dashes/separators
         if line.startswith('---'):
             continue
-
         if line.lower().startswith('detalii produs'):
             if in_list:
                 html_parts.append('</ul>')
                 in_list = False
             html_parts.append(f'<p><strong>{line}</strong></p>')
             continue
-
         if line.lower().startswith('sugestie de styling'):
             if in_list:
                 html_parts.append('</ul>')
@@ -206,7 +176,6 @@ def text_to_html(raw_text):
             else:
                 html_parts.append(f'<p><strong>{line}</strong></p>')
             continue
-
         if line.startswith(('* ', '- ', '• ', '– ')):
             if not in_list:
                 html_parts.append('<ul>')
@@ -214,7 +183,6 @@ def text_to_html(raw_text):
             bullet_text = line.lstrip('*-•– ').strip()
             html_parts.append(f'<li>{bullet_text}</li>')
             continue
-
         if in_list:
             html_parts.append('</ul>')
             in_list = False
@@ -223,99 +191,85 @@ def text_to_html(raw_text):
     if in_list:
         html_parts.append('</ul>')
 
-    # Adaugă tabelul de mărimi la final
-    html_parts.append(SIZE_TABLE_IMG)
+    if add_table == '4col':
+        html_parts.append(SIZE_TABLE_4COL)
+    elif add_table == '3col':
+        html_parts.append(SIZE_TABLE_3COL)
 
     return '\n'.join(html_parts)
 
-# --- Helper: Export Excel for review ---
 
-
-def export_review_excel(results, errors):
+def fetch_product_by_id(product_id):
+    url = f"{API_URL}?id_produs={product_id}&apikey={API_KEY}"
     try:
-        import pandas as pd
-
-        with pd.ExcelWriter(EXCEL_FILE, engine='openpyxl') as writer:
-            if results:
-                rows = []
-                for r in results:
-                    clean_text = re.sub(
-                        r'<[^>]+>', '', r['description_html']).strip()
-                    clean_text = re.sub(r'\n+', ' | ', clean_text)
-                    rows.append({
-                        'ID': r['id'],
-                        'Nume Produs': r['name'],
-                        'Brand': r['brand'],
-                        'Cuvinte': r['word_count'],
-                        'Descriere Text': clean_text,
-                        'Link Produs': r['link'],
-                        'Imagine': r['image'],
-                        'Status': '✅ OK' if 80 <= r['word_count'] <= 180 else '⚠️ Verifică'
-                    })
-                df = pd.DataFrame(rows)
-                df.to_excel(
-                    writer, sheet_name='Descrieri Generate', index=False)
-
-                ws = writer.sheets['Descrieri Generate']
-                ws.column_dimensions['A'].width = 8
-                ws.column_dimensions['B'].width = 35
-                ws.column_dimensions['C'].width = 10
-                ws.column_dimensions['D'].width = 8
-                ws.column_dimensions['E'].width = 80
-                ws.column_dimensions['F'].width = 45
-                ws.column_dimensions['G'].width = 60
-                ws.column_dimensions['H'].width = 18
-
-            if errors:
-                df_err = pd.DataFrame(errors)
-                df_err.to_excel(writer, sheet_name='Erori', index=False)
-
-            summary = pd.DataFrame([
-                {'Metric': 'Total generate', 'Valoare': len(results)},
-                {'Metric': 'Erori', 'Valoare': len(errors)},
-                {'Metric': 'Media cuvinte',
-                    'Valoare': f"{sum(r['word_count'] for r in results) / len(results):.0f}" if results else 0},
-                {'Metric': 'Min cuvinte', 'Valoare': min(
-                    r['word_count'] for r in results) if results else 0},
-                {'Metric': 'Max cuvinte', 'Valoare': max(
-                    r['word_count'] for r in results) if results else 0},
-                {'Metric': 'Data generare',
-                    'Valoare': datetime.now().strftime('%Y-%m-%d %H:%M')},
-            ])
-            summary.to_excel(writer, sheet_name='Sumar', index=False)
-
-        print(f"📊 Excel review: {EXCEL_FILE}")
-    except ImportError:
-        print("⚠️ pandas/openpyxl nu e instalat")
-
-# --- Main ---
+        req = requests.get(
+            url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=60)
+        if req.status_code == 200:
+            data = req.json()
+            if isinstance(data, dict) and data:
+                return {
+                    'id': str(product_id),
+                    'name': data.get('nume', ''),
+                    'brand': data.get('brand', ''),
+                    'link': data.get('link', ''),
+                    'image': data.get('imagine', ''),
+                }
+        return None
+    except Exception as e:
+        print(f"❌ API error: {e}")
+        return None
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description='Generate product descriptions with Gemini Vision')
+    parser.add_argument('--id', type=str, help='Process specific product ID')
+    parser.add_argument('--limit', type=int, default=0,
+                        help='Limit number of products')
+    parser.add_argument('--no-table', action='store_true',
+                        help='Do NOT append size table')
+    args = parser.parse_args()
+
     print("=" * 60)
-    print("🎨 GENERARE DESCRIERI PRODUSE - Gemini Vision v3")
+    print("🎨 GENERARE DESCRIERI PRODUSE - Gemini Vision v4")
     print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    if args.id:
+        print(f"🎯 Mod: produs specific ID={args.id}")
+    elif args.limit:
+        print(f"🎯 Mod: limitat la {args.limit} produse")
+    print(f"📐 Tabel mărimi: {'NU' if args.no_table else 'DA'}")
     print("=" * 60)
 
-    if not os.path.exists(INPUT_FILE):
-        print(f"❌ {INPUT_FILE} nu există! Rulează scan_no_description.py")
-        sys.exit(1)
+    if args.id:
+        print(f"\n📡 Fetch produs {args.id} din API...")
+        prod = fetch_product_by_id(args.id)
+        if not prod:
+            print(f"❌ Produsul {args.id} nu a fost găsit!")
+            sys.exit(1)
+        products = [prod]
+        print(f"✅ {prod['name']}")
+    else:
+        if not os.path.exists(INPUT_FILE):
+            print(f"❌ {INPUT_FILE} nu există! Rulează scan_no_description.py")
+            sys.exit(1)
+        with open(INPUT_FILE) as f:
+            products = json.load(f)
 
-    with open(INPUT_FILE) as f:
-        products = json.load(f)
+    total = len(products)
+    if args.limit and args.limit < total:
+        products = products[:args.limit]
+        total = len(products)
 
-    print(f"\n📋 {len(products)} produse de procesat")
-    print(f"📐 Tabel mărimi: DA (se adaugă automat la final)")
+    print(f"\n📋 {total} produse de procesat")
 
-    # Load existing (resume support)
     existing = {}
-    if os.path.exists(OUTPUT_FILE):
+    if os.path.exists(OUTPUT_FILE) and not args.id:
         with open(OUTPUT_FILE) as f:
             existing_list = json.load(f)
             existing = {item['id']: item for item in existing_list}
         print(f"📂 {len(existing)} existente (skip)")
 
-    results = list(existing.values())
+    results = list(existing.values()) if not args.id else []
     errors = []
     skipped = 0
     processed = 0
@@ -325,16 +279,16 @@ def main():
         name = prod['name']
         image_url = prod.get('image', '')
 
-        if pid in existing:
+        if pid in existing and not args.id:
             skipped += 1
             continue
 
         if not image_url:
-            print(f"  [{i+1}/{len(products)}] ⏭️ {name} — fără imagine")
+            print(f"  [{i+1}/{total}] ⏭️ {name} — fără imagine")
             errors.append({'id': pid, 'name': name, 'error': 'no image'})
             continue
 
-        print(f"  [{i+1}/{len(products)}] 🔄 {name}...", end=' ')
+        print(f"  [{i+1}/{total}] 🔄 {name}...", end=' ')
 
         img_b64, mime = download_image_base64(image_url)
         if not img_b64:
@@ -347,8 +301,11 @@ def main():
             errors.append({'id': pid, 'name': name, 'error': 'gemini failed'})
             continue
 
-        html = text_to_html(raw_text)
-        # Word count fara HTML si fara size table
+        table_type = None
+        if not args.no_table:
+            table_type = '4col'
+
+        html = text_to_html(raw_text, add_table=table_type)
         word_count = len(re.sub(r'<[^>]+>', '', raw_text).split())
 
         result = {
@@ -363,17 +320,14 @@ def main():
         }
         results.append(result)
         processed += 1
-
         print(f"✅ {word_count} cuvinte")
 
-        if processed % 10 == 0:
+        if processed % 10 == 0 and not args.id:
             with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
                 json.dump(results, f, ensure_ascii=False, indent=2)
-            print(f"    💾 Progres salvat ({processed} noi)")
 
         time.sleep(1.5)
 
-    # Final save
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
@@ -381,44 +335,24 @@ def main():
         with open(LOG_FILE, 'w', encoding='utf-8') as f:
             json.dump(errors, f, ensure_ascii=False, indent=2)
 
-    # Excel review
-    print("\n📊 Export Excel review...")
-    export_review_excel(results, errors)
-
-    # Summary
     avg_words = sum(r['word_count']
                     for r in results) / len(results) if results else 0
-
-    print("\n" + "=" * 60)
-    print("📊 REZULTATE:")
+    print(f"\n{'=' * 60}")
+    print(f"📊 REZULTATE:")
     print(f"  ✅ Generate:  {processed}")
     print(f"  ⏭️ Skip:      {skipped}")
     print(f"  ❌ Erori:     {len(errors)}")
     print(f"  📄 Total:     {len(results)} descrieri")
     print(f"  📏 Media:     {avg_words:.0f} cuvinte/descriere")
-    print("=" * 60)
+    print(f"{'=' * 60}")
 
-    # LISTA COMPLETA
-    print("\n" + "=" * 90)
-    print("📋 LISTA COMPLETĂ PRODUSE CU DESCRIERI GENERATE:")
-    print("=" * 90)
-    print(f"{'#':<4} {'ID':<7} {'Brand':<10} {'Cuv':<5} {'Nume Produs':<45} {'Status'}")
-    print("-" * 90)
-    for idx, r in enumerate(results, 1):
-        status = "✅" if 80 <= r['word_count'] <= 180 else "⚠️"
-        name_short = r['name'][:43] if len(r['name']) > 43 else r['name']
-        print(
-            f"{idx:<4} {r['id']:<7} {r['brand']:<10} {r['word_count']:<5} {name_short:<45} {status}")
-    print("-" * 90)
-    print(f"TOTAL: {len(results)} produse | Media: {avg_words:.0f} cuvinte")
-
-    if errors:
-        print(f"\n⚠️ {len(errors)} erori in {LOG_FILE}")
-
-    print(f"\n📊 Review Excel: {EXCEL_FILE}")
-    print(f"📄 JSON: {OUTPUT_FILE}")
-    print(f"➡️ Next: python3 upload_descriptions.py")
+    if args.id and results:
+        print(f"\n📝 DESCRIERE GENERATĂ:")
+        print(f"{results[-1]['description_text']}")
 
 
 if __name__ == '__main__':
     main()
+SCRIPTEOF
+
+echo "✅ generate_descriptions.py v4: $(wc -l < ~/ejolie-openclaw-agent/ejolie-sales/scripts/generate_descriptions.py) lines"
