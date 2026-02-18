@@ -1,20 +1,20 @@
-import argparse
-import requests
-import base64
-import time
-import re
-import json
-import sys
-import os
-from datetime import datetime
-cat > ~/ejolie-openclaw-agent/ejolie-sales/scripts/generate_descriptions.py << 'SCRIPTEOF'
 #!/usr/bin/env python3
 """
 generate_descriptions.py - Generează descrieri produse din poze cu Gemini Vision
 v4 - Added --id, --limit, --no-table argparse support
 """
 
+import os
+import sys
+import json
+import re
+import time
+import base64
+import requests
+import argparse
+from datetime import datetime
 
+# --- Config ---
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ENV_PATH = os.path.join(SCRIPT_DIR, '..', '.env')
 
@@ -47,6 +47,7 @@ GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.
 INPUT_FILE = os.path.join(SCRIPT_DIR, 'products_no_description.json')
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, 'generated_descriptions.json')
 LOG_FILE = os.path.join(SCRIPT_DIR, 'description_generation_log.json')
+EXCEL_FILE = os.path.join(SCRIPT_DIR, 'review_descriptions.xlsx')
 
 PROMPT = """Ești copywriter expert pentru magazinul online ejolie.ro (rochii elegante din România).
 Analizează imaginea rochiei "{product_name}" și scrie o descriere de produs în limba română.
@@ -146,6 +147,7 @@ def generate_with_gemini(product_name, image_b64, mime_type, retry=0):
 
 
 def text_to_html(raw_text, add_table=None):
+    """Convert text to HTML. add_table: None (no table), '3col', '4col'"""
     lines = raw_text.strip().split('\n')
     html_parts = []
     in_list = False
@@ -191,6 +193,7 @@ def text_to_html(raw_text, add_table=None):
     if in_list:
         html_parts.append('</ul>')
 
+    # Add size table if requested
     if add_table == '4col':
         html_parts.append(SIZE_TABLE_4COL)
     elif add_table == '3col':
@@ -200,6 +203,7 @@ def text_to_html(raw_text, add_table=None):
 
 
 def fetch_product_by_id(product_id):
+    """Fetch a single product from Extended API by ID"""
     url = f"{API_URL}?id_produs={product_id}&apikey={API_KEY}"
     try:
         req = requests.get(
@@ -207,6 +211,7 @@ def fetch_product_by_id(product_id):
         if req.status_code == 200:
             data = req.json()
             if isinstance(data, dict) and data:
+                # API returns dict with product data
                 return {
                     'id': str(product_id),
                     'name': data.get('nume', ''),
@@ -225,9 +230,9 @@ def main():
         description='Generate product descriptions with Gemini Vision')
     parser.add_argument('--id', type=str, help='Process specific product ID')
     parser.add_argument('--limit', type=int, default=0,
-                        help='Limit number of products')
+                        help='Limit number of products to process')
     parser.add_argument('--no-table', action='store_true',
-                        help='Do NOT append size table')
+                        help='Do NOT append size table to description')
     args = parser.parse_args()
 
     print("=" * 60)
@@ -237,10 +242,15 @@ def main():
         print(f"🎯 Mod: produs specific ID={args.id}")
     elif args.limit:
         print(f"🎯 Mod: limitat la {args.limit} produse")
-    print(f"📐 Tabel mărimi: {'NU' if args.no_table else 'DA'}")
+    if args.no_table:
+        print(f"📐 Tabel mărimi: NU")
+    else:
+        print(f"📐 Tabel mărimi: DA (se adaugă automat)")
     print("=" * 60)
 
+    # Determine products to process
     if args.id:
+        # Fetch single product from API
         print(f"\n📡 Fetch produs {args.id} din API...")
         prod = fetch_product_by_id(args.id)
         if not prod:
@@ -262,6 +272,7 @@ def main():
 
     print(f"\n📋 {total} produse de procesat")
 
+    # Load existing (resume support)
     existing = {}
     if os.path.exists(OUTPUT_FILE) and not args.id:
         with open(OUTPUT_FILE) as f:
@@ -301,9 +312,10 @@ def main():
             errors.append({'id': pid, 'name': name, 'error': 'gemini failed'})
             continue
 
+        # Determine table type (no table if --no-table)
         table_type = None
         if not args.no_table:
-            table_type = '4col'
+            table_type = '4col'  # default, will be overridden by add_size_table.py per croi
 
         html = text_to_html(raw_text, add_table=table_type)
         word_count = len(re.sub(r'<[^>]+>', '', raw_text).split())
@@ -320,6 +332,7 @@ def main():
         }
         results.append(result)
         processed += 1
+
         print(f"✅ {word_count} cuvinte")
 
         if processed % 10 == 0 and not args.id:
@@ -328,6 +341,7 @@ def main():
 
         time.sleep(1.5)
 
+    # Final save
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
@@ -335,6 +349,7 @@ def main():
         with open(LOG_FILE, 'w', encoding='utf-8') as f:
             json.dump(errors, f, ensure_ascii=False, indent=2)
 
+    # Summary
     avg_words = sum(r['word_count']
                     for r in results) / len(results) if results else 0
     print(f"\n{'=' * 60}")
@@ -353,6 +368,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-SCRIPTEOF
-
-echo "✅ generate_descriptions.py v4: $(wc -l < ~/ejolie-openclaw-agent/ejolie-sales/scripts/generate_descriptions.py) lines"
