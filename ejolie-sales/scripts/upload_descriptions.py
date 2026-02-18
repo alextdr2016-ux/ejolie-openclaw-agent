@@ -53,8 +53,8 @@ def admin_login(session):
         'parola': EXTENDED_PASSWORD
     })
     # Verificam daca suntem logati - fetch dashboard
-    r2 = session.get(f'{ADMIN_BASE}/')
-    if 'deconectare' in r2.text.lower() or 'logout' in r2.text.lower():
+    r2 = session.get(f'{ADMIN_BASE}/produse/detalii/12350', timeout=30)
+    if 'camp_nume' in r2.text:
         return True
     return False
 
