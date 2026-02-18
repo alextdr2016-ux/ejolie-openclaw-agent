@@ -235,10 +235,10 @@ def main():
             if os.path.exists(cache_path):
                 with open(cache_path, "r") as _f:
                     all_products = _json.load(_f)
-                article["content_html"] = inject_product_images(
-                    article["content_html"], all_products, article_slug=slug
-                )
-                print(f"  ✅ Poze produse reale injectate")
+                # article["content_html"] = inject_product_images(
+                #     article["content_html"], all_products, article_slug=slug
+                # )
+                # print(f"  ✅ Poze produse reale injectate")
         except Exception as e:
             print(f"  ⚠️ Product images error: {e}")
 

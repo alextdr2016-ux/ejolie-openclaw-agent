@@ -48,6 +48,7 @@ def load_env(path=None):
 load_env()
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 EJOLIE_SITE_URL = "https://www.ejolie.ro"
 
 GPT_MODEL = "gpt-4o-mini"
@@ -333,6 +334,7 @@ Output STRICT în format JSON:
     "content_html": "HTML complet cu CSS inline"
 }}
 """
+    raw_content = None
 
     print(f"\n🤖 Generez articol cu {GPT_MODEL}...")
 
@@ -364,7 +366,44 @@ Output STRICT în format JSON:
         print(f"❌ JSON Parse Error: {e}")
         return None
     except Exception as e:
-        print(f"❌ GPT Error: {e}")
+        print(f"⚠️ GPT Error: {e}")
+        print("  🔄 Fallback la Gemini...")
+
+    # Fallback: Gemini
+    if raw_content is None and GEMINI_API_KEY:
+        print(f"\n🤖 Generez articol cu Gemini 2.5 Flash...")
+        try:
+            import requests as req
+            resp = req.post(
+                f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}",
+                headers={"content-type": "application/json"},
+                json={
+                    "contents": [{"parts": [{"text": system_prompt + "\n\n" + user_prompt + "\n\nRăspunde DOAR cu JSON valid, fără text suplimentar, fără ```json."}]}],
+                    "generationConfig": {"temperature": 0.7, "maxOutputTokens": 65000}
+                },
+                timeout=300,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            raw_content = data["candidates"][0]["content"]["parts"][0]["text"]
+            # Clean markdown fences
+            if raw_content.strip().startswith("```"):
+                raw_content = re.sub(r"^```(?:json)?\s*", "", raw_content.strip())
+                raw_content = re.sub(r"```\s*$", "", raw_content.strip())
+            print(f"📝 Raw response length: {len(raw_content)}")
+            result = json.loads(raw_content)
+            print(f"✅ Articol generat cu Gemini!")
+            return result
+        except json.JSONDecodeError as e:
+            print(f"❌ Gemini JSON Parse Error: {e}")
+            print(f"Raw (first 300): {raw_content[:300]}")
+            return None
+        except Exception as e:
+            print(f"❌ Gemini Error: {e}")
+            return None
+
+    if raw_content is None:
+        print("❌ Niciun model n-a funcționat!")
         return None
 
 # ============================================================
