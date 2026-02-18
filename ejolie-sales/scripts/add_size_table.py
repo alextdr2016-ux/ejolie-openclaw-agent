@@ -106,11 +106,17 @@ def get_current_description(session, product_id):
         return None, None
 
     # Extract camp_descriere
+    # First try traditional form fields
     desc_match = re.search(
         r'name=["\']camp_descriere["\'][^>]*value=["\']([^"\']*)["\']', r.text)
     if not desc_match:
         desc_match = re.search(
             r'name=["\']camp_descriere["\'][^>]*>(.*?)</textarea>', r.text, re.DOTALL)
+    
+    # If not found, try elRTE editor div format
+    if not desc_match:
+        desc_match = re.search(
+            r'<div[^>]*id=["\']camp_descriere["\'][^>]*>(.*?)</div>', r.text, re.DOTALL)
 
     current_desc = desc_match.group(1) if desc_match else ''
     return current_desc, parse_form_fields(r.text)
