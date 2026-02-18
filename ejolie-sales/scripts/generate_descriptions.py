@@ -8,6 +8,7 @@ v1 - 100-150 cuvinte, template Elysia (2 paragrafe + detalii + styling)
 import os
 import sys
 import json
+import re
 import time
 import base64
 import requests
@@ -40,6 +41,7 @@ GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.
 INPUT_FILE = os.path.join(SCRIPT_DIR, 'products_no_description.json')
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, 'generated_descriptions.json')
 LOG_FILE = os.path.join(SCRIPT_DIR, 'description_generation_log.json')
+EXCEL_FILE = os.path.join(SCRIPT_DIR, 'review_descriptions.xlsx')
 
 # --- Prompt template ---
 PROMPT = """Ești copywriter expert pentru un magazin online de rochii elegante din România (ejolie.ro).
@@ -160,7 +162,6 @@ def text_to_html(raw_text):
             if in_list:
                 html_parts.append('</ul>')
                 in_list = False
-            # Extrage textul dupa "Sugestie de styling:"
             if ':' in line:
                 label, content = line.split(':', 1)
                 html_parts.append(
@@ -188,6 +189,72 @@ def text_to_html(raw_text):
         html_parts.append('</ul>')
 
     return '\n'.join(html_parts)
+
+# --- Helper: Export Excel for review ---
+
+
+def export_review_excel(results, errors):
+    """Exportă Excel cu toate descrierile generate pentru verificare"""
+    try:
+        import pandas as pd
+
+        with pd.ExcelWriter(EXCEL_FILE, engine='openpyxl') as writer:
+            # Sheet 1: Toate descrierile generate
+            if results:
+                rows = []
+                for r in results:
+                    # Text curat fara HTML
+                    clean_text = re.sub(
+                        r'<[^>]+>', '', r['description_html']).strip()
+                    clean_text = re.sub(r'\n+', ' | ', clean_text)
+                    rows.append({
+                        'ID': r['id'],
+                        'Nume Produs': r['name'],
+                        'Brand': r['brand'],
+                        'Cuvinte': r['word_count'],
+                        'Descriere Text': clean_text,
+                        'Link Produs': r['link'],
+                        'Imagine': r['image'],
+                        'Status': '✅ OK' if 100 <= r['word_count'] <= 180 else '⚠️ Verifică lungime'
+                    })
+                df = pd.DataFrame(rows)
+                df.to_excel(
+                    writer, sheet_name='Descrieri Generate', index=False)
+
+                # Auto-adjust column widths
+                ws = writer.sheets['Descrieri Generate']
+                ws.column_dimensions['A'].width = 8   # ID
+                ws.column_dimensions['B'].width = 35  # Nume
+                ws.column_dimensions['C'].width = 10  # Brand
+                ws.column_dimensions['D'].width = 8   # Cuvinte
+                ws.column_dimensions['E'].width = 80  # Descriere
+                ws.column_dimensions['F'].width = 45  # Link
+                ws.column_dimensions['G'].width = 60  # Imagine
+                ws.column_dimensions['H'].width = 18  # Status
+
+            # Sheet 2: Erori
+            if errors:
+                df_err = pd.DataFrame(errors)
+                df_err.to_excel(writer, sheet_name='Erori', index=False)
+
+            # Sheet 3: Sumar
+            summary = pd.DataFrame([
+                {'Metric': 'Total generate', 'Valoare': len(results)},
+                {'Metric': 'Erori', 'Valoare': len(errors)},
+                {'Metric': 'Media cuvinte',
+                    'Valoare': f"{sum(r['word_count'] for r in results) / len(results):.0f}" if results else 0},
+                {'Metric': 'Min cuvinte', 'Valoare': min(
+                    r['word_count'] for r in results) if results else 0},
+                {'Metric': 'Max cuvinte', 'Valoare': max(
+                    r['word_count'] for r in results) if results else 0},
+                {'Metric': 'Data generare',
+                    'Valoare': datetime.now().strftime('%Y-%m-%d %H:%M')},
+            ])
+            summary.to_excel(writer, sheet_name='Sumar', index=False)
+
+        print(f"📊 Excel review salvat: {EXCEL_FILE}")
+    except ImportError:
+        print("⚠️ pandas/openpyxl nu e instalat - Excel skip")
 
 # --- Main ---
 
@@ -218,7 +285,7 @@ def main():
         print(f"📂 {len(existing)} descrieri existente (skip)")
 
     # Process
-    results = list(existing.values())  # păstrăm cele existente
+    results = list(existing.values())
     errors = []
     skipped = 0
     processed = 0
@@ -258,7 +325,6 @@ def main():
         html = text_to_html(raw_text)
 
         # Count words
-        import re
         word_count = len(re.sub(r'<[^>]+>', '', html).split())
 
         result = {
@@ -285,7 +351,7 @@ def main():
         # Rate limit - 1 sec between calls
         time.sleep(1)
 
-    # Final save
+    # Final save JSON
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
@@ -293,6 +359,10 @@ def main():
     if errors:
         with open(LOG_FILE, 'w', encoding='utf-8') as f:
             json.dump(errors, f, ensure_ascii=False, indent=2)
+
+    # Export Excel for review
+    print("\n📊 Export Excel review...")
+    export_review_excel(results, errors)
 
     # Summary
     print("\n" + "=" * 60)
@@ -311,7 +381,23 @@ def main():
         for e in errors[:5]:
             print(f"  [{e['id']}] {e['name']} — {e['error']}")
 
-    print("\n✅ Generare completă!")
+    # LISTA COMPLETA
+    print("\n" + "=" * 60)
+    print("📋 LISTA COMPLETĂ PRODUSE CU DESCRIERI GENERATE:")
+    print("=" * 60)
+    print(f"{'#':<4} {'ID':<7} {'Brand':<10} {'Cuv':<5} {'Nume Produs':<45} {'Status'}")
+    print("-" * 90)
+    for idx, r in enumerate(results, 1):
+        status = "✅" if 100 <= r['word_count'] <= 180 else "⚠️"
+        name_short = r['name'][:43] if len(r['name']) > 43 else r['name']
+        print(
+            f"{idx:<4} {r['id']:<7} {r['brand']:<10} {r['word_count']:<5} {name_short:<45} {status}")
+    print("-" * 90)
+    print(f"TOTAL: {len(results)} produse | Media: {avg_words:.0f} cuvinte")
+
+    print(f"\n✅ Generare completă!")
+    print(f"📊 Review Excel: {EXCEL_FILE}")
+    print(f"📄 JSON descrieri: {OUTPUT_FILE}")
     print(f"➡️ Următorul pas: python3 upload_descriptions.py")
 
 
