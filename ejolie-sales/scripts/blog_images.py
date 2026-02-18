@@ -160,7 +160,7 @@ def generate_gemini_image(prompt, size="1024x1024"):
         }
     }
     resp = requests.post(
-        f"https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key={GEMINI_API_KEY}",
+        f"https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key={GEMINI_API_KEY}",
         headers={"Content-Type": "application/json"},
         json=body,
         timeout=120,
@@ -172,11 +172,16 @@ def generate_gemini_image(prompt, size="1024x1024"):
     return image_bytes, prompt
 
 
-def convert_to_webp(image_bytes, quality=85):
-    """Convert image to WebP format for smaller file size"""
+def convert_to_webp(image_bytes, quality=85, min_width=1200):
+    """Convert image to WebP format, upscale if needed"""
     try:
         from PIL import Image
         img = Image.open(io.BytesIO(image_bytes))
+        # Upscale if too small
+        if img.width < min_width:
+            ratio = min_width / img.width
+            new_h = int(img.height * ratio)
+            img = img.resize((min_width, new_h), Image.LANCZOS)
         output = io.BytesIO()
         img.save(output, format="WEBP", quality=quality)
         return output.getvalue()
@@ -251,20 +256,20 @@ def generate_blog_images(keyword, session, num_inline=2):
     dalle_urls = []
 
     # 1. Generate cover image
-    print(f"  🎨 Generez copertă DALL-E (landscape)...", flush=True)
+    print(f"  🎨 Generez copertă Gemini Imagen (portret)...", flush=True)
     cover_prompt = COVER_PROMPT_TEMPLATE.format(keyword=keyword, **visuals)
     # Add uniqueness: include slug in prompt
     cover_prompt += f"\nUnique scene variation for: {slug}"
 
     try:
         try:
-            img_bytes, revised = generate_dalle_image(
-                cover_prompt, size="1792x1024")
-        except Exception as dalle_err:
-            print(f"  ⚠️ DALL-E cover error: {dalle_err}")
-            print(f"  🔄 Fallback Gemini Imagen...")
             img_bytes, revised = generate_gemini_image(
-                cover_prompt, size="1792x1024")
+                cover_prompt, size="1024x1792")
+        except Exception as gemini_err:
+            print(f"  ⚠️ Gemini cover error: {gemini_err}")
+            print(f"  🔄 Fallback DALL-E...")
+            img_bytes, revised = generate_dalle_image(
+                cover_prompt, size="1024x1792")
         webp_bytes = convert_to_webp(img_bytes, quality=85)
 
         cover_filename = f"{slug}-coperta-{timestamp}.webp"
@@ -279,7 +284,7 @@ def generate_blog_images(keyword, session, num_inline=2):
 
     # 2. Generate inline images
     for i in range(min(num_inline, len(INLINE_PROMPTS))):
-        print(f"  🎨 Generez imagine inline {i+1}...", flush=True)
+        print(f"  🎨 Generez imagine Gemini inline {i+1}...", flush=True)
         prompt = INLINE_PROMPTS[i].format(**visuals)
         # Add uniqueness
         prompt += f"\nUnique variation {i+1} for article: {slug}"
