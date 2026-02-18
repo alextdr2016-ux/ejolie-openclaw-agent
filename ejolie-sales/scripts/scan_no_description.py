@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
 scan_no_description.py - Scanează produse ejolie.ro fără descriere
-Fetch toate produsele cu stoc > 0, verifică câmpul 'descriere'
-Exportă rezultat în JSON + Excel
+v2 - Fix: API returnează tot pe fiecare call, deci fetch o singura data + dedup
 """
 
 import os
 import sys
 import json
+import re
 import time
 import requests
 from datetime import datetime
@@ -15,8 +15,6 @@ from datetime import datetime
 # --- Config ---
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ENV_PATH = os.path.join(SCRIPT_DIR, '..', '.env')
-
-# Load .env manual (fara python-dotenv)
 
 
 def load_env(path):
@@ -39,85 +37,54 @@ if not API_KEY:
     print("❌ EJOLIE_API_KEY nu e setat in .env!")
     sys.exit(1)
 
-# --- Step 1: Fetch toate ID-urile produselor ---
+# --- Step 1: Fetch toate produsele (un singur call) ---
 
 
-def fetch_all_product_ids():
-    """Fetch lista completa de ID-uri produse (paginat)"""
-    all_ids = []
-    page = 1
-    while True:
-        url = f"{BASE_URL}?produse&apikey={API_KEY}&pagina={page}&limit=200"
-        print(f"  📥 Pagina {page}...", end=' ')
-        try:
-            r = requests.get(url, headers=HEADERS, timeout=180)
-            data = r.json()
-            if not data:
-                print("gol - terminat")
-                break
-            ids = list(data.keys())
-            all_ids.extend(ids)
-            print(f"{len(ids)} produse")
-            if len(ids) < 200:
-                break
-            page += 1
-            time.sleep(0.5)
-        except Exception as e:
-            print(f"❌ Eroare: {e}")
-            break
-    return all_ids
+def fetch_all_products():
+    """Fetch toate produsele cu detalii complete - un singur call"""
+    url = f"{BASE_URL}?produse&apikey={API_KEY}"
+    print(f"  📥 Fetching all products...")
+    try:
+        r = requests.get(url, headers=HEADERS, timeout=300)
+        data = r.json()
+        if not data:
+            return []
 
-# --- Step 2: Fetch detalii in batch ---
+        # Deduplicam pe id_produs
+        products = []
+        seen = set()
+        for pid, prod in data.items():
+            prod_id = prod.get('id_produs', pid)
+            if prod_id not in seen:
+                seen.add(prod_id)
+                products.append(prod)
 
+        print(f"  ✅ {len(products)} produse unice primite")
+        return products
+    except Exception as e:
+        print(f"  ❌ Eroare: {e}")
+        return []
 
-def fetch_product_details(ids, batch_size=20):
-    """Fetch detalii produse in batch-uri de 20"""
-    all_products = []
-    total = len(ids)
-    for i in range(0, total, batch_size):
-        batch = ids[i:i+batch_size]
-        batch_str = ','.join(batch)
-        url = f"{BASE_URL}?produse&id_produse={batch_str}&apikey={API_KEY}"
-        print(
-            f"  📦 Batch {i//batch_size + 1}/{(total-1)//batch_size + 1} ({len(batch)} produse)...", end=' ')
-        try:
-            r = requests.get(url, headers=HEADERS, timeout=180)
-            data = r.json()
-            if data:
-                for pid, prod in data.items():
-                    all_products.append(prod)
-                print(f"✅ {len(data)} primite")
-            else:
-                print("⚠️ gol")
-            time.sleep(0.3)
-        except Exception as e:
-            print(f"❌ {e}")
-            time.sleep(1)
-    return all_products
-
-# --- Step 3: Analizeaza descrieri ---
+# --- Step 2: Analizeaza descrieri ---
 
 
 def analyze_descriptions(products):
     """Clasifică produsele: cu/fără descriere, stoc"""
     results = {
-        'no_description': [],    # stoc > 0, fara descriere
-        'has_description': [],   # stoc > 0, cu descriere
-        'out_of_stock': 0,       # fara stoc (skip)
-        'short_description': []  # stoc > 0, descriere < 50 chars (suspicioase)
+        'no_description': [],
+        'has_description': [],
+        'out_of_stock': 0,
+        'short_description': []
     }
 
     for prod in products:
         stoc = prod.get('stoc', 'Lipsa Stoc')
 
-        # Skip produse fara stoc
         if stoc != 'In stoc':
             results['out_of_stock'] += 1
             continue
 
         descriere = prod.get('descriere', '') or ''
-        # Elimina HTML tags pentru a verifica textul real
-        import re
         text_only = re.sub(r'<[^>]+>', '', descriere).strip()
 
         product_info = {
@@ -144,48 +111,38 @@ def analyze_descriptions(products):
 
     return results
 
-# --- Step 4: Export ---
+# --- Step 3: Export ---
 
 
 def export_results(results, output_dir):
-    """Exporta rezultate in JSON + Excel"""
-
-    # JSON - lista produse fara descriere (pentru scriptul de generare)
     no_desc = results['no_description'] + results['short_description']
     json_path = os.path.join(output_dir, 'products_no_description.json')
     with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(no_desc, f, ensure_ascii=False, indent=2)
     print(f"\n📄 JSON salvat: {json_path} ({len(no_desc)} produse)")
 
-    # Excel
     try:
         import pandas as pd
         excel_path = os.path.join(output_dir, 'scan_descriptions.xlsx')
 
         with pd.ExcelWriter(excel_path, engine='openpyxl') as writer:
-            # Sheet 1: Sumar
-            summary = pd.DataFrame([{
-                'Metric': 'Total produse scanate',
-                'Valoare': len(results['no_description']) + len(results['has_description']) + len(results['short_description']) + results['out_of_stock']
-            }, {
-                'Metric': 'Cu stoc > 0',
-                'Valoare': len(results['no_description']) + len(results['has_description']) + len(results['short_description'])
-            }, {
-                'Metric': '❌ FĂRĂ descriere',
-                'Valoare': len(results['no_description'])
-            }, {
-                'Metric': '⚠️ Descriere scurtă (<50 chars)',
-                'Valoare': len(results['short_description'])
-            }, {
-                'Metric': '✅ Cu descriere',
-                'Valoare': len(results['has_description'])
-            }, {
-                'Metric': 'Fără stoc (skip)',
-                'Valoare': results['out_of_stock']
-            }])
+            total_in_stock = len(results['no_description']) + len(
+                results['has_description']) + len(results['short_description'])
+            summary = pd.DataFrame([
+                {'Metric': 'Total produse in API',
+                    'Valoare': total_in_stock + results['out_of_stock']},
+                {'Metric': 'Cu stoc > 0', 'Valoare': total_in_stock},
+                {'Metric': '❌ FĂRĂ descriere', 'Valoare': len(
+                    results['no_description'])},
+                {'Metric': '⚠️ Descriere scurtă (<50 chars)', 'Valoare': len(
+                    results['short_description'])},
+                {'Metric': '✅ Cu descriere', 'Valoare': len(
+                    results['has_description'])},
+                {'Metric': 'Fără stoc (skip)',
+                 'Valoare': results['out_of_stock']},
+            ])
             summary.to_excel(writer, sheet_name='Sumar', index=False)
 
-            # Sheet 2: Produse FĂRĂ descriere
             if results['no_description']:
                 df_no = pd.DataFrame(results['no_description'])
                 df_no = df_no[['id', 'name', 'code', 'brand',
@@ -193,7 +150,6 @@ def export_results(results, output_dir):
                 df_no.to_excel(
                     writer, sheet_name='Fara Descriere', index=False)
 
-            # Sheet 3: Descriere scurtă
             if results['short_description']:
                 df_short = pd.DataFrame(results['short_description'])
                 df_short = df_short[['id', 'name', 'code', 'brand', 'price',
@@ -201,7 +157,6 @@ def export_results(results, output_dir):
                 df_short.to_excel(
                     writer, sheet_name='Descriere Scurta', index=False)
 
-            # Sheet 4: Cu descriere (referinta)
             if results['has_description']:
                 df_has = pd.DataFrame(results['has_description'])
                 df_has = df_has[['id', 'name', 'code',
@@ -217,29 +172,20 @@ def export_results(results, output_dir):
 
 def main():
     print("=" * 60)
-    print("🔍 SCAN DESCRIERI PRODUSE - ejolie.ro")
+    print("🔍 SCAN DESCRIERI PRODUSE - ejolie.ro (v2)")
     print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print("=" * 60)
 
-    # Step 1: Fetch all IDs
-    print("\n📋 Step 1: Fetch lista produse...")
-    all_ids = fetch_all_product_ids()
-    print(f"  Total: {len(all_ids)} produse gasite")
+    print("\n📋 Step 1: Fetch toate produsele...")
+    products = fetch_all_products()
 
-    if not all_ids:
+    if not products:
         print("❌ Nu am gasit produse!")
         return
 
-    # Step 2: Fetch details
-    print(f"\n📦 Step 2: Fetch detalii ({len(all_ids)} produse)...")
-    products = fetch_product_details(all_ids)
-    print(f"  Detalii primite: {len(products)} produse")
-
-    # Step 3: Analyze
-    print("\n🔎 Step 3: Analiza descrieri...")
+    print(f"\n🔎 Step 2: Analiza descrieri...")
     results = analyze_descriptions(products)
 
-    # Print summary
     print("\n" + "=" * 60)
     print("📊 REZULTATE:")
     print(f"  ❌ FĂRĂ descriere:         {len(results['no_description'])}")
@@ -248,16 +194,18 @@ def main():
     print(f"  ⏭️  Fără stoc (skip):       {results['out_of_stock']}")
     print("=" * 60)
 
-    # Step 4: Export
-    print("\n💾 Step 4: Export rezultate...")
-    output_dir = SCRIPT_DIR
-    export_results(results, output_dir)
+    print("\n💾 Step 3: Export rezultate...")
+    export_results(results, SCRIPT_DIR)
 
-    # Print first 10 fara descriere
     if results['no_description']:
         print(f"\n📋 Primele 10 produse FĂRĂ descriere:")
         for p in results['no_description'][:10]:
             print(f"  [{p['id']}] {p['name']} ({p['brand']}) - {p['link']}")
+
+    if results['short_description']:
+        print(f"\n📋 Primele 5 produse cu descriere SCURTĂ:")
+        for p in results['short_description'][:5]:
+            print(f"  [{p['id']}] {p['name']} - {p['description_length']} chars")
 
     print("\n✅ Scan complet!")
 
