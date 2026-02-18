@@ -144,14 +144,14 @@ def generate_gemini_image(prompt, size="1024x1024"):
     """Generate image with Gemini Imagen, return bytes"""
     if not GEMINI_API_KEY:
         raise Exception("GEMINI_API_KEY not set")
-    
+
     # Map DALL-E sizes to aspect ratios
     aspect = "1:1"
     if "1792x1024" in size:
         aspect = "16:9"
     elif "1024x1792" in size:
         aspect = "9:16"
-    
+
     body = {
         "instances": [{"prompt": prompt}],
         "parameters": {
@@ -170,7 +170,6 @@ def generate_gemini_image(prompt, size="1024x1024"):
     b64_data = data["predictions"][0]["bytesBase64Encoded"]
     image_bytes = base64.b64decode(b64_data)
     return image_bytes, prompt
-
 
 
 def convert_to_webp(image_bytes, quality=85):
@@ -287,11 +286,13 @@ def generate_blog_images(keyword, session, num_inline=2):
 
         try:
             try:
-                img_bytes, revised = generate_dalle_image(prompt, size="1024x1024")
+                img_bytes, revised = generate_dalle_image(
+                    prompt, size="1024x1024")
             except Exception as dalle_err:
                 print(f"  ⚠️ DALL-E inline error: {dalle_err}")
                 print(f"  🔄 Fallback Gemini Imagen...")
-                img_bytes, revised = generate_gemini_image(prompt, size="1024x1024")
+                img_bytes, revised = generate_gemini_image(
+                    prompt, size="1024x1024")
             webp_bytes = convert_to_webp(img_bytes, quality=80)
 
             inline_filename = f"{slug}-img{i+1}-{timestamp}.webp"
@@ -432,7 +433,7 @@ if __name__ == "__main__":
             break
 
     OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+    GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
     EXTENDED_EMAIL = os.environ.get("EXTENDED_EMAIL", "")
     EXTENDED_PASSWORD = os.environ.get("EXTENDED_PASSWORD", "")
 
