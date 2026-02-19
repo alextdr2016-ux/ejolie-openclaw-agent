@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Update local stock cache from API - run via cron every 2-4 hours
-v2 - Uses pagination instead of batch id_produse (which times out)
+"""Update local stock cache + product feed from API - run via cron every 4 hours
+v3 - Pagination + saves both stock_cache.json and product_feed.json
 """
 import os, json, urllib.request, time
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-FEED_FILE = os.path.join(SCRIPT_DIR, "product_feed.json")
 CACHE_FILE = os.path.join(SCRIPT_DIR, "stock_cache.json")
+FEED_FILE = os.path.join(SCRIPT_DIR, "product_feed.json")
 
 env_path = os.path.join(SCRIPT_DIR, "..", ".env")
 if os.path.exists(env_path):
@@ -22,9 +22,10 @@ PAGE_SIZE = 50
 
 
 def update_cache():
-    print(f"📦 Updating stock cache via pagination (limit={PAGE_SIZE})...")
+    print(f"📦 Updating stock cache + product feed (limit={PAGE_SIZE})...")
 
     all_products = {}
+    feed_list = []
     pagina = 1
     total_fetched = 0
 
@@ -44,6 +45,7 @@ def update_cache():
                 if not isinstance(prod, dict):
                     continue
 
+                # --- Stock cache ---
                 optiuni = prod.get("optiuni", {})
                 sizes = {}
                 if isinstance(optiuni, dict):
@@ -58,15 +60,41 @@ def update_cache():
                             "pret_discount": opt.get("pret_discount", "0"),
                         }
 
+                brand_name = ""
+                brand_obj = prod.get("brand", {})
+                if isinstance(brand_obj, dict):
+                    brand_name = brand_obj.get("nume", "")
+                elif brand_obj:
+                    brand_name = str(brand_obj)
+
                 all_products[pid] = {
                     "id": pid,
                     "nume": prod.get("nume", ""),
                     "cod": prod.get("cod_produs", ""),
-                    "brand": prod.get("brand", {}).get("nume", "?") if isinstance(prod.get("brand"), dict) else str(prod.get("brand", "?")),
+                    "brand": brand_name,
                     "pret": prod.get("pret_discount") or prod.get("pret", "0"),
                     "stoc_general": prod.get("stoc", "?"),
                     "sizes": sizes,
                 }
+
+                # --- Product feed ---
+                desc = prod.get("descriere", "")
+                categorii = prod.get("categorii", [])
+                cat_name = categorii[0]["nume"] if categorii and isinstance(categorii[0], dict) else ""
+
+                feed_list.append({
+                    "id": pid,
+                    "title": prod.get("nume", ""),
+                    "price": f"{prod.get('pret', '0')} RON",
+                    "sale_price": f"{prod.get('pret_discount', '0')} RON",
+                    "image": prod.get("imagine", ""),
+                    "images": prod.get("imagini", []),
+                    "link": prod.get("link", ""),
+                    "brand": brand_name,
+                    "category": cat_name,
+                    "available": "in stock" if prod.get("stoc") == "In stoc" else "out of stock",
+                    "description": desc[:200] if desc else "",
+                })
                 count += 1
 
             total_fetched += count
@@ -85,32 +113,21 @@ def update_cache():
             time.sleep(5)
             pagina += 1
 
-    # Also update product_feed.json
-    feed = []
-    for pid, prod in all_products.items():
-        feed.append({
-            "id": pid,
-            "title": prod["nume"],
-            "price": prod.get("pret", "0"),
-            "sale_price": prod.get("pret", "0"),
-            "image": "",  # Not available in list endpoint
-            "link": "",
-            "brand": prod.get("brand", ""),
-            "category": "",
-            "available": "in stock" if prod.get("stoc_general") == "In stoc" else "out of stock",
-            "description": "",
-        })
-
+    # Save stock cache
     cache = {
         "updated": time.strftime("%Y-%m-%d %H:%M:%S"),
         "total_products": len(all_products),
         "products": all_products,
     }
-
     with open(CACHE_FILE, "w") as f:
         json.dump(cache, f, ensure_ascii=False, indent=1)
+    print(f"✅ Stock cache: {len(all_products)} products → {CACHE_FILE}")
 
-    print(f"✅ Cache saved: {len(all_products)} products → {CACHE_FILE}")
+    # Save product feed
+    with open(FEED_FILE, "w") as f:
+        json.dump(feed_list, f, ensure_ascii=False, indent=1)
+    print(f"✅ Product feed: {len(feed_list)} products → {FEED_FILE}")
+
     print(f"🕐 Updated: {cache['updated']}")
 
 
