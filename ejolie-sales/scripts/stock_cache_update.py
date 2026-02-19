@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Update local stock cache from API - run via cron every 2-4 hours"""
-
-import os, json, urllib.request, time, sys
+"""Update local stock cache from API - run via cron every 2-4 hours
+v2 - Uses pagination instead of batch id_produse (which times out)
+"""
+import os, json, urllib.request, time
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 FEED_FILE = os.path.join(SCRIPT_DIR, "product_feed.json")
 CACHE_FILE = os.path.join(SCRIPT_DIR, "stock_cache.json")
 
-env_path = os.path.join(SCRIPT_DIR, ".env")
+env_path = os.path.join(SCRIPT_DIR, "..", ".env")
 if os.path.exists(env_path):
     with open(env_path) as f:
         for line in f:
@@ -17,29 +18,32 @@ if os.path.exists(env_path):
 
 API_KEY = os.environ.get("EJOLIE_API_KEY", "")
 API_URL = os.environ.get("EJOLIE_API_URL", "https://ejolie.ro/api/")
+PAGE_SIZE = 50
 
 
 def update_cache():
-    with open(FEED_FILE) as f:
-        feed = json.load(f)
-    
-    product_ids = [p["id"] for p in feed if p.get("id")]
-    total = len(product_ids)
-    print(f"📦 Updating stock cache: {total} products...")
-    
+    print(f"📦 Updating stock cache via pagination (limit={PAGE_SIZE})...")
+
     all_products = {}
-    batch_size = 20
-    
-    for i in range(0, total, batch_size):
-        batch = product_ids[i:i+batch_size]
-        ids_str = ",".join(batch)
-        url = f"{API_URL}?produse&id_produse={ids_str}&apikey={API_KEY}"
-        
+    pagina = 1
+    total_fetched = 0
+
+    while True:
+        url = f"{API_URL}?produse&limit={PAGE_SIZE}&pagina={pagina}&apikey={API_KEY}"
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-            data = json.loads(urllib.request.urlopen(req, timeout=180).read().decode("utf-8"))
-            
+            raw = urllib.request.urlopen(req, timeout=30).read().decode("utf-8")
+            data = json.loads(raw)
+
+            if not data or not isinstance(data, dict):
+                print(f"  📄 Pagina {pagina}: gol — terminat")
+                break
+
+            count = 0
             for pid, prod in data.items():
+                if not isinstance(prod, dict):
+                    continue
+
                 optiuni = prod.get("optiuni", {})
                 sizes = {}
                 if isinstance(optiuni, dict):
@@ -53,7 +57,7 @@ def update_cache():
                             "pret": opt.get("pret", "0"),
                             "pret_discount": opt.get("pret_discount", "0"),
                         }
-                
+
                 all_products[pid] = {
                     "id": pid,
                     "nume": prod.get("nume", ""),
@@ -63,23 +67,49 @@ def update_cache():
                     "stoc_general": prod.get("stoc", "?"),
                     "sizes": sizes,
                 }
-            
-            done = min(i + batch_size, total)
-            print(f"  📡 {done}/{total}...")
+                count += 1
+
+            total_fetched += count
+            print(f"  📡 Pagina {pagina}: {count} produse (total: {total_fetched})")
+
+            if count < PAGE_SIZE:
+                break
+
+            pagina += 1
+            time.sleep(1)
+
         except Exception as e:
-            print(f"  ⚠️ Batch error: {e}")
-        
-        time.sleep(0.5)
-    
+            print(f"  ⚠️ Pagina {pagina} error: {e}")
+            if pagina > 1:
+                break
+            time.sleep(5)
+            pagina += 1
+
+    # Also update product_feed.json
+    feed = []
+    for pid, prod in all_products.items():
+        feed.append({
+            "id": pid,
+            "title": prod["nume"],
+            "price": prod.get("pret", "0"),
+            "sale_price": prod.get("pret", "0"),
+            "image": "",  # Not available in list endpoint
+            "link": "",
+            "brand": prod.get("brand", ""),
+            "category": "",
+            "available": "in stock" if prod.get("stoc_general") == "In stoc" else "out of stock",
+            "description": "",
+        })
+
     cache = {
         "updated": time.strftime("%Y-%m-%d %H:%M:%S"),
         "total_products": len(all_products),
         "products": all_products,
     }
-    
+
     with open(CACHE_FILE, "w") as f:
         json.dump(cache, f, ensure_ascii=False, indent=1)
-    
+
     print(f"✅ Cache saved: {len(all_products)} products → {CACHE_FILE}")
     print(f"🕐 Updated: {cache['updated']}")
 
