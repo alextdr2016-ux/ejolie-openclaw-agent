@@ -1,7 +1,2123 @@
 {
- "updated": "2026-02-19 05:35:05",
- "total_products": 668,
+ "updated": "2026-02-21 16:37:39",
+ "total_products": 727,
  "products": {
+  "12415": {
+   "id": "12415",
+   "nume": "Rochie lunga Martina fucsia tip sirenă",
+   "cod": "FBR-6276",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1189.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1189.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1189.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1189.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12414": {
+   "id": "12414",
+   "nume": "Rochie Desire albă lungă elegantă cu floare 3D",
+   "cod": "FBR-4703",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "872.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "872.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "872.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12413": {
+   "id": "12413",
+   "nume": "Rochie Claire verde lime lungă elegantă tip sirenă",
+   "cod": "FBR-6276",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1189.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1189.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1189.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1189.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12412": {
+   "id": "12412",
+   "nume": "Rochie Desire lungă elegantă fucsia cu design asimetric",
+   "cod": "FBR-4703",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "872.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "872.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "872.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12411": {
+   "id": "12411",
+   "nume": "Rochie lungă Joy multicoloră cu bustieră corset și fustă amplă cu volane pentru evenimente speciale",
+   "cod": "FBR-ksn153",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1189.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1189.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12410": {
+   "id": "12410",
+   "nume": "Rochie lunga Ozana alba eleganta cu decolteu inima si aplicatii florale pe umeri pentru evenimente speciale",
+   "cod": "FBR-1837",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "726.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "726.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "726.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12409": {
+   "id": "12409",
+   "nume": "Rochie lunga albastru Franca cu un umar, plisata, cu aplicatie decorativa si slit lateral eleganta",
+   "cod": "FBR-6292",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "648.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "648.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "648.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "648.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12408": {
+   "id": "12408",
+   "nume": "Rochie lungă elegantă alba plisată tip corset pentru evenimente speciale – Ejolie",
+   "cod": "FBR-6343",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "740.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "740.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "740.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "740.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12407": {
+   "id": "12407",
+   "nume": "Rochie lungă Kira roz prăfuit din Tulle cu aplicații florale",
+   "cod": "FBR-1226",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "745.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "745.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "745.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12406": {
+   "id": "12406",
+   "nume": "Rochie lungă Tessa albastru deschis din tull strălucitor cu umeri căzuți și floare decorativă în talie",
+   "cod": "FBR-4512",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "775.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "775.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "775.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12405": {
+   "id": "12405",
+   "nume": "Rochie Lungă Roșie Elegantă pentru Gală și Evenimente Speciale cu Bustieră Tip Corset – Kaia",
+   "cod": "FBR-1216",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "745.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "745.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "745.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12404": {
+   "id": "12404",
+   "nume": "Rochie lungă elegantă neagra din tull cu aplicații florale – Sabina",
+   "cod": "FBR-7035",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "725.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "725.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "725.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "725.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12403": {
+   "id": "12403",
+   "nume": "Rochie lungă Queen elegantă roz plisată cu corset sculptat",
+   "cod": "FBR-6343",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "740.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "740.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "740.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "740.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12402": {
+   "id": "12402",
+   "nume": "Rochie Alessia Bleu Midi cu Drapaj Arhitectural și Crapeu Elegant",
+   "cod": "FBR-7344",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "648.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "648.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "648.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "648.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12401": {
+   "id": "12401",
+   "nume": "Rochie Lungă Elegantă Fucsia Plisată Tip Corset pentru Evenimente Speciale – Ejolie",
+   "cod": "FBR-6343",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "740.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "740.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "740.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "740.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12400": {
+   "id": "12400",
+   "nume": "Salopeta Nicola fucsia",
+   "cod": "FBR-6350",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "829.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "829.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "829.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "829.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12399": {
+   "id": "12399",
+   "nume": "Rochie lunga Amber bordo din catifea",
+   "cod": "FBR-1073",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "845.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "845.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "845.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12398": {
+   "id": "12398",
+   "nume": "Rochie lunga Sellina albastru petrol",
+   "cod": "FBR-6082",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "745.00",
+     "pret_discount": "0.00"
+    },
+    "46": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "745.00",
+     "pret_discount": "0.00"
+    },
+    "48": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "745.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12397": {
+   "id": "12397",
+   "nume": "Salopeta Mara neagra",
+   "cod": "FBR-72498",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "678.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "678.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "678.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "678.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12396": {
+   "id": "12396",
+   "nume": "Rochie lunga Amber verde din catifea",
+   "cod": "FBR-1073",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "845.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "845.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "845.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12395": {
+   "id": "12395",
+   "nume": "Rochie Anisa cu imprimeu",
+   "cod": "FBR-1812",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "446.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "446.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "446.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "446.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12394": {
+   "id": "12394",
+   "nume": "Rochie lunga Chantal verde",
+   "cod": "FBR-5099",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "690.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "690.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "690.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "690.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12393": {
+   "id": "12393",
+   "nume": "Rochie lunga Luna verde",
+   "cod": "FBR-4776",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "684.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "684.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "684.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12392": {
+   "id": "12392",
+   "nume": "Rochie Scarlet rosie",
+   "cod": "FBR-3611",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "435.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "435.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "435.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "435.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12391": {
+   "id": "12391",
+   "nume": "Rochie Nicola neagra",
+   "cod": "FBR-58353",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "489.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "489.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "489.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "489.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12390": {
+   "id": "12390",
+   "nume": "Rochie Briana cu imprimeu roz",
+   "cod": "FBR-dw148",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "508.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "508.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "508.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12388": {
+   "id": "12388",
+   "nume": "Rochie Sofia bej",
+   "cod": "FBR-5118",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "405.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "405.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "405.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "405.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12387": {
+   "id": "12387",
+   "nume": "Rochie Verona rosie",
+   "cod": "FBR-1831",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "356.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "356.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "356.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "356.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12386": {
+   "id": "12386",
+   "nume": "Rochie Briana cu imprimeu multicolor",
+   "cod": "FBR-dw148",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "508.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "508.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "508.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12385": {
+   "id": "12385",
+   "nume": "Rochie Briana cu imprimeu maro",
+   "cod": "FBR-dw148",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "508.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "508.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "508.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12384": {
+   "id": "12384",
+   "nume": "Rochie Aniko bordo",
+   "cod": "FBR-16214",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "399.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "399.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "399.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "399.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12383": {
+   "id": "12383",
+   "nume": "Rochie Katinca cu imprimeu bordo",
+   "cod": "FBR-192089",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "392.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "392.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "392.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "392.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12382": {
+   "id": "12382",
+   "nume": "Rochie Amelia Ivoar",
+   "cod": "FBR-8110",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "389.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "389.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "389.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "389.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12381": {
+   "id": "12381",
+   "nume": "Salopeta Aria",
+   "cod": "FBR-7067",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "425.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "425.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "425.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "425.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12380": {
+   "id": "12380",
+   "nume": "Rochie Ines albastra",
+   "cod": "FBR-3638",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12379": {
+   "id": "12379",
+   "nume": "Rochie Taylor negru cu alb",
+   "cod": "FBR-25200",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "435.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "435.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "435.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "435.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12378": {
+   "id": "12378",
+   "nume": "Rochie Kendall bordo",
+   "cod": "FBR25272",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "476.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "476.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "476.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "476.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12377": {
+   "id": "12377",
+   "nume": "Rochie Camila cu imprimeu",
+   "cod": "FBR-58292",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "540.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "540.00",
+     "pret_discount": "0.00"
+    },
+    "46": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "540.00",
+     "pret_discount": "0.00"
+    },
+    "48": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "540.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12376": {
+   "id": "12376",
+   "nume": "Rochie Ines crem-roze",
+   "cod": "FBR-3638",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12375": {
+   "id": "12375",
+   "nume": "Rochie Daisy portolicalie",
+   "cod": "FBR-5141",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "325.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "325.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "325.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "325.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12374": {
+   "id": "12374",
+   "nume": "Rochie Ester cu imprimeu",
+   "cod": "FBR-dw145",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "385.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "385.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "385.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12373": {
+   "id": "12373",
+   "nume": "Rochie Ines neagra",
+   "cod": "FBR-3638",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12372": {
+   "id": "12372",
+   "nume": "Rochie Miriam maro",
+   "cod": "FBR-1810",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "409.50",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "409.50",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "409.50",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "409.50",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12370": {
+   "id": "12370",
+   "nume": "Rochie Vanessa plisata",
+   "cod": "FBR-3466",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "345.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "345.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "345.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "345.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12369": {
+   "id": "12369",
+   "nume": "Rochie Izabela lungă elegantă multicoloră cu imprimeu artistic",
+   "cod": "FBR-1825",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "373.80",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "373.80",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "373.80",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "373.80",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12368": {
+   "id": "12368",
+   "nume": "Rochie Monique cu imprimeu negru",
+   "cod": "FBR-3795",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12367": {
+   "id": "12367",
+   "nume": "Rochie Ines bordo",
+   "cod": "FBR-3638",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "439.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12366": {
+   "id": "12366",
+   "nume": "Rochie Patrizia crem cu imprimeu",
+   "cod": "FBR-asldw42",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12365": {
+   "id": "12365",
+   "nume": "Rochie Katinca cu imprimeu albastru",
+   "cod": "FBR-192089",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "392.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "392.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "392.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "392.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12364": {
+   "id": "12364",
+   "nume": "Rochie Patrizia caramizie cu imprimeu",
+   "cod": "FBR-asldw42",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12363": {
+   "id": "12363",
+   "nume": "Rochie Katinca cu imprimeu verde",
+   "cod": "FBR-192089",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "392.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "392.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "392.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "392.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12362": {
+   "id": "12362",
+   "nume": "Rochie Leticia cu imprimeu",
+   "cod": "FBR-3633",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12361": {
+   "id": "12361",
+   "nume": "Rochie Patrizia kaki cu imprimeu",
+   "cod": "FBR-asldw42",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12360": {
+   "id": "12360",
+   "nume": "Rochie Fiesta cu imprimeu",
+   "cod": "FBR-3633",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12359": {
+   "id": "12359",
+   "nume": "Rochie Marcia cu imprimeu",
+   "cod": "FBR-esl368",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "340.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12358": {
+   "id": "12358",
+   "nume": "Rochie Rachel cu imprimeu albastru",
+   "cod": "FBR-26k1832",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12357": {
+   "id": "12357",
+   "nume": "Rochie Patrizia albastra cu imprimeu",
+   "cod": "FBR-asldw42",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "324.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12356": {
+   "id": "12356",
+   "nume": "Rochie Nicola bordo",
+   "cod": "FBR-58353",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "489.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "489.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "489.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 2,
+     "in_stock": true,
+     "pret": "489.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
+  "12352": {
+   "id": "12352",
+   "nume": "Rochie Selena neagra",
+   "cod": "TYAE21112",
+   "brand": "Trendya",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 5,
+     "in_stock": true,
+     "pret": "624.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 5,
+     "in_stock": true,
+     "pret": "624.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 5,
+     "in_stock": true,
+     "pret": "624.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 5,
+     "in_stock": true,
+     "pret": "624.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 5,
+     "in_stock": true,
+     "pret": "624.00",
+     "pret_discount": "0.00"
+    },
+    "46": {
+     "stoc": "In stoc",
+     "stoc_fizic": 5,
+     "in_stock": true,
+     "pret": "624.00",
+     "pret_discount": "0.00"
+    },
+    "48": {
+     "stoc": "In stoc",
+     "stoc_fizic": 5,
+     "in_stock": true,
+     "pret": "624.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
   "12351": {
    "id": "12351",
    "nume": "Rochie Elysia neagra",
@@ -278,7 +2394,7 @@
     },
     "38": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "662.50",
      "pret_discount": "0.00"
@@ -934,7 +3050,7 @@
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "625.00",
      "pret_discount": "0.00"
@@ -1108,14 +3224,14 @@
      "pret": "693.00",
      "pret_discount": "554.40"
     },
-    "38": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
      "pret": "693.00",
      "pret_discount": "554.40"
     },
-    "40": {
+    "38": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -2561,7 +4677,7 @@
    "sizes": {
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "325.00",
      "pret_discount": "0.00"
@@ -3636,7 +5752,7 @@
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 3,
      "in_stock": true,
      "pret": "639.00",
      "pret_discount": "0.00"
@@ -3696,13 +5812,6 @@
      "pret": "559.00",
      "pret_discount": "447.20"
     },
-    "40": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "559.00",
-     "pret_discount": "447.20"
-    },
     "42": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
@@ -3711,6 +5820,13 @@
      "pret_discount": "447.20"
     },
     "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "559.00",
+     "pret_discount": "447.20"
+    },
+    "40": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -4224,7 +6340,7 @@
     },
     "42": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "648.00",
      "pret_discount": "0.00"
@@ -4644,7 +6760,7 @@
     },
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "567.00",
      "pret_discount": "0.00"
@@ -5671,7 +7787,7 @@
     },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "378.00",
      "pret_discount": "0.00"
@@ -5789,7 +7905,7 @@
     },
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "648.00",
      "pret_discount": "0.00"
@@ -5834,7 +7950,7 @@
     },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "648.00",
      "pret_discount": "0.00"
@@ -5879,7 +7995,7 @@
    "sizes": {
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "621.00",
      "pret_discount": "0.00"
@@ -7574,7 +9690,7 @@
    "sizes": {
     "34": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 3,
      "in_stock": true,
      "pret": "636.00",
      "pret_discount": "0.00"
@@ -8001,7 +10117,7 @@
     },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "459.00",
      "pret_discount": "0.00"
@@ -8549,7 +10665,7 @@
     },
     "38": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "418.50",
      "pret_discount": "0.00"
@@ -8924,7 +11040,7 @@
     },
     "46": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "432.00",
      "pret_discount": "0.00"
@@ -10364,65 +12480,6 @@
     }
    }
   },
-  "11854": {
-   "id": "11854",
-   "nume": "Compleu Tina alb",
-   "cod": "TYA7144",
-   "brand": "Trendya",
-   "pret": "364.80",
-   "stoc_general": "In stoc",
-   "sizes": {
-    "40": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "456.00",
-     "pret_discount": "364.80"
-    },
-    "36": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "456.00",
-     "pret_discount": "364.80"
-    },
-    "38": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "456.00",
-     "pret_discount": "364.80"
-    },
-    "42": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "456.00",
-     "pret_discount": "364.80"
-    },
-    "44": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "456.00",
-     "pret_discount": "364.80"
-    },
-    "46": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "456.00",
-     "pret_discount": "364.80"
-    },
-    "48": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "456.00",
-     "pret_discount": "364.80"
-    }
-   }
-  },
   "11853": {
    "id": "11853",
    "nume": "Rochie Ilinca magenta",
@@ -10461,7 +12518,7 @@
     },
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "432.00",
      "pret_discount": "0.00"
@@ -12169,7 +14226,7 @@
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "256.50",
      "pret_discount": "0.00"
@@ -14182,7 +16239,7 @@
     },
     "46": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "174.00",
      "pret_discount": "69.60"
@@ -14678,7 +16735,7 @@
     },
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "594.00",
      "pret_discount": "0.00"
@@ -14699,7 +16756,7 @@
     },
     "42": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "594.00",
      "pret_discount": "0.00"
@@ -14737,7 +16794,7 @@
     },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "594.00",
      "pret_discount": "0.00"
@@ -15056,7 +17113,7 @@
     },
     "38": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "594.00",
      "pret_discount": "0.00"
@@ -15354,7 +17411,7 @@
    "sizes": {
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "594.00",
      "pret_discount": "0.00"
@@ -16798,65 +18855,6 @@
     }
    }
   },
-  "11724": {
-   "id": "11724",
-   "nume": "Bluza Zhavia cu imprimeu fluturi",
-   "cod": "TYA3310",
-   "brand": "Trendya",
-   "pret": "81.25",
-   "stoc_general": "In stoc",
-   "sizes": {
-    "44": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "162.50",
-     "pret_discount": "81.25"
-    },
-    "36": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "162.50",
-     "pret_discount": "81.25"
-    },
-    "38": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "162.50",
-     "pret_discount": "81.25"
-    },
-    "40": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "162.50",
-     "pret_discount": "81.25"
-    },
-    "42": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "162.50",
-     "pret_discount": "81.25"
-    },
-    "46": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "162.50",
-     "pret_discount": "81.25"
-    },
-    "48": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "162.50",
-     "pret_discount": "81.25"
-    }
-   }
-  },
   "11721": {
    "id": "11721",
    "nume": "Bluza Zhavia alba cu imprimeu roz",
@@ -16874,7 +18872,7 @@
     },
     "42": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "162.50",
      "pret_discount": "81.25"
@@ -16999,7 +18997,7 @@
     },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "187.00",
      "pret_discount": "74.80"
@@ -17351,6 +19349,13 @@
      "pret": "162.50",
      "pret_discount": "81.25"
     },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "162.50",
+     "pret_discount": "81.25"
+    },
     "44": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
@@ -17369,13 +19374,6 @@
      "stoc": "In stoc",
      "stoc_fizic": 1,
      "in_stock": true,
-     "pret": "162.50",
-     "pret_discount": "81.25"
-    },
-    "40": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
      "pret": "162.50",
      "pret_discount": "81.25"
     },
@@ -17444,6 +19442,65 @@
      "in_stock": false,
      "pret": "187.00",
      "pret_discount": "74.80"
+    }
+   }
+  },
+  "11707": {
+   "id": "11707",
+   "nume": "Bluza Zhavia bleumarin cu imprimeu roz",
+   "cod": "TYA3310",
+   "brand": "Trendya",
+   "pret": "81.25",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "162.50",
+     "pret_discount": "81.25"
+    },
+    "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "162.50",
+     "pret_discount": "81.25"
+    },
+    "38": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "162.50",
+     "pret_discount": "81.25"
+    },
+    "40": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "162.50",
+     "pret_discount": "81.25"
+    },
+    "44": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "162.50",
+     "pret_discount": "81.25"
+    },
+    "46": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "162.50",
+     "pret_discount": "81.25"
+    },
+    "48": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "162.50",
+     "pret_discount": "81.25"
     }
    }
   },
@@ -18841,7 +20898,7 @@
     },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "351.00",
      "pret_discount": "0.00"
@@ -19941,6 +21998,72 @@
     }
    }
   },
+  "11294": {
+   "id": "11294",
+   "nume": "Rochie Beatriz neagra cu maneci brodate",
+   "cod": "8699",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "425.00",
+     "pret_discount": "0.00"
+    },
+    "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "425.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "425.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "425.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "425.00",
+     "pret_discount": "0.00"
+    },
+    "46": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "425.00",
+     "pret_discount": "0.00"
+    },
+    "48": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "425.00",
+     "pret_discount": "0.00"
+    },
+    "50": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "425.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
   "11290": {
    "id": "11290",
    "nume": "Rochie Reem rosie",
@@ -20984,7 +23107,7 @@
     },
     "38": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "352.00",
      "pret_discount": "281.60"
@@ -21050,7 +23173,7 @@
     },
     "38": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 3,
      "in_stock": true,
      "pret": "311.20",
      "pret_discount": "124.48"
@@ -21574,7 +23697,7 @@
     },
     "46": {
      "stoc": "In stoc",
-     "stoc_fizic": 1,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "162.50",
      "pret_discount": "81.25"
@@ -22034,37 +24157,6 @@
     }
    }
   },
-  "10953": {
-   "id": "10953",
-   "nume": "Rochie Geanina roz",
-   "cod": "TYA7481",
-   "brand": "Trendya",
-   "pret": "119.00",
-   "stoc_general": "In stoc",
-   "sizes": {
-    "38": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "297.50",
-     "pret_discount": "119.00"
-    },
-    "36": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "297.50",
-     "pret_discount": "119.00"
-    },
-    "42": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "297.50",
-     "pret_discount": "119.00"
-    }
-   }
-  },
   "10938": {
    "id": "10938",
    "nume": "Rochie Ruxia gri cu imprimeu",
@@ -22312,13 +24404,6 @@
      "pret": "471.90",
      "pret_discount": "188.76"
     },
-    "36": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "471.90",
-     "pret_discount": "188.76"
-    },
     "38": {
      "stoc": "In stoc",
      "stoc_fizic": 4,
@@ -22327,6 +24412,13 @@
      "pret_discount": "188.76"
     },
     "34": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "471.90",
+     "pret_discount": "188.76"
+    },
+    "36": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -22432,7 +24524,7 @@
     },
     "46": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "471.90",
      "pret_discount": "188.76"
@@ -22682,7 +24774,7 @@
     },
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "258.30",
      "pret_discount": "103.32"
@@ -22925,7 +25017,7 @@
     },
     "46": {
      "stoc": "In stoc",
-     "stoc_fizic": 8,
+     "stoc_fizic": 9,
      "in_stock": true,
      "pret": "359.10",
      "pret_discount": "143.64"
@@ -23487,21 +25579,21 @@
     },
     "42": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "387.50",
      "pret_discount": "155.00"
     },
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 6,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "387.50",
      "pret_discount": "155.00"
     },
     "46": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "387.50",
      "pret_discount": "155.00"
@@ -23677,7 +25769,7 @@
     },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "1899.00",
      "pret_discount": "1044.45"
@@ -24247,6 +26339,58 @@
      "in_stock": false,
      "pret": "337.50",
      "pret_discount": "135.00"
+    }
+   }
+  },
+  "10394": {
+   "id": "10394",
+   "nume": "Rochie Electra verde",
+   "cod": "FBR-9840",
+   "brand": "Ejolie",
+   "pret": "1012.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1265.00",
+     "pret_discount": "1012.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1265.00",
+     "pret_discount": "1012.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1265.00",
+     "pret_discount": "1012.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1265.00",
+     "pret_discount": "1012.00"
+    },
+    "46": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "1265.00",
+     "pret_discount": "1012.00"
+    },
+    "48": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "1265.00",
+     "pret_discount": "1012.00"
     }
    }
   },
@@ -24947,7 +27091,7 @@
     },
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "715.50",
      "pret_discount": "0.00"
@@ -25082,65 +27226,6 @@
      "stoc_fizic": 0,
      "in_stock": false,
      "pret": "525.00",
-     "pret_discount": "0.00"
-    }
-   }
-  },
-  "10168": {
-   "id": "10168",
-   "nume": "Rochie Julia gri cu imprimeu floral",
-   "cod": "TYA1041",
-   "brand": "Trendya",
-   "pret": "0.00",
-   "stoc_general": "In stoc",
-   "sizes": {
-    "42": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "477.00",
-     "pret_discount": "0.00"
-    },
-    "36": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "477.00",
-     "pret_discount": "0.00"
-    },
-    "38": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "477.00",
-     "pret_discount": "0.00"
-    },
-    "40": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "477.00",
-     "pret_discount": "0.00"
-    },
-    "44": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "477.00",
-     "pret_discount": "0.00"
-    },
-    "46": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "477.00",
-     "pret_discount": "0.00"
-    },
-    "48": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "477.00",
      "pret_discount": "0.00"
     }
    }
@@ -25817,7 +27902,7 @@
     },
     "38": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 3,
      "in_stock": true,
      "pret": "351.00",
      "pret_discount": "0.00"
@@ -26525,7 +28610,7 @@
     },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "169.00",
      "pret_discount": "84.50"
@@ -27966,7 +30051,7 @@
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "287.50",
      "pret_discount": "0.00"
@@ -28936,13 +31021,6 @@
      "pret": "174.00",
      "pret_discount": "69.60"
     },
-    "48": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "174.00",
-     "pret_discount": "69.60"
-    },
     "40": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
@@ -28951,6 +31029,13 @@
      "pret_discount": "69.60"
     },
     "46": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "174.00",
+     "pret_discount": "69.60"
+    },
+    "48": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -29427,19 +31512,12 @@
   "9414": {
    "id": "9414",
    "nume": "Rochie Felicity verde deschis",
-   "cod": "ART2508-verdedeschis-38",
+   "cod": "ART2508-verdedeschis-42",
    "brand": "Artista",
    "pret": "134.70",
    "stoc_general": "In stoc",
    "sizes": {
     "34": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "449.00",
-     "pret_discount": "134.70"
-    },
-    "38": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
      "in_stock": true,
@@ -29461,6 +31539,13 @@
      "pret_discount": "134.70"
     },
     "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "449.00",
+     "pret_discount": "134.70"
+    },
+    "38": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -30341,19 +32426,12 @@
   "9312": {
    "id": "9312",
    "nume": "Rochie Bellona roz cu dungi albe si negre",
-   "cod": "ART2562-rozdungi-42",
+   "cod": "ART2562-rozdungi-34",
    "brand": "Artista",
    "pret": "119.70",
    "stoc_general": "In stoc",
    "sizes": {
     "34": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "399.00",
-     "pret_discount": "119.70"
-    },
-    "42": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
      "in_stock": true,
@@ -30375,6 +32453,13 @@
      "pret_discount": "119.70"
     },
     "40": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "399.00",
+     "pret_discount": "119.70"
+    },
+    "42": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -30754,14 +32839,14 @@
     },
     "46": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "162.56",
      "pret_discount": "65.02"
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 7,
+     "stoc_fizic": 6,
      "in_stock": true,
      "pret": "162.56",
      "pret_discount": "65.02"
@@ -30980,6 +33065,13 @@
      "pret": "152.45",
      "pret_discount": "60.98"
     },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "152.45",
+     "pret_discount": "60.98"
+    },
     "36": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
@@ -30995,13 +33087,6 @@
      "pret_discount": "60.98"
     },
     "40": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "152.45",
-     "pret_discount": "60.98"
-    },
-    "44": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -31688,6 +33773,13 @@
      "pret": "165.00",
      "pret_discount": "82.50"
     },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "165.00",
+     "pret_discount": "82.50"
+    },
     "46": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
@@ -31710,13 +33802,6 @@
      "pret_discount": "82.50"
     },
     "40": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "165.00",
-     "pret_discount": "82.50"
-    },
-    "42": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -31770,7 +33855,7 @@
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "152.45",
      "pret_discount": "76.23"
@@ -32435,6 +34520,65 @@
     }
    }
   },
+  "8661": {
+   "id": "8661",
+   "nume": "Camasa Miruna cu imprimeu maro",
+   "cod": "TY3125-imprimeumaro-44",
+   "brand": "Trendya",
+   "pret": "62.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "155.00",
+     "pret_discount": "62.00"
+    },
+    "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "155.00",
+     "pret_discount": "62.00"
+    },
+    "38": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "155.00",
+     "pret_discount": "62.00"
+    },
+    "40": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "155.00",
+     "pret_discount": "62.00"
+    },
+    "42": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "155.00",
+     "pret_discount": "62.00"
+    },
+    "46": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "155.00",
+     "pret_discount": "62.00"
+    },
+    "48": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "155.00",
+     "pret_discount": "62.00"
+    }
+   }
+  },
   "8659": {
    "id": "8659",
    "nume": "Camasa Melia alba satinata",
@@ -32445,7 +34589,7 @@
    "sizes": {
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 1,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "168.00",
      "pret_discount": "67.20"
@@ -32733,18 +34877,11 @@
   "8652": {
    "id": "8652",
    "nume": "Camasa Miruna albastra",
-   "cod": "TY3125-albastra-38",
+   "cod": "TY3125-albastra-48",
    "brand": "Trendya",
    "pret": "70.00",
    "stoc_general": "In stoc",
    "sizes": {
-    "38": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "175.00",
-     "pret_discount": "70.00"
-    },
     "48": {
      "stoc": "In stoc",
      "stoc_fizic": 3,
@@ -32753,6 +34890,13 @@
      "pret_discount": "70.00"
     },
     "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "175.00",
+     "pret_discount": "70.00"
+    },
+    "38": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -32834,7 +34978,7 @@
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "175.00",
      "pret_discount": "70.00"
@@ -32938,7 +35082,7 @@
     },
     "42": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "175.00",
      "pret_discount": "140.00"
@@ -32969,7 +35113,7 @@
   "8638": {
    "id": "8638",
    "nume": "Camasa Miruna maro",
-   "cod": "TY3125-maro-42",
+   "cod": "TY3125-maro-44",
    "brand": "Trendya",
    "pret": "70.00",
    "stoc_general": "In stoc",
@@ -33002,13 +35146,6 @@
      "pret": "175.00",
      "pret_discount": "70.00"
     },
-    "48": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "175.00",
-     "pret_discount": "70.00"
-    },
     "38": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
@@ -33017,6 +35154,13 @@
      "pret_discount": "70.00"
     },
     "40": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "175.00",
+     "pret_discount": "70.00"
+    },
+    "48": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -33108,7 +35252,7 @@
     },
     "42": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 3,
      "in_stock": true,
      "pret": "169.00",
      "pret_discount": "67.60"
@@ -33645,7 +35789,7 @@
    "sizes": {
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "199.92",
      "pret_discount": "59.98"
@@ -34359,7 +36503,7 @@
     },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "120.00",
      "pret_discount": "48.00"
@@ -34605,7 +36749,7 @@
     },
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "859.00",
      "pret_discount": "687.20"
@@ -34633,7 +36777,7 @@
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 15,
+     "stoc_fizic": 14,
      "in_stock": true,
      "pret": "859.00",
      "pret_discount": "687.20"

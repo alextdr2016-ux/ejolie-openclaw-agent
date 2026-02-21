@@ -1,0 +1,23 @@
+{
+  "id": "12350",
+  "name": "Rochie Valery neagra",
+  "image": "https://ejolie.ro/continut/produse/12350/1000/rochie-valery-neagra_102401.webp",
+  "current_specs": {
+    "Culoare": [],
+    "Material": [],
+    "Lungime": [],
+    "Croi": [],
+    "Stil": [],
+    "Model": []
+  },
+  "missing": [
+    "Culoare",
+    "Material",
+    "Lungime",
+    "Croi",
+    "Stil",
+    "Model"
+  ],
+  "missing_count": 6,
+  "complete": false
+}
