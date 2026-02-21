@@ -196,7 +196,7 @@ def main():
 
     # ── Filtru --id ────────────────────────────────────────────────
     if args.id:
-        products = [p for p in products if p.get('id') == args.id]
+        products = [p for p in products if str(p.get('id')) == str(args.id)]
         if not products:
             print(f"❌ Produs {args.id} nu a fost găsit în product_feed.json")
             sys.exit(1)
@@ -274,3 +274,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
