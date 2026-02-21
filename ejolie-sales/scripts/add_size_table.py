@@ -4,7 +4,7 @@ add_size_table.py - Adaugă tabel de mărimi la descrierea produselor ejolie.ro
 Alege tabelul în funcție de croială (specificația "Croi" din Extended):
   - Mulat/Fitted → 4 coloane (bust, talie, sold, lungime)
   - Lejer/A-line/Evazat/Other → 3 coloane (bust, talie, lungime)
-  - Dacă produsul NU are croi setat → default 3 coloane
+  - Dacă produsul NU are croi setat → default 4 coloane
   - Dacă produsul DEJA are tabel → SKIP
 
 v1 - Initial version
@@ -153,10 +153,25 @@ def has_size_table(description_html):
            ('tabel%20m' in lower) or \
            ('tabel m general' in lower)
 
+def has_native_size_table(session, product_id):
+    """Check if product has native Extended ghid marimi filled in."""
+    try:
+        url = f'{ADMIN_BASE}/produse/produse_ghid_marimi_v3/{product_id}'
+        r = session.get(url, timeout=30)
+        if r.status_code == 200:
+            filled = re.findall(r'name=["\'](camp_(?:bust|talie|sold)_[^"\']*)["\'][^>]*value=["\'](\d+)', r.text)
+            if filled:
+                print(f"    📋 Ghid mărimi nativ: {len(filled)} valori completate")
+                return True
+    except Exception as e:
+        print(f"    ⚠️ Error checking ghid marimi: {e}")
+    return False
+
+
 
 def determine_table(croi_value):
     if not croi_value:
-        return '3col', 'fără croi setat → default 3 coloane'
+        return '4col', 'fără croi setat → default 4 coloane'
     for fitted in CROI_4COL:
         if fitted in croi_value:
             return '4col', f'croi "{croi_value}" → 4 coloane (fitted)'
@@ -264,7 +279,11 @@ def main():
         if not args.dry_run:
             current_desc, _ = get_current_description(session, pid)
             if current_desc and has_size_table(current_desc):
-                print(f"    ⏭️ SKIP - deja are tabel mărimi")
+                print(f"    ⏭️ SKIP - deja are tabel mărimi în descriere")
+                skipped_has_table += 1
+                continue
+            if has_native_size_table(session, pid):
+                print(f"    ⏭️ SKIP - are ghid mărimi nativ Extended")
                 skipped_has_table += 1
                 continue
             if not current_desc or len(current_desc.strip()) < 20:
