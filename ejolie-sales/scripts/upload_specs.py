@@ -85,7 +85,7 @@ def admin_login(session):
 def get_existing_specs(session, product_id):
     """
     GET pagina specificații produs din admin.
-    Parsează valorile selectate curent (checked checkboxes / selected options).
+    Parsează <select multiple> cu <option selected>.
     Returns: dict {camp_optiune_XX: [lista de value_ids selectate]}
     """
     url = f'{ADMIN_BASE}/produse/detalii/{product_id}?sectiune=specificatii'
@@ -97,17 +97,15 @@ def get_existing_specs(session, product_id):
 
         existing = {}
         for spec_name, field_name in SPEC_FIELD_MAP.items():
-            # Căutăm checkbox-uri checked: <input type="checkbox" name="camp_optiune_XX[]" value="ID" checked>
-            pattern_checked = rf'name="{re.escape(field_name)}\[\]"\s+value="(\d+)"[^>]*checked'
-            matches = re.findall(pattern_checked, html)
-
-            # Alternativ: select cu option selected
-            if not matches:
-                pattern_selected = rf'name="{re.escape(field_name)}\[\]".*?</select>'
-                select_match = re.search(pattern_selected, html, re.DOTALL)
-                if select_match:
-                    select_html = select_match.group(0)
-                    matches = re.findall(r'value="(\d+)"[^>]*selected', select_html)
+            # Form-ul folosește <select multiple> cu <option selected>
+            pattern_select = rf'name="{re.escape(field_name)}\[\]".*?</select>'
+            select_match = re.search(pattern_select, html, re.DOTALL)
+            matches = []
+            if select_match:
+                select_html = select_match.group(0)
+                # Găsim option-urile cu selected, excludem value="0" (Fara optiune definita)
+                matches = re.findall(r'<option\s+value="(\d+)"\s+selected', select_html)
+                matches = [m for m in matches if m != '0']
 
             existing[field_name] = [int(m) for m in matches]
 
@@ -128,6 +126,9 @@ def upload_product_specs(session, product_id, specs_to_add, existing_specs):
 
     # Construim form data — combinăm existing + new
     form_data = []
+
+    # OBLIGATORIU — fără acest câmp hidden, form-ul nu se salvează
+    form_data.append(('trimite', 'value'))
 
     for spec_name, field_name in SPEC_FIELD_MAP.items():
         # Valorile existente
