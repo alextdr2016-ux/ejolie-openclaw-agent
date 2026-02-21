@@ -7,10 +7,11 @@ Pentru fiecare produs, face API call ?id_produs=ID → verifică câmpul specifi
 Salvează products_missing_specs.json cu lista produselor incomplete.
 
 Usage:
-    python3 scan_specs.py --id 12345       # Un singur produs
-    python3 scan_specs.py --limit 5        # Primele 5 produse
-    python3 scan_specs.py                  # Toate produsele
-    python3 scan_specs.py --stats          # Doar statistici, fără salvare
+    python3 scan_specs.py --id 12345               # Un singur produs
+    python3 scan_specs.py --from-id 12365 --to-id 12415  # Range de ID-uri
+    python3 scan_specs.py --limit 5                 # Primele 5 produse
+    python3 scan_specs.py                           # Toate produsele
+    python3 scan_specs.py --stats                   # Doar statistici, fără salvare
 """
 
 import json
@@ -65,6 +66,7 @@ def load_product_feed():
 def fetch_product_specs(product_id):
     """
     Fetch specificații pentru un produs via API.
+    API returnează {"ID": {datele_produsului}} — trebuie extras din wrapper.
     Returns: dict cu specs sau None dacă eroare.
     """
     url = f"{API_URL}?id_produs={product_id}&apikey={API_KEY}"
@@ -74,9 +76,16 @@ def fetch_product_specs(product_id):
         r.raise_for_status()
         data = r.json()
 
-        # API returnează dict cu datele produsului
+        # API returnează {"ID": {datele}} — extragem product_data
+        if isinstance(data, dict) and str(product_id) in data:
+            product_data = data[str(product_id)]
+        elif isinstance(data, dict) and len(data) == 1:
+            product_data = list(data.values())[0]
+        else:
+            product_data = data
+
         # Câmpul specificatii e un array de obiecte: [{nume, valoare[]}, ...]
-        specs_raw = data.get('specificatii', [])
+        specs_raw = product_data.get('specificatii', []) if isinstance(product_data, dict) else []
 
         # Construim dict structurat
         specs = {}
@@ -168,7 +177,8 @@ def print_stats(results):
     print(f"  Total produse scanate:    {total}")
     print(f"  ✅ Complete (6/6 specs):   {complete}")
     print(f"  ⚠️  Incomplete:            {incomplete}")
-    print(f"  Procent complete:         {complete/total*100:.1f}%" if total > 0 else "")
+    if total > 0:
+        print(f"  Procent complete:         {complete/total*100:.1f}%")
 
     print(f"\n  Specificații lipsă per categorie:")
     for spec, count in sorted(spec_stats.items(), key=lambda x: -x[1]):
@@ -181,6 +191,8 @@ def print_stats(results):
 def main():
     parser = argparse.ArgumentParser(description='Scanează produse cu specificații lipsă')
     parser.add_argument('--id', type=int, help='ID produs specific')
+    parser.add_argument('--from-id', type=int, dest='from_id', help='ID start range (inclusiv)')
+    parser.add_argument('--to-id', type=int, dest='to_id', help='ID end range (inclusiv)')
     parser.add_argument('--limit', type=int, default=0, help='Limită produse (0 = toate)')
     parser.add_argument('--stats', action='store_true', help='Doar statistici, fără salvare JSON')
     parser.add_argument('--brand', type=str, default=None, help='Filtrare brand: ejolie, trendya, artista')
@@ -201,6 +213,16 @@ def main():
             print(f"❌ Produs {args.id} nu a fost găsit în product_feed.json")
             sys.exit(1)
         print(f"🎯 Scanare produs specific: {args.id}")
+
+    # ── Filtru --from-id / --to-id ─────────────────────────────────
+    if args.from_id or args.to_id:
+        from_id = args.from_id or 0
+        to_id = args.to_id or 999999
+        products = [p for p in products if from_id <= int(p.get('id', 0)) <= to_id]
+        print(f"📏 Range: ID {from_id} → {to_id} ({len(products)} produse)")
+        if not products:
+            print(f"❌ Niciun produs în range-ul {from_id}-{to_id}")
+            sys.exit(1)
 
     # ── Filtru --limit ─────────────────────────────────────────────
     if args.limit > 0:
@@ -274,4 +296,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
