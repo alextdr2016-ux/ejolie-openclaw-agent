@@ -191,8 +191,9 @@ REGULI:
 1. Alege DOAR din valorile date între paranteze pătrate pentru fiecare specificație.
 2. Pentru "Model" poți alege MULTIPLE valori separate prin virgulă.
 3. Pentru celelalte specificații alege O SINGURĂ valoare.
-4. Dacă nu ești sigur, alege cea mai probabilă valoare bazat pe imagine și nume.
-5. Răspunde DOAR cu JSON valid, fără explicații, fără markdown, fără ```json.
+4. IMPORTANT: Dacă numele produsului conține o culoare (ex: "neagra", "rosie", "fucsia", "verde", "alba", "bordo", "albastra", "aurie"), folosește OBLIGATORIU acea culoare. Numele produsului are prioritate maximă pentru Culoare.
+5. Dacă nu ești sigur, alege cea mai probabilă valoare bazat pe imagine și nume.
+6. Răspunde DOAR cu JSON valid, fără explicații, fără markdown, fără ```json.
 
 Format răspuns (exemplu):
 {{"Culoare": "Negru", "Material": "Poliester", "Lungime": "Lungi", "Croi": "Mulat", "Stil": "De seara", "Model": "Fara maneci, Decolteu in V"}}
