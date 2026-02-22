@@ -7,12 +7,14 @@ Trimite imaginea + numele produsului la Gemini Vision.
 Mapează valorile la ID-uri Extended (fuzzy matching).
 Completează DOAR specs lipsă (nu suprascrie cele existente).
 Salvează generated_specs.json.
+Trimite raport pe Telegram cu toate produsele generate.
 
 Usage:
     python3 generate_specs.py --id 12345       # Test pe 1 produs
     python3 generate_specs.py --limit 1        # Primul din lista incomplete
     python3 generate_specs.py                  # Toate produsele incomplete
     python3 generate_specs.py --dry-run        # Arată ce ar genera, fără salvare
+    python3 generate_specs.py --no-telegram    # Fără raport Telegram
 """
 
 import json
@@ -35,6 +37,10 @@ OUTPUT_PATH = SCRIPT_DIR / 'generated_specs.json'
 # ── Load .env ──────────────────────────────────────────────────────
 load_dotenv(ENV_PATH)
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+EJOLIE_API_KEY = os.getenv('EJOLIE_API_KEY')
+API_URL = os.getenv('EJOLIE_API_URL', 'https://ejolie.ro/api/')
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
 if not GEMINI_API_KEY:
     print("❌ GEMINI_API_KEY nu e setat în .env")
@@ -48,9 +54,11 @@ HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
 }
 
+# ── Cele 6 specificații ────────────────────────────────────────────
+SPEC_NAMES = ['Culoare', 'Material', 'Lungime', 'Croi', 'Stil', 'Model']
+
 # ══════════════════════════════════════════════════════════════════
 #  MAPPING-URI SPECIFICAȚII → ID-URI EXTENDED
-#  Fiecare valoare are un ID numeric în Extended admin
 # ══════════════════════════════════════════════════════════════════
 
 CULOARE_MAP = {
@@ -106,7 +114,6 @@ MODEL_MAP = {
     "Paiete": 7467, "Rochie camasa": 14510, "Umeri goi": 14511, "Un umar gol": 14512
 }
 
-# Toate mapping-urile grupate per specificație
 SPEC_MAPS = {
     "Culoare": CULOARE_MAP,
     "Material": MATERIAL_MAP,
@@ -116,9 +123,8 @@ SPEC_MAPS = {
     "Model": MODEL_MAP
 }
 
-# ── Fuzzy Mappings — valori nestandardizate → valori corecte ───────
+# ── Fuzzy Mappings ─────────────────────────────────────────────────
 FUZZY_MAP = {
-    # Culori
     "Fucsia": "Roz", "Grena": "Bordo", "Roz prafuit": "Pudra",
     "Roz prafu": "Pudra", "Rose": "Roz", "Ivory": "Crem",
     "Ivoar": "Crem", "Ecru": "Crem", "Caramiziu": "Portocaliu",
@@ -128,14 +134,13 @@ FUZZY_MAP = {
     "Burgundy": "Bordo", "Champagne": "Bej", "Gold": "Auriu",
     "Silver": "Argintiu", "Navy": "Bleumarin", "Coral": "Corai",
     "Negru cu alb": "Negru", "Crem-roze": "Crem",
-    # Materiale
+    "Magenta": "Roz", "Indigo": "Albastru inchis",
+    "Orange": "Portocaliu", "Petrol": "Albastru petrol",
     "Licra": "Lycra", "Tulle": "Tul", "Tull": "Tul",
     "Sifon": "Voal", "Mătase": "Matase",
-    # Stil
     "Sport": "Casual", "Elegant": "Eleganta",
 }
 
-# ── Valori acceptate per spec (pentru prompt Gemini) ───────────────
 SPEC_VALUES = {
     "Culoare": list(CULOARE_MAP.keys()),
     "Material": list(MATERIAL_MAP.keys()),
@@ -145,6 +150,150 @@ SPEC_VALUES = {
     "Model": list(MODEL_MAP.keys())
 }
 
+
+# ══════════════════════════════════════════════════════════════════
+#  TELEGRAM
+# ══════════════════════════════════════════════════════════════════
+
+def send_telegram(text):
+    """Trimite mesaj pe Telegram. Suportă mesaje lungi (split la 4000 chars)."""
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        print("  ⚠️  Telegram: token/chat_id lipsă, skip")
+        return
+
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+
+    chunks = []
+    while len(text) > 4000:
+        split_at = text.rfind('\n', 0, 4000)
+        if split_at == -1:
+            split_at = 4000
+        chunks.append(text[:split_at])
+        text = text[split_at:]
+    chunks.append(text)
+
+    for chunk in chunks:
+        try:
+            r = requests.post(url, json={
+                'chat_id': TELEGRAM_CHAT_ID,
+                'text': chunk,
+                'parse_mode': 'HTML'
+            }, timeout=15)
+            if r.status_code != 200:
+                print(f"  ⚠️  Telegram eroare: {r.status_code} - {r.text[:100]}")
+            time.sleep(0.3)
+        except Exception as e:
+            print(f"  ⚠️  Telegram eroare: {e}")
+
+
+def build_telegram_report(results):
+    """Construiește raportul Telegram cu toate produsele generate."""
+    lines = []
+    lines.append("📋 <b>RAPORT GENERARE SPECIFICAȚII</b>")
+    lines.append("")
+
+    success_count = 0
+    error_count = 0
+    unmapped_count = 0
+
+    for r in results:
+        pid = r.get('id', '?')
+        name = r.get('name', '?')
+
+        if r.get('error'):
+            lines.append(f"❌ <b>[{pid}]</b> {name}")
+            lines.append(f"   Eroare: {r['error']}")
+            lines.append("")
+            error_count += 1
+            continue
+
+        specs = r.get('specs_to_add', {})
+        unmapped = r.get('unmapped', [])
+        kept = r.get('kept_existing', [])
+
+        if unmapped:
+            icon = "⚠️"
+            unmapped_count += 1
+        else:
+            icon = "✅"
+            success_count += 1
+
+        lines.append(f"{icon} <b>[{pid}]</b> {name}")
+
+        for spec_name, values in specs.items():
+            vals_str = ", ".join([v['value'] for v in values])
+            lines.append(f"   🆕 {spec_name}: <b>{vals_str}</b>")
+
+        if kept:
+            lines.append(f"   ✅ Păstrate: {', '.join(kept)}")
+
+        for spec, val in unmapped:
+            lines.append(f"   ⚠️ {spec}: '{val}' → FĂRĂ MAPPING")
+
+        lines.append("")
+
+    lines.append("━━━━━━━━━━━━━━━━━━━━")
+    lines.append(f"📊 Total: {len(results)} produse")
+    lines.append(f"✅ Succes complet: {success_count}")
+    lines.append(f"⚠️ Cu unmapped: {unmapped_count}")
+    lines.append(f"❌ Erori: {error_count}")
+    lines.append("")
+    lines.append("👉 Verifică și apoi rulează:")
+    lines.append("<code>python3 upload_specs.py</code>")
+
+    return "\n".join(lines)
+
+
+# ══════════════════════════════════════════════════════════════════
+#  API FUNCTIONS
+# ══════════════════════════════════════════════════════════════════
+
+def fetch_product_specs(product_id):
+    """
+    Fetch specificații pentru un produs via API.
+    API returnează {"ID": {datele_produsului}}.
+    """
+    if not EJOLIE_API_KEY:
+        return None
+
+    url = f"{API_URL}?id_produs={product_id}&apikey={EJOLIE_API_KEY}"
+
+    try:
+        r = requests.get(url, headers=HEADERS, timeout=30)
+        r.raise_for_status()
+        data = r.json()
+
+        if isinstance(data, dict) and str(product_id) in data:
+            product_data = data[str(product_id)]
+        elif isinstance(data, dict) and len(data) == 1:
+            product_data = list(data.values())[0]
+        else:
+            product_data = data
+
+        specs_raw = product_data.get('specificatii', []) if isinstance(product_data, dict) else []
+
+        specs = {}
+        for spec_name in SPEC_NAMES:
+            specs[spec_name] = []
+
+        EMPTY_VALUE = 'Fara optiune definita'
+        for item in specs_raw:
+            name = item.get('nume', '')
+            values = item.get('valoare', [])
+            if name in specs:
+                clean_values = [v for v in values if v and v != EMPTY_VALUE]
+                specs[name] = clean_values
+
+        return specs
+
+    except Exception as e:
+        print(f"  ❌ API eroare {product_id}: {e}")
+        return None
+
+
+# ══════════════════════════════════════════════════════════════════
+#  CORE FUNCTIONS
+# ══════════════════════════════════════════════════════════════════
 
 def download_image(url):
     """Descarcă imaginea și returnează bytes + mime type."""
@@ -173,7 +322,6 @@ def call_gemini_vision(image_bytes, mime_type, product_name, missing_specs):
     """
     image_b64 = base64.b64encode(image_bytes).decode('utf-8')
 
-    # Construim prompt DOAR pentru specs lipsă
     specs_needed = []
     for spec in missing_specs:
         values = SPEC_VALUES.get(spec, [])
@@ -191,7 +339,7 @@ REGULI:
 1. Alege DOAR din valorile date între paranteze pătrate pentru fiecare specificație.
 2. Pentru "Model" poți alege MULTIPLE valori separate prin virgulă.
 3. Pentru celelalte specificații alege O SINGURĂ valoare.
-4. IMPORTANT: Dacă numele produsului conține o culoare (ex: "neagra", "rosie", "fucsia", "verde", "alba", "bordo", "albastra", "aurie"), folosește OBLIGATORIU acea culoare. Numele produsului are prioritate maximă pentru Culoare.
+4. IMPORTANT: Dacă numele produsului conține o culoare (ex: "neagra", "rosie", "fucsia", "verde", "alba", "bordo", "albastra", "aurie", "maro", "bej", "crem", "lila", "mov", "portocalie", "kaki", "gri", "turcoaz", "corai"), folosește OBLIGATORIU acea culoare. Numele produsului are prioritate maximă pentru Culoare.
 5. Dacă nu ești sigur, alege cea mai probabilă valoare bazat pe imagine și nume.
 6. Răspunde DOAR cu JSON valid, fără explicații, fără markdown, fără ```json.
 
@@ -221,11 +369,10 @@ Format răspuns (exemplu):
     }
 
     try:
-        r = requests.post(GEMINI_URL, json=payload, timeout=30)
+        r = requests.post(GEMINI_URL, json=payload, timeout=60)
         r.raise_for_status()
         data = r.json()
 
-        # Extrage text din răspuns Gemini
         candidates = data.get('candidates', [])
         if not candidates:
             print(f"  ❌ Gemini: niciun candidat în răspuns")
@@ -241,7 +388,6 @@ Format răspuns (exemplu):
             print(f"  ❌ Gemini: răspuns gol")
             return None
 
-        # Curăță JSON (elimină markdown wrapping)
         text = text.strip()
         if text.startswith("```json"):
             text = text[7:]
@@ -251,7 +397,6 @@ Format răspuns (exemplu):
             text = text[:-3]
         text = text.strip()
 
-        # Parsează JSON
         specs = json.loads(text)
         return specs
 
@@ -270,8 +415,7 @@ Format răspuns (exemplu):
 def map_value_to_id(spec_name, value):
     """
     Mapează o valoare generată de Gemini la ID-ul Extended.
-    Folosește fuzzy matching dacă valoarea exactă nu există.
-    Returns: (mapped_value, value_id) sau (None, None) dacă nu găsește.
+    4 niveluri: exact → case-insensitive → fuzzy → parțial.
     """
     spec_map = SPEC_MAPS.get(spec_name, {})
 
@@ -279,7 +423,7 @@ def map_value_to_id(spec_name, value):
     if value in spec_map:
         return value, spec_map[value]
 
-    # 2. Căutare case-insensitive
+    # 2. Case-insensitive
     for map_key, map_id in spec_map.items():
         if map_key.lower() == value.lower():
             return map_key, map_id
@@ -289,12 +433,11 @@ def map_value_to_id(spec_name, value):
     if fuzzy_value:
         if fuzzy_value in spec_map:
             return fuzzy_value, spec_map[fuzzy_value]
-        # Fuzzy + case-insensitive
         for map_key, map_id in spec_map.items():
             if map_key.lower() == fuzzy_value.lower():
                 return map_key, map_id
 
-    # 4. Căutare parțială (contains)
+    # 4. Parțial (contains)
     value_lower = value.lower()
     for map_key, map_id in spec_map.items():
         if value_lower in map_key.lower() or map_key.lower() in value_lower:
@@ -306,7 +449,6 @@ def map_value_to_id(spec_name, value):
 def process_gemini_response(gemini_specs, missing_specs):
     """
     Procesează răspunsul Gemini și mapează valorile la ID-uri.
-    Returns: dict cu specs_to_add și unmapped.
     """
     specs_to_add = {}
     unmapped = []
@@ -317,7 +459,7 @@ def process_gemini_response(gemini_specs, missing_specs):
             unmapped.append((spec_name, "GOLI — Gemini nu a returnat valoare"))
             continue
 
-        # Model poate avea multiple valori separate prin virgulă
+        # Model poate avea multiple valori
         if spec_name == "Model" and "," in str(raw_value):
             values = [v.strip() for v in str(raw_value).split(",")]
             mapped_values = []
@@ -355,8 +497,7 @@ def load_missing_products():
 def load_product_from_feed(product_id):
     """Citește un produs specific din product_feed.json."""
     if not FEED_PATH.exists():
-        print(f"❌ {FEED_PATH} nu există.")
-        sys.exit(1)
+        return None
 
     with open(FEED_PATH, 'r', encoding='utf-8') as f:
         products = json.load(f)
@@ -397,18 +538,16 @@ def main():
     parser.add_argument('--id', type=int, help='ID produs specific')
     parser.add_argument('--limit', type=int, default=0, help='Limită produse (0 = toate)')
     parser.add_argument('--dry-run', action='store_true', help='Arată rezultate fără salvare')
+    parser.add_argument('--no-telegram', action='store_true', help='Nu trimite raport pe Telegram')
     args = parser.parse_args()
 
     # ── Încarcă produse ────────────────────────────────────────────
     if args.id:
-        # Mod --id: scanează produsul live (nu depinde de products_missing_specs.json)
-        from scan_specs import fetch_product_specs, SPEC_NAMES
         product = load_product_from_feed(args.id)
         if not product:
             print(f"❌ Produs {args.id} nu a fost găsit în product_feed.json")
             sys.exit(1)
 
-        # Fetch specs actuale
         print(f"🎯 Generare specs pentru produs specific: {args.id}")
         current_specs = fetch_product_specs(args.id)
         if current_specs is None:
@@ -428,7 +567,6 @@ def main():
             'missing': missing
         }]
     else:
-        # Mod normal: citește din products_missing_specs.json
         products = load_missing_products()
 
     # ── Filtru --limit ─────────────────────────────────────────────
@@ -451,14 +589,11 @@ def main():
         missing = product.get('missing', [])
         current_specs = product.get('current_specs', {})
 
-        # Specs existente (le păstrăm)
-        kept_existing = [s for s in ['Culoare', 'Material', 'Lungime', 'Croi', 'Stil', 'Model']
-                        if s not in missing]
+        kept_existing = [s for s in SPEC_NAMES if s not in missing]
 
         print(f"[{i}/{total}] {pid} - {name[:50]}...")
         print(f"  📷 Download imagine...", end='', flush=True)
 
-        # Download imagine
         if not image_url:
             print(f" ❌ Fără imagine!")
             result = {
@@ -485,7 +620,6 @@ def main():
         print(f" OK ({len(image_bytes)//1024}KB)")
         print(f"  🤖 Gemini Vision ({len(missing)} specs lipsă)...", end='', flush=True)
 
-        # Call Gemini Vision
         gemini_specs = call_gemini_vision(image_bytes, mime_type, name, missing)
         if not gemini_specs:
             print(f" ❌ Gemini fail!")
@@ -500,7 +634,6 @@ def main():
 
         print(f" OK")
 
-        # Mapare valori la ID-uri Extended
         specs_to_add, unmapped = process_gemini_response(gemini_specs, missing)
 
         result = {
@@ -522,10 +655,9 @@ def main():
             print(f"  ✅ Mapat {mapped_count}/{total_missing} specs")
             success += 1
 
-        # Afișare detalii per produs
         print_product_result(result)
 
-        # Pauză între requesturi (1s) — Gemini rate limit
+        # Pauză între requesturi (1s)
         if i < total:
             time.sleep(1)
 
@@ -538,7 +670,6 @@ def main():
     print(f"  ⚠️  Parțial (cu unmapped): {total - success - errors}")
     print(f"  ❌ Erori:                 {errors}")
 
-    # Colectăm toate valorile unmapped
     all_unmapped = []
     for r in results:
         for spec, val in r.get('unmapped', []):
@@ -553,7 +684,6 @@ def main():
 
     # ── Salvare JSON ───────────────────────────────────────────────
     if not args.dry_run:
-        # Salvăm doar rezultatele cu specs_to_add (au ceva de uploadat)
         to_save = [r for r in results if r.get('specs_to_add')]
 
         with open(OUTPUT_PATH, 'w', encoding='utf-8') as f:
@@ -563,7 +693,14 @@ def main():
     else:
         print(f"\n🔍 Dry-run: nimic salvat")
 
-    print("\n✅ Generare completă!")
+    # ── Raport Telegram ────────────────────────────────────────────
+    if not args.no_telegram and not args.dry_run and results:
+        print(f"\n📱 Trimit raport pe Telegram...", end='', flush=True)
+        report = build_telegram_report(results)
+        send_telegram(report)
+        print(f" ✅ Trimis!")
+
+    print(f"\n✅ Generare completă!")
 
 
 if __name__ == '__main__':
