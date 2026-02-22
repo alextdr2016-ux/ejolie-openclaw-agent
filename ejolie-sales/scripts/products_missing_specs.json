@@ -1,5 +1,309 @@
 [
   {
+    "id": "12400",
+    "name": "Salopeta Nicola fucsia",
+    "image": "https://ejolie.ro/continut/produse/12400/1000/salopeta-nicola-fucsia_102407.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [],
+      "Lungime": [],
+      "Croi": [],
+      "Stil": [],
+      "Model": []
+    },
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "missing_count": 6,
+    "complete": false
+  },
+  {
+    "id": "12397",
+    "name": "Salopeta Mara neagra",
+    "image": "https://ejolie.ro/continut/produse/12397/1000/salopeta-mara-neagra_102513.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [],
+      "Lungime": [],
+      "Croi": [],
+      "Stil": [],
+      "Model": []
+    },
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "missing_count": 6,
+    "complete": false
+  },
+  {
+    "id": "12381",
+    "name": "Salopeta Aria",
+    "image": "https://ejolie.ro/continut/produse/12381/1000/salopeta-aria_102302.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [],
+      "Lungime": [],
+      "Croi": [],
+      "Stil": [],
+      "Model": []
+    },
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "missing_count": 6,
+    "complete": false
+  },
+  {
+    "id": "12370",
+    "name": "Rochie Vanessa plisata",
+    "image": "https://ejolie.ro/continut/produse/12370/1000/rochie-vanessa-plisata_102250.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [
+        "Poliester"
+      ],
+      "Lungime": [
+        "Medii"
+      ],
+      "Croi": [
+        "Plisat"
+      ],
+      "Stil": [
+        "Casual"
+      ],
+      "Model": [
+        "Plisata"
+      ]
+    },
+    "missing": [
+      "Culoare"
+    ],
+    "missing_count": 1,
+    "complete": false
+  },
+  {
+    "id": "12364",
+    "name": "Rochie Patrizia caramizie cu imprimeu",
+    "image": "https://ejolie.ro/continut/produse/12364/1000/rochie-patrizia-cu-imprimeu-kaki_102224.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [],
+      "Lungime": [],
+      "Croi": [],
+      "Stil": [],
+      "Model": []
+    },
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "missing_count": 6,
+    "complete": false
+  },
+  {
+    "id": "12363",
+    "name": "Rochie Katinca cu imprimeu verde",
+    "image": "https://ejolie.ro/continut/produse/12363/1000/rochie-katinca-cu-imprimeu-verde_102219.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [],
+      "Lungime": [],
+      "Croi": [],
+      "Stil": [],
+      "Model": []
+    },
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "missing_count": 6,
+    "complete": false
+  },
+  {
+    "id": "12362",
+    "name": "Rochie Leticia cu imprimeu",
+    "image": "https://ejolie.ro/continut/produse/12362/1000/rochie-leticia-cu-imprimeu_102549.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [],
+      "Lungime": [],
+      "Croi": [],
+      "Stil": [],
+      "Model": []
+    },
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "missing_count": 6,
+    "complete": false
+  },
+  {
+    "id": "12361",
+    "name": "Rochie Patrizia kaki cu imprimeu",
+    "image": "https://ejolie.ro/continut/produse/12361/1000/rochie-patrizia-cu-imprimeu-kaki_102213.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [],
+      "Lungime": [],
+      "Croi": [],
+      "Stil": [],
+      "Model": []
+    },
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "missing_count": 6,
+    "complete": false
+  },
+  {
+    "id": "12360",
+    "name": "Rochie Fiesta cu imprimeu",
+    "image": "https://ejolie.ro/continut/produse/12360/1000/rochie-fiesta-cu-imprimeu_102205.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [],
+      "Lungime": [],
+      "Croi": [],
+      "Stil": [],
+      "Model": []
+    },
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "missing_count": 6,
+    "complete": false
+  },
+  {
+    "id": "12359",
+    "name": "Rochie Marcia cu imprimeu",
+    "image": "https://ejolie.ro/continut/produse/12359/1000/rochie-marcia-cu-imprimeu_102203.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [],
+      "Lungime": [],
+      "Croi": [],
+      "Stil": [],
+      "Model": []
+    },
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "missing_count": 6,
+    "complete": false
+  },
+  {
+    "id": "12358",
+    "name": "Rochie Rachel cu imprimeu albastru",
+    "image": "https://ejolie.ro/continut/produse/12358/1000/rochie-rachel-cu-imprimeu-albastru_102198.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [],
+      "Lungime": [],
+      "Croi": [],
+      "Stil": [],
+      "Model": []
+    },
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "missing_count": 6,
+    "complete": false
+  },
+  {
+    "id": "12357",
+    "name": "Rochie Patrizia albastra cu imprimeu",
+    "image": "https://ejolie.ro/continut/produse/12357/1000/rochie-patrizia-cu-imprimeu-albastru_102193.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [],
+      "Lungime": [],
+      "Croi": [],
+      "Stil": [],
+      "Model": []
+    },
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "missing_count": 6,
+    "complete": false
+  },
+  {
+    "id": "12356",
+    "name": "Rochie Nicola bordo",
+    "image": "https://ejolie.ro/continut/produse/12356/1000/rochie-nicola-bordo_102188.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [],
+      "Lungime": [],
+      "Croi": [],
+      "Stil": [],
+      "Model": []
+    },
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "missing_count": 6,
+    "complete": false
+  },
+  {
     "id": "12350",
     "name": "Rochie Valery neagra",
     "image": "https://ejolie.ro/continut/produse/12350/1000/rochie-valery-neagra_102401.webp",
@@ -1692,6 +1996,29 @@
     "complete": false
   },
   {
+    "id": "9312",
+    "name": "Rochie Bellona roz cu dungi albe si negre",
+    "image": "https://ejolie.ro/continut/produse/9312/1000/rochie-bellona-roz-cu-dungi-albe-si-negre_84454.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [],
+      "Lungime": [],
+      "Croi": [],
+      "Stil": [],
+      "Model": []
+    },
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "missing_count": 6,
+    "complete": false
+  },
+  {
     "id": "9281",
     "name": "Rochie Taipa fucsia",
     "image": "https://ejolie.ro/continut/produse/9281/1000/rochie-taipa-fucsia_81525.webp",
@@ -1879,6 +2206,29 @@
     "id": "8808",
     "name": "Rochie Jesica verde din catifea cu fronseu la spate",
     "image": "https://ejolie.ro/continut/produse/8808/1000/rochie-jesica-verde-din-catifea-cu-fronseu-la-spate_85339.webp",
+    "current_specs": {
+      "Culoare": [],
+      "Material": [],
+      "Lungime": [],
+      "Croi": [],
+      "Stil": [],
+      "Model": []
+    },
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "missing_count": 6,
+    "complete": false
+  },
+  {
+    "id": "8667",
+    "name": "Camasa Delice bleumarin cu dungi albe",
+    "image": "https://ejolie.ro/continut/produse/8667/1000/camasa-delice-bleumarin-cu-dungi-albe_87107.webp",
     "current_specs": {
       "Culoare": [],
       "Material": [],

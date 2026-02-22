@@ -1,0 +1,29 @@
+{
+  "id": "640",
+  "name": "Pantaloni Nadia gri cu carouri",
+  "image": "https://ejolie.ro/continut/produse/640/1000/pantaloni-nadia-gri-cu-carouri_102180.webp",
+  "current_specs": {
+    "Culoare": [
+      "Gri"
+    ],
+    "Material": [
+      "Poliester"
+    ],
+    "Lungime": [
+      "Lungi"
+    ],
+    "Croi": [
+      "Drept",
+      "Plisat"
+    ],
+    "Stil": [
+      "Casual-Office"
+    ],
+    "Model": [
+      "Fara maneci"
+    ]
+  },
+  "missing": [],
+  "missing_count": 0,
+  "complete": true
+}

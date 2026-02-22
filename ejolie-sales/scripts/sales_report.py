@@ -32,6 +32,7 @@ def main():
     parser.add_argument("--brand", default=None, help="Filter by brand: ejolie, trendya, artista")
     parser.add_argument("--furnizor", default=None, help="Alias for --brand")
     parser.add_argument("--check", action="store_true", help="Check last report result")
+    parser.add_argument("--format", default="text", choices=["text", "xlsx"], help="Output format: text or xlsx")
     args = parser.parse_args()
 
     if args.check:

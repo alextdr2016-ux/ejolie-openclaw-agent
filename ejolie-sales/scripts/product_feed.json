@@ -10203,23 +10203,6 @@
   "description": "<p>Rochia Ivona este o declarație de delicatețe și rafinament, o piesă ce te învăluie într-o aură de grație feminină. Croiala tip A-line, cu fusta amplă din tull, creează o siluetă jucăușă și elegantă"
  },
  {
-  "id": "9418",
-  "title": "Rochie Ivona neagra cu fusta din tull",
-  "price": "425.00 RON",
-  "sale_price": "127.50 RON",
-  "image": "https://ejolie.ro/continut/produse/9418/1000/rochie-ivona-neagra-cu-fusta-din-tull_84381.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/9418/1000/rochie-ivona-neagra-cu-fusta-din-tull_84381.webp",
-   "https://ejolie.ro/continut/produse/9418/1000/rochie-ivona-neagra-cu-fusta-din-tull_84382.webp",
-   "https://ejolie.ro/continut/default_video.png"
-  ],
-  "link": "https://ejolie.ro/product/rochie-ivona-neagra-cu-fusta-din-tull",
-  "brand": "Artista",
-  "category": "Rochii de seara",
-  "available": "in stock",
-  "description": "<p>Rochia Ivona este o declarație de stil rafinat, o piesă ce îmbină grația clasică a negrului cu o notă jucăușă și seducătoare. Croiala tip A-line, cu bustul mulat și fusta amplă din tull, creează o "
- },
- {
   "id": "9414",
   "title": "Rochie Felicity verde deschis",
   "price": "449.00 RON",
@@ -10556,23 +10539,6 @@
   "category": "Rochii de ocazie",
   "available": "in stock",
   "description": "<p>Rochia Despina fucsia este o expresie vibrantă a feminității moderne, concepută pentru a te plasa în centrul atenției la orice eveniment special. Croiala mulată, tip creion, subliniază silueta cu g"
- },
- {
-  "id": "9312",
-  "title": "Rochie Bellona roz cu dungi albe si negre",
-  "price": "399.00 RON",
-  "sale_price": "119.70 RON",
-  "image": "https://ejolie.ro/continut/produse/9312/1000/rochie-bellona-roz-cu-dungi-albe-si-negre_84454.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/9312/1000/rochie-bellona-roz-cu-dungi-albe-si-negre_84454.webp",
-   "https://ejolie.ro/continut/produse/9312/1000/rochie-bellona-roz-cu-dungi-albe-si-negre_84452.webp",
-   "https://ejolie.ro/continut/produse/9312/1000/rochie-bellona-roz-cu-dungi-albe-si-negre_84453.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-bellona-roz-cu-dungi-albe-si-negre",
-  "brand": "Artista",
-  "category": "Rochii de Zi",
-  "available": "in stock",
-  "description": "<p>Rochie Bellona roz cu dungi albe si negre<br><br>Compozitie: 95% Poliester, 5% Elastan</p>"
  },
  {
   "id": "9281",
@@ -11139,24 +11105,6 @@
   "description": "Rochie Evelyn fucsia<div>- nu are fermoar, are un elastic in talie si vine accesorizata cu o curea"
  },
  {
-  "id": "9044",
-  "title": "Rochie Catrina neagra",
-  "price": "487.50 RON",
-  "sale_price": "341.25 RON",
-  "image": "https://ejolie.ro/continut/produse/9044/1000/rochie-catrina-neagra_80517.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/9044/1000/rochie-catrina-neagra_80517.webp",
-   "https://ejolie.ro/continut/produse/9044/1000/rochie-catrina-neagra_80618.webp",
-   "https://ejolie.ro/continut/produse/9044/1000/rochie-catrina-neagra_80518.webp",
-   "https://ejolie.ro/continut/default_video.png"
-  ],
-  "link": "https://ejolie.ro/product/rochie-zaila-neagra",
-  "brand": "Ejolie",
-  "category": "Rochii de Zi",
-  "available": "in stock",
-  "description": "Rochie Catrina&nbsp;neagra   <div>- se inchide cu fermoar la spate"
- },
- {
   "id": "9026",
   "title": "Rochie Sandy crem cu insertii stralucitoare",
   "price": "412.50 RON",
@@ -11300,24 +11248,6 @@
   "category": "Outlet",
   "available": "in stock",
   "description": "Rochie Vilma albastra    <div><div>- rochie eleganta, de lungime midi, cambrata, cu fusta petrecuta si dantela in zona bustului</div><div>- are un umar gol si o maneca lunga</div><div>- se incheie cu "
- },
- {
-  "id": "8667",
-  "title": "Camasa Delice bleumarin cu dungi albe",
-  "price": "168.00 RON",
-  "sale_price": "67.20 RON",
-  "image": "https://ejolie.ro/continut/produse/8667/1000/camasa-delice-bleumarin-cu-dungi-albe_87107.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/8667/1000/camasa-delice-bleumarin-cu-dungi-albe_87107.webp",
-   "https://ejolie.ro/continut/produse/8667/1000/camasa-delice-bleumarin-cu-dungi-albe_87104.webp",
-   "https://ejolie.ro/continut/produse/8667/1000/camasa-delice-bleumarin-cu-dungi-albe_87105.webp",
-   "https://ejolie.ro/continut/produse/8667/1000/camasa-delice-bleumarin-cu-dungi-albe_87106.webp"
-  ],
-  "link": "https://ejolie.ro/product/camasa-delice-bleumarin-cu-dungi-albe",
-  "brand": "Trendya",
-  "category": "Outlet",
-  "available": "in stock",
-  "description": "Camasa Delice bleumarin cu dungi albe  <div><div>- camasa in&nbsp;stil office, elegant</div><div>- are un croi lejer, maneci lungi, largi, cu mansete late ce se incheie cu nasturi</div><div>- are gule"
  },
  {
   "id": "8661",
@@ -12517,25 +12447,6 @@
   "category": "Pantaloni",
   "available": "in stock",
   "description": "<p>Descriere</p><div><div><div><div>Pantaloni Aurelia bej cu carouri<div><div>- stil office, casual\n<p><img src=\"https://ejolie.ro/continut/upload/Tabel%20M%20General%20Trendya.png\" width=\"512\" height"
- },
- {
-  "id": "645",
-  "title": "Sacou Agapia albastru",
-  "price": "179.00 RON",
-  "sale_price": "143.20 RON",
-  "image": "https://ejolie.ro/continut/produse/645/1000/sacou-agapia-albastru_102138.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/645/1000/sacou-agapia-albastru_102138.webp",
-   "https://ejolie.ro/continut/produse/645/1000/sacou-agapia-albastru_102137.webp",
-   "https://ejolie.ro/continut/produse/645/1000/sacou-agapia-albastru_102136.webp",
-   "https://ejolie.ro/continut/produse/645/1000/sacou-agapia-albastru_102135.webp",
-   "https://ejolie.ro/continut/produse/645/1000/sacou-agapia-albastru_102134.webp"
-  ],
-  "link": "https://ejolie.ro/product/sacou-ines-green",
-  "brand": "Ejolie",
-  "category": "Outlet",
-  "available": "in stock",
-  "description": "Sacou Agapia albastru<div>- stil elegant\n<p><img src=\"https://ejolie.ro/continut/upload/Tabel%20M%20General%20Trendya.png\" width=\"512\" height=\"764\"></p>"
  },
  {
   "id": "644",
