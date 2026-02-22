@@ -6,8 +6,8 @@ Citește products_missing_specs.json (output scan_specs.py).
 Trimite imaginea + numele produsului la Gemini Vision.
 Mapează valorile la ID-uri Extended (fuzzy matching).
 Completează DOAR specs lipsă (nu suprascrie cele existente).
-Salvează generated_specs.json.
-Trimite raport pe Telegram cu toate produsele generate.
+Salvează generated_specs.json + raport Excel.
+Trimite raport text + Excel pe Telegram.
 
 Usage:
     python3 generate_specs.py --id 12345       # Test pe 1 produs
@@ -33,6 +33,7 @@ ENV_PATH = SCRIPT_DIR / '..' / '.env'
 MISSING_PATH = SCRIPT_DIR / 'products_missing_specs.json'
 FEED_PATH = SCRIPT_DIR / 'product_feed.json'
 OUTPUT_PATH = SCRIPT_DIR / 'generated_specs.json'
+EXCEL_PATH = SCRIPT_DIR / 'generated_specs_report.xlsx'
 
 # ── Load .env ──────────────────────────────────────────────────────
 load_dotenv(ENV_PATH)
@@ -156,7 +157,7 @@ SPEC_VALUES = {
 # ══════════════════════════════════════════════════════════════════
 
 def send_telegram(text):
-    """Trimite mesaj pe Telegram. Suportă mesaje lungi (split la 4000 chars)."""
+    """Trimite mesaj text pe Telegram. Suportă mesaje lungi."""
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         print("  ⚠️  Telegram: token/chat_id lipsă, skip")
         return
@@ -180,68 +181,195 @@ def send_telegram(text):
                 'parse_mode': 'HTML'
             }, timeout=15)
             if r.status_code != 200:
-                print(f"  ⚠️  Telegram eroare: {r.status_code} - {r.text[:100]}")
+                print(f"  ⚠️  Telegram text eroare: {r.status_code}")
             time.sleep(0.3)
         except Exception as e:
             print(f"  ⚠️  Telegram eroare: {e}")
 
 
+def send_telegram_file(filepath, caption=""):
+    """Trimite fișier pe Telegram."""
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        print("  ⚠️  Telegram: token/chat_id lipsă, skip")
+        return
+
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendDocument"
+
+    try:
+        with open(filepath, 'rb') as f:
+            r = requests.post(url, data={
+                'chat_id': TELEGRAM_CHAT_ID,
+                'caption': caption[:1024]  # Telegram caption limit
+            }, files={
+                'document': (os.path.basename(filepath), f)
+            }, timeout=30)
+
+        if r.status_code == 200:
+            print(f" ✅ Fișier trimis!")
+        else:
+            print(f" ⚠️  Telegram file eroare: {r.status_code}")
+    except Exception as e:
+        print(f"  ⚠️  Telegram file eroare: {e}")
+
+
 def build_telegram_report(results):
-    """Construiește raportul Telegram cu toate produsele generate."""
+    """Construiește raportul Telegram text scurt (sumar)."""
+    success_count = sum(1 for r in results if not r.get('error') and not r.get('unmapped'))
+    unmapped_count = sum(1 for r in results if r.get('unmapped') and not r.get('error'))
+    error_count = sum(1 for r in results if r.get('error'))
+
     lines = []
     lines.append("📋 <b>RAPORT GENERARE SPECIFICAȚII</b>")
     lines.append("")
-
-    success_count = 0
-    error_count = 0
-    unmapped_count = 0
-
-    for r in results:
-        pid = r.get('id', '?')
-        name = r.get('name', '?')
-
-        if r.get('error'):
-            lines.append(f"❌ <b>[{pid}]</b> {name}")
-            lines.append(f"   Eroare: {r['error']}")
-            lines.append("")
-            error_count += 1
-            continue
-
-        specs = r.get('specs_to_add', {})
-        unmapped = r.get('unmapped', [])
-        kept = r.get('kept_existing', [])
-
-        if unmapped:
-            icon = "⚠️"
-            unmapped_count += 1
-        else:
-            icon = "✅"
-            success_count += 1
-
-        lines.append(f"{icon} <b>[{pid}]</b> {name}")
-
-        for spec_name, values in specs.items():
-            vals_str = ", ".join([v['value'] for v in values])
-            lines.append(f"   🆕 {spec_name}: <b>{vals_str}</b>")
-
-        if kept:
-            lines.append(f"   ✅ Păstrate: {', '.join(kept)}")
-
-        for spec, val in unmapped:
-            lines.append(f"   ⚠️ {spec}: '{val}' → FĂRĂ MAPPING")
-
-        lines.append("")
-
-    lines.append("━━━━━━━━━━━━━━━━━━━━")
     lines.append(f"📊 Total: {len(results)} produse")
     lines.append(f"✅ Succes complet: {success_count}")
-    lines.append(f"⚠️ Cu unmapped: {unmapped_count}")
+    lines.append(f"⚠️ Cu probleme mapping: {unmapped_count}")
     lines.append(f"❌ Erori: {error_count}")
     lines.append("")
-    lines.append("👉 Verifică și apoi rulează:")
+    lines.append("📎 Raportul Excel detaliat e atașat mai jos.")
+    lines.append("")
+    lines.append("👉 Dacă totul e ok, rulează:")
     lines.append("<code>python3 upload_specs.py</code>")
 
     return "\n".join(lines)
+
+
+# ══════════════════════════════════════════════════════════════════
+#  EXCEL REPORT
+# ══════════════════════════════════════════════════════════════════
+
+def export_excel_report(results):
+    """Generează raport Excel cu toate produsele și specs generate."""
+    from openpyxl import Workbook
+    from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Specificații Generate"
+
+    # ── Stiluri ────────────────────────────────────────────────────
+    header_font = Font(bold=True, color="FFFFFF", size=11)
+    header_fill = PatternFill(start_color="2F5496", end_color="2F5496", fill_type="solid")
+    success_fill = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")
+    warning_fill = PatternFill(start_color="FFEB9C", end_color="FFEB9C", fill_type="solid")
+    error_fill = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
+    new_font = Font(bold=True, color="006100")
+    kept_font = Font(color="808080", italic=True)
+    thin_border = Border(
+        left=Side(style='thin'),
+        right=Side(style='thin'),
+        top=Side(style='thin'),
+        bottom=Side(style='thin')
+    )
+
+    # ── Header ─────────────────────────────────────────────────────
+    headers = ['ID', 'Nume Produs', 'Status', 'Culoare', 'Material', 'Lungime', 'Croi', 'Stil', 'Model', 'Probleme']
+    for col, header in enumerate(headers, 1):
+        cell = ws.cell(row=1, column=col, value=header)
+        cell.font = header_font
+        cell.fill = header_fill
+        cell.alignment = Alignment(horizontal='center')
+        cell.border = thin_border
+
+    # ── Date ───────────────────────────────────────────────────────
+    for row_idx, result in enumerate(results, 2):
+        pid = result.get('id', '')
+        name = result.get('name', '')
+        specs_to_add = result.get('specs_to_add', {})
+        kept = result.get('kept_existing', [])
+        unmapped = result.get('unmapped', [])
+        error = result.get('error', '')
+
+        # Status
+        if error:
+            status = "❌ EROARE"
+            row_fill = error_fill
+        elif unmapped:
+            status = "⚠️ PARȚIAL"
+            row_fill = warning_fill
+        else:
+            status = "✅ OK"
+            row_fill = success_fill
+
+        ws.cell(row=row_idx, column=1, value=int(pid) if str(pid).isdigit() else pid).border = thin_border
+        ws.cell(row=row_idx, column=2, value=name).border = thin_border
+
+        status_cell = ws.cell(row=row_idx, column=3, value=status)
+        status_cell.fill = row_fill
+        status_cell.border = thin_border
+
+        # Specs per coloană
+        for col_idx, spec_name in enumerate(SPEC_NAMES, 4):
+            cell = ws.cell(row=row_idx, column=col_idx)
+            cell.border = thin_border
+
+            if error:
+                cell.value = error if col_idx == 4 else ""
+                continue
+
+            # Verificăm dacă e spec nou generat sau existent păstrat
+            if spec_name in specs_to_add:
+                values = specs_to_add[spec_name]
+                vals_str = ", ".join([v['value'] for v in values])
+                cell.value = f"🆕 {vals_str}"
+                cell.font = new_font
+            elif spec_name in kept:
+                cell.value = "✅ (existent)"
+                cell.font = kept_font
+            else:
+                # Verificăm dacă e unmapped
+                unmapped_vals = [val for spec, val in unmapped if spec == spec_name]
+                if unmapped_vals:
+                    cell.value = f"⚠️ {', '.join(unmapped_vals)}"
+                    cell.fill = warning_fill
+                else:
+                    cell.value = ""
+
+        # Coloana Probleme
+        problems = []
+        if error:
+            problems.append(error)
+        for spec, val in unmapped:
+            problems.append(f"{spec}: '{val}'")
+
+        ws.cell(row=row_idx, column=10, value="; ".join(problems) if problems else "").border = thin_border
+
+    # ── Lățimi coloane ─────────────────────────────────────────────
+    ws.column_dimensions['A'].width = 8    # ID
+    ws.column_dimensions['B'].width = 45   # Nume
+    ws.column_dimensions['C'].width = 14   # Status
+    ws.column_dimensions['D'].width = 18   # Culoare
+    ws.column_dimensions['E'].width = 18   # Material
+    ws.column_dimensions['F'].width = 12   # Lungime
+    ws.column_dimensions['G'].width = 14   # Croi
+    ws.column_dimensions['H'].width = 18   # Stil
+    ws.column_dimensions['I'].width = 25   # Model
+    ws.column_dimensions['J'].width = 35   # Probleme
+
+    # ── Sumar (sheet 2) ────────────────────────────────────────────
+    ws2 = wb.create_sheet("Sumar")
+    ws2.cell(row=1, column=1, value="Statistică").font = Font(bold=True, size=14)
+    ws2.cell(row=3, column=1, value="Total produse:").font = Font(bold=True)
+    ws2.cell(row=3, column=2, value=len(results))
+    ws2.cell(row=4, column=1, value="Succes complet:").font = Font(bold=True)
+    ws2.cell(row=4, column=2, value=sum(1 for r in results if not r.get('error') and not r.get('unmapped')))
+    ws2.cell(row=5, column=1, value="Cu probleme:").font = Font(bold=True)
+    ws2.cell(row=5, column=2, value=sum(1 for r in results if r.get('unmapped') and not r.get('error')))
+    ws2.cell(row=6, column=1, value="Erori:").font = Font(bold=True)
+    ws2.cell(row=6, column=2, value=sum(1 for r in results if r.get('error')))
+
+    ws2.column_dimensions['A'].width = 20
+    ws2.column_dimensions['B'].width = 10
+
+    # ── Freeze panes ───────────────────────────────────────────────
+    ws.freeze_panes = 'A2'
+    ws.auto_filter.ref = f"A1:J{len(results) + 1}"
+
+    # ── Salvare ────────────────────────────────────────────────────
+    wb.save(str(EXCEL_PATH))
+    print(f"📊 Raport Excel salvat: {EXCEL_PATH.name}")
+
+    return str(EXCEL_PATH)
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -249,10 +377,7 @@ def build_telegram_report(results):
 # ══════════════════════════════════════════════════════════════════
 
 def fetch_product_specs(product_id):
-    """
-    Fetch specificații pentru un produs via API.
-    API returnează {"ID": {datele_produsului}}.
-    """
+    """Fetch specificații pentru un produs via API."""
     if not EJOLIE_API_KEY:
         return None
 
@@ -316,10 +441,7 @@ def download_image(url):
 
 
 def call_gemini_vision(image_bytes, mime_type, product_name, missing_specs):
-    """
-    Trimite imaginea + prompt la Gemini Vision.
-    Returnează dict cu specs generate.
-    """
+    """Trimite imaginea + prompt la Gemini Vision."""
     image_b64 = base64.b64encode(image_bytes).decode('utf-8')
 
     specs_needed = []
@@ -375,7 +497,7 @@ Format răspuns (exemplu):
 
         candidates = data.get('candidates', [])
         if not candidates:
-            print(f"  ❌ Gemini: niciun candidat în răspuns")
+            print(f"  ❌ Gemini: niciun candidat")
             return None
 
         parts = candidates[0].get('content', {}).get('parts', [])
@@ -413,22 +535,16 @@ Format răspuns (exemplu):
 
 
 def map_value_to_id(spec_name, value):
-    """
-    Mapează o valoare generată de Gemini la ID-ul Extended.
-    4 niveluri: exact → case-insensitive → fuzzy → parțial.
-    """
+    """Mapează valoare Gemini → ID Extended. 4 niveluri matching."""
     spec_map = SPEC_MAPS.get(spec_name, {})
 
-    # 1. Căutare exactă
     if value in spec_map:
         return value, spec_map[value]
 
-    # 2. Case-insensitive
     for map_key, map_id in spec_map.items():
         if map_key.lower() == value.lower():
             return map_key, map_id
 
-    # 3. Fuzzy mapping
     fuzzy_value = FUZZY_MAP.get(value)
     if fuzzy_value:
         if fuzzy_value in spec_map:
@@ -437,7 +553,6 @@ def map_value_to_id(spec_name, value):
             if map_key.lower() == fuzzy_value.lower():
                 return map_key, map_id
 
-    # 4. Parțial (contains)
     value_lower = value.lower()
     for map_key, map_id in spec_map.items():
         if value_lower in map_key.lower() or map_key.lower() in value_lower:
@@ -447,9 +562,7 @@ def map_value_to_id(spec_name, value):
 
 
 def process_gemini_response(gemini_specs, missing_specs):
-    """
-    Procesează răspunsul Gemini și mapează valorile la ID-uri.
-    """
+    """Procesează răspunsul Gemini și mapează la ID-uri."""
     specs_to_add = {}
     unmapped = []
 
@@ -459,7 +572,6 @@ def process_gemini_response(gemini_specs, missing_specs):
             unmapped.append((spec_name, "GOLI — Gemini nu a returnat valoare"))
             continue
 
-        # Model poate avea multiple valori
         if spec_name == "Model" and "," in str(raw_value):
             values = [v.strip() for v in str(raw_value).split(",")]
             mapped_values = []
@@ -587,7 +699,6 @@ def main():
         name = product.get('name', '')
         image_url = product.get('image', '')
         missing = product.get('missing', [])
-        current_specs = product.get('current_specs', {})
 
         kept_existing = [s for s in SPEC_NAMES if s not in missing]
 
@@ -690,15 +801,22 @@ def main():
             json.dump(to_save, f, ensure_ascii=False, indent=2)
 
         print(f"\n💾 Salvat {len(to_save)} produse cu specs generate în {OUTPUT_PATH.name}")
-    else:
-        print(f"\n🔍 Dry-run: nimic salvat")
 
-    # ── Raport Telegram ────────────────────────────────────────────
+    # ── Export Excel ───────────────────────────────────────────────
+    if not args.dry_run and results:
+        print(f"\n📊 Generare raport Excel...", end='', flush=True)
+        excel_path = export_excel_report(results)
+        print(f" ✅")
+
+    # ── Raport Telegram (text + Excel) ─────────────────────────────
     if not args.no_telegram and not args.dry_run and results:
         print(f"\n📱 Trimit raport pe Telegram...", end='', flush=True)
         report = build_telegram_report(results)
         send_telegram(report)
-        print(f" ✅ Trimis!")
+        print(f" ✅ Text trimis!")
+
+        print(f"📎 Trimit Excel pe Telegram...", end='', flush=True)
+        send_telegram_file(excel_path, caption=f"📋 Raport specificații - {len(results)} produse")
 
     print(f"\n✅ Generare completă!")
 
