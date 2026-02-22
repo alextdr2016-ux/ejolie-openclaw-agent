@@ -11,8 +11,8 @@
       ],
       "Material": [
         {
-          "value": "Poliester",
-          "value_id": 49
+          "value": "Crep",
+          "value_id": 3076
         }
       ],
       "Lungime": [
@@ -56,7 +56,7 @@
     ],
     "gemini_raw": {
       "Culoare": "Fucsia",
-      "Material": "Poliester",
+      "Material": "Crep",
       "Lungime": "Lungi",
       "Croi": "Peplum",
       "Stil": "Elegant",
@@ -259,10 +259,6 @@
         {
           "value": "Cu cordon",
           "value_id": 14503
-        },
-        {
-          "value": "Maneci scurte",
-          "value_id": 14509
         }
       ]
     },
@@ -282,7 +278,7 @@
       "Lungime": "Medii",
       "Croi": "Petrecuta",
       "Stil": "Casual-Elegant",
-      "Model": "Cu decolteu in V, Cu cordon, Maneci scurte"
+      "Model": "Cu decolteu in V, Cu cordon"
     }
   },
   {
@@ -309,8 +305,8 @@
       ],
       "Croi": [
         {
-          "value": "Lejer",
-          "value_id": 59
+          "value": "Volane",
+          "value_id": 7464
         }
       ],
       "Stil": [
@@ -344,7 +340,7 @@
       "Culoare": "Verde",
       "Material": "Sifon",
       "Lungime": "Medii",
-      "Croi": "Lejer",
+      "Croi": "Volane",
       "Stil": "Casual-Elegant",
       "Model": "Cu nasturi, Cu volane"
     }
@@ -385,12 +381,12 @@
       ],
       "Model": [
         {
-          "value": "Centura inclusa",
-          "value_id": 14499
-        },
-        {
           "value": "Fara maneci",
           "value_id": 14508
+        },
+        {
+          "value": "Centura inclusa",
+          "value_id": 14499
         }
       ]
     },
@@ -415,7 +411,7 @@
       "Lungime": "Medii",
       "Croi": "Petrecuta",
       "Stil": "Elegant",
-      "Model": "Centura inclusa, Fara maneci, Cu crapatura"
+      "Model": "Fara maneci, Centura inclusa, Cu crapatura"
     }
   },
   {
@@ -454,11 +450,11 @@
       ],
       "Model": [
         {
-          "value": "Cordon",
-          "value_id": 14500
+          "value": "Cu cordon",
+          "value_id": 14503
         },
         {
-          "value": "Cu decolteu in V",
+          "value": "Decolteu in V",
           "value_id": 81
         }
       ]
@@ -479,7 +475,7 @@
       "Lungime": "Medii",
       "Croi": "Petrecuta",
       "Stil": "Casual-Elegant",
-      "Model": "Cordon, Cu decolteu in V"
+      "Model": "Cu cordon, Decolteu in V"
     }
   },
   {
@@ -512,8 +508,8 @@
       ],
       "Stil": [
         {
-          "value": "Elegant",
-          "value_id": 1147
+          "value": "Casual-Elegant",
+          "value_id": 7465
         }
       ],
       "Model": [
@@ -543,7 +539,7 @@
       "Material": "Poliester",
       "Lungime": "Medii",
       "Croi": "Petrecuta",
-      "Stil": "Elegant",
+      "Stil": "Casual-Elegant",
       "Model": "Cu crapatura, Centura inclusa"
     }
   },
@@ -655,7 +651,7 @@
           "value_id": 14499
         },
         {
-          "value": "Cu decolteu in V",
+          "value": "Decolteu in V",
           "value_id": 81
         },
         {
@@ -680,7 +676,7 @@
       "Lungime": "Medii",
       "Croi": "Petrecuta",
       "Stil": "Casual-Elegant",
-      "Model": "Centura inclusa, Cu decolteu in V, Maneca lunga"
+      "Model": "Centura inclusa, Decolteu in V, Maneca lunga"
     }
   },
   {
@@ -719,11 +715,11 @@
       ],
       "Model": [
         {
-          "value": "Cu cordon",
-          "value_id": 14503
+          "value": "Cordon",
+          "value_id": 14500
         },
         {
-          "value": "Decolteu in V",
+          "value": "Cu decolteu in V",
           "value_id": 81
         }
       ]
@@ -744,7 +740,7 @@
       "Lungime": "Medii",
       "Croi": "Petrecuta",
       "Stil": "Casual-Elegant",
-      "Model": "Cu cordon, Decolteu in V"
+      "Model": "Cordon, Cu decolteu in V"
     }
   },
   {
@@ -759,8 +755,8 @@
       ],
       "Material": [
         {
-          "value": "Jerseu",
-          "value_id": 3078
+          "value": "Poliester",
+          "value_id": 49
         }
       ],
       "Lungime": [
@@ -800,7 +796,7 @@
     ],
     "gemini_raw": {
       "Culoare": "Bordo",
-      "Material": "Jerseu",
+      "Material": "Poliester",
       "Lungime": "Medii",
       "Croi": "Mulat",
       "Stil": "Elegant",
@@ -843,16 +839,12 @@
           "value_id": 7488
         },
         {
-          "value": "Cu decolteu in V",
+          "value": "Decolteu in V",
           "value_id": 81
         },
         {
           "value": "Cu nasturi",
           "value_id": 14507
-        },
-        {
-          "value": "Cu pliuri",
-          "value_id": 84
         }
       ]
     },
@@ -868,7 +860,7 @@
       "Model"
     ],
     "gemini_raw": {
-      "Model": "Maneca lunga, Cu decolteu in V, Cu nasturi, Cu pliuri"
+      "Model": "Maneca lunga, Decolteu in V, Cu nasturi"
     }
   },
   {
@@ -883,6 +875,10 @@
         {
           "value": "Maneca lunga",
           "value_id": 7488
+        },
+        {
+          "value": "Cu nasturi",
+          "value_id": 14507
         },
         {
           "value": "Cu cordon",
@@ -902,7 +898,7 @@
       "Model"
     ],
     "gemini_raw": {
-      "Model": "Cu decolteu in V, Maneca lunga, Cu cordon"
+      "Model": "Cu decolteu in V, Maneca lunga, Cu nasturi, Cu cordon"
     }
   },
   {
@@ -925,10 +921,6 @@
         {
           "value": "Maneca lunga",
           "value_id": 7488
-        },
-        {
-          "value": "Cu cordon",
-          "value_id": 14503
         }
       ]
     },
@@ -944,7 +936,7 @@
       "Model"
     ],
     "gemini_raw": {
-      "Model": "Rochie camasa, Cu nasturi, Cu decolteu in V, Maneca lunga, Cu cordon"
+      "Model": "Rochie camasa, Cu nasturi, Cu decolteu in V, Maneca lunga"
     }
   },
   {
@@ -974,7 +966,7 @@
       "Model"
     ],
     "gemini_raw": {
-      "Culoare": "Orange",
+      "Culoare": "Portocaliu",
       "Material": "Organza",
       "Lungime": "Midi",
       "Croi": "Clos",
@@ -1005,7 +997,12 @@
       "Material"
     ],
     "gemini_raw": {
-      "Material": "Bumbac"
+      "Culoare": "Olive",
+      "Material": "Bumbac",
+      "Lungime": "Midi",
+      "Croi": "Lejer",
+      "Stil": "Casual",
+      "Model": "Maneca scurta, Decolteu in V"
     }
   },
   {
@@ -1092,8 +1089,8 @@
     "specs_to_add": {
       "Culoare": [
         {
-          "value": "Roz",
-          "value_id": 24
+          "value": "Multicolor",
+          "value_id": 3059
         }
       ]
     },
@@ -1109,12 +1106,12 @@
       "Culoare"
     ],
     "gemini_raw": {
-      "Culoare": "Fucsia",
+      "Culoare": "Multicolor",
       "Material": "Vascoza",
       "Lungime": "Midi",
       "Croi": "Clos",
-      "Stil": "Elegant",
-      "Model": "Decolteu in V, Maneca trei sferturi"
+      "Stil": "Casual",
+      "Model": "Decolteu in V"
     }
   },
   {
@@ -1166,7 +1163,6 @@
       "Croi"
     ],
     "gemini_raw": {
-      "Culoare": "Rosu, Negru",
       "Croi": "Mulat"
     }
   },
@@ -1351,11 +1347,6 @@
       "Model"
     ],
     "gemini_raw": {
-      "Culoare": "Negru",
-      "Material": "Poliester",
-      "Lungime": "Maxi",
-      "Croi": "Larg",
-      "Stil": "Elegant",
       "Model": "Cu buzunare"
     }
   },
@@ -1371,8 +1362,8 @@
       ],
       "Material": [
         {
-          "value": "Poliester",
-          "value_id": 49
+          "value": "Crep",
+          "value_id": 3076
         }
       ],
       "Lungime": [
@@ -1412,7 +1403,7 @@
     ],
     "gemini_raw": {
       "Culoare": "Negru",
-      "Material": "Poliester",
+      "Material": "Crep",
       "Lungime": "Scurte",
       "Croi": "Lejer",
       "Stil": "Elegant",
@@ -1431,10 +1422,6 @@
         {
           "value": "Cu pliuri",
           "value_id": 84
-        },
-        {
-          "value": "Accesorizata la baza gatului",
-          "value_id": 76
         }
       ]
     },
@@ -1450,12 +1437,7 @@
       "Model"
     ],
     "gemini_raw": {
-      "Culoare": "Alb",
-      "Material": "Poliester",
-      "Lungime": "Scurta",
-      "Croi": "Mulat",
-      "Stil": "Elegant",
-      "Model": "Cu decolteu in V, Cu pliuri, Accesorizata la baza gatului"
+      "Model": "Cu decolteu in V, Cu pliuri"
     }
   },
   {
@@ -1714,6 +1696,10 @@
         {
           "value": "Cordon",
           "value_id": 14500
+        },
+        {
+          "value": "Maneca lunga",
+          "value_id": 7488
         }
       ]
     },
@@ -1733,7 +1719,7 @@
       "Lungime": "Medii",
       "Croi": "Lejer",
       "Stil": "Casual-Elegant",
-      "Model": "Cordon"
+      "Model": "Cordon, Maneca lunga"
     }
   },
   {
@@ -1760,8 +1746,8 @@
       ],
       "Croi": [
         {
-          "value": "Petrecuta",
-          "value_id": 14487
+          "value": "Volane",
+          "value_id": 7464
         }
       ],
       "Stil": [
@@ -1795,7 +1781,7 @@
       "Culoare": "Maro",
       "Material": "Sifon",
       "Lungime": "Scurte",
-      "Croi": "Petrecuta",
+      "Croi": "Volane",
       "Stil": "Casual-Elegant",
       "Model": "Cu volane, Maneca lunga"
     }
@@ -1830,18 +1816,14 @@
       ],
       "Stil": [
         {
-          "value": "De ocazie",
-          "value_id": 67
+          "value": "De seara",
+          "value_id": 75
         }
       ],
       "Model": [
         {
           "value": "Un umar gol",
           "value_id": 14512
-        },
-        {
-          "value": "Cu fermoar",
-          "value_id": 14504
         }
       ]
     },
@@ -1860,8 +1842,8 @@
       "Material": "Satin",
       "Lungime": "Scurte",
       "Croi": "Mulat",
-      "Stil": "De ocazie",
-      "Model": "Un umar gol, Cu fermoar"
+      "Stil": "De seara",
+      "Model": "Un umar gol"
     }
   },
   {
@@ -1906,6 +1888,10 @@
         {
           "value": "Un umar gol",
           "value_id": 14512
+        },
+        {
+          "value": "Maneca lunga",
+          "value_id": 7488
         }
       ]
     },
@@ -1925,7 +1911,7 @@
       "Lungime": "Scurte",
       "Croi": "Mulat",
       "Stil": "De seara",
-      "Model": "Paiete, Un umar gol"
+      "Model": "Paiete, Un umar gol, Maneca lunga"
     }
   },
   {
@@ -1970,6 +1956,10 @@
         {
           "value": "Cu fermoar",
           "value_id": 14504
+        },
+        {
+          "value": "Cu volane",
+          "value_id": 83
         }
       ]
     },
@@ -1989,7 +1979,7 @@
       "Lungime": "Medii",
       "Croi": "Peplum",
       "Stil": "Elegant",
-      "Model": "Centura inclusa, Cu fermoar"
+      "Model": "Centura inclusa, Cu fermoar, Cu volane"
     }
   },
   {
@@ -2016,8 +2006,8 @@
       ],
       "Croi": [
         {
-          "value": "Peplum",
-          "value_id": 58
+          "value": "Mulat",
+          "value_id": 57
         }
       ],
       "Stil": [
@@ -2030,15 +2020,16 @@
         {
           "value": "Centura inclusa",
           "value_id": 14499
-        },
-        {
-          "value": "Cu fermoar",
-          "value_id": 14504
         }
       ]
     },
     "kept_existing": [],
-    "unmapped": [],
+    "unmapped": [
+      [
+        "Model",
+        "Peplum"
+      ]
+    ],
     "missing": [
       "Culoare",
       "Material",
@@ -2051,9 +2042,9 @@
       "Culoare": "Crem",
       "Material": "Stofa",
       "Lungime": "Medii",
-      "Croi": "Peplum",
+      "Croi": "Mulat",
       "Stil": "Elegant",
-      "Model": "Centura inclusa, Cu fermoar"
+      "Model": "Centura inclusa, Peplum"
     }
   },
   {
@@ -2068,8 +2059,8 @@
       ],
       "Material": [
         {
-          "value": "Crep",
-          "value_id": 3076
+          "value": "Poliester",
+          "value_id": 49
         }
       ],
       "Lungime": [
@@ -2094,10 +2085,6 @@
         {
           "value": "Maneca lunga",
           "value_id": 7488
-        },
-        {
-          "value": "Cu cordon",
-          "value_id": 14503
         }
       ]
     },
@@ -2113,11 +2100,11 @@
     ],
     "gemini_raw": {
       "Culoare": "Crem",
-      "Material": "Crep",
+      "Material": "Poliester",
       "Lungime": "Medii",
       "Croi": "Cambrat",
       "Stil": "Elegant",
-      "Model": "Maneca lunga, Cu cordon"
+      "Model": "Maneca lunga"
     }
   },
   {
@@ -2186,8 +2173,8 @@
     "specs_to_add": {
       "Culoare": [
         {
-          "value": "Roz",
-          "value_id": 24
+          "value": "Rosu",
+          "value_id": 21
         }
       ],
       "Material": [
@@ -2216,12 +2203,12 @@
       ],
       "Model": [
         {
-          "value": "Centura inclusa",
-          "value_id": 14499
-        },
-        {
           "value": "Cu decolteu in V",
           "value_id": 81
+        },
+        {
+          "value": "Centura inclusa",
+          "value_id": 14499
         }
       ]
     },
@@ -2236,12 +2223,12 @@
       "Model"
     ],
     "gemini_raw": {
-      "Culoare": "Fucsia",
+      "Culoare": "Rosu",
       "Material": "Stofa",
       "Lungime": "Medii",
       "Croi": "Petrecuta",
       "Stil": "Casual-Office",
-      "Model": "Centura inclusa, Cu decolteu in V"
+      "Model": "Cu decolteu in V, Centura inclusa"
     }
   },
   {
@@ -2400,8 +2387,8 @@
       ],
       "Croi": [
         {
-          "value": "Pliuri",
-          "value_id": 14489
+          "value": "Clos",
+          "value_id": 55
         }
       ],
       "Stil": [
@@ -2435,7 +2422,7 @@
       "Culoare": "Mov",
       "Material": "Neopren",
       "Lungime": "Medii",
-      "Croi": "Pliuri",
+      "Croi": "Clos",
       "Stil": "Elegant",
       "Model": "Umeri goi, Cu pliuri"
     }
@@ -2464,8 +2451,8 @@
       ],
       "Croi": [
         {
-          "value": "Pliuri",
-          "value_id": 14489
+          "value": "Clos",
+          "value_id": 55
         }
       ],
       "Stil": [
@@ -2480,8 +2467,8 @@
           "value_id": 14511
         },
         {
-          "value": "Cu decolteu in V",
-          "value_id": 81
+          "value": "Cu pliuri",
+          "value_id": 84
         }
       ]
     },
@@ -2499,9 +2486,9 @@
       "Culoare": "Somon",
       "Material": "Neopren",
       "Lungime": "Medii",
-      "Croi": "Pliuri",
+      "Croi": "Clos",
       "Stil": "Elegant",
-      "Model": "Umeri goi, Cu decolteu in V"
+      "Model": "Umeri goi, Cu pliuri"
     }
   },
   {
@@ -2719,7 +2706,12 @@
       "Croi"
     ],
     "gemini_raw": {
-      "Croi": "Clos"
+      "Culoare": "Roz cu negru",
+      "Material": "Voal",
+      "Lungime": "Midi",
+      "Croi": "Clos",
+      "Stil": "Elegant",
+      "Model": "One shoulder, Cu volane"
     }
   },
   {
@@ -2762,8 +2754,8 @@
           "value_id": 14507
         },
         {
-          "value": "Cu decolteu in V",
-          "value_id": 81
+          "value": "Cu pliuri",
+          "value_id": 84
         }
       ]
     },
@@ -2783,7 +2775,7 @@
       "Lungime": "Medii",
       "Croi": "Lejer",
       "Stil": "Casual-Elegant",
-      "Model": "Cu nasturi, Cu decolteu in V"
+      "Model": "Cu nasturi, Cu pliuri"
     }
   },
   {
@@ -2896,6 +2888,14 @@
         {
           "value": "Decolteu in V",
           "value_id": 81
+        },
+        {
+          "value": "Fara maneci",
+          "value_id": 14508
+        },
+        {
+          "value": "Cordon",
+          "value_id": 14500
         }
       ]
     },
@@ -2915,7 +2915,7 @@
       "Lungime": "Medii",
       "Croi": "Plisat",
       "Stil": "Elegant",
-      "Model": "Bretele reglabile, Decolteu in V"
+      "Model": "Bretele reglabile, Decolteu in V, Fara maneci, Cordon"
     }
   },
   {
@@ -3112,7 +3112,7 @@
       "Lungime": "Medii",
       "Croi": "Drept",
       "Stil": "Casual-Elegant",
-      "Model": "Cu nasturi, Cu crapatura, Fara maneci"
+      "Model": "Cu nasturi, Fara maneci, Cu crapatura"
     }
   },
   {
@@ -3209,8 +3209,8 @@
       ],
       "Stil": [
         {
-          "value": "Elegant",
-          "value_id": 1147
+          "value": "Casual-Elegant",
+          "value_id": 7465
         }
       ],
       "Model": [
@@ -3243,7 +3243,7 @@
       "Material": "Sifon",
       "Lungime": "Medii",
       "Croi": "Plisat",
-      "Stil": "Elegant",
+      "Stil": "Casual-Elegant",
       "Model": "Bretele reglabile, Decolteu in V, Fara maneci"
     }
   },
@@ -3283,12 +3283,12 @@
       ],
       "Model": [
         {
-          "value": "Maneca lunga",
-          "value_id": 7488
-        },
-        {
           "value": "Cu volane",
           "value_id": 83
+        },
+        {
+          "value": "Maneca lunga",
+          "value_id": 7488
         }
       ]
     },
@@ -3308,7 +3308,7 @@
       "Lungime": "Medii",
       "Croi": "Volane",
       "Stil": "Casual-Elegant",
-      "Model": "Maneca lunga, Cu volane"
+      "Model": "Cu volane, Maneca lunga"
     }
   },
   {
@@ -3489,12 +3489,7 @@
       "Material"
     ],
     "gemini_raw": {
-      "Culoare": "Auriu",
-      "Material": "Poliester",
-      "Lungime": "Scurta",
-      "Croi": "Clos",
-      "Stil": "Elegant",
-      "Model": "Cu maneci lungi, Pe un umar"
+      "Material": "Poliester"
     }
   },
   {
@@ -3521,8 +3516,8 @@
       ],
       "Stil": [
         {
-          "value": "Elegant",
-          "value_id": 1147
+          "value": "De ocazie",
+          "value_id": 67
         }
       ],
       "Model": [
@@ -3548,7 +3543,7 @@
       "Material": "Poliester",
       "Lungime": "Medii",
       "Croi": "Mulat",
-      "Stil": "Elegant",
+      "Stil": "De ocazie",
       "Model": "Fara maneci"
     }
   },
@@ -3835,12 +3830,7 @@
       "Croi"
     ],
     "gemini_raw": {
-      "Culoare": "Roz",
-      "Material": "Poliester",
-      "Lungime": "Scurta",
-      "Croi": "Drept",
-      "Stil": "Casual",
-      "Model": "Fara maneci, Guler rotund"
+      "Croi": "Drept"
     }
   },
   {
@@ -3909,7 +3899,7 @@
           "value_id": 81
         },
         {
-          "value": "Maneca lunga",
+          "value": "Maneci lungi",
           "value_id": 7488
         },
         {
@@ -3934,7 +3924,7 @@
       "Lungime": "Scurte",
       "Croi": "Petrecuta",
       "Stil": "Casual-Elegant",
-      "Model": "Cu decolteu in V, Maneca lunga, Centura inclusa"
+      "Model": "Cu decolteu in V, Maneci lungi, Centura inclusa"
     }
   },
   {
@@ -3949,8 +3939,8 @@
       ],
       "Material": [
         {
-          "value": "Poliester",
-          "value_id": 49
+          "value": "Lycra",
+          "value_id": 14480
         }
       ],
       "Lungime": [
@@ -3967,8 +3957,8 @@
       ],
       "Stil": [
         {
-          "value": "De ocazie",
-          "value_id": 67
+          "value": "De seara",
+          "value_id": 75
         }
       ],
       "Model": [
@@ -3995,10 +3985,10 @@
     ],
     "gemini_raw": {
       "Culoare": "Fucsia",
-      "Material": "Poliester",
+      "Material": "Lycra",
       "Lungime": "Medii",
       "Croi": "Mulat",
-      "Stil": "De ocazie",
+      "Stil": "De seara",
       "Model": "Cu crapatura, Fara maneci"
     }
   },
@@ -4106,10 +4096,6 @@
           "value_id": 7488
         },
         {
-          "value": "Cu fermoar",
-          "value_id": 14504
-        },
-        {
           "value": "Corset",
           "value_id": 14490
         }
@@ -4131,7 +4117,7 @@
       "Lungime": "Scurte",
       "Croi": "Mulat",
       "Stil": "Elegant",
-      "Model": "Maneca lunga, Cu fermoar, Corset"
+      "Model": "Maneca lunga, Corset"
     }
   },
   {
@@ -4196,7 +4182,7 @@
       "Lungime": "Medii",
       "Croi": "Mulat",
       "Stil": "Elegant",
-      "Model": "Cu crapatura, Maneci scurte"
+      "Model": "Maneci scurte, Cu crapatura"
     }
   },
   {
@@ -4204,6 +4190,10 @@
     "name": "Bluza Marisol cu imprimeu verde si corai",
     "specs_to_add": {
       "Model": [
+        {
+          "value": "Accesorizata la baza gatului",
+          "value_id": 76
+        },
         {
           "value": "Maneci scurte",
           "value_id": 14509
@@ -4222,7 +4212,7 @@
       "Model"
     ],
     "gemini_raw": {
-      "Model": "Maneci scurte"
+      "Model": "Accesorizata la baza gatului, Maneci scurte"
     }
   },
   {
@@ -4287,12 +4277,12 @@
       ],
       "Model": [
         {
-          "value": "Centura inclusa",
-          "value_id": 14499
+          "value": "Maneci lungi",
+          "value_id": 7488
         },
         {
-          "value": "Maneca lunga",
-          "value_id": 7488
+          "value": "Centura inclusa",
+          "value_id": 14499
         },
         {
           "value": "Cu decolteu in V",
@@ -4316,7 +4306,7 @@
       "Lungime": "Medii",
       "Croi": "Petrecuta",
       "Stil": "Elegant",
-      "Model": "Centura inclusa, Maneca lunga, Cu decolteu in V"
+      "Model": "Maneci lungi, Centura inclusa, Cu decolteu in V"
     }
   },
   {
@@ -4357,10 +4347,6 @@
         {
           "value": "Maneca lunga",
           "value_id": 7488
-        },
-        {
-          "value": "Accesorizata la baza gatului",
-          "value_id": 76
         }
       ]
     },
@@ -4380,7 +4366,7 @@
       "Lungime": "Scurte",
       "Croi": "Mulat",
       "Stil": "Elegant",
-      "Model": "Maneca lunga, Accesorizata la baza gatului"
+      "Model": "Maneca lunga"
     }
   },
   {
@@ -4547,12 +4533,12 @@
       ],
       "Model": [
         {
-          "value": "Centura inclusa",
-          "value_id": 14499
-        },
-        {
           "value": "Cu nasturi",
           "value_id": 14507
+        },
+        {
+          "value": "Centura inclusa",
+          "value_id": 14499
         }
       ]
     },
@@ -4572,7 +4558,7 @@
       "Lungime": "Medii",
       "Croi": "Cambrat",
       "Stil": "Casual-Office",
-      "Model": "Centura inclusa, Cu nasturi"
+      "Model": "Cu nasturi, Centura inclusa"
     }
   },
   {
@@ -4958,8 +4944,8 @@
     "specs_to_add": {
       "Culoare": [
         {
-          "value": "Albastru deschis",
-          "value_id": 3038
+          "value": "Multicolor",
+          "value_id": 3059
         }
       ],
       "Material": [
@@ -4994,6 +4980,10 @@
         {
           "value": "Cordon",
           "value_id": 14500
+        },
+        {
+          "value": "Maneca lunga",
+          "value_id": 7488
         }
       ]
     },
@@ -5008,12 +4998,12 @@
       "Model"
     ],
     "gemini_raw": {
-      "Culoare": "Bleu",
+      "Culoare": "Multicolor",
       "Material": "Poliester",
       "Lungime": "Medii",
       "Croi": "Petrecuta",
       "Stil": "Casual-Elegant",
-      "Model": "Cu decolteu in V, Cordon"
+      "Model": "Cu decolteu in V, Cordon, Maneca lunga"
     }
   },
   {
@@ -5240,8 +5230,8 @@
       ],
       "Model": [
         {
-          "value": "Buzunare",
-          "value_id": 14496
+          "value": "Cu buzunare",
+          "value_id": 14501
         },
         {
           "value": "Centura inclusa",
@@ -5265,7 +5255,7 @@
       "Lungime": "Lungi",
       "Croi": "Drept",
       "Stil": "Casual-Office",
-      "Model": "Buzunare, Centura inclusa"
+      "Model": "Cu buzunare, Centura inclusa"
     }
   },
   {
@@ -5308,8 +5298,8 @@
           "value_id": 14496
         },
         {
-          "value": "Cu cordon",
-          "value_id": 14503
+          "value": "Centura inclusa",
+          "value_id": 14499
         }
       ]
     },
@@ -5329,7 +5319,7 @@
       "Lungime": "Lungi",
       "Croi": "Drept",
       "Stil": "Casual-Office",
-      "Model": "Buzunare, Cu cordon"
+      "Model": "Buzunare, Centura inclusa"
     }
   },
   {
