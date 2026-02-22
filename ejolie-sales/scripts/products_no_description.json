@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "id": "11348",
+    "name": "Rochie Iman neagra",
+    "code": "9598",
+    "price": "528.00",
+    "price_discount": "369.60",
+    "image": "https://ejolie.ro/continut/produse/11348/1000/rochie-camilla-neagra_97018.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/11348/1000/rochie-camilla-neagra_97018.webp",
+      "https://ejolie.ro/continut/produse/11348/1000/rochie-camilla-neagra_97019.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-camilla-neagra",
+    "brand": "Ejolie",
+    "description_length": 48,
+    "description_html_length": 447,
+    "has_size_table_only": false
+  },
+  {
+    "id": "9148",
+    "name": "Rochie Josephine roz",
+    "code": "12445-roz-38",
+    "price": "712.00",
+    "price_discount": "213.60",
+    "image": "https://ejolie.ro/continut/produse/9148/1000/rochie-ramya-roz_80908.jpg",
+    "images": [
+      "https://ejolie.ro/continut/produse/9148/1000/rochie-ramya-roz_80908.jpg",
+      "https://ejolie.ro/continut/produse/9148/1000/rochie-ramya-roz_80965.jpg",
+      "https://ejolie.ro/continut/produse/9148/1000/rochie-ramya-roz_80909.jpg"
+    ],
+    "link": "https://ejolie.ro/product/rochie-ramya-roz",
+    "brand": "Ejolie",
+    "description_length": 21,
+    "description_html_length": 136,
+    "has_size_table_only": false
+  },
+  {
+    "id": "9147",
+    "name": "Rochie Ines fucsia",
+    "code": "12443-fucsia-38",
+    "price": "687.00",
+    "price_discount": "206.10",
+    "image": "https://ejolie.ro/continut/produse/9147/1000/rochie-delilah-fucsia_84567.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/9147/1000/rochie-delilah-fucsia_84567.webp",
+      "https://ejolie.ro/continut/produse/9147/1000/rochie-delilah-fucsia_84568.webp",
+      "https://ejolie.ro/continut/produse/9147/1000/rochie-delilah-fucsia_84569.webp",
+      "https://ejolie.ro/continut/produse/9147/1000/rochie-delilah-fucsia_84570.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-delilah-fucsia",
+    "brand": "Ejolie",
+    "description_length": 18,
+    "description_html_length": 135,
+    "has_size_table_only": false
+  }
+]

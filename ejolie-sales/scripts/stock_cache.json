@@ -1,5 +1,5 @@
 {
- "updated": "2026-02-22 16:02:54",
+ "updated": "2026-02-22 20:02:40",
  "total_products": 722,
  "products": {
   "12415": {
@@ -10259,7 +10259,7 @@
    "sizes": {
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "526.50",
      "pret_discount": "0.00"
@@ -18126,7 +18126,7 @@
     },
     "42": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "621.00",
      "pret_discount": "0.00"
@@ -28601,16 +28601,9 @@
    "pret": "84.50",
    "stoc_general": "In stoc",
    "sizes": {
-    "38": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "169.00",
-     "pret_discount": "84.50"
-    },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "169.00",
      "pret_discount": "84.50"
@@ -28637,6 +28630,13 @@
      "pret_discount": "84.50"
     },
     "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "169.00",
+     "pret_discount": "84.50"
+    },
+    "38": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -29427,13 +29427,6 @@
    "pret": "64.98",
    "stoc_general": "In stoc",
    "sizes": {
-    "40": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "162.44",
-     "pret_discount": "64.98"
-    },
     "42": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
@@ -29449,6 +29442,13 @@
      "pret_discount": "64.98"
     },
     "38": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "162.44",
+     "pret_discount": "64.98"
+    },
+    "40": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -30804,7 +30804,7 @@
    "sizes": {
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "148.00",
      "pret_discount": "59.20"
