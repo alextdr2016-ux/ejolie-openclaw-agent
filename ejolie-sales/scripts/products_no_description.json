@@ -1,19 +1,691 @@
 [
   {
-    "id": "11348",
-    "name": "Rochie Iman neagra",
-    "code": "9598",
-    "price": "528.00",
-    "price_discount": "369.60",
-    "image": "https://ejolie.ro/continut/produse/11348/1000/rochie-camilla-neagra_97018.webp",
+    "id": "12381",
+    "name": "Salopeta Aria",
+    "code": "FBR-7067",
+    "price": "425.00",
+    "price_discount": "0.00",
+    "image": "https://ejolie.ro/continut/produse/12381/1000/salopeta-aria_102302.webp",
     "images": [
-      "https://ejolie.ro/continut/produse/11348/1000/rochie-camilla-neagra_97018.webp",
-      "https://ejolie.ro/continut/produse/11348/1000/rochie-camilla-neagra_97019.webp"
+      "https://ejolie.ro/continut/produse/12381/1000/salopeta-aria_102302.webp",
+      "https://ejolie.ro/continut/produse/12381/1000/salopeta-aria_102303.webp",
+      "https://ejolie.ro/continut/produse/12381/1000/salopeta-aria_102304.webp",
+      "https://ejolie.ro/continut/produse/12381/1000/salopeta-aria_102305.webp"
     ],
-    "link": "https://ejolie.ro/product/rochie-camilla-neagra",
+    "link": "https://ejolie.ro/product/salopeta-aria",
     "brand": "Ejolie",
-    "description_length": 48,
-    "description_html_length": 447,
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "12376",
+    "name": "Rochie Ines crem-roze",
+    "code": "FBR-3638",
+    "price": "439.00",
+    "price_discount": "0.00",
+    "image": "https://ejolie.ro/continut/produse/12376/1000/rochie-ines-neagra_102277.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/12376/1000/rochie-ines-neagra_102277.webp",
+      "https://ejolie.ro/continut/produse/12376/1000/rochie-ines-neagra_102278.webp",
+      "https://ejolie.ro/continut/produse/12376/1000/rochie-ines-neagra_102279.webp",
+      "https://ejolie.ro/continut/produse/12376/1000/rochie-ines-neagra_102280.webp",
+      "https://ejolie.ro/continut/produse/12376/1000/rochie-ines-neagra_102281.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-ines-neagra-12376",
+    "brand": "Ejolie",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "12370",
+    "name": "Rochie Vanessa plisata",
+    "code": "FBR-3466",
+    "price": "345.00",
+    "price_discount": "0.00",
+    "image": "https://ejolie.ro/continut/produse/12370/1000/rochie-vanessa-plisata_102250.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/12370/1000/rochie-vanessa-plisata_102250.webp",
+      "https://ejolie.ro/continut/produse/12370/1000/rochie-vanessa-plisata_102246.webp",
+      "https://ejolie.ro/continut/produse/12370/1000/rochie-vanessa-plisata_102247.webp",
+      "https://ejolie.ro/continut/produse/12370/1000/rochie-vanessa-plisata_102248.webp",
+      "https://ejolie.ro/continut/produse/12370/1000/rochie-vanessa-plisata_102249.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-vanessa-plisata",
+    "brand": "Ejolie",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "12366",
+    "name": "Rochie Patrizia crem cu imprimeu",
+    "code": "FBR-asldw42",
+    "price": "324.00",
+    "price_discount": "0.00",
+    "image": "https://ejolie.ro/continut/produse/12366/1000/rochie-patrizia-cu-imprimeu-kaki_102234.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/12366/1000/rochie-patrizia-cu-imprimeu-kaki_102234.webp",
+      "https://ejolie.ro/continut/produse/12366/1000/rochie-patrizia-cu-imprimeu-kaki_102230.webp",
+      "https://ejolie.ro/continut/produse/12366/1000/rochie-patrizia-cu-imprimeu-kaki_102231.webp",
+      "https://ejolie.ro/continut/produse/12366/1000/rochie-patrizia-cu-imprimeu-kaki_102232.webp",
+      "https://ejolie.ro/continut/produse/12366/1000/rochie-patrizia-cu-imprimeu-kaki_102233.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-patrizia-cu-imprimeu-kaki-12366",
+    "brand": "Ejolie",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "11741",
+    "name": "Rochie Laurence galbena",
+    "code": "TYA56974",
+    "price": "594.00",
+    "price_discount": "0.00",
+    "image": "https://ejolie.ro/continut/produse/11741/1000/rochie-laurence-galbena_99025.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/11741/1000/rochie-laurence-galbena_99025.webp",
+      "https://ejolie.ro/continut/produse/11741/1000/rochie-laurence-galbena_99026.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-laurence-neagra-11741",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "11367",
+    "name": "Rochie Ruth verde cu fulgi",
+    "code": "3787-roz-40",
+    "price": "525.00",
+    "price_discount": "288.75",
+    "image": "https://ejolie.ro/continut/produse/11367/1000/rochie-ruxia-neagra-cu-fulgi_97070.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/11367/1000/rochie-ruxia-neagra-cu-fulgi_97070.webp",
+      "https://ejolie.ro/continut/produse/11367/1000/rochie-ruxia-neagra-cu-fulgi_97071.webp",
+      "https://ejolie.ro/continut/produse/11367/1000/rochie-ruxia-neagra-cu-fulgi_97072.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-ruth-neagra-cu-fulgi-11367",
+    "brand": "Ejolie",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "11015",
+    "name": "Rochie Izzy verde",
+    "code": "TYA2058",
+    "price": "352.00",
+    "price_discount": "281.60",
+    "image": "https://ejolie.ro/continut/produse/11015/1000/rochie-izzy-verde_95846.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/11015/1000/rochie-izzy-verde_95846.webp",
+      "https://ejolie.ro/continut/produse/11015/1000/rochie-izzy-verde_95847.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-izzy-verde",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "11014",
+    "name": "Rochie Carmen alba cu imprimeu albastru",
+    "code": "TYAZ044",
+    "price": "311.20",
+    "price_discount": "124.48",
+    "image": "https://ejolie.ro/continut/produse/11014/1000/rochie-carmen-alba-cu-imprimeu-albastru_95848.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/11014/1000/rochie-carmen-alba-cu-imprimeu-albastru_95848.webp",
+      "https://ejolie.ro/continut/produse/11014/1000/rochie-carmen-alba-cu-imprimeu-albastru_95849.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-carmen-fucsia-11014",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10983",
+    "name": "Rochie Acelia maro cu imprimeu",
+    "code": "TYA8202",
+    "price": "392.70",
+    "price_discount": "215.99",
+    "image": "https://ejolie.ro/continut/produse/10983/1000/rochie-acelia-maro-cu-imprimeu_95380.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10983/1000/rochie-acelia-maro-cu-imprimeu_95380.webp",
+      "https://ejolie.ro/continut/produse/10983/1000/rochie-acelia-maro-cu-imprimeu_95381.webp",
+      "https://ejolie.ro/continut/produse/10983/1000/rochie-acelia-maro-cu-imprimeu_95382.webp",
+      "https://ejolie.ro/continut/produse/10983/1000/rochie-acelia-maro-cu-imprimeu_95383.webp",
+      "https://ejolie.ro/continut/produse/10983/1000/rochie-acelia-maro-cu-imprimeu_95384.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-acelia-verde-cu-imprimeu-10983",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10982",
+    "name": "Rochie Acelia albastra cu imprimeu",
+    "code": "TYA8202",
+    "price": "392.70",
+    "price_discount": "215.99",
+    "image": "https://ejolie.ro/continut/produse/10982/1000/rochie-acelia-albastra-cu-imprimeu_95375.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10982/1000/rochie-acelia-albastra-cu-imprimeu_95375.webp",
+      "https://ejolie.ro/continut/produse/10982/1000/rochie-acelia-albastra-cu-imprimeu_95376.webp",
+      "https://ejolie.ro/continut/produse/10982/1000/rochie-acelia-albastra-cu-imprimeu_95377.webp",
+      "https://ejolie.ro/continut/produse/10982/1000/rochie-acelia-albastra-cu-imprimeu_95378.webp",
+      "https://ejolie.ro/continut/produse/10982/1000/rochie-acelia-albastra-cu-imprimeu_95379.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-acelia-verde-cu-imprimeu-10982",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10980",
+    "name": "Rochie Dalia maro cu imprimeu",
+    "code": "TYA56648",
+    "price": "392.70",
+    "price_discount": "157.08",
+    "image": "https://ejolie.ro/continut/produse/10980/1000/rochie-dalia-maro-cu-imprimeu_95365.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10980/1000/rochie-dalia-maro-cu-imprimeu_95365.webp",
+      "https://ejolie.ro/continut/produse/10980/1000/rochie-dalia-maro-cu-imprimeu_95366.webp",
+      "https://ejolie.ro/continut/produse/10980/1000/rochie-dalia-maro-cu-imprimeu_95367.webp",
+      "https://ejolie.ro/continut/produse/10980/1000/rochie-dalia-maro-cu-imprimeu_95368.webp",
+      "https://ejolie.ro/continut/produse/10980/1000/rochie-dalia-maro-cu-imprimeu_95369.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-dalia-albastra-cu-imprimeu-10980",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10965",
+    "name": "Rochie Electra albastra",
+    "code": "TYA965166",
+    "price": "337.37",
+    "price_discount": "134.95",
+    "image": "https://ejolie.ro/continut/produse/10965/1000/rochie-electra-albastra_95298.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10965/1000/rochie-electra-albastra_95298.webp",
+      "https://ejolie.ro/continut/produse/10965/1000/rochie-electra-albastra_95299.webp",
+      "https://ejolie.ro/continut/produse/10965/1000/rochie-electra-albastra_95300.webp",
+      "https://ejolie.ro/continut/produse/10965/1000/rochie-electra-albastra_95301.webp",
+      "https://ejolie.ro/continut/produse/10965/1000/rochie-electra-albastra_95302.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-electra-neagra-10965",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10962",
+    "name": "Rochie Briella neagra cu paiete rosii",
+    "code": "TDY0009",
+    "price": "321.30",
+    "price_discount": "128.52",
+    "image": "https://ejolie.ro/continut/produse/10962/1000/rochie-briella-neagra-cu-paiete-rosii_95287.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10962/1000/rochie-briella-neagra-cu-paiete-rosii_95287.webp",
+      "https://ejolie.ro/continut/produse/10962/1000/rochie-briella-neagra-cu-paiete-rosii_95288.webp",
+      "https://ejolie.ro/continut/produse/10962/1000/rochie-briella-neagra-cu-paiete-rosii_95289.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-briella-neagra-cu-paiete-rosii",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10960",
+    "name": "Rochie Aura roz",
+    "code": "TYA3470",
+    "price": "437.33",
+    "price_discount": "174.93",
+    "image": "https://ejolie.ro/continut/produse/10960/1000/rochie-aura-roz_95281.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10960/1000/rochie-aura-roz_95281.webp",
+      "https://ejolie.ro/continut/produse/10960/1000/rochie-aura-roz_95282.webp",
+      "https://ejolie.ro/continut/produse/10960/1000/rochie-aura-roz_95283.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-aura-crem-10960",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10959",
+    "name": "Rochie Aura crem",
+    "code": "TYA3470",
+    "price": "437.33",
+    "price_discount": "174.93",
+    "image": "https://ejolie.ro/continut/produse/10959/1000/rochie-aura-crem_95278.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10959/1000/rochie-aura-crem_95278.webp",
+      "https://ejolie.ro/continut/produse/10959/1000/rochie-aura-crem_95279.webp",
+      "https://ejolie.ro/continut/produse/10959/1000/rochie-aura-crem_95280.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-aura-maro-10959",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10955",
+    "name": "Rochie Geanina crem",
+    "code": "TYA7481",
+    "price": "297.50",
+    "price_discount": "119.00",
+    "image": "https://ejolie.ro/continut/produse/10955/1000/rochie-geanina-crem_102075.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10955/1000/rochie-geanina-crem_102075.webp",
+      "https://ejolie.ro/continut/produse/10955/1000/rochie-geanina-crem_102074.webp",
+      "https://ejolie.ro/continut/produse/10955/1000/rochie-geanina-crem_102073.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-angie-rosie",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10938",
+    "name": "Rochie Ruxia gri cu imprimeu",
+    "code": "TYA84108",
+    "price": "239.58",
+    "price_discount": "131.77",
+    "image": "https://ejolie.ro/continut/produse/10938/1000/rochie-ruxia-gri-cu-imprimeu_95207.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10938/1000/rochie-ruxia-gri-cu-imprimeu_95207.webp",
+      "https://ejolie.ro/continut/produse/10938/1000/rochie-ruxia-gri-cu-imprimeu_95208.webp",
+      "https://ejolie.ro/continut/produse/10938/1000/rochie-ruxia-gri-cu-imprimeu_95209.webp",
+      "https://ejolie.ro/continut/produse/10938/1000/rochie-ruxia-gri-cu-imprimeu_95210.webp",
+      "https://ejolie.ro/continut/produse/10938/1000/rochie-ruxia-gri-cu-imprimeu_95211.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-ruxia-gri-cu-imprimeu",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10936",
+    "name": "Rochie Milani fucsia cu imprimeu",
+    "code": "TYA3076",
+    "price": "381.15",
+    "price_discount": "209.63",
+    "image": "https://ejolie.ro/continut/produse/10936/1000/rochie-milani-fucsia-cu-imprimeu_95195.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10936/1000/rochie-milani-fucsia-cu-imprimeu_95195.webp",
+      "https://ejolie.ro/continut/produse/10936/1000/rochie-milani-fucsia-cu-imprimeu_95196.webp",
+      "https://ejolie.ro/continut/produse/10936/1000/rochie-milani-fucsia-cu-imprimeu_95197.webp",
+      "https://ejolie.ro/continut/produse/10936/1000/rochie-milani-fucsia-cu-imprimeu_95198.webp",
+      "https://ejolie.ro/continut/produse/10936/1000/rochie-milani-fucsia-cu-imprimeu_95199.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-milani-fucsia-cu-imprimeu",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10935",
+    "name": "Salopeta Ariella animal print",
+    "code": "TYA72120",
+    "price": "350.90",
+    "price_discount": "140.36",
+    "image": "https://ejolie.ro/continut/produse/10935/1000/salopeta-ariella-animal-print_95190.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10935/1000/salopeta-ariella-animal-print_95190.webp",
+      "https://ejolie.ro/continut/produse/10935/1000/salopeta-ariella-animal-print_95192.webp",
+      "https://ejolie.ro/continut/produse/10935/1000/salopeta-ariella-animal-print_95193.webp",
+      "https://ejolie.ro/continut/produse/10935/1000/salopeta-ariella-animal-print_95191.webp",
+      "https://ejolie.ro/continut/produse/10935/1000/salopeta-ariella-animal-print_95194.webp"
+    ],
+    "link": "https://ejolie.ro/product/salopeta-ariella-animal-print",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10930",
+    "name": "Rochie Bianca bordo",
+    "code": "TYAZ001",
+    "price": "471.90",
+    "price_discount": "188.76",
+    "image": "https://ejolie.ro/continut/produse/10930/1000/rochie-bianca-bordo_95067.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10930/1000/rochie-bianca-bordo_95067.webp",
+      "https://ejolie.ro/continut/produse/10930/1000/rochie-bianca-bordo_95068.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-bianca-mov-pruna-10930",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10929",
+    "name": "Rochie Bianca mov pruna",
+    "code": "TYAZ001",
+    "price": "471.90",
+    "price_discount": "188.76",
+    "image": "https://ejolie.ro/continut/produse/10929/1000/rochie-bianca-mov-pruna_95071.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10929/1000/rochie-bianca-mov-pruna_95071.webp",
+      "https://ejolie.ro/continut/produse/10929/1000/rochie-bianca-mov-pruna_95072.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-bianca-somon-10929",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10928",
+    "name": "Rochie Adela bordo din catifea",
+    "code": "TYAZ017",
+    "price": "1072.50",
+    "price_discount": "429.00",
+    "image": "https://ejolie.ro/continut/produse/10928/1000/rochie-adela-bordo-din-catifea_95073.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10928/1000/rochie-adela-bordo-din-catifea_95073.webp",
+      "https://ejolie.ro/continut/produse/10928/1000/rochie-adela-bordo-din-catifea_95074.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-adela-bordo-din-catifea",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10922",
+    "name": "Rochie Bianca somon",
+    "code": "TYAZ001",
+    "price": "471.90",
+    "price_discount": "188.76",
+    "image": "https://ejolie.ro/continut/produse/10922/1000/rochie-bianca-somon_95077.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10922/1000/rochie-bianca-somon_95077.webp",
+      "https://ejolie.ro/continut/produse/10922/1000/rochie-bianca-somon_95078.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-bianca-somon",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10917",
+    "name": "Rochie Ligia fucsia",
+    "code": "TYAZ015",
+    "price": "449.00",
+    "price_discount": "179.60",
+    "image": "https://ejolie.ro/continut/produse/10917/1000/rochie-ligia-fucsia_95081.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10917/1000/rochie-ligia-fucsia_95081.webp",
+      "https://ejolie.ro/continut/produse/10917/1000/rochie-ligia-fucsia_95082.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-ligia-fucsia",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10916",
+    "name": "Rochie Monica fucsia",
+    "code": "TYAZ018",
+    "price": "329.00",
+    "price_discount": "131.60",
+    "image": "https://ejolie.ro/continut/produse/10916/1000/rochie-monica-fucsia_95083.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10916/1000/rochie-monica-fucsia_95083.webp",
+      "https://ejolie.ro/continut/produse/10916/1000/rochie-monica-fucsia_95084.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-monica-cu-imprimeu-multicolor-10916",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10911",
+    "name": "Rochie Daciana roz cu fucsia",
+    "code": "TYAZ030",
+    "price": "258.30",
+    "price_discount": "103.32",
+    "image": "https://ejolie.ro/continut/produse/10911/1000/rochie-daciana-roz-cu-fucsia_95093.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10911/1000/rochie-daciana-roz-cu-fucsia_95093.webp",
+      "https://ejolie.ro/continut/produse/10911/1000/rochie-daciana-roz-cu-fucsia_95094.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-daciana-roz-cu-fucsia",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10907",
+    "name": "Rochie Ruxandra alba cu maneci roz",
+    "code": "TYAZ047",
+    "price": "454.80",
+    "price_discount": "181.92",
+    "image": "https://ejolie.ro/continut/produse/10907/1000/rochie-ruxandra-alba-cu-maneci-roz_95102.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10907/1000/rochie-ruxandra-alba-cu-maneci-roz_95102.webp",
+      "https://ejolie.ro/continut/produse/10907/1000/rochie-ruxandra-alba-cu-maneci-roz_95103.webp",
+      "https://ejolie.ro/continut/produse/10907/1000/rochie-ruxandra-alba-cu-maneci-roz_95104.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-ruxandra-neagra-cu-maneci-10907",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10867",
+    "name": "Rochie Asma bordo",
+    "code": "TYAZ025",
+    "price": "287.20",
+    "price_discount": "114.88",
+    "image": "https://ejolie.ro/continut/produse/10867/1000/rochie-asma-bordo_95158.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10867/1000/rochie-asma-bordo_95158.webp",
+      "https://ejolie.ro/continut/produse/10867/1000/rochie-asma-bordo_95159.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-asma-bordo",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10866",
+    "name": "Rochie Yara bleumarin",
+    "code": "TYAZ042",
+    "price": "359.10",
+    "price_discount": "143.64",
+    "image": "https://ejolie.ro/continut/produse/10866/1000/rochie-yara-bleumarin_95153.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10866/1000/rochie-yara-bleumarin_95153.webp",
+      "https://ejolie.ro/continut/produse/10866/1000/rochie-yara-bleumarin_95152.webp",
+      "https://ejolie.ro/continut/produse/10866/1000/rochie-yara-bleumarin_95154.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-yara-bordo-10866",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10865",
+    "name": "Rochie Yara bordo",
+    "code": "TYAZ043",
+    "price": "359.10",
+    "price_discount": "143.64",
+    "image": "https://ejolie.ro/continut/produse/10865/1000/rochie-yara-bordo_95156.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10865/1000/rochie-yara-bordo_95156.webp",
+      "https://ejolie.ro/continut/produse/10865/1000/rochie-yara-bordo_95155.webp",
+      "https://ejolie.ro/continut/produse/10865/1000/rochie-yara-bordo_95157.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-yara-kaki-10865",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10855",
+    "name": "Rochie Eman alba cu imprimeu",
+    "code": "TYAZ027",
+    "price": "244.30",
+    "price_discount": "97.72",
+    "image": "https://ejolie.ro/continut/produse/10855/1000/rochie-eman-alba-cu-imprimeu_95165.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10855/1000/rochie-eman-alba-cu-imprimeu_95165.webp",
+      "https://ejolie.ro/continut/produse/10855/1000/rochie-eman-alba-cu-imprimeu_95166.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-eman-alba-cu-imprimeu",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10854",
+    "name": "Rochie Maysa corai",
+    "code": "TYAZ028",
+    "price": "314.30",
+    "price_discount": "125.72",
+    "image": "https://ejolie.ro/continut/produse/10854/1000/rochie-maysa-corai_95167.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10854/1000/rochie-maysa-corai_95167.webp",
+      "https://ejolie.ro/continut/produse/10854/1000/rochie-maysa-corai_95168.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-maysa-corai",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10853",
+    "name": "Rochie Huda neagra cu imprimeu floral",
+    "code": "TYAZ033",
+    "price": "319.20",
+    "price_discount": "127.68",
+    "image": "https://ejolie.ro/continut/produse/10853/1000/rochie-huda-neagra-cu-imprimeu-floral_95169.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10853/1000/rochie-huda-neagra-cu-imprimeu-floral_95169.webp",
+      "https://ejolie.ro/continut/produse/10853/1000/rochie-huda-neagra-cu-imprimeu-floral_95170.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-huda-neagra-cu-imrpimeu-floral",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10852",
+    "name": "Rochie Fadia bordo cu imprimeu",
+    "code": "TYAZ034",
+    "price": "349.00",
+    "price_discount": "139.60",
+    "image": "https://ejolie.ro/continut/produse/10852/1000/rochie-fadia-bordo-cu-imprimeu_95171.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10852/1000/rochie-fadia-bordo-cu-imprimeu_95171.webp",
+      "https://ejolie.ro/continut/produse/10852/1000/rochie-fadia-bordo-cu-imprimeu_95172.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-fadia-bordo-cu-imprimeu",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10851",
+    "name": "Rochie Yara kaki",
+    "code": "TYAZ041",
+    "price": "359.10",
+    "price_discount": "143.64",
+    "image": "https://ejolie.ro/continut/produse/10851/1000/rochie-yara-kaki_95173.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10851/1000/rochie-yara-kaki_95173.webp",
+      "https://ejolie.ro/continut/produse/10851/1000/rochie-yara-kaki_95174.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-yara-kaki",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10849",
+    "name": "Bluza Sonia fucsia cu buline",
+    "code": "TYAZ052",
+    "price": "179.40",
+    "price_discount": "71.76",
+    "image": "https://ejolie.ro/continut/produse/10849/1000/bluza-sonia-fucsia-cu-buline_95175.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10849/1000/bluza-sonia-fucsia-cu-buline_95175.webp",
+      "https://ejolie.ro/continut/produse/10849/1000/bluza-sonia-fucsia-cu-buline_95176.webp"
+    ],
+    "link": "https://ejolie.ro/product/bluza-sonia-neagra-cu-insertii-10849",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "10845",
+    "name": "Pantaloni Niki negri",
+    "code": "TYAZ050",
+    "price": "167.75",
+    "price_discount": "67.10",
+    "image": "https://ejolie.ro/continut/produse/10845/1000/pantaloni-niki-negri_95185.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/10845/1000/pantaloni-niki-negri_95185.webp",
+      "https://ejolie.ro/continut/produse/10845/1000/pantaloni-niki-negri_95186.webp",
+      "https://ejolie.ro/continut/produse/10845/1000/pantaloni-niki-negri_95187.webp"
+    ],
+    "link": "https://ejolie.ro/product/pantaloni-niki-negri",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "9281",
+    "name": "Rochie Taipa fucsia",
+    "code": "12444-fucsia-36",
+    "price": "662.00",
+    "price_discount": "198.60",
+    "image": "https://ejolie.ro/continut/produse/9281/1000/rochie-taipa-fucsia_81525.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/9281/1000/rochie-taipa-fucsia_81525.webp",
+      "https://ejolie.ro/continut/produse/9281/1000/rochie-taipa-fucsia_81599.webp",
+      "https://ejolie.ro/continut/produse/9281/1000/rochie-taipa-fucsia_81526.webp",
+      "https://ejolie.ro/continut/default_video.png"
+    ],
+    "link": "https://ejolie.ro/product/rochie-taipa-fucsia",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
     "has_size_table_only": false
   },
   {
@@ -30,8 +702,8 @@
     ],
     "link": "https://ejolie.ro/product/rochie-ramya-roz",
     "brand": "Ejolie",
-    "description_length": 21,
-    "description_html_length": 136,
+    "description_length": 0,
+    "description_html_length": 0,
     "has_size_table_only": false
   },
   {
@@ -49,8 +721,526 @@
     ],
     "link": "https://ejolie.ro/product/rochie-delilah-fucsia",
     "brand": "Ejolie",
-    "description_length": 18,
-    "description_html_length": 135,
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "9049",
+    "name": "Rochie Evelyn fucsia",
+    "code": "TYA76345",
+    "price": "412.50",
+    "price_discount": "165.00",
+    "image": "https://ejolie.ro/continut/produse/9049/1000/rochie-evelyn-fucsia_83625.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/9049/1000/rochie-evelyn-fucsia_83625.webp",
+      "https://ejolie.ro/continut/produse/9049/1000/rochie-evelyn-fucsia_83627.webp",
+      "https://ejolie.ro/continut/produse/9049/1000/rochie-evelyn-fucsia_83626.webp",
+      "https://ejolie.ro/continut/default_video.png"
+    ],
+    "link": "https://ejolie.ro/product/rochie-evelyn-fucsia",
+    "brand": "Ejolie",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "9026",
+    "name": "Rochie Sandy crem cu insertii stralucitoare",
+    "code": "8228-crem-38",
+    "price": "412.50",
+    "price_discount": "165.00",
+    "image": "https://ejolie.ro/continut/produse/9026/1000/rochie-sandy-crem-cu-insertii-stralucitoare_84105.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/9026/1000/rochie-sandy-crem-cu-insertii-stralucitoare_84105.webp",
+      "https://ejolie.ro/continut/produse/9026/1000/rochie-sandy-crem-cu-insertii-stralucitoare_84107.webp",
+      "https://ejolie.ro/continut/produse/9026/1000/rochie-sandy-crem-cu-insertii-stralucitoare_84106.webp",
+      "https://ejolie.ro/continut/default_video.png"
+    ],
+    "link": "https://ejolie.ro/product/rochie-sandy-crem-cu-insertii-sclipitoare",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "8891",
+    "name": "Rochie Ryna galbena cu dungi negre",
+    "code": "3110-galbena-40",
+    "price": "346.50",
+    "price_discount": "138.60",
+    "image": "https://ejolie.ro/continut/produse/8891/1000/rochie-ryna-galbena-cu-dungi-negre_85091.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/8891/1000/rochie-ryna-galbena-cu-dungi-negre_85091.webp",
+      "https://ejolie.ro/continut/produse/8891/1000/rochie-ryna-galbena-cu-dungi-negre_85090.webp",
+      "https://ejolie.ro/continut/produse/8891/1000/rochie-ryna-galbena-cu-dungi-negre_85092.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-ryna-galbena-cu-dungi-negre",
+    "brand": "Ejolie",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "8881",
+    "name": "Rochie Nicolle mov tip camasa cu mansete din fulgi",
+    "code": "32045-mov-42",
+    "price": "409.50",
+    "price_discount": "163.80",
+    "image": "https://ejolie.ro/continut/produse/8881/1000/rochie-nicolle-mov-tip-camasa-cu-mansete-din-fulgi_84866.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/8881/1000/rochie-nicolle-mov-tip-camasa-cu-mansete-din-fulgi_84866.webp",
+      "https://ejolie.ro/continut/produse/8881/1000/rochie-nicolle-mov-tip-camasa-cu-mansete-din-fulgi_84868.webp",
+      "https://ejolie.ro/continut/produse/8881/1000/rochie-nicolle-mov-tip-camasa-cu-mansete-din-fulgi_84867.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-nicolle-mov-tip-camasa-cu-mansete-din-fulgi",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "8876",
+    "name": "Rochie Dianne rosie din catifea",
+    "code": "3527-rosie-42",
+    "price": "487.50",
+    "price_discount": "195.00",
+    "image": "https://ejolie.ro/continut/produse/8876/1000/rochie-dianne-rosie-din-catifea_85222.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/8876/1000/rochie-dianne-rosie-din-catifea_85222.webp",
+      "https://ejolie.ro/continut/produse/8876/1000/rochie-dianne-rosie-din-catifea_85221.webp",
+      "https://ejolie.ro/continut/produse/8876/1000/rochie-dianne-rosie-din-catifea_85223.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-dianne-rosie-din-catifea",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "8852",
+    "name": "Rochie Aissa albastra din catifea",
+    "code": "3480-albastra-44",
+    "price": "487.50",
+    "price_discount": "146.25",
+    "image": "https://ejolie.ro/continut/produse/8852/1000/rochie-aissa-albastra-din-catifea_85260.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/8852/1000/rochie-aissa-albastra-din-catifea_85260.webp",
+      "https://ejolie.ro/continut/produse/8852/1000/rochie-aissa-albastra-din-catifea_85261.webp",
+      "https://ejolie.ro/continut/produse/8852/1000/rochie-aissa-albastra-din-catifea_85262.webp",
+      "https://ejolie.ro/continut/produse/8852/1000/rochie-aissa-albastra-din-catifea_85263.webp",
+      "https://ejolie.ro/continut/produse/8852/1000/rochie-aissa-albastra-din-catifea_85257.webp",
+      "https://ejolie.ro/continut/produse/8852/1000/rochie-aissa-albastra-din-catifea_85258.webp",
+      "https://ejolie.ro/continut/produse/8852/1000/rochie-aissa-albastra-din-catifea_85259.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-aissa-albastra-din-catifea",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "8811",
+    "name": "Rochie Aissa roz din catifea",
+    "code": "3480-roz-46",
+    "price": "487.50",
+    "price_discount": "146.25",
+    "image": "https://ejolie.ro/continut/produse/8811/1000/rochie-aissa-roz-din-catifea_84967.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/8811/1000/rochie-aissa-roz-din-catifea_84967.webp",
+      "https://ejolie.ro/continut/produse/8811/1000/rochie-aissa-roz-din-catifea_84969.webp",
+      "https://ejolie.ro/continut/produse/8811/1000/rochie-aissa-roz-din-catifea_84970.webp",
+      "https://ejolie.ro/continut/produse/8811/1000/rochie-aissa-roz-din-catifea_84968.webp",
+      "https://ejolie.ro/continut/produse/8811/1000/rochie-aissa-roz-din-catifea_84964.webp",
+      "https://ejolie.ro/continut/produse/8811/1000/rochie-aissa-roz-din-catifea_84965.webp",
+      "https://ejolie.ro/continut/produse/8811/1000/rochie-aissa-roz-din-catifea_84966.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-aissa-roz-din-catifea",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "8808",
+    "name": "Rochie Jesica verde din catifea cu fronseu la spate",
+    "code": "76190-verde-38",
+    "price": "326.70",
+    "price_discount": "130.68",
+    "image": "https://ejolie.ro/continut/produse/8808/1000/rochie-jesica-verde-din-catifea-cu-fronseu-la-spate_85339.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/8808/1000/rochie-jesica-verde-din-catifea-cu-fronseu-la-spate_85339.webp",
+      "https://ejolie.ro/continut/produse/8808/1000/rochie-jesica-verde-din-catifea-cu-fronseu-la-spate_85341.webp",
+      "https://ejolie.ro/continut/produse/8808/1000/rochie-jesica-verde-din-catifea-cu-fronseu-la-spate_85340.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-jesica-verde-din-catifea-cu-fronseu-la-spate",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "8653",
+    "name": "Camasa Delice alba cu dungi negre",
+    "code": "TYA3144-albaDN-36",
+    "price": "168.00",
+    "price_discount": "67.20",
+    "image": "https://ejolie.ro/continut/produse/8653/1000/camasa-delice-alba-cu-dungi-negre_87066.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/8653/1000/camasa-delice-alba-cu-dungi-negre_87066.webp",
+      "https://ejolie.ro/continut/produse/8653/1000/camasa-delice-alba-cu-dungi-negre_87064.webp",
+      "https://ejolie.ro/continut/produse/8653/1000/camasa-delice-alba-cu-dungi-negre_87065.webp",
+      "https://ejolie.ro/continut/produse/8653/1000/camasa-delice-alba-cu-dungi-negre_87067.webp"
+    ],
+    "link": "https://ejolie.ro/product/camasa-delice-alba-cu-dungi-negre",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "8588",
+    "name": "Rochie Colley fucsia",
+    "code": "NC3065-fucsia-36",
+    "price": "357.00",
+    "price_discount": "142.80",
+    "image": "https://ejolie.ro/continut/produse/8588/1000/rochie-colley-fucsia_85668.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/8588/1000/rochie-colley-fucsia_85668.webp",
+      "https://ejolie.ro/continut/produse/8588/1000/rochie-colley-fucsia_85667.webp",
+      "https://ejolie.ro/continut/produse/8588/1000/rochie-colley-fucsia_85669.webp",
+      "https://ejolie.ro/continut/produse/8588/1000/rochie-colley-fucsia_85666.webp",
+      "https://ejolie.ro/continut/produse/8588/1000/rochie-colley-fucsia_85665.webp",
+      "https://ejolie.ro/continut/produse/8588/1000/rochie-colley-fucsia_85664.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-colley-fucsia-8588",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "8546",
+    "name": "Rochie Gabriela verde",
+    "code": "TYA3032",
+    "price": "324.00",
+    "price_discount": "97.20",
+    "image": "https://ejolie.ro/continut/produse/8546/1000/rochie-gabriela-verde_84770.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/8546/1000/rochie-gabriela-verde_84770.webp",
+      "https://ejolie.ro/continut/produse/8546/1000/rochie-gabriela-verde_84771.webp",
+      "https://ejolie.ro/continut/produse/8546/1000/rochie-gabriela-verde_84772.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-gabriela-gri-cu-imprimeu-8546",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "8471",
+    "name": "Pantaloni Adelia maro",
+    "code": "TYA4193",
+    "price": "199.92",
+    "price_discount": "59.98",
+    "image": "https://ejolie.ro/continut/produse/8471/1000/pantaloni-adelia-maro_86180.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/8471/1000/pantaloni-adelia-maro_86180.webp",
+      "https://ejolie.ro/continut/produse/8471/1000/pantaloni-adelia-maro_86182.webp",
+      "https://ejolie.ro/continut/produse/8471/1000/pantaloni-adelia-maro_86181.webp"
+    ],
+    "link": "https://ejolie.ro/product/pantaloni-adelia-bordo-8471",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "8387",
+    "name": "Pantaloni Alissa roz",
+    "code": "TYA5128",
+    "price": "149.50",
+    "price_discount": "82.23",
+    "image": "https://ejolie.ro/continut/produse/8387/1000/pantaloni-alissa-roz_89397.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/8387/1000/pantaloni-alissa-roz_89397.webp",
+      "https://ejolie.ro/continut/produse/8387/1000/pantaloni-alissa-roz_89400.webp",
+      "https://ejolie.ro/continut/produse/8387/1000/pantaloni-alissa-roz_89399.webp",
+      "https://ejolie.ro/continut/produse/8387/1000/pantaloni-alissa-roz_89398.webp",
+      "https://ejolie.ro/continut/produse/8387/1000/pantaloni-alissa-roz_89401.webp"
+    ],
+    "link": "https://ejolie.ro/product/pantaloni-sancha-negri",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "8380",
+    "name": "Pantaloni Asha portocalii cu carouri",
+    "code": "TYA10546",
+    "price": "161.00",
+    "price_discount": "104.65",
+    "image": "https://ejolie.ro/continut/produse/8380/1000/pantaloni-asha-portocalii-cu-carouri_89402.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/8380/1000/pantaloni-asha-portocalii-cu-carouri_89402.webp",
+      "https://ejolie.ro/continut/produse/8380/1000/pantaloni-asha-portocalii-cu-carouri_89405.webp",
+      "https://ejolie.ro/continut/produse/8380/1000/pantaloni-asha-portocalii-cu-carouri_89404.webp",
+      "https://ejolie.ro/continut/produse/8380/1000/pantaloni-asha-portocalii-cu-carouri_89403.webp",
+      "https://ejolie.ro/continut/produse/8380/1000/pantaloni-asha-portocalii-cu-carouri_89406.webp"
+    ],
+    "link": "https://ejolie.ro/product/pantaloni-zenaida-negri-8380",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "8115",
+    "name": "Rochie Siran mov cu bretele din zale",
+    "code": "TYA6760-mov-36",
+    "price": "175.00",
+    "price_discount": "52.50",
+    "image": "https://ejolie.ro/continut/produse/8115/1000/rochie-siran-mov-cu-bretele-din-zale_84604.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/8115/1000/rochie-siran-mov-cu-bretele-din-zale_84604.webp",
+      "https://ejolie.ro/continut/produse/8115/1000/rochie-siran-mov-cu-bretele-din-zale_84605.webp",
+      "https://ejolie.ro/continut/produse/8115/1000/rochie-siran-mov-cu-bretele-din-zale_84606.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-siran-roz-cu-bretele-din-zale-8115",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "7579",
+    "name": "Rochie Marta turcoaz din neopren",
+    "code": "2233-turcoaz-38",
+    "price": "385.00",
+    "price_discount": "154.00",
+    "image": "https://ejolie.ro/continut/produse/7579/1000/rochie-marta-turcoaz-din-neopren-cu-cordon-maxi_86747.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/7579/1000/rochie-marta-turcoaz-din-neopren-cu-cordon-maxi_86747.webp",
+      "https://ejolie.ro/continut/produse/7579/1000/rochie-marta-turcoaz-din-neopren-cu-cordon-maxi_86749.webp",
+      "https://ejolie.ro/continut/produse/7579/1000/rochie-marta-turcoaz-din-neopren-cu-cordon-maxi_86748.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-marta-turcoaz-din-neopren-cu-cordon-maxi",
+    "brand": "Ejolie",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "7109",
+    "name": "Rochie Silvia albastra din denim cu cusaturi contrastante",
+    "code": "TYA7141-albastra-40",
+    "price": "175.00",
+    "price_discount": "52.50",
+    "image": "https://ejolie.ro/continut/produse/7109/1000/rochie-silvia-albastra-din-denim-cu-cusaturi-contrastante_86590.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/7109/1000/rochie-silvia-albastra-din-denim-cu-cusaturi-contrastante_86590.webp",
+      "https://ejolie.ro/continut/produse/7109/1000/rochie-silvia-albastra-din-denim-cu-cusaturi-contrastante_86592.webp",
+      "https://ejolie.ro/continut/produse/7109/1000/rochie-silvia-albastra-din-denim-cu-cusaturi-contrastante_86591.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-silvia-albastra-din-denim-cu-cusaturi-contrastante",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "6973",
+    "name": "Rochie Natalia corai cu insertii stralucitoare si detalii din plasa cu cristale",
+    "code": "TYA6515-corai-44",
+    "price": "329.00",
+    "price_discount": "98.70",
+    "image": "https://ejolie.ro/continut/produse/6973/1000/rochie-natalia-corai-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86568.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/6973/1000/rochie-natalia-corai-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86568.webp",
+      "https://ejolie.ro/continut/produse/6973/1000/rochie-natalia-corai-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86570.webp",
+      "https://ejolie.ro/continut/produse/6973/1000/rochie-natalia-corai-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86569.webp",
+      "https://ejolie.ro/continut/produse/6973/1000/rochie-natalia-corai-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86571.webp",
+      "https://ejolie.ro/continut/default_video.png",
+      "https://ejolie.ro/continut/produse/6973/1000/rochie-natalia-corai-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86572.webp",
+      "https://ejolie.ro/continut/produse/6973/1000/rochie-natalia-corai-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86573.webp",
+      "https://ejolie.ro/continut/produse/6973/1000/rochie-natalia-corai-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86574.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-natalia-albastra-insertii-stralucitoare-plasa-cu-cristale-6973",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "6934",
+    "name": "Rochie Natalia bordo cu insertii stralucitoare si detalii din plasa cu cristale",
+    "code": "TYA6515-bordo-44",
+    "price": "329.00",
+    "price_discount": "98.70",
+    "image": "https://ejolie.ro/continut/produse/6934/1000/rochie-natalia-bordo-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86545.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/6934/1000/rochie-natalia-bordo-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86545.webp",
+      "https://ejolie.ro/continut/produse/6934/1000/rochie-natalia-bordo-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86546.webp",
+      "https://ejolie.ro/continut/produse/6934/1000/rochie-natalia-bordo-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86547.webp",
+      "https://ejolie.ro/continut/produse/6934/1000/rochie-natalia-bordo-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86548.webp",
+      "https://ejolie.ro/continut/default_video.png",
+      "https://ejolie.ro/continut/produse/6934/1000/rochie-natalia-bordo-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86549.webp",
+      "https://ejolie.ro/continut/produse/6934/1000/rochie-natalia-bordo-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86550.webp",
+      "https://ejolie.ro/continut/produse/6934/1000/rochie-natalia-bordo-cu-insertii-stralucitoare-si-detalii-din-plasa-cu-cristale_86551.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-natalia-bordo-insertii-stralucitoare-plasa-cu-cristale",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "6555",
+    "name": "Fusta Flavia bleumarin scurta cu buzunare decorative",
+    "code": "TY1471-bleumarin-40",
+    "price": "116.81",
+    "price_discount": "46.72",
+    "image": "https://ejolie.ro/continut/produse/6555/1000/fusta-flavia-bleumarin-scurta-cu-buzunare-decorative_86308.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/6555/1000/fusta-flavia-bleumarin-scurta-cu-buzunare-decorative_86308.webp",
+      "https://ejolie.ro/continut/produse/6555/1000/fusta-flavia-bleumarin-scurta-cu-buzunare-decorative_86309.webp",
+      "https://ejolie.ro/continut/produse/6555/1000/fusta-flavia-bleumarin-scurta-cu-buzunare-decorative_86310.webp",
+      "https://ejolie.ro/continut/produse/6555/1000/fusta-flavia-bleumarin-scurta-cu-buzunare-decorative_86311.webp",
+      "https://ejolie.ro/continut/produse/6555/1000/fusta-flavia-bleumarin-scurta-cu-buzunare-decorative_86312.webp"
+    ],
+    "link": "https://ejolie.ro/product/fusta-flavia-bleumarin-scurta-cu-buzunare-decorative",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "6552",
+    "name": "Fusta Edith bleumarin scurta cu crepeu pe picior",
+    "code": "TY1486-bleumarin-40",
+    "price": "116.81",
+    "price_discount": "46.72",
+    "image": "https://ejolie.ro/continut/produse/6552/1000/fusta-edith-bleumarin-scurta-cu-crepeu-pe-picior_86317.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/6552/1000/fusta-edith-bleumarin-scurta-cu-crepeu-pe-picior_86317.webp",
+      "https://ejolie.ro/continut/produse/6552/1000/fusta-edith-bleumarin-scurta-cu-crepeu-pe-picior_86318.webp",
+      "https://ejolie.ro/continut/produse/6552/1000/fusta-edith-bleumarin-scurta-cu-crepeu-pe-picior_86319.webp",
+      "https://ejolie.ro/continut/produse/6552/1000/fusta-edith-bleumarin-scurta-cu-crepeu-pe-picior_86320.webp"
+    ],
+    "link": "https://ejolie.ro/product/fusta-edith-bleumarin-scurta-cu-crepeu-pe-picior",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "6505",
+    "name": "Fusta Aziza gri cu pliu in fata",
+    "code": "TY1473-gri-44",
+    "price": "116.81",
+    "price_discount": "46.72",
+    "image": "https://ejolie.ro/continut/produse/6505/1000/fusta-aziza-gri-cu-pliu-in-fata_86326.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/6505/1000/fusta-aziza-gri-cu-pliu-in-fata_86326.webp",
+      "https://ejolie.ro/continut/produse/6505/1000/fusta-aziza-gri-cu-pliu-in-fata_86327.webp",
+      "https://ejolie.ro/continut/produse/6505/1000/fusta-aziza-gri-cu-pliu-in-fata_86328.webp",
+      "https://ejolie.ro/continut/produse/6505/1000/fusta-aziza-gri-cu-pliu-in-fata_86329.webp",
+      "https://ejolie.ro/continut/produse/6505/1000/fusta-aziza-gri-cu-pliu-in-fata_86330.webp"
+    ],
+    "link": "https://ejolie.ro/product/fusta-aziza-gri-cu-pliu-in-fata",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "5021",
+    "name": "Rochie Ronia neagra cu buline argintii din catifea cu decolteu adanc si maneci bufante",
+    "code": "EJ77318-Negru-Buline-36",
+    "price": "209.24",
+    "price_discount": "83.70",
+    "image": "https://ejolie.ro/continut/produse/5021/1000/rochie-ronia-neagra-cu-buline-argintii-din-catifea-cu-decolteu-adanc-si-maneci-bufante_86130.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/5021/1000/rochie-ronia-neagra-cu-buline-argintii-din-catifea-cu-decolteu-adanc-si-maneci-bufante_86130.webp",
+      "https://ejolie.ro/continut/produse/5021/1000/rochie-ronia-neagra-cu-buline-argintii-din-catifea-cu-decolteu-adanc-si-maneci-bufante_86131.webp",
+      "https://ejolie.ro/continut/produse/5021/1000/rochie-ronia-neagra-cu-buline-argintii-din-catifea-cu-decolteu-adanc-si-maneci-bufante_86132.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-ronia-neagra-buline-catifea-decolteu-adanc-maneci-bufante",
+    "brand": "Ejolie",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "4850",
+    "name": "Rochie Devon ivoar cu dungi",
+    "code": "TYA5118",
+    "price": "270.00",
+    "price_discount": "108.00",
+    "image": "https://ejolie.ro/continut/produse/4850/1000/rochie-devon-ivoar-cu-dungi_102099.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/4850/1000/rochie-devon-ivoar-cu-dungi_102099.webp",
+      "https://ejolie.ro/continut/produse/4850/1000/rochie-devon-ivoar-cu-dungi_102098.webp",
+      "https://ejolie.ro/continut/produse/4850/1000/rochie-devon-ivoar-cu-dungi_102097.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-henley-ivoar-plisata-cu-dungi-maro-si-negre",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "4778",
+    "name": "Rochie Nora bleu cu imprimeu",
+    "code": "WHR6275",
+    "price": "303.00",
+    "price_discount": "121.20",
+    "image": "https://ejolie.ro/continut/produse/4778/1000/rochie-nora-bleu-cu-imprimeu_102111.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/4778/1000/rochie-nora-bleu-cu-imprimeu_102111.webp",
+      "https://ejolie.ro/continut/produse/4778/1000/rochie-nora-bleu-cu-imprimeu_102110.webp",
+      "https://ejolie.ro/continut/produse/4778/1000/rochie-nora-bleu-cu-imprimeu_102109.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-suzana-alba-cu-dungi-negre-tip-sacou",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "649",
+    "name": "Compleu Vera negru",
+    "code": "TYA17958",
+    "price": "363.00",
+    "price_discount": "145.20",
+    "image": "https://ejolie.ro/continut/produse/649/1000/compleu-aria-negru_102147.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/649/1000/compleu-aria-negru_102147.webp",
+      "https://ejolie.ro/continut/produse/649/1000/compleu-aria-negru_102146.webp",
+      "https://ejolie.ro/continut/produse/649/1000/compleu-aria-negru_102144.webp"
+    ],
+    "link": "https://ejolie.ro/product/sacou-ines-white",
+    "brand": "Trendya",
+    "description_length": 0,
+    "description_html_length": 0,
+    "has_size_table_only": false
+  },
+  {
+    "id": "11348",
+    "name": "Rochie Iman neagra",
+    "code": "9598",
+    "price": "528.00",
+    "price_discount": "369.60",
+    "image": "https://ejolie.ro/continut/produse/11348/1000/rochie-camilla-neagra_97018.webp",
+    "images": [
+      "https://ejolie.ro/continut/produse/11348/1000/rochie-camilla-neagra_97018.webp",
+      "https://ejolie.ro/continut/produse/11348/1000/rochie-camilla-neagra_97019.webp"
+    ],
+    "link": "https://ejolie.ro/product/rochie-camilla-neagra",
+    "brand": "Ejolie",
+    "description_length": 48,
+    "description_html_length": 447,
     "has_size_table_only": false
   }
 ]

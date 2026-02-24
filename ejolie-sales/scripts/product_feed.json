@@ -641,7 +641,7 @@
   "brand": "Ejolie",
   "category": "Noua Colectie",
   "available": "in stock",
-  "description": "<p>Salopeta Aria este alegerea perfectă pentru femeia modernă care îmbină rafinamentul cu atitudinea puternică. Designul său clasic, în alb și negru, este reinterpretat cu detalii chic, transformând-o"
+  "description": ""
  },
  {
   "id": "12380",
@@ -736,7 +736,7 @@
   "brand": "Ejolie",
   "category": "Noua Colectie",
   "available": "in stock",
-  "description": "<p>Rochia Ines în nuanța sofisticată crem-roze este o declarație de stil rafinat, perfectă pentru femeia care îmbrățișează eleganța clasică, dar cu un twist modern. Croiala tip creion, cu o faldă asim"
+  "description": ""
  },
  {
   "id": "12375",
@@ -831,7 +831,7 @@
   "brand": "Ejolie",
   "category": "Noua Colectie",
   "available": "in stock",
-  "description": "<p>Rochia Vanessa este o declarație de stil modern și rafinat, perfectă pentru femeia care îmbrățișează eleganța relaxată. Cu un imprimeu geometric tridimensional în nuanțe de maro și negru, această r"
+  "description": ""
  },
  {
   "id": "12369",
@@ -907,7 +907,7 @@
   "brand": "Ejolie",
   "category": "Noua Colectie",
   "available": "in stock",
-  "description": "<p>Rochia Patrizia crem cu imprimeu floral este o celebrare a feminității relaxate și a stilului versatil. Cu o croială lejeră, tip petrecută, și un imprimeu vibrant pe un fundal crem-camel, această r"
+  "description": ""
  },
  {
   "id": "12365",
@@ -6290,7 +6290,7 @@
   "brand": "Trendya",
   "category": "Rochii de seara",
   "available": "in stock",
-  "description": "<p>Rochia Laurence galbenă este o declarație de stil vibrantă și sofisticată, o piesă ce emana energie și grație. Croiala sa mulată, cu un drapaj ingenios în zona taliei, subliniază silueta feminină c"
+  "description": "<p>Rochia Laurence galbenă este o explozie de rafinament și vitalitate, o piesă vestimentară ce transformă orice apariție într-un moment de neuitat. Croiala midi, cu drapaj frontal ingenios și mâneci "
  },
  {
   "id": "11727",
@@ -7085,22 +7085,6 @@
   "description": "<p>Rochie Pilar albastra</p><div https:=\"\" www.ejolie.ro=\"\" manager=\"\" application=\"\" views=\"\" platforma=\"\" module=\"\" elrte=\"\" images=\"\" pixel.gif\"=\"\" class=\"elrte-media elrte-media-x-shockwave-flash "
  },
  {
-  "id": "11469",
-  "title": "Rochie Luna roz din catifea",
-  "price": "399.00 RON",
-  "sale_price": "319.20 RON",
-  "image": "https://ejolie.ro/continut/produse/11469/1000/rochie-luna-roz-din-catifea_97788.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11469/1000/rochie-luna-roz-din-catifea_97788.webp",
-   "https://ejolie.ro/continut/produse/11469/1000/rochie-luna-roz-din-catifea_97789.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-luna-roz-din-catifea",
-  "brand": "Ejolie",
-  "category": "Rochii de ocazie",
-  "available": "in stock",
-  "description": "<p>Rochie Luna roz  din catifea</p><div https:=\"\" www.ejolie.ro=\"\" manager=\"\" application=\"\" views=\"\" platforma=\"\" module=\"\" elrte=\"\" images=\"\" pixel.gif\"=\"\" class=\"elrte-media elrte-media-x-shockwave"
- },
- {
   "id": "11450",
   "title": "Rochie Izzy lila",
   "price": "352.00 RON",
@@ -7147,7 +7131,7 @@
   "brand": "Ejolie",
   "category": "Rochii de seara",
   "available": "in stock",
-  "description": "<p>Rochia Ruth verde cu fulgi este o piesă vestimentară vibrantă, care îmbină eleganța modernă cu un strop de fantezie. Culoarea sa proaspătă și detaliile delicate o transformă într-o alegere perfectă"
+  "description": "<p>Rochia Ruth verde cu fulgi este o piesă vestimentară vibrantă, care îmbină eleganța cu un aer jucăuș și sofisticat. Culoarea verde smarald, intensă și plină de viață, alături de detaliile cu fulgi "
  },
  {
   "id": "11363",
@@ -7180,7 +7164,7 @@
   "brand": "Ejolie",
   "category": "Rochii de Zi",
   "available": "in stock",
-  "description": "<p>Rochie Iman neagra  </p><div https:=\"\" www.ejolie.ro=\"\" manager=\"\" application=\"\" views=\"\" platforma=\"\" module=\"\" elrte=\"\" images=\"\" pixel.gif\"=\"\" class=\"elrte-media elrte-media-x-shockwave-flash e"
+  "description": "<p>Rochia Iman neagră este esența rafinamentului clasic, o piesă vestimentară atemporală ce emană o eleganță discretă, dar puternică. Cu o croială în A, fluidă și feminină, această rochie este alegere"
  },
  {
   "id": "11314",
@@ -7640,7 +7624,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Izzy este elegantă și rafinată, ideală pentru ocazii speciale sau evenimente formale.</p><ol><li><strong>Culoare</strong>: Verde, o nuanță vibrantă și elegantă care se potrivește bine oricăr"
+  "description": "<p>Rochia Izzy verde este o piesă vestimentară ce emană rafinament și stil, concepută pentru femeia modernă care apreciază eleganța discretă. Croiala dreaptă, cu o lungime până la genunchi, este accen"
  },
  {
   "id": "11014",
@@ -7656,7 +7640,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Carmen&nbsp;midi într-o nuanță vibrantă de alb cu albastru, este o piesă vestimentară care emană feminitate și eleganță. Iată o descriere detaliată a acestei rochii:</p><ol><li><p><strong>De"
+  "description": "<p>Rochia Carmen te invită într-o poveste romantică, unde albul pur al materialului se împletește armonios cu un imprimeu albastru, inspirat de peisajele idilice. Cu o croială lejeră, evazată, ce subl"
  },
  {
   "id": "11007",
@@ -7854,7 +7838,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Acelia&nbsp;maro cu imprimeu<div>- stil casual</div><div>- croi in clos</div><div>- bust lejer, cu&nbsp;decolteu rotund, la baza gatului</div><div>- maneci maxi, cazute, cu mansete din tricot</"
+  "description": "<p>Rochia Acelia este o celebrare a stilului modern și a feminității dezinvolte, perfectă pentru femeia care îmbrățișează eleganța casual-chic. Imprimeul leopard, atemporal și sofisticat, este pus în "
  },
  {
   "id": "10982",
@@ -7873,7 +7857,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Acelia&nbsp;albastra &nbsp;cu imprimeu<div>- stil casual</div><div>- croi in clos</div><div>- bust lejer, cu&nbsp;decolteu rotund, la baza gatului</div><div>- maneci maxi, cazute, cu mansete di"
+  "description": "<p>Rochia Acelia albastră cu imprimeu este o declarație de stil modern și feminitate jucăușă, perfectă pentru femeia care îmbrățișează eleganța casual-chic. Croiala lejeră, cu mâneci bufante și o fust"
  },
  {
   "id": "10981",
@@ -7911,7 +7895,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Dalia maro cu imprimeu<div>- stil casual</div><div>- rochie scurta, cu volane</div><div>- croi in clos</div><div>- maneci lungi, transparente</div><div>- decolteu petrecut, in V</div><div>- tal"
+  "description": "<p>Rochia Dalia maro cu imprimeu este o declarație de stil, perfectă pentru femeia care îmbrățișează eleganța casual cu o notă de îndrăzneală. Croiala lejeră, mini, și imprimeul animal print creează o"
  },
  {
   "id": "10965",
@@ -7930,7 +7914,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Electra albastra<div>- stil elegant</div><div>- croi asimetric, cu un umar gol</div><div>- cambrata pe talie</div><div>- banda decorativa&nbsp;cu strasuri&nbsp;argintii</div><div>- fronseuri pe"
+  "description": "<p>Rochia Electra albastră este o declarație de stil îndrăzneață și sofisticată, concepută pentru femeia care dorește să captiveze privirile. Croiala mini, asimetrică, cu un singur umăr, emană o elega"
  },
  {
   "id": "10962",
@@ -7947,7 +7931,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Briella neagra cu paiete rosii<div>- stil elegant</div><div>- croi asimetric, cambrata pe talie</div><div>- un umar gol</div><div>- realizata din paiete</div>"
+  "description": "<p>Rochia Briella este o declarație de stil și încredere, o piesă ce îmbină senzualitatea cu rafinamentul. Croiala mini, mulată, este accentuată de paietele roșii vibrante pe un fundal negru, creând u"
  },
  {
   "id": "10960",
@@ -7964,7 +7948,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Aura roz este o expresie a rafinamentului clasic, îmbinând o croială impecabilă cu detalii subtile care îi conferă un aer prețios. Nuanța delicată de roz piersică subliniază feminitatea, iar"
+  "description": "<p>Rochia Aura roz este o celebrare a rafinamentului clasic, îmbrăcând silueta într-o nuanță delicată și feminină. Croiala conică, de lungime midi, subliniază grația naturală, iar detaliile atent ales"
  },
  {
   "id": "10959",
@@ -7981,7 +7965,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Aura crem este o declarație de stil rafinat, o piesă ce îmbină eleganța clasică cu accente moderne, perfectă pentru femeia ce dorește să emane încredere și sofisticare. Croiala mulată pe cor"
+  "description": "<p>Rochia Aura crem este o declarație de stil rafinat, o piesă ce îmbină cu măiestrie clasicul cu accente moderne. Croiala conică, ce urmează linia corpului, este completată armonios de detaliile pepl"
  },
  {
   "id": "10955",
@@ -7998,7 +7982,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Geanina crem este o declarație de stil clasic, redefinind eleganța atemporală pentru femeia modernă. Cu o croială dreaptă, ce urmează subtil linia corpului, și mâneci lungi cu volum discret,"
+  "description": "<p>Rochia Geanina crem este expresia rafinamentului clasic, o piesă vestimentară atemporală ce emana o eleganță subtilă și un profesionalism desăvârșit. Croiala dreaptă, cu o notă de lejeritate, se mu"
  },
  {
   "id": "10938",
@@ -8017,7 +8001,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Ruxia te invită să îmbrățișezi un stil modern și plin de personalitate, perfect pentru zilele în care vrei să te simți confortabilă, dar și remarcată. Imprimeul floral abstract în nuanțe de "
+  "description": "<p>Rochia Ruxia gri cu imprimeu este o declarație de stil modern, ce îmbină confortul cu o estetică vibrantă. Croiala lejeră, tip A-line, oferă o siluetă fluidă și o libertate de mișcare ideală pentru"
  },
  {
   "id": "10936",
@@ -8036,7 +8020,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Milani fucsia redefinește eleganța urbană, aducând o notă vibrantă și sofisticată în garderoba ta. Croiala dreaptă, cu aspect de sacou în partea superioară, se îmbină armonios cu imprimeul h"
+  "description": "<p>Rochia Milani fucsia cu imprimeu este o declarație de stil pentru femeia modernă, care îmbină rafinamentul clasic cu o notă vibrantă de culoare. Croiala tip creion, cu un decolteu în V adânc și rev"
  },
  {
   "id": "10935",
@@ -8055,7 +8039,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Salopeta Ariella animal print<div>- stil elegant</div><div>- salopeta cu pantalon scurt</div><div>- maneci lungi</div><div>- decolteu petrecut, in V</div><div>- talie accesorizata cu&nbsp;lant&nbsp;au"
+  "description": "<p>Salopeta Ariella animal print este o declarație de stil îndrăzneață, o piesă vestimentară ce emană încredere și rafinament urban. Cu un design ce îmbină senzualitatea printului leopard cu eleganța "
  },
  {
   "id": "10934",
@@ -8088,7 +8072,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<div>Rochie Bianca bordo,&nbsp;midi, perfectă pentru evenimente speciale sau cocktailuri. Caracteristicile sale principale includ:</div><ul><li><strong>Design fără umeri</strong>: Aceasta dezvăluie gr"
+  "description": "<p>Rochia Bianca bordo este o simfonie de rafinament și îndrăzneală, concepută pentru femeia care dorește să captiveze atenția prin eleganță și stil. Croiala midi, cu o fustă amplă și structurată, îi "
  },
  {
   "id": "10929",
@@ -8104,7 +8088,23 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Bianca mov pruna,&nbsp;midi, perfectă pentru evenimente speciale sau cocktailuri. Caracteristicile sale principale includ:<br><ul><li><strong>Design fără umeri</strong>: Aceasta dezvăluie grați"
+  "description": "<p>Rochia Bianca mov prună este o declarație de stil, o piesă ce emană rafinament și un aer jucăuș, perfectă pentru evenimente speciale. Croiala tip \"off-the-shoulder\" și decolteul în formă de inimă s"
+ },
+ {
+  "id": "10928",
+  "title": "Rochie Adela bordo din catifea",
+  "price": "1072.50 RON",
+  "sale_price": "429.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10928/1000/rochie-adela-bordo-din-catifea_95073.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10928/1000/rochie-adela-bordo-din-catifea_95073.webp",
+   "https://ejolie.ro/continut/produse/10928/1000/rochie-adela-bordo-din-catifea_95074.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-adela-bordo-din-catifea",
+  "brand": "Trendya",
+  "category": "Outlet",
+  "available": "in stock",
+  "description": "<p>Rochia Adela bordo din catifea este o capodoperă a rafinamentului, o declarație de stil pentru femeia ce dorește să captiveze la fiecare apariție. Croiala tip sirenă, cu umerii dezgoliți, subliniaz"
  },
  {
   "id": "10926",
@@ -8138,7 +8138,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochie Bianca somon, midi de culoare piersică, perfectă pentru evenimente speciale sau cocktailuri. Caracteristicile sale principale includ:</p><ul><li><strong>Design fără umeri</strong>: Aceasta d"
+  "description": "<p>Rochia Bianca somon este o declarație de stil, o piesă ce îmbină senzualitatea cu rafinamentul. Croiala amplă, tip cloș, și umerii goi, dezveliți delicat, îi conferă un aer jucăuș și sofisticat, pe"
  },
  {
   "id": "10918",
@@ -8170,7 +8170,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochie Ligia fucsia, mulată, este o piesă elegantă și sofisticată, ideală pentru ocazii speciale. Rochia este confecționată dintr-un material ușor elastic care îmbrățișează silueta, evidențiind for"
+  "description": "<p>Rochia Ligia fucsia este o celebrare a feminității moderne, o piesă ce emana încredere și rafinament. Croiala mulată, accentuată de drapajele laterale, conturează armonios silueta, transformând-o î"
  },
  {
   "id": "10916",
@@ -8186,7 +8186,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Monica fucsia&nbsp;este o alegere îndrăzneață și elegantă, ideală pentru evenimente speciale sau ocazii în care dorești să atragi toate privirile.&nbsp;</p><h3></h3><p>Această rochie lungă i"
+  "description": "<p>Rochia Monica fucsia este o expresie vibrantă a eleganței moderne, concepută pentru a te plasa în centrul atenției. Culoarea intensă și detaliile sofisticate transformă această rochie într-o aleger"
  },
  {
   "id": "10911",
@@ -8202,7 +8202,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochie Daciana roz cu fucsia este un model midi, ideală pentru o ținută casual, de zi. Este confecționată dintr-un material ușor și plăcut la atingere.</p><ul><li><strong>Material:</strong> Tesatur"
+  "description": "<p>Rochia Daciana roz cu fucsia este o explozie de prospețime și stil, o piesă vestimentară ce celebrează feminitatea într-o manieră jucăușă și sofisticată. Croiala lejeră, cu o notă retro, o transfor"
  },
  {
   "id": "10907",
@@ -8219,7 +8219,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Ruxandra alba mini cu maneci roz si&nbsp;umerii dezgoliți este o alegere elegantă și sofisticată pentru orice eveniment de seară. Elementele sale distinctive includ mânecile voluminoase, amp"
+  "description": "<p>Rochia Ruxandra este o declarație de stil îndrăzneață și plină de feminitate, perfectă pentru femeia care iubește să impresioneze. Croiala mulată, mini, subliniază armonios silueta, iar umerii goi,"
  },
  {
   "id": "10885",
@@ -8251,7 +8251,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Asma elegantă de culoare bordo&nbsp;este ideală pentru o varietate de ocazii. Cu o croială midi, rochia are mâneci trei sferturi și un decolteu în V, completat de detalii frumos drapate în z"
+  "description": "<p>Rochia Asma bordo este o piesă vestimentară ce îmbină rafinamentul cu o notă de lejeritate chic, ideală pentru femeia modernă care își dorește o ținută impecabilă, dar confortabilă. Croiala evazată"
  },
  {
   "id": "10866",
@@ -8268,7 +8268,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Yara este de culoare bleumarin și are un design elegant și feminin. Este o rochie midi plisată, cu bretele subțiri și decolteu în V. Talia este marcată printr-un cordon elastic, oferind o si"
+  "description": "<p>Rochia Yara bleumarin este o celebrare a feminității delicate și a stilului rafinat. Cu o croială lejeră în partea superioară și o fustă plisată amplă, această rochie midi emană o eleganță subtilă,"
  },
  {
   "id": "10865",
@@ -8285,7 +8285,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Yara este de culoare bordo și are un design elegant și feminin. Este o rochie midi plisată, cu bretele subțiri și decolteu în V. Talia este marcată printr-un cordon elastic, oferind o siluet"
+  "description": "<p>Rochia Yara bordo este o celebrare a rafinamentului clasic, îmbrăcată într-o nuanță profundă de bordo care inspiră eleganță și mister. Cu o croială fluidă, de tip A-line, și un decolteu subtil în V"
  },
  {
   "id": "10855",
@@ -8301,7 +8301,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Eman alba cu imprimeu este ideală pentru sezonul cald, aducând un aer proaspăt și feminin. Este confecționată dintr-un material ușor și vaporos, perfect pentru zilele însorite de vară. Impri"
+  "description": "<p>Rochia Eman te va învălui într-o aură de prospețime și delicatețe, fiind alegerea perfectă pentru zilele calde de vară. Croiala lejeră, în linie A, cu imprimeu floral albastru pe fond alb, evocă o "
  },
  {
   "id": "10854",
@@ -8317,7 +8317,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Maysa este un exemplu perfect de eleganță și feminitate. Confecționată dintr-un material vaporos și ușor, rochia se remarcă prin imprimeul în nuanțe pastelate de corai, creând un efect vizua"
+  "description": "<p>Rochia Maysa corai este o declarație vibrantă de stil și feminitate, perfectă pentru a aduce o notă de prospețime și optimism în garderoba ta. Cu o croială în A, flatantă pentru orice siluetă, și u"
  },
  {
   "id": "10853",
@@ -8333,7 +8333,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Huda neagra cu imprimeu floral, elegantă și modernă, este realizată dintr-un material moale și fluid.&nbsp;Designul său&nbsp;adaugă un plus de rafinament.</p><ul><li><strong>Culoare</strong>"
+  "description": "<p>Rochia Huda neagră cu imprimeu floral te invită să celebrezi feminitatea într-o notă modernă și rafinată. Imprimeul floral delicat pe un fundal negru profund creează un contrast vizual captivant, t"
  },
  {
   "id": "10852",
@@ -8349,7 +8349,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Fadia este o alegere elegantă și sofisticată, perfectă pentru diverse ocazii speciale. Aceasta este realizată dintr-un material satinat de culoare bordo, decorat cu imprimeuri florale mari î"
+  "description": "<p>Rochia Fadia bordo cu imprimeu floral este o celebrare a feminității moderne, o piesă vestimentară ce îmbină rafinamentul cu o notă jucăușă. Croiala asimetrică, cu un umăr gol și o mânecă scurtă, b"
  },
  {
   "id": "10851",
@@ -8365,7 +8365,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Yara este de culoare kaki și are un design elegant și feminin. Este o rochie midi plisată, cu bretele subțiri și decolteu în V. Talia este marcată printr-un cordon elastic, oferind o siluetă"
+  "description": "<p>Rochia Yara kaki este o celebrare a rafinamentului relaxat, o piesă vestimentară care îmbină lejeritatea cu un stil impecabil. Croiala lejeră, cu fusta plisată fluid, o transformă în alegerea perfe"
  },
  {
   "id": "10849",
@@ -8381,7 +8381,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Bluza Sonia este confecționată dintr-un material vaporos, transparent, fucsia, cu buline mari. Are mâneci lungi și bufante, strânse la încheietură pentru a crea un efect de volum. Gulerul este ridi"
+  "description": "<p>Bluza Sonia fucsia cu buline este o piesă vestimentară vibrantă și plină de personalitate, perfectă pentru a adăuga o notă de rafinament ludic oricărei ținute. Croiala lejeră, cu detalii atent ales"
  },
  {
   "id": "10845",
@@ -8398,7 +8398,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Pantalonii Niki sunt de culoare neagră și au un design larg, drept, care conferă un aspect elegant și sofisticat. Talia este elastică, oferind confort și ajustabilitate, iar croiala simplă și clasi"
+  "description": "<p>Pantaloni Niki negri sunt piesa cheie pentru o ținută cu atitudine, îmbinând confortul cu o eleganță relaxată. Croiala lejeră, evazată, conferă un aer modern și sofisticat, fiind perfecți pentru o "
  },
  {
   "id": "10841",
@@ -8558,22 +8558,22 @@
   "description": "<p>Rochia Lucy galbenă este o piesă vestimentară elegantă și rafinată, perfectă pentru ocazii speciale. Confecționată din dantelă delicată, rochia prezintă un design simplu, dar sofisticat. Are o croi"
  },
  {
-  "id": "10593",
-  "title": "Bluza Marly bleumarin",
+  "id": "10594",
+  "title": "Bluza Marly bleumarin cu buline",
   "price": "197.00 RON",
   "sale_price": "98.50 RON",
-  "image": "https://ejolie.ro/continut/produse/10593/1000/bluza-marly-bleumarin_92595.webp",
+  "image": "https://ejolie.ro/continut/produse/10594/1000/bluza-marly-bleumarin-cu-buline_92599.webp",
   "images": [
-   "https://ejolie.ro/continut/produse/10593/1000/bluza-marly-bleumarin_92595.webp",
-   "https://ejolie.ro/continut/produse/10593/1000/bluza-marly-bleumarin_92597.webp",
-   "https://ejolie.ro/continut/produse/10593/1000/bluza-marly-bleumarin_92594.webp",
-   "https://ejolie.ro/continut/produse/10593/1000/bluza-marly-bleumarin_92596.webp"
+   "https://ejolie.ro/continut/produse/10594/1000/bluza-marly-bleumarin-cu-buline_92599.webp",
+   "https://ejolie.ro/continut/produse/10594/1000/bluza-marly-bleumarin-cu-buline_92601.webp",
+   "https://ejolie.ro/continut/produse/10594/1000/bluza-marly-bleumarin-cu-buline_92598.webp",
+   "https://ejolie.ro/continut/produse/10594/1000/bluza-marly-bleumarin-cu-buline_92600.webp"
   ],
-  "link": "https://ejolie.ro/product/bluza-marly-portocalie-10593",
+  "link": "https://ejolie.ro/product/bluza-marly-bleumarin-10594",
   "brand": "Trendya",
   "category": "Bluze | Camasi",
   "available": "in stock",
-  "description": "<p>Bluza Marly de culoare bleumarin este o piesă vestimentară elegantă și versatilă, ideală pentru diverse ocazii. Aceasta este confecționată dintr-un material ușor și fluid, oferind confort și libert"
+  "description": "<div><p>Bluza Marly bleumarin cu buline,&nbsp;realizata din voal,&nbsp;este o piesă vestimentară elegantă și versatilă, ideală pentru diverse ocazii. Aceasta are un design modern, cu un imprimeu jucău"
  },
  {
   "id": "10592",
@@ -8626,22 +8626,6 @@
   "category": "Outlet",
   "available": "in stock",
   "description": "<p><strong>Descriere:</strong>\r\nRochia Ellis roz&nbsp;cu imprimeu floral este perfectă pentru o varietate de ocazii, aducând un plus de eleganță și feminitate. Confecționată dintr-un material lejer și"
- },
- {
-  "id": "10546",
-  "title": "Rochie Ofelia cu imprimeu roz",
-  "price": "337.50 RON",
-  "sale_price": "135.00 RON",
-  "image": "https://ejolie.ro/continut/produse/10546/1000/rochie-ofelia-cu-imprimeu-roz_93023.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/10546/1000/rochie-ofelia-cu-imprimeu-roz_93023.webp",
-   "https://ejolie.ro/continut/produse/10546/1000/rochie-ofelia-cu-imprimeu-roz_93024.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-10546",
-  "brand": "Ejolie",
-  "category": "Outlet",
-  "available": "in stock",
-  "description": "<p><strong>Descriere:</strong>\r\nRochia Ofelia alba&nbsp;cu imprimeu roz&nbsp;este o piesă vestimentară elegantă și feminină, ideală pentru evenimente speciale și casual. Fabricată dintr-un material uș"
  },
  {
   "id": "10545",
@@ -8973,6 +8957,22 @@
   "category": "Rochii de Zi",
   "available": "in stock",
   "description": "<br><div>Rochie Ava cu imprimeu floral mov</div>- stil casual- croi in clos<div><div>- maneci 3/4 cu terminatie elastica</div><div>- talie elastica marcata cu cordon&nbsp;detasabil</div><div>- inchide"
+ },
+ {
+  "id": "10154",
+  "title": "Rochie Zasha maro cu dungi",
+  "price": "351.00 RON",
+  "sale_price": "175.50 RON",
+  "image": "https://ejolie.ro/continut/produse/10154/1000/rochie-zasha-maro-cu-dungi_90323.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10154/1000/rochie-zasha-maro-cu-dungi_90323.webp",
+   "https://ejolie.ro/continut/produse/10154/1000/rochie-zasha-maro-cu-dungi_90324.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-zasha-maro-cu-imprimeu-10154",
+  "brand": "Trendya",
+  "category": "Outlet",
+  "available": "in stock",
+  "description": "Rochie Zasha maro cu dungi  <div>- stil casual</div><div>- croi in clos</div><div>- maneci lungi&nbsp;cu terminatie elastica</div><div>- talie elastica marcata cu cordon&nbsp;detasabil</div><div>- dec"
  },
  {
   "id": "10150",
@@ -10556,7 +10556,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<div><span style=\"color:#333333;font-family:Roboto, sans-serif;font-size:15px;background-color:#ffffff\">Rochie Taipa fucsia    </span></div><div style=\"box-sizing:border-box;padding:0px;margin:0px;ver"
+  "description": "<p>Rochia Taipa fucsia este o declarație îndrăzneață de stil și senzualitate, o piesă vestimentară concepută pentru femeia care iubește să fie în centrul atenției. Croiala mulată, tip bandaj, îmbrățiș"
  },
  {
   "id": "9190",
@@ -10638,25 +10638,6 @@
   "description": "<br><div><span style=\"color:#333333;font-family:Roboto, sans-serif;font-size:15px;background-color:#ffffff\">Bluza Cintia neagra din dantela</span></div><br><div style=\"box-sizing:border-box;padding:0p"
  },
  {
-  "id": "9175",
-  "title": "Camasa Diana crem cu imprimeu",
-  "price": "162.56 RON",
-  "sale_price": "65.02 RON",
-  "image": "https://ejolie.ro/continut/produse/9175/1000/camasa-diana-crem-cu-imprimeu_84146.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/9175/1000/camasa-diana-crem-cu-imprimeu_84146.webp",
-   "https://ejolie.ro/continut/produse/9175/1000/camasa-diana-crem-cu-imprimeu_84147.webp",
-   "https://ejolie.ro/continut/produse/9175/1000/camasa-diana-crem-cu-imprimeu_84148.webp",
-   "https://ejolie.ro/continut/produse/9175/1000/camasa-diana-crem-cu-imprimeu_84144.webp",
-   "https://ejolie.ro/continut/produse/9175/1000/camasa-diana-crem-cu-imprimeu_84145.webp"
-  ],
-  "link": "https://ejolie.ro/product/camasa-diana-crem-cu-imprimeu",
-  "brand": "Trendya",
-  "category": "Bluze | Camasi",
-  "available": "in stock",
-  "description": "<p>Camasa Diana crem cu imprimeu  </p><div style=\"box-sizing:border-box;padding:0px;margin:0px;vertical-align:baseline;outline:none;color:#333333;font-family:Roboto, sans-serif;font-size:15px;backgrou"
- },
- {
   "id": "9169",
   "title": "Camasa Diana cu imprimeu negru",
   "price": "162.56 RON",
@@ -10713,22 +10694,6 @@
   "description": "<p>Bluza Cintia bordo este o piesă vestimentară ce redefinește eleganța modernă, emanând un aer sofisticat și plin de rafinament. Cu un design ce îmbină delicatețea dantelei cu o croială lejeră, aceas"
  },
  {
-  "id": "9150",
-  "title": "Rochie Adina verde",
-  "price": "194.81 RON",
-  "sale_price": "77.92 RON",
-  "image": "https://ejolie.ro/continut/produse/9150/1000/rochie-adina-verde_80912.jpg",
-  "images": [
-   "https://ejolie.ro/continut/produse/9150/1000/rochie-adina-verde_80912.jpg",
-   "https://ejolie.ro/continut/produse/9150/1000/rochie-adina-verde_80913.jpg"
-  ],
-  "link": "https://ejolie.ro/product/rochie-adina-neagra-9150",
-  "brand": "Ejolie",
-  "category": "Outlet",
-  "available": "in stock",
-  "description": "<p>Rochia Adina verde este o piesă vestimentară ce emană rafinament și un farmec clasic, perfectă pentru femeia modernă care apreciază eleganța discretă. Croiala lejeră, în formă de A, subliniază subt"
- },
- {
   "id": "9148",
   "title": "Rochie Josephine roz",
   "price": "712.00 RON",
@@ -10743,7 +10708,7 @@
   "brand": "Ejolie",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<br><div><span style=\"color:#333333;font-family:Roboto, sans-serif;font-size:15px;background-color:#ffffff\">Rochie Ramya&nbsp;roz</span>"
+  "description": "<p>Rochia Josephine roz este o declarație de stil și feminitate, o piesă ce îmbină senzualitatea cu un aer jucăuș și sofisticat. Croiala mulată, tip bandaj, îmbrățișează silueta, punând în valoare for"
  },
  {
   "id": "9147",
@@ -10761,7 +10726,7 @@
   "brand": "Ejolie",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<br><div><span style=\"color:#333333;font-family:Roboto, sans-serif;font-size:15px;background-color:#ffffff\">Rochie Ines fucsia  </span>"
+  "description": "<p>Rochia Ines fucsia este o celebrare a feminității moderne, o piesă vibrantă ce te invită să strălucești la orice eveniment special. Croiala mulată, tip creion, subliniază armonios silueta, în timp "
  },
  {
   "id": "9133",
@@ -11068,6 +11033,25 @@
   "description": "<div><div><div>Bluza Vivianne cu imprimeu divers<div><div>- stil elegant, office, casual</div><div>- maneci lungi, transparente,&nbsp;din voal, cu manseta incretita</div><div>- croi drept&nbsp;</div><"
  },
  {
+  "id": "9069",
+  "title": "Bluza Mikaela cu imprimeu bordo",
+  "price": "165.00 RON",
+  "sale_price": "66.00 RON",
+  "image": "https://ejolie.ro/continut/produse/9069/1000/bluza-mikaela-cu-imprimeu-bordo_84015.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/9069/1000/bluza-mikaela-cu-imprimeu-bordo_84015.webp",
+   "https://ejolie.ro/continut/produse/9069/1000/bluza-mikaela-cu-imprimeu-bordo_84016.webp",
+   "https://ejolie.ro/continut/produse/9069/1000/bluza-mikaela-cu-imprimeu-bordo_84017.webp",
+   "https://ejolie.ro/continut/produse/9069/1000/bluza-mikaela-cu-imprimeu-bordo_84013.webp",
+   "https://ejolie.ro/continut/produse/9069/1000/bluza-mikaela-cu-imprimeu-bordo_84014.webp"
+  ],
+  "link": "https://ejolie.ro/product/bluza-mikaela-cu-imprimeu-bordo",
+  "brand": "Trendya",
+  "category": "Bluze | Camasi",
+  "available": "in stock",
+  "description": "<p>Bluza Mikaela cu imprimeu bordo</p><div style=\"box-sizing:border-box;padding:0px;margin:0px;vertical-align:baseline;outline:none;color:#333333;font-family:Roboto, sans-serif;font-size:15px;backgrou"
+ },
+ {
   "id": "9066",
   "title": "Bluza Zhavia cu imprimeu divers colorat",
   "price": "162.50 RON",
@@ -11102,7 +11086,7 @@
   "brand": "Ejolie",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Evelyn fucsia<div>- nu are fermoar, are un elastic in talie si vine accesorizata cu o curea"
+  "description": "<p>Rochia Evelyn fucsia este o explozie de rafinament și vitalitate, o piesă vestimentară ce îmbină cu măiestrie eleganța clasică cu accente moderne. Croiala midi, în stil cloș, conferă o siluetă flui"
  },
  {
   "id": "9026",
@@ -11120,7 +11104,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Sandy crem cu insertii stralucitoare   <div>- nu are fermoar, are un elastic in talie si vine accesorizata cu o curea</div><div>- are jupa</div><div>- realizata 100% poliester</div>"
+  "description": "<p>Rochia Sandy crem cu inserții strălucitoare este o piesă vestimentară ce îmbină grația cu un aer modern, perfectă pentru femeia care dorește să emane rafinament la orice eveniment. Croiala lejeră, "
  },
  {
   "id": "8891",
@@ -11137,7 +11121,7 @@
   "brand": "Ejolie",
   "category": "Rochii de Zi",
   "available": "in stock",
-  "description": "<p>Rochia Ryna galbenă redefinește eleganța urbană, transformând fiecare apariție într-un statement de stil. Cu o croială tip sacou, care îmbrățișează silueta, și o nuanță vibrantă de galben muștar, a"
+  "description": "<p>Rochia Ryna galbenă redefinește conceptul de eleganță urbană, transformând o apariție simplă într-un statement de stil. Cu o croială tip sacou, ce îmbrățișează silueta cu rafinament, și un design m"
  },
  {
   "id": "8881",
@@ -11154,7 +11138,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Nicolle mov tip camasa cu mansete din fulgi"
+  "description": "<p>Rochia Nicolle mov este o declarație de stil îndrăzneață și plină de personalitate, perfectă pentru femeia modernă care vrea să iasă în evidență. Croiala tip cămașă, cu o notă jucăușă dată de manse"
  },
  {
   "id": "8876",
@@ -11171,7 +11155,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "<p>Rochia Dianne este o declarație de stil și rafinament, o piesă ce îmbină senzualitatea catifelei roșii cu strălucirea discretă a aplicațiilor. Croiala petrecută, cu un decolteu în V elegant, sublin"
+  "description": "<p>Rochia Dianne este o declarație de stil și rafinament, o piesă vestimentară ce îmbină senzualitatea catifelei roșii cu strălucirea discretă a aplicațiilor. Croiala petrecută, cu un decolteu în V el"
  },
  {
   "id": "8852",
@@ -11192,7 +11176,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Aissa albastra     din catifea  <div><div>- stil elegant</div><div>- rochie scurta, cambrata, cu maneci 3/4</div><div>- are decolteu rotuns, la baza gatului&nbsp;</div><div>-&nbsp;este accesori"
+  "description": "<p>Rochia Aissa te învăluie într-o aură de rafinament și mister, o piesă statement ce aduce în prim plan eleganța atemporală a catifelei. Nuanța regală de albastru cobalt, alături de croiala mulată, c"
  },
  {
   "id": "8811",
@@ -11213,7 +11197,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Aissa roz  din catifea  <div><div>- stil elegant</div><div>- rochie scurta, cambrata, cu maneci 3/4</div><div>- are decolteu rotuns, la baza gatului&nbsp;</div><div>-&nbsp;este accesorizata cu "
+  "description": "<p>Rochia Aissa roz din catifea este o declarație de stil, un echilibru perfect între rafinament și alură modernă. Croiala mulată, ce urmează linia corpului, evidențiază grația feminină, iar detaliile"
  },
  {
   "id": "8808",
@@ -11230,7 +11214,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Jesica&nbsp;verde din catifea  <div>- stil elegant</div><div>- rochie scurta cu maneci lungi, din catifea</div><div>- este cambrata si incretita lateral, pe verticala</div><div>- are decolteu r"
+  "description": "<p>Rochia Jesica verde din catifea este o declarație de stil, perfectă pentru femeia care știe să-și pună în valoare silueta și să capteze privirile. Cu o croială mulată, care îmbrățișează formele, și"
  },
  {
   "id": "8672",
@@ -11248,24 +11232,6 @@
   "category": "Outlet",
   "available": "in stock",
   "description": "Rochie Vilma albastra    <div><div>- rochie eleganta, de lungime midi, cambrata, cu fusta petrecuta si dantela in zona bustului</div><div>- are un umar gol si o maneca lunga</div><div>- se incheie cu "
- },
- {
-  "id": "8661",
-  "title": "Camasa Miruna cu imprimeu maro",
-  "price": "155.00 RON",
-  "sale_price": "62.00 RON",
-  "image": "https://ejolie.ro/continut/produse/8661/1000/camasa-miruna-cu-imprimeu-maro_85198.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/8661/1000/camasa-miruna-cu-imprimeu-maro_85198.webp",
-   "https://ejolie.ro/continut/produse/8661/1000/camasa-miruna-cu-imprimeu-maro_85199.webp",
-   "https://ejolie.ro/continut/produse/8661/1000/camasa-miruna-cu-imprimeu-maro_85200.webp",
-   "https://ejolie.ro/continut/produse/8661/1000/camasa-miruna-cu-imprimeu-maro_85201.webp"
-  ],
-  "link": "https://ejolie.ro/product/camasa-miruna-albastra-8661",
-  "brand": "Trendya",
-  "category": "Bluze | Camasi",
-  "available": "in stock",
-  "description": "Camasa Miruna cu imprimeu maro  <div></div><div>-&nbsp;este recomandata&nbsp;pentru o tinuta office, casual</div><div>-&nbsp;realizata din voal</div><div>-&nbsp;are maneci lungi, cu umeri marcati si m"
  },
  {
   "id": "8659",
@@ -11355,7 +11321,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Camasa Delice alba cu dungi negre  <div>- camasa in&nbsp;stil office, elegant</div><div>- are un croi lejer, maneci lungi, cu mansete late ce se incheie cu nasturi</div><div>- are guler inalt si se in"
+  "description": "<p>Cămașa Delice este o declarație de stil modern și rafinat, perfectă pentru femeia care îmbrățișează eleganța într-o notă contemporană. Croiala lejeră, cu dungi alb-negre, emană un aer chic și versa"
  },
  {
   "id": "8652",
@@ -11501,7 +11467,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Colley fucsia  <div><div>- stil elegant</div><div>- rochie midi cu maneci 3/4</div><div>- decolteu in V, petrecut</div><div>- fusta este petrecuta in fata si are nasturi maxi aplicati</div><div"
+  "description": "<p>Rochia Colley fucsia este o expresie vibrantă a stilului modern, perfectă pentru femeia care îmbrățișează eleganța urbană. Croiala conică, ce urmărește linia corpului, evidențiază silueta cu subtil"
  },
  {
   "id": "8546",
@@ -11518,7 +11484,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Gabriela verde  <div><div>- stil elegant, casual</div><div>- rochie scurta cu maneci 3/4</div><div>- are decolteu rotund, la baza gatului</div><div>- croi lejer, fara fermoar</div><div>- nu are"
+  "description": "<p>Rochia Gabriela verde este o declarație de stil rafinat și feminitate modernă, perfectă pentru femeia care apreciază eleganța discretă, dar cu impact. Croiala lejeră, tip tunică, o face ideală pent"
  },
  {
   "id": "8518",
@@ -11626,7 +11592,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Pantaloni Adelia maro<div><div>- stil casual, office, elegant</div><div>- pantaloni cu talie inalta, croi lejer</div><div>- au buzunare laterale</div><div>- se incheie cu fermoar, in fata</div><div><b"
+  "description": "<p>Pantaloni Adelia maro sunt definiția eleganței urbane, o piesă vestimentară versatilă ce îmbină rafinamentul clasic cu o notă modernă. Croiala evazată, cu talie înaltă, alungește vizual silueta și "
  },
  {
   "id": "8470",
@@ -11715,7 +11681,7 @@
   "brand": "Trendya",
   "category": "Pantaloni",
   "available": "in stock",
-  "description": "Pantaloni Alissa roz<div>- stil casual,&nbsp;</div><div>- croi conic, mulat</div><div>- buzunare laterale</div><div>- inchidere frontala cu fermoar ascuns si nasture</div><div>- talie cu betelie si br"
+  "description": "<p>Pantaloni Alissa roz sunt expresia rafinamentului modern, o piesă vestimentară ce îmbină perfect stilul office cu o notă de eleganță feminină. Croiala dreaptă, ușor conică, avantajează silueta, iar"
  },
  {
   "id": "8380",
@@ -11734,7 +11700,7 @@
   "brand": "Trendya",
   "category": "Pantaloni",
   "available": "in stock",
-  "description": "Pantaloni Asha portocalii cu carouri<div>- stil office, casual</div><div>- croi conic</div><div>- talie medie</div><div>- buzunare laterale</div><div>- curea detasabila</div><div>- realizati din stofa"
+  "description": "<p>Pantaloni Asha portocalii cu carouri aduc o notă de prospețime și rafinament garderobei tale de zi cu zi. Această piesă vestimentară versatilă îmbină eleganța clasică a imprimeului în carouri cu o "
  },
  {
   "id": "8298",
@@ -11770,7 +11736,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Siran mov cu bretele din zale  <div><div>- stil casual, elegant</div><div>- rochie de lungime midi, crapata pe margine</div><div>- bretele tip maiou, din zale argintii</div><div>- cordon subtir"
+  "description": "<p>Rochia Siran mov cu bretele din zale este o piesă vestimentară ce emană rafinament și un aer boem, perfectă pentru serile de vară sau evenimente speciale. Croiala fluidă, tip slip dress, urmărește "
  },
  {
   "id": "8077",
@@ -11963,7 +11929,7 @@
   "brand": "Ejolie",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Marta&nbsp;turcoaz din neopren cu cordon maxi  <div>"
+  "description": "<p>Rochia Marta turcoaz este o declarație de stil modern și rafinat, perfectă pentru femeia care îmbrățișează eleganța vibrantă. Croiala conică, ce urmărește linia corpului, evidențiază silueta cu sub"
  },
  {
   "id": "7573",
@@ -12040,7 +12006,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Silvia albastra din denim cu cusaturi contrastante"
+  "description": "<p>Rochia Silvia este o declarație de stil modern și feminin, perfectă pentru femeia care îmbrățișează eleganța într-o manieră relaxată. Croiala mulată, tip creion, subliniază armonios silueta, iar um"
  },
  {
   "id": "7053",
@@ -12097,7 +12063,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Natalia corai&nbsp;cu insertii stralucitoare si detalii din plasa cu cristale   este recomandata pentru o tinuta de seara, sau pentru un eveniment special. Are decolteu adanc in V si crepeu pe "
+  "description": "<p>Rochia Natalia corai este o declarație de stil și încredere, o piesă ce te va propulsa în centrul atenției la orice eveniment special. Cu un design îndrăzneț și detalii strălucitoare, această rochi"
  },
  {
   "id": "6965",
@@ -12141,7 +12107,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Natalia bordo cu insertii stralucitoare si detalii din plasa cu cristale este recomandata pentru o tinuta de seara, sau pentru un eveniment special. Are decolteu adanc in V si crepeu pe picior,"
+  "description": "<p>Rochia Natalia bordo este o declarație de stil, perfectă pentru femeia care iubește să impresioneze. Croiala mulată, mini, accentuează armonios silueta, iar inserțiile îndrăznețe o transformă într-"
  },
  {
   "id": "6905",
@@ -12179,7 +12145,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Fusta Flavia bleumarin, scurta, cu buzunare decorative accesorizate cu nasturi argintii, este realizata din stofa bucle, potrivita pentru o tinuta casual. Se inchide la spate cu fermoar. Are captuseal"
+  "description": "<p>Fusta Flavia bleumarin este esența chic-ului urban, o piesă ce îmbină rafinamentul clasic cu o notă modernă. Croiala dreaptă, scurtă, complimentează silueta, transformând-o într-o alegere ideală pe"
  },
  {
   "id": "6552",
@@ -12197,7 +12163,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Fusta Edith bleumarin, scurta, cu crepeu pe picior,&nbsp;are un croi&nbsp;mulat si este potrivita pentru o tinuta casual-eleganta. Este realizata din stofa.&nbsp;Se inchide la spate cu fermoar. Are ca"
+  "description": "<p>Fusta Edith bleumarin scurta cu crepeu pe picior este o piesă vestimentară ce emană rafinament și îndrăzneală, perfectă pentru femeia modernă care dorește să îmbine eleganța cu o notă subtilă de se"
  },
  {
   "id": "6505",
@@ -12216,7 +12182,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Fusta Aziza gri, scurta, cu pliu in fata, este potrivita pentru o tinuta casual. Se inchide la spate cu fermoar. Are captuseala.<div>Produs fabricat in Romania.</div>"
+  "description": "<p>Fusta Aziza gri redefinește eleganța urbană, fiind o piesă versatilă ce emană rafinament și stil. Croiala dreaptă, mini, cu un pliu discret în față, adaugă o notă modernă și sofisticată, perfectă p"
  },
  {
   "id": "6050",
@@ -12253,7 +12219,7 @@
   "brand": "Ejolie",
   "category": "Promotii",
   "available": "in stock",
-  "description": "Rochie Ronia neagra cu buline argintii din catifea cu decolteu adanc si maneci bufante.Compozitie: 90% Poliester 10% Elastan"
+  "description": "<p>Rochia Ronia este o declarație de stil îndrăzneață și sofisticată, perfectă pentru serile în care vrei să emani șarm și originalitate. Designul cu decolteu adânc în V și buline argintii aduce o not"
  },
  {
   "id": "4850",
@@ -12270,7 +12236,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Devon ivoar cu dungi<div>- stil casual, office</div><div>- croi in clos</div><div>- decolteu petrecut, in V</div><div>- maneci 3/4</div><div>- talie marcata cu o curea detasabila</div>"
+  "description": "<p>Rochia Devon ivoar cu dungi este o declarație de stil efervescentă, îmbinând clasicul cu un aer jucăuș și sofisticat. Croiala tip A-line, cu o fustă amplă și fluidă, creează o siluetă feminină și p"
  },
  {
   "id": "4810",
@@ -12307,7 +12273,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Rochie Nora bleu cu imprimeu<div>- stil casual</div><div>- croi conic, cambrata pe talie</div><div>- decolteu petrecut</div><div>- maneci 3/4</div><div>- realizata din crep</div>"
+  "description": "<p>Rochia Nora bleu cu imprimeu este o declarație vibrantă de stil și rafinament, ideală pentru femeia modernă care dorește să emane energie și eleganță. Croiala tip petrecută, cu un decolteu în V sub"
  },
  {
   "id": "654",
@@ -12393,7 +12359,7 @@
   "brand": "Trendya",
   "category": "Outlet",
   "available": "in stock",
-  "description": "Compleu Vera&nbsp;negru&nbsp;<div>-sacou cambrat&nbsp;</div><div>stil office, elegant</div><div>- pantaloni</div><div><br></div><div>Compozitie: 64%&nbsp;poliester, 31% vascoza, 5% elastan</div>"
+  "description": "<p>Compleul Vera negru este definiția rafinamentului modern, o piesă vestimentară ce îmbină perfect eleganța clasică cu un aer contemporan. Ideal pentru femeia puternică, ce își dorește să emane profe"
  },
  {
   "id": "648",

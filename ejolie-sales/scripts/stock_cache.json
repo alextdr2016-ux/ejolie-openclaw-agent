@@ -1,6 +1,6 @@
 {
- "updated": "2026-02-22 20:02:40",
- "total_products": 722,
+ "updated": "2026-02-24 20:02:28",
+ "total_products": 720,
  "products": {
   "12415": {
    "id": "12415",
@@ -700,13 +700,6 @@
      "pret": "446.00",
      "pret_discount": "0.00"
     },
-    "38": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "446.00",
-     "pret_discount": "0.00"
-    },
     "40": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
@@ -718,6 +711,13 @@
      "stoc": "In stoc",
      "stoc_fizic": 1,
      "in_stock": true,
+     "pret": "446.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
      "pret": "446.00",
      "pret_discount": "0.00"
     }
@@ -2045,7 +2045,7 @@
     },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "489.00",
      "pret_discount": "0.00"
@@ -2408,7 +2408,7 @@
     },
     "42": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "662.50",
      "pret_discount": "0.00"
@@ -3043,7 +3043,7 @@
     },
     "46": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "625.00",
      "pret_discount": "0.00"
@@ -3375,7 +3375,7 @@
    "sizes": {
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "712.50",
      "pret_discount": "0.00"
@@ -3734,14 +3734,14 @@
      "pret": "529.00",
      "pret_discount": "423.20"
     },
-    "48": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
+    "50": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
      "pret": "529.00",
      "pret_discount": "423.20"
     },
-    "50": {
+    "48": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -3992,7 +3992,7 @@
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 10,
+     "stoc_fizic": 9,
      "in_stock": true,
      "pret": "688.50",
      "pret_discount": "0.00"
@@ -4450,17 +4450,17 @@
      "pret": "529.00",
      "pret_discount": "423.20"
     },
-    "38": {
+    "42": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
      "in_stock": true,
      "pret": "529.00",
      "pret_discount": "423.20"
     },
-    "42": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
+    "38": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
      "pret": "529.00",
      "pret_discount": "423.20"
     },
@@ -7454,7 +7454,7 @@
     },
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "418.50",
      "pret_discount": "0.00"
@@ -7565,7 +7565,7 @@
     },
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 3,
      "in_stock": true,
      "pret": "418.50",
      "pret_discount": "0.00"
@@ -7912,7 +7912,7 @@
     },
     "46": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "648.00",
      "pret_discount": "0.00"
@@ -9697,7 +9697,7 @@
     },
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "636.00",
      "pret_discount": "0.00"
@@ -9902,7 +9902,7 @@
     },
     "46": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "567.00",
      "pret_discount": "0.00"
@@ -10280,7 +10280,7 @@
     },
     "42": {
      "stoc": "In stoc",
-     "stoc_fizic": 6,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "526.50",
      "pret_discount": "0.00"
@@ -10561,7 +10561,7 @@
     },
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "432.00",
      "pret_discount": "0.00"
@@ -16232,7 +16232,7 @@
     },
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "174.00",
      "pret_discount": "69.60"
@@ -16794,7 +16794,7 @@
     },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 3,
      "in_stock": true,
      "pret": "594.00",
      "pret_discount": "0.00"
@@ -16988,7 +16988,7 @@
    "sizes": {
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "675.00",
      "pret_discount": "0.00"
@@ -17411,7 +17411,7 @@
    "sizes": {
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "594.00",
      "pret_discount": "0.00"
@@ -17817,7 +17817,7 @@
     },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "675.00",
      "pret_discount": "0.00"
@@ -17845,7 +17845,7 @@
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 3,
      "in_stock": true,
      "pret": "675.00",
      "pret_discount": "0.00"
@@ -18074,7 +18074,7 @@
     },
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "675.00",
      "pret_discount": "0.00"
@@ -18088,7 +18088,7 @@
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "675.00",
      "pret_discount": "0.00"
@@ -18133,7 +18133,7 @@
     },
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "621.00",
      "pret_discount": "0.00"
@@ -18863,13 +18863,6 @@
    "pret": "81.25",
    "stoc_general": "In stoc",
    "sizes": {
-    "36": {
-     "stoc": "In stoc",
-     "stoc_fizic": 2,
-     "in_stock": true,
-     "pret": "162.50",
-     "pret_discount": "81.25"
-    },
     "42": {
      "stoc": "In stoc",
      "stoc_fizic": 2,
@@ -18888,6 +18881,13 @@
      "stoc": "In stoc",
      "stoc_fizic": 2,
      "in_stock": true,
+     "pret": "162.50",
+     "pret_discount": "81.25"
+    },
+    "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
      "pret": "162.50",
      "pret_discount": "81.25"
     },
@@ -18924,7 +18924,7 @@
    "sizes": {
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 1,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "187.00",
      "pret_discount": "74.80"
@@ -18996,9 +18996,9 @@
      "pret_discount": "74.80"
     },
     "40": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
      "pret": "187.00",
      "pret_discount": "74.80"
     },
@@ -19306,7 +19306,7 @@
     },
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "199.00",
      "pret_discount": "119.40"
@@ -19337,7 +19337,7 @@
    "sizes": {
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "162.50",
      "pret_discount": "81.25"
@@ -20530,7 +20530,7 @@
    "sizes": {
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 3,
      "in_stock": true,
      "pret": "351.00",
      "pret_discount": "0.00"
@@ -20846,7 +20846,7 @@
     },
     "42": {
      "stoc": "In stoc",
-     "stoc_fizic": 4,
+     "stoc_fizic": 3,
      "in_stock": true,
      "pret": "378.00",
      "pret_discount": "0.00"
@@ -20860,7 +20860,7 @@
     },
     "46": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "378.00",
      "pret_discount": "0.00"
@@ -21311,7 +21311,7 @@
     },
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 3,
      "in_stock": true,
      "pret": "352.00",
      "pret_discount": "0.00"
@@ -21332,7 +21332,7 @@
     },
     "50": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 3,
      "in_stock": true,
      "pret": "352.00",
      "pret_discount": "0.00"
@@ -21374,51 +21374,6 @@
      "in_stock": false,
      "pret": "349.00",
      "pret_discount": "209.40"
-    }
-   }
-  },
-  "11469": {
-   "id": "11469",
-   "nume": "Rochie Luna roz din catifea",
-   "cod": "3865",
-   "brand": "Ejolie",
-   "pret": "319.20",
-   "stoc_general": "In stoc",
-   "sizes": {
-    "42": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "399.00",
-     "pret_discount": "319.20"
-    },
-    "38": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "399.00",
-     "pret_discount": "319.20"
-    },
-    "40": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "399.00",
-     "pret_discount": "319.20"
-    },
-    "44": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "399.00",
-     "pret_discount": "319.20"
-    },
-    "46": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "399.00",
-     "pret_discount": "319.20"
     }
    }
   },
@@ -21859,7 +21814,7 @@
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "297.00",
      "pret_discount": "0.00"
@@ -21940,13 +21895,6 @@
    "pret": "0.00",
    "stoc_general": "In stoc",
    "sizes": {
-    "40": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "449.00",
-     "pret_discount": "0.00"
-    },
     "46": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
@@ -21969,6 +21917,13 @@
      "pret_discount": "0.00"
     },
     "38": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "449.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -22154,7 +22109,7 @@
     },
     "46": {
      "stoc": "In stoc",
-     "stoc_fizic": 1,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "544.50",
      "pret_discount": "299.48"
@@ -23121,7 +23076,7 @@
     },
     "42": {
      "stoc": "In stoc",
-     "stoc_fizic": 1,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "352.00",
      "pret_discount": "281.60"
@@ -23173,7 +23128,7 @@
     },
     "38": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "311.20",
      "pret_discount": "124.48"
@@ -23350,7 +23305,7 @@
     },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "270.00",
      "pret_discount": "0.00"
@@ -23459,14 +23414,14 @@
      "pret": "162.50",
      "pret_discount": "81.25"
     },
-    "40": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
+    "38": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
      "pret": "162.50",
      "pret_discount": "81.25"
     },
-    "38": {
+    "40": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -24455,6 +24410,37 @@
     }
    }
   },
+  "10928": {
+   "id": "10928",
+   "nume": "Rochie Adela bordo din catifea",
+   "cod": "TYAZ017",
+   "brand": "Trendya",
+   "pret": "429.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "46": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1072.50",
+     "pret_discount": "429.00"
+    },
+    "44": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "1072.50",
+     "pret_discount": "429.00"
+    },
+    "48": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "1072.50",
+     "pret_discount": "429.00"
+    }
+   }
+  },
   "10926": {
    "id": "10926",
    "nume": "Rochie Sidonia neagra",
@@ -24994,13 +24980,6 @@
      "pret": "359.10",
      "pret_discount": "143.64"
     },
-    "40": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "359.10",
-     "pret_discount": "143.64"
-    },
     "42": {
      "stoc": "In stoc",
      "stoc_fizic": 9,
@@ -25051,6 +25030,13 @@
      "pret_discount": "143.64"
     },
     "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "359.10",
+     "pret_discount": "143.64"
+    },
+    "40": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -25116,13 +25102,6 @@
      "pret": "359.10",
      "pret_discount": "143.64"
     },
-    "42": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "359.10",
-     "pret_discount": "143.64"
-    },
     "44": {
      "stoc": "In stoc",
      "stoc_fizic": 2,
@@ -25134,6 +25113,13 @@
      "stoc": "In stoc",
      "stoc_fizic": 1,
      "in_stock": true,
+     "pret": "359.10",
+     "pret_discount": "143.64"
+    },
+    "42": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
      "pret": "359.10",
      "pret_discount": "143.64"
     },
@@ -25155,6 +25141,13 @@
    "stoc_general": "In stoc",
    "sizes": {
     "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "244.30",
+     "pret_discount": "97.72"
+    },
+    "48": {
      "stoc": "In stoc",
      "stoc_fizic": 2,
      "in_stock": true,
@@ -25190,13 +25183,6 @@
      "pret_discount": "97.72"
     },
     "46": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "244.30",
-     "pret_discount": "97.72"
-    },
-    "48": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -25475,7 +25461,7 @@
     },
     "40": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "167.75",
      "pret_discount": "67.10"
@@ -25762,21 +25748,14 @@
    "sizes": {
     "38": {
      "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "1899.00",
-     "pret_discount": "1044.45"
-    },
-    "40": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "1899.00",
      "pret_discount": "1044.45"
     },
     "42": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "1899.00",
      "pret_discount": "1044.45"
@@ -25789,6 +25768,13 @@
      "pret_discount": "1044.45"
     },
     "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "1899.00",
+     "pret_discount": "1044.45"
+    },
+    "40": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -25901,29 +25887,15 @@
     }
    }
   },
-  "10593": {
-   "id": "10593",
-   "nume": "Bluza Marly bleumarin",
-   "cod": "TYA3314",
+  "10594": {
+   "id": "10594",
+   "nume": "Bluza Marly bleumarin cu buline",
+   "cod": "TYA3314-portocalie-36",
    "brand": "Trendya",
    "pret": "98.50",
    "stoc_general": "In stoc",
    "sizes": {
     "36": {
-     "stoc": "In stoc",
-     "stoc_fizic": 2,
-     "in_stock": true,
-     "pret": "197.00",
-     "pret_discount": "98.50"
-    },
-    "38": {
-     "stoc": "In stoc",
-     "stoc_fizic": 2,
-     "in_stock": true,
-     "pret": "197.00",
-     "pret_discount": "98.50"
-    },
-    "40": {
      "stoc": "In stoc",
      "stoc_fizic": 2,
      "in_stock": true,
@@ -25937,21 +25909,49 @@
      "pret": "197.00",
      "pret_discount": "98.50"
     },
+    "34": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "197.00",
+     "pret_discount": "98.50"
+    },
+    "38": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "197.00",
+     "pret_discount": "98.50"
+    },
+    "40": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "197.00",
+     "pret_discount": "98.50"
+    },
     "44": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
      "pret": "197.00",
      "pret_discount": "98.50"
     },
     "46": {
-     "stoc": "In stoc",
-     "stoc_fizic": 2,
-     "in_stock": true,
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
      "pret": "197.00",
      "pret_discount": "98.50"
     },
     "48": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "197.00",
+     "pret_discount": "98.50"
+    },
+    "50": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -26162,65 +26162,6 @@
      "in_stock": false,
      "pret": "387.50",
      "pret_discount": "155.00"
-    }
-   }
-  },
-  "10546": {
-   "id": "10546",
-   "nume": "Rochie Ofelia cu imprimeu roz",
-   "cod": "TYA2337",
-   "brand": "Ejolie",
-   "pret": "135.00",
-   "stoc_general": "In stoc",
-   "sizes": {
-    "48": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "337.50",
-     "pret_discount": "135.00"
-    },
-    "36": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "337.50",
-     "pret_discount": "135.00"
-    },
-    "38": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "337.50",
-     "pret_discount": "135.00"
-    },
-    "40": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "337.50",
-     "pret_discount": "135.00"
-    },
-    "42": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "337.50",
-     "pret_discount": "135.00"
-    },
-    "44": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "337.50",
-     "pret_discount": "135.00"
-    },
-    "46": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "337.50",
-     "pret_discount": "135.00"
     }
    }
   },
@@ -27122,15 +27063,15 @@
    "sizes": {
     "36": {
      "stoc": "In stoc",
-     "stoc_fizic": 3,
+     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "526.50",
      "pret_discount": "289.58"
     },
     "38": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
      "pret": "526.50",
      "pret_discount": "289.58"
     },
@@ -27286,6 +27227,65 @@
      "in_stock": false,
      "pret": "351.00",
      "pret_discount": "0.00"
+    }
+   }
+  },
+  "10154": {
+   "id": "10154",
+   "nume": "Rochie Zasha maro cu dungi",
+   "cod": "TYA7475",
+   "brand": "Trendya",
+   "pret": "175.50",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "48": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "351.00",
+     "pret_discount": "175.50"
+    },
+    "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "351.00",
+     "pret_discount": "175.50"
+    },
+    "38": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "351.00",
+     "pret_discount": "175.50"
+    },
+    "40": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "351.00",
+     "pret_discount": "175.50"
+    },
+    "42": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "351.00",
+     "pret_discount": "175.50"
+    },
+    "44": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "351.00",
+     "pret_discount": "175.50"
+    },
+    "46": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "351.00",
+     "pret_discount": "175.50"
     }
    }
   },
@@ -27760,7 +27760,7 @@
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 6,
+     "stoc_fizic": 5,
      "in_stock": true,
      "pret": "539.00",
      "pret_discount": "0.00"
@@ -27775,7 +27775,7 @@
    "pret": "0.00",
    "stoc_general": "In stoc",
    "sizes": {
-    "44": {
+    "38": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
      "in_stock": true,
@@ -27783,13 +27783,6 @@
      "pret_discount": "0.00"
     },
     "36": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "391.50",
-     "pret_discount": "0.00"
-    },
-    "38": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -27804,6 +27797,13 @@
      "pret_discount": "0.00"
     },
     "42": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "391.50",
+     "pret_discount": "0.00"
+    },
+    "44": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -28290,9 +28290,9 @@
      "pret_discount": "199.20"
     },
     "48": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
      "pret": "249.00",
      "pret_discount": "199.20"
     }
@@ -30125,13 +30125,6 @@
    "pret": "98.50",
    "stoc_general": "In stoc",
    "sizes": {
-    "44": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "197.00",
-     "pret_discount": "98.50"
-    },
     "46": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
@@ -30141,7 +30134,7 @@
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "197.00",
      "pret_discount": "98.50"
@@ -30168,6 +30161,13 @@
      "pret_discount": "98.50"
     },
     "42": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "197.00",
+     "pret_discount": "98.50"
+    },
+    "44": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -30724,19 +30724,12 @@
   "9567": {
    "id": "9567",
    "nume": "Bluza Paola alba cu buline",
-   "cod": "TYA3320-albabuline-46",
+   "cod": "TYA3320-albabuline-38",
    "brand": "Trendya",
    "pret": "59.20",
    "stoc_general": "In stoc",
    "sizes": {
     "38": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "148.00",
-     "pret_discount": "59.20"
-    },
-    "40": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
      "in_stock": true,
@@ -30778,6 +30771,13 @@
      "pret": "148.00",
      "pret_discount": "59.20"
     },
+    "40": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "148.00",
+     "pret_discount": "59.20"
+    },
     "42": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
@@ -30803,13 +30803,6 @@
    "stoc_general": "In stoc",
    "sizes": {
     "40": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "148.00",
-     "pret_discount": "59.20"
-    },
-    "42": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
      "in_stock": true,
@@ -30845,6 +30838,13 @@
      "pret_discount": "59.20"
     },
     "38": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "148.00",
+     "pret_discount": "59.20"
+    },
+    "42": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -31016,7 +31016,7 @@
     },
     "44": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "174.00",
      "pret_discount": "69.60"
@@ -31132,13 +31132,6 @@
      "pret": "152.00",
      "pret_discount": "60.80"
     },
-    "42": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "152.00",
-     "pret_discount": "60.80"
-    },
     "46": {
      "stoc": "In stoc",
      "stoc_fizic": 2,
@@ -31154,6 +31147,13 @@
      "pret_discount": "60.80"
     },
     "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "152.00",
+     "pret_discount": "60.80"
+    },
+    "42": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -31266,7 +31266,7 @@
     },
     "38": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "587.86",
      "pret_discount": "0.00"
@@ -32440,7 +32440,7 @@
     },
     "48": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "162.56",
      "pret_discount": "65.02"
@@ -32645,65 +32645,6 @@
     }
    }
   },
-  "9175": {
-   "id": "9175",
-   "nume": "Camasa Diana crem cu imprimeu",
-   "cod": "TYA3128-crem-36",
-   "brand": "Trendya",
-   "pret": "65.02",
-   "stoc_general": "In stoc",
-   "sizes": {
-    "48": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "162.56",
-     "pret_discount": "65.02"
-    },
-    "36": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "162.56",
-     "pret_discount": "65.02"
-    },
-    "38": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "162.56",
-     "pret_discount": "65.02"
-    },
-    "40": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "162.56",
-     "pret_discount": "65.02"
-    },
-    "42": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "162.56",
-     "pret_discount": "65.02"
-    },
-    "44": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "162.56",
-     "pret_discount": "65.02"
-    },
-    "46": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "162.56",
-     "pret_discount": "65.02"
-    }
-   }
-  },
   "9169": {
    "id": "9169",
    "nume": "Camasa Diana cu imprimeu negru",
@@ -32881,23 +32822,6 @@
     }
    }
   },
-  "9150": {
-   "id": "9150",
-   "nume": "Rochie Adina verde",
-   "cod": "TYA54446",
-   "brand": "Ejolie",
-   "pret": "77.92",
-   "stoc_general": "In stoc",
-   "sizes": {
-    "52": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "194.81",
-     "pret_discount": "77.92"
-    }
-   }
-  },
   "9148": {
    "id": "9148",
    "nume": "Rochie Josephine roz",
@@ -33022,18 +32946,11 @@
   "9111": {
    "id": "9111",
    "nume": "Bluza Otilia cu imprimeu floral",
-   "cod": "TYA3113-floral-40",
+   "cod": "TYA3113-floral-42",
    "brand": "Trendya",
    "pret": "76.23",
    "stoc_general": "In stoc",
    "sizes": {
-    "36": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "152.45",
-     "pret_discount": "76.23"
-    },
     "40": {
      "stoc": "In stoc",
      "stoc_fizic": 4,
@@ -33052,6 +32969,13 @@
      "stoc": "In stoc",
      "stoc_fizic": 1,
      "in_stock": true,
+     "pret": "152.45",
+     "pret_discount": "76.23"
+    },
+    "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
      "pret": "152.45",
      "pret_discount": "76.23"
     },
@@ -33088,7 +33012,7 @@
    "sizes": {
     "38": {
      "stoc": "In stoc",
-     "stoc_fizic": 2,
+     "stoc_fizic": 1,
      "in_stock": true,
      "pret": "165.00",
      "pret_discount": "82.50"
@@ -33553,22 +33477,22 @@
   "9082": {
    "id": "9082",
    "nume": "Bluza Fevronia alba cu imprimeu floral gri",
-   "cod": "TYA3188-alba-36",
+   "cod": "TYA3188-alba-40",
    "brand": "Trendya",
    "pret": "60.98",
    "stoc_general": "In stoc",
    "sizes": {
-    "36": {
+    "40": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
      "in_stock": true,
      "pret": "152.45",
      "pret_discount": "60.98"
     },
-    "40": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
+    "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
      "pret": "152.45",
      "pret_discount": "60.98"
     },
@@ -33901,6 +33825,65 @@
      "in_stock": false,
      "pret": "155.00",
      "pret_discount": "77.50"
+    }
+   }
+  },
+  "9069": {
+   "id": "9069",
+   "nume": "Bluza Mikaela cu imprimeu bordo",
+   "cod": "TYA3402-movbordo-40",
+   "brand": "Trendya",
+   "pret": "66.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "165.00",
+     "pret_discount": "66.00"
+    },
+    "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "165.00",
+     "pret_discount": "66.00"
+    },
+    "38": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "165.00",
+     "pret_discount": "66.00"
+    },
+    "42": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "165.00",
+     "pret_discount": "66.00"
+    },
+    "44": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "165.00",
+     "pret_discount": "66.00"
+    },
+    "46": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "165.00",
+     "pret_discount": "66.00"
+    },
+    "48": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "165.00",
+     "pret_discount": "66.00"
     }
    }
   },
@@ -34330,65 +34313,6 @@
      "in_stock": false,
      "pret": "425.00",
      "pret_discount": "127.50"
-    }
-   }
-  },
-  "8661": {
-   "id": "8661",
-   "nume": "Camasa Miruna cu imprimeu maro",
-   "cod": "TY3125-imprimeumaro-44",
-   "brand": "Trendya",
-   "pret": "62.00",
-   "stoc_general": "In stoc",
-   "sizes": {
-    "44": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "155.00",
-     "pret_discount": "62.00"
-    },
-    "36": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "155.00",
-     "pret_discount": "62.00"
-    },
-    "38": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "155.00",
-     "pret_discount": "62.00"
-    },
-    "40": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "155.00",
-     "pret_discount": "62.00"
-    },
-    "42": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "155.00",
-     "pret_discount": "62.00"
-    },
-    "46": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "155.00",
-     "pret_discount": "62.00"
-    },
-    "48": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "155.00",
-     "pret_discount": "62.00"
     }
    }
   },
@@ -36560,16 +36484,9 @@
      "pret": "859.00",
      "pret_discount": "687.20"
     },
-    "36": {
+    "38": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "859.00",
-     "pret_discount": "687.20"
-    },
-    "40": {
-     "stoc": "In stoc",
-     "stoc_fizic": 2,
      "in_stock": true,
      "pret": "859.00",
      "pret_discount": "687.20"
@@ -36595,7 +36512,14 @@
      "pret": "859.00",
      "pret_discount": "687.20"
     },
-    "38": {
+    "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "859.00",
+     "pret_discount": "687.20"
+    },
+    "40": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,

@@ -1,0 +1,23 @@
+{
+  "id": "10983",
+  "name": "Rochie Acelia maro cu imprimeu",
+  "image": "https://ejolie.ro/continut/produse/10983/1000/rochie-acelia-maro-cu-imprimeu_95380.webp",
+  "current_specs": {
+    "Culoare": [],
+    "Material": [],
+    "Lungime": [],
+    "Croi": [],
+    "Stil": [],
+    "Model": []
+  },
+  "missing": [
+    "Culoare",
+    "Material",
+    "Lungime",
+    "Croi",
+    "Stil",
+    "Model"
+  ],
+  "missing_count": 6,
+  "complete": false
+}

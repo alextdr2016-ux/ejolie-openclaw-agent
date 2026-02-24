@@ -1,635 +1,239 @@
 #!/usr/bin/env python3
-"""Export ejolie sales data to Excel"""
+"""Export Ejolie sales report to XLSX format."""
 
 import sys
 import os
-import json
-import argparse
-from datetime import datetime
-
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from utils import parse_period, fetch_orders, filter_orders_by_brand, calculate_product_report, format_product_report, calculate_profit_report, format_profit_report, REPORT_STATUS
+
+from utils import parse_period, fetch_orders, calculate_report, format_number, REPORT_STATUS
 
 try:
     import openpyxl
-    from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
-    from openpyxl.utils import get_column_letter
+    from openpyxl.styles import Font, Alignment, PatternFill, Border, Side, numbers
 except ImportError:
-    os.system("pip3 install openpyxl --break-system-packages -q")
+    print("Installing openpyxl...")
+    os.system(f"{sys.executable} -m pip install openpyxl -q")
     import openpyxl
-    from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
-    from openpyxl.utils import get_column_letter
+    from openpyxl.styles import Font, Alignment, PatternFill, Border, Side, numbers
+
+from collections import Counter
+from datetime import datetime
 
 
-def safe_float(val, default=0.0):
-    try:
-        return float(val) if val is not None else default
-    except (ValueError, TypeError):
-        return default
-
-
-def export_orders_xlsx(period="luna trecuta", brand=None, output=None, report_type="vanzari"):
-    data_start, data_end, label = parse_period(period)
-
-    if output is None:
-        safe_label = label.replace(" ", "_").replace("/", "-").replace("(", "").replace(")", "")
-        prefix = "raport_vanzari" if report_type == "vanzari" else f"raport_{report_type}"
-        output = f"/home/ubuntu/{prefix}_{safe_label}.xlsx"
-
-    print(f"📅 Perioadă: {label}")
-    print(f"📡 Se preiau comenzile...")
-
-    orders = [] # Initialize orders here
-    metrics = {} # Initialize metrics for product and profit reports
-
-    if report_type == "profit":
-        orders = fetch_orders(data_start, data_end, "14")  # Profit uses incasate (status 14) by default
-        print(f"✅ {len(orders)} comenzi încasate găsite.", flush=True)
-        metrics = calculate_profit_report(orders, brand_filter=brand)
-    elif report_type == "produse":
-        orders = fetch_orders(data_start, data_end)
-        print(f"✅ {len(orders)} comenzi găsite.", flush=True)
-        metrics = calculate_product_report(orders, brand_filter=brand)
-    else:
-        idstatus = REPORT_STATUS.get(report_type)
-        orders = fetch_orders(data_start, data_end, idstatus=idstatus)
-        if brand:
-            orders = filter_orders_by_brand(orders, brand)
-        print(f"✅ {len(orders)} comenzi găsite")
-
+def export_vanzari_xlsx(orders, period_label, output_path):
+    """Export sales orders to a nicely formatted XLSX file."""
     wb = openpyxl.Workbook()
-    if 'Sheet' in wb.sheetnames:
-        del wb['Sheet']
-
-    header_fill = PatternFill(start_color="1F4E79", end_color="1F4E79", fill_type="solid")
-    header_font = Font(color="FFFFFF", bold=True, size=11)
+    
+    # ── Sheet 1: Sumar (Summary) ──
+    ws_sum = wb.active
+    ws_sum.title = "Sumar"
+    
+    # Styles
+    header_font = Font(bold=True, size=14, color="FFFFFF")
+    header_fill = PatternFill(start_color="4472C4", end_color="4472C4", fill_type="solid")
+    subheader_font = Font(bold=True, size=11)
+    subheader_fill = PatternFill(start_color="D6E4F0", end_color="D6E4F0", fill_type="solid")
     thin_border = Border(
         left=Side(style='thin'), right=Side(style='thin'),
         top=Side(style='thin'), bottom=Side(style='thin')
     )
-    title_font = Font(bold=True, size=14, color="1F4E79")
-    section_font = Font(bold=True, size=11, color="1F4E79")
-
-    if report_type == "profit":
-        ws_profit = wb.create_sheet("Profit")
-        profit_headers = ["Metric", "Value"]
-        for col, h in enumerate(profit_headers, 1):
-            cell = ws_profit.cell(row=1, column=col, value=h)
-            cell.fill = header_fill
-            cell.font = header_font
-            cell.alignment = Alignment(horizontal="center")
-            cell.border = thin_border
-
-        profit_data = [
-            ["Total Vânzări", metrics.get("total_sales", 0)],
-            ["Cost Total Produse", metrics.get("total_product_cost", 0)],
-            ["Cost Total Transport", metrics.get("total_shipping_cost", 0)],
-            ["Profit Brut", metrics.get("gross_profit", 0)],
-            ["Număr Comenzi", metrics.get("num_orders", 0)],
-            ["Număr Produse", metrics.get("num_products", 0)],
-            ["Brand", metrics.get("brand_name", "All Brands")],
-        ]
-        for row_idx, (metric, value) in enumerate(profit_data, 2):
-            ws_profit.cell(row=row_idx, column=1, value=metric)
-            cell_value = ws_profit.cell(row=row_idx, column=2, value=value)
-            cell_value.border = thin_border
-            if isinstance(value, (int, float)):
-                cell_value.number_format = '#,##0.00'
-
-        ws_profit.column_dimensions['A'].width = 30
-        ws_profit.column_dimensions['B'].width = 20
-
-    elif report_type == "produse":
-        ws_prod = wb.create_sheet("Produse")
-        prod_headers = ["Nr Comandă", "Data", "Produs", "Brand", "Categorie", "Cantitate",
-                        "Preț Unitar", "Preț Fără Discount", "Discount", "Total Produs"]
-
-        for col, h in enumerate(prod_headers, 1):
-            cell = ws_prod.cell(row=1, column=col, value=h)
-            cell.fill = header_fill
-            cell.font = header_font
-            cell.alignment = Alignment(horizontal="center")
-            cell.border = thin_border
-
-        prod_row = 2
-        for order in orders.values():
-            produse = order.get("produse", {})
-            if not isinstance(produse, dict):
+    
+    # Calculate metrics
+    metrics = calculate_report(orders)
+    
+    # Title
+    ws_sum.merge_cells('A1:D1')
+    ws_sum['A1'] = f"📊 RAPORT VÂNZĂRI — {period_label}"
+    ws_sum['A1'].font = header_font
+    ws_sum['A1'].fill = header_fill
+    ws_sum['A1'].alignment = Alignment(horizontal='center')
+    
+    ws_sum['A2'] = f"Generat: {datetime.now().strftime('%d.%m.%Y %H:%M')}"
+    ws_sum['A2'].font = Font(italic=True, size=9, color="888888")
+    
+    # Summary metrics
+    summary_data = [
+        ("📦 Total comenzi", metrics['total_comenzi']),
+        ("💰 Valoare totală (RON)", metrics['valoare_totala']),
+        ("🚚 Transport total (RON)", metrics['transport_total']),
+        ("💵 Valoare netă (RON)", metrics['valoare_neta']),
+        ("📈 Medie per comandă (RON)", metrics['medie_comanda']),
+    ]
+    
+    row = 4
+    for label, value in summary_data:
+        ws_sum.cell(row=row, column=1, value=label).font = Font(bold=True)
+        cell = ws_sum.cell(row=row, column=2, value=value)
+        if isinstance(value, float):
+            cell.number_format = '#,##0.00'
+        row += 1
+    
+    # Payment methods
+    row += 1
+    ws_sum.cell(row=row, column=1, value="💳 Metode plată").font = subheader_font
+    ws_sum.cell(row=row, column=1).fill = subheader_fill
+    ws_sum.cell(row=row, column=2, value="Comenzi").font = subheader_font
+    ws_sum.cell(row=row, column=2).fill = subheader_fill
+    row += 1
+    for metoda, count in metrics['metode_plata'].most_common():
+        ws_sum.cell(row=row, column=1, value=metoda)
+        ws_sum.cell(row=row, column=2, value=count)
+        row += 1
+    
+    # Top products
+    row += 1
+    ws_sum.cell(row=row, column=1, value="🏆 Top produse").font = subheader_font
+    ws_sum.cell(row=row, column=1).fill = subheader_fill
+    ws_sum.cell(row=row, column=2, value="Cantitate").font = subheader_font
+    ws_sum.cell(row=row, column=2).fill = subheader_fill
+    row += 1
+    for name, qty in metrics['top_produse']:
+        ws_sum.cell(row=row, column=1, value=name)
+        ws_sum.cell(row=row, column=2, value=qty)
+        row += 1
+    
+    ws_sum.column_dimensions['A'].width = 45
+    ws_sum.column_dimensions['B'].width = 20
+    ws_sum.column_dimensions['C'].width = 15
+    ws_sum.column_dimensions['D'].width = 15
+    
+    # ── Sheet 2: Comenzi (All Orders) ──
+    ws_orders = wb.create_sheet("Comenzi")
+    
+    order_headers = ["Nr. Comandă", "Data", "Client", "Email", "Telefon", 
+                     "Total (RON)", "Transport (RON)", "Metodă plată", "Status"]
+    
+    for col, h in enumerate(order_headers, 1):
+        cell = ws_orders.cell(row=1, column=col, value=h)
+        cell.font = Font(bold=True, color="FFFFFF")
+        cell.fill = header_fill
+        cell.alignment = Alignment(horizontal='center')
+        cell.border = thin_border
+    
+    row = 2
+    for order_id, order in orders.items():
+        if not isinstance(order, dict):
+            continue
+        
+        ws_orders.cell(row=row, column=1, value=order.get("numar_comanda", order_id))
+        ws_orders.cell(row=row, column=2, value=order.get("data_comanda", ""))
+        
+        client_name = f"{order.get('prenume', '')} {order.get('nume', '')}".strip()
+        ws_orders.cell(row=row, column=3, value=client_name)
+        ws_orders.cell(row=row, column=4, value=order.get("email", ""))
+        ws_orders.cell(row=row, column=5, value=order.get("telefon", ""))
+        
+        try:
+            total = float(str(order.get("total_comanda", 0)).replace(",", "."))
+        except (ValueError, TypeError):
+            total = 0
+        cell = ws_orders.cell(row=row, column=6, value=total)
+        cell.number_format = '#,##0.00'
+        
+        try:
+            shipping = float(str(order.get("pret_livrare", 0)).replace(",", "."))
+        except (ValueError, TypeError):
+            shipping = 0
+        cell = ws_orders.cell(row=row, column=7, value=shipping)
+        cell.number_format = '#,##0.00'
+        
+        ws_orders.cell(row=row, column=8, value=order.get("metoda_plata", ""))
+        ws_orders.cell(row=row, column=9, value=order.get("status_comanda", ""))
+        
+        for col in range(1, 10):
+            ws_orders.cell(row=row, column=col).border = thin_border
+        
+        row += 1
+    
+    # Auto-width for orders sheet
+    for col_letter, width in [('A', 15), ('B', 18), ('C', 25), ('D', 30), 
+                               ('E', 15), ('F', 15), ('G', 15), ('H', 30), ('I', 20)]:
+        ws_orders.column_dimensions[col_letter].width = width
+    
+    # Auto-filter
+    ws_orders.auto_filter.ref = f"A1:I{row-1}"
+    
+    # ── Sheet 3: Produse (All Products) ──
+    ws_prod = wb.create_sheet("Produse")
+    
+    prod_headers = ["Nr. Comandă", "Produs", "Brand", "Cantitate", "Preț unitar (RON)", "Total (RON)"]
+    
+    for col, h in enumerate(prod_headers, 1):
+        cell = ws_prod.cell(row=1, column=col, value=h)
+        cell.font = Font(bold=True, color="FFFFFF")
+        cell.fill = header_fill
+        cell.alignment = Alignment(horizontal='center')
+        cell.border = thin_border
+    
+    row = 2
+    for order_id, order in orders.items():
+        if not isinstance(order, dict):
+            continue
+        
+        nr_comanda = order.get("numar_comanda", order_id)
+        produse = order.get("produse", {})
+        if not isinstance(produse, dict):
+            continue
+        
+        for pid, prod in produse.items():
+            if not isinstance(prod, dict):
                 continue
-            for p in produse.values():
-                if not isinstance(p, dict):
-                    continue
-                qty = int(float(p.get("cantitate", 1)))
-                pret = safe_float(p.get("pret_unitar", 0))
-                pret_full = safe_float(p.get("pret_unitar_fara_discount", 0))
-                discount = safe_float(p.get("discount_unitar_valoric", 0))
-
-                row_data = [
-                    order.get("id_comanda", ""),
-                    order.get("data", ""),
-                    p.get("nume", ""),
-                    p.get("brand_nume", ""),
-                    p.get("categorie_nume", ""),
-                    qty,
-                    pret,
-                    pret_full,
-                    discount,
-                    pret * qty,
-                ]
-                for col, val in enumerate(row_data, 1):
-                    cell = ws_prod.cell(row=prod_row, column=col, value=val)
-                    cell.border = thin_border
-                    if col in (7, 8, 9, 10):
-                        cell.number_format = '#,##0.00'
-                prod_row += 1
-
-        for col in range(1, len(prod_headers) + 1):
-            ws_prod.column_dimensions[get_column_letter(col)].width = 18
-
-    else: # vanzari, incasate, returnate
-        ws_comenzi = wb.create_sheet("Comenzi")
-        headers = ["Nr Comandă", "Data", "Client", "Telefon", "Județ", "Status",
-                   "Metoda Plată", "Produse", "Valoare Produse", "Transport", "Total Comandă"]
-
-        for col, h in enumerate(headers, 1):
-            cell = ws_comenzi.cell(row=1, column=col, value=h)
-            cell.fill = header_fill
-            cell.font = header_font
-            cell.alignment = Alignment(horizontal="center")
-            cell.border = thin_border
-
-        for row_idx, order in enumerate(orders.values(), 2):
-            products_list = []
-            val_produse = 0.0
-            produse = order.get("produse", {})
-            if isinstance(produse, dict):
-                for p in produse.values():
-                    if isinstance(p, dict):
-                        name = p.get("nume", "?")
-                        qty = int(float(p.get("cantitate", 1)))
-                        pret = safe_float(p.get("pret_unitar", 0))
-                        val_produse += pret * qty
-                        products_list.append(f"{name} x{qty}")
-
-            client = order.get("client", {})
-            if isinstance(client, dict):
-                client_name = client.get("nume", "")
-                client_phone = client.get("telefon", "")
-                livrare = client.get("livrare", {})
-                judet = livrare.get("judet", "") if isinstance(livrare, dict) else ""
-            else:
-                client_name = str(client)
-                client_phone = ""
-                judet = ""
-
-            total_comanda = safe_float(order.get("total_comanda", 0))
-            pret_livrare = safe_float(order.get("pret_livrare", 0))
-
-            row_data = [
-                order.get("id_comanda", ""),
-                order.get("data", ""),
-                client_name,
-                client_phone,
-                judet,
-                order.get("status", ""),
-                order.get("metoda_plata", ""),
-                "; ".join(products_list),
-                val_produse,
-                pret_livrare,
-                total_comanda,
-            ]
-
-            for col, val in enumerate(row_data, 1):
-                cell = ws_comenzi.cell(row=row_idx, column=col, value=val)
-                cell.border = thin_border
-                if col in (9, 10, 11):
-                    cell.number_format = '#,##0.00'
-
-        for col in range(1, len(headers) + 1):
-            max_len = len(str(headers[col-1]))
-            for row in range(2, min(len(orders) + 2, 50)):
-                val = ws_comenzi.cell(row=row, column=col).value
-                if val:
-                    max_len = max(max_len, min(len(str(val)), 50))
-            ws_comenzi.column_dimensions[get_column_letter(col)].width = max_len + 3
-
-        ws_prod_detail = wb.create_sheet("Produse Detaliu")
-        prod_detail_headers = ["Nr Comandă", "Data", "Produs", "Brand", "Categorie", "Cantitate",
-                               "Preț Unitar", "Preț Fără Discount", "Discount", "Total Produs"]
-
-        for col, h in enumerate(prod_detail_headers, 1):
-            cell = ws_prod_detail.cell(row=1, column=col, value=h)
-            cell.fill = header_fill
-            cell.font = header_font
-            cell.alignment = Alignment(horizontal="center")
-            cell.border = thin_border
-
-        prod_row_detail = 2
-        for order in orders.values():
-            produse = order.get("produse", {})
-            if not isinstance(produse, dict):
+            
+            nume = prod.get("nume", "Produs necunoscut")
+            if "discount" in nume.lower():
                 continue
-            for p in produse.values():
-                if not isinstance(p, dict):
-                    continue
-                qty = int(float(p.get("cantitate", 1)))
-                pret = safe_float(p.get("pret_unitar", 0))
-                pret_full = safe_float(p.get("pret_unitar_fara_discount", 0))
-                discount = safe_float(p.get("discount_unitar_valoric", 0))
-
-                row_data = [
-                    order.get("id_comanda", ""),
-                    order.get("data", ""),
-                    p.get("nume", ""),
-                    p.get("brand_nume", ""),
-                    p.get("categorie_nume", ""),
-                    qty,
-                    pret,
-                    pret_full,
-                    discount,
-                    pret * qty,
-                ]
-                for col, val in enumerate(row_data, 1):
-                    cell = ws_prod_detail.cell(row=prod_row_detail, column=col, value=val)
-                    cell.border = thin_border
-                    if col in (7, 8, 9, 10):
-                        cell.number_format = '#,##0.00'
-                prod_row_detail += 1
-
-        for col in range(1, len(prod_detail_headers) + 1):
-            ws_prod_detail.column_dimensions[get_column_letter(col)].width = 18
-
-        ws_sumar = wb.create_sheet("Sumar")
-        total_val = sum(safe_float(o.get("total_comanda", 0)) for o in orders.values())
-        total_transport = sum(safe_float(o.get("pret_livrare", 0)) for o in orders.values())
-
-        pay_methods = {}
-        for o in orders.values():
-            pm = o.get("metoda_plata", "Necunoscut") or "Necunoscut"
-            pay_methods[pm] = pay_methods.get(pm, 0) + 1
-
-        prod_stats = {}
-        for o in orders.values():
-            produse = o.get("produse", {})
-            if not isinstance(produse, dict):
-                continue
-            for p in produse.values():
-                if not isinstance(p, dict):
-                    continue
-                name = p.get("nume", "?")
-                qty = int(float(p.get("cantitate", 1)))
-                pret = safe_float(p.get("pret_unitar", 0))
-                key = name
-                if key not in prod_stats:
-                    prod_stats[key] = {"qty": 0, "revenue": 0, "brand": p.get("brand_nume", "")}
-                prod_stats[key]["qty"] += qty
-                prod_stats[key]["revenue"] += pret * qty
-
-        top_products = sorted(prod_stats.items(), key=lambda x: -x[1]["revenue"])[:20]
-
-        brand_stats = {}
-        for name, stats in prod_stats.items():
-            b = stats["brand"]
-            if b not in brand_stats:
-                brand_stats[b] = {"qty": 0, "revenue": 0, "orders": 0}
-            brand_stats[b]["qty"] += stats["qty"]
-            brand_stats[b]["revenue"] += stats["revenue"]
-
-        report_title = "RAPORT VÂNZĂRI" if report_type == "vanzari" else ("RAPORT ÎNCASATE" if report_type == "incasate" else "RAPORT RETURNATE")
-        summary_data = [
-            [report_title + " - " + label, ""],
-            ["", ""],
-            ["Total comenzi", len(orders)],
-            ["Valoare totală", total_val],
-            ["Transport total", total_transport],
-            ["Valoare netă (fără transport)", total_val - total_transport],
-            ["Medie per comandă", total_val / len(orders) if orders else 0],
-            ["", ""],
-            ["METODE PLATĂ", "Comenzi"],
-        ]
-        for pm, cnt in sorted(pay_methods.items(), key=lambda x: -x[1]):
-            summary_data.append([pm, cnt])
-
-        summary_data.append(["", ""])
-        summary_data.append(["PE BRANDURI", "Venit (RON)"])
-        for b, stats in sorted(brand_stats.items(), key=lambda x: -x[1]["revenue"]):
-            summary_data.append([f"{b} ({stats['qty']} buc)", stats["revenue"]])
-
-        summary_data.append(["", ""])
-        summary_data.append(["TOP 20 PRODUSE", "Venit (RON)"])
-        for name, stats in top_products:
-            summary_data.append([f"{name} ({stats['qty']} buc)", stats["revenue"]])
-
-        for row_idx, (a, b) in enumerate(summary_data, 1):
-            ws_sumar.cell(row=row_idx, column=1, value=a)
-            cell_b = ws_sumar.cell(row=row_idx, column=2, value=b)
-            if row_idx == 1:
-                ws_sumar.cell(row=row_idx, column=1).font = title_font
-            elif a in ("METODE PLATĂ", "PE BRANDURI", "TOP 20 PRODUSE"):
-                ws_sumar.cell(row=row_idx, column=1).font = section_font
-                cell_b.font = section_font
-            if isinstance(b, float):
-                cell_b.number_format = '#,##0.00'
-
-        ws_sumar.column_dimensions['A'].width = 55
-        ws_sumar.column_dimensions['B'].width = 18
-
-    wb.save(output)
-    print(f"✅ Excel salvat: {output}")
-    return output
-    # Remove the default sheet created by openpyxl
-    if 'Sheet' in wb.sheetnames:
-        del wb['Sheet']
-
-    # Define common styles
-    header_fill = PatternFill(start_color="1F4E79", end_color="1F4E79", fill_type="solid")
-    header_font = Font(color="FFFFFF", bold=True, size=11)
-    thin_border = Border(
-        left=Side(style='thin'), right=Side(style='thin'),
-        top=Side(style='thin'), bottom=Side(style='thin')
-    )
-    title_font = Font(bold=True, size=14, color="1F4E79")
-    section_font = Font(bold=True, size=11, color="1F4E79")
-
-    if report_type == "profit":
-        ws_profit = wb.create_sheet("Profit")
-        profit_headers = ["Metric", "Value"]
-        for col, h in enumerate(profit_headers, 1):
-            cell = ws_profit.cell(row=1, column=col, value=h)
-            cell.fill = header_fill
-            cell.font = header_font
-            cell.alignment = Alignment(horizontal="center")
-            cell.border = thin_border
-
-        profit_data = [
-            ["Total Vânzări", metrics.get("total_sales", 0)],
-            ["Cost Total Produse", metrics.get("total_product_cost", 0)],
-            ["Cost Total Transport", metrics.get("total_shipping_cost", 0)],
-            ["Profit Brut", metrics.get("gross_profit", 0)],
-            ["Număr Comenzi", metrics.get("num_orders", 0)],
-            ["Număr Produse", metrics.get("num_products", 0)],
-            ["Brand", metrics.get("brand_name", "All Brands")],
-        ]
-        for row_idx, (metric, value) in enumerate(profit_data, 2):
-            ws_profit.cell(row=row_idx, column=1, value=metric)
-            cell_value = ws_profit.cell(row=row_idx, column=2, value=value)
-            cell_value.border = thin_border
-            if isinstance(value, (int, float)):
-                cell_value.number_format = '#,##0.00'
-
-        ws_profit.column_dimensions['A'].width = 30
-        ws_profit.column_dimensions['B'].width = 20
-
-    elif report_type == "produse":
-        ws_prod = wb.create_sheet("Produse")
-        prod_headers = ["Nr Comandă", "Data", "Produs", "Brand", "Categorie", "Cantitate",
-                        "Preț Unitar", "Preț Fără Discount", "Discount", "Total Produs"]
-
-        for col, h in enumerate(prod_headers, 1):
-            cell = ws_prod.cell(row=1, column=col, value=h)
-            cell.fill = header_fill
-            cell.font = header_font
-            cell.alignment = Alignment(horizontal="center")
-            cell.border = thin_border
-
-        prod_row = 2
-        for order in orders.values():
-            produse = order.get("produse", {})
-            if not isinstance(produse, dict):
-                continue
-            for p in produse.values():
-                if not isinstance(p, dict):
-                    continue
-                qty = int(float(p.get("cantitate", 1)))
-                pret = safe_float(p.get("pret_unitar", 0))
-                pret_full = safe_float(p.get("pret_unitar_fara_discount", 0))
-                discount = safe_float(p.get("discount_unitar_valoric", 0))
-
-                row_data = [
-                    order.get("id_comanda", ""),
-                    order.get("data", ""),
-                    p.get("nume", ""),
-                    p.get("brand_nume", ""),
-                    p.get("categorie_nume", ""),
-                    qty,
-                    pret,
-                    pret_full,
-                    discount,
-                    pret * qty,
-                ]
-                for col, val in enumerate(row_data, 1):
-                    cell = ws_prod.cell(row=prod_row, column=col, value=val)
-                    cell.border = thin_border
-                    if col in (7, 8, 9, 10):
-                        cell.number_format = '#,##0.00'
-                prod_row += 1
-
-        for col in range(1, len(prod_headers) + 1):
-            ws_prod.column_dimensions[get_column_letter(col)].width = 18
-
-    else: # vanzari, incasate, returnate
-        ws_comenzi = wb.create_sheet("Comenzi")
-        headers = ["Nr Comandă", "Data", "Client", "Telefon", "Județ", "Status",
-                   "Metoda Plată", "Produse", "Valoare Produse", "Transport", "Total Comandă"]
-
-        for col, h in enumerate(headers, 1):
-            cell = ws_comenzi.cell(row=1, column=col, value=h)
-            cell.fill = header_fill
-            cell.font = header_font
-            cell.alignment = Alignment(horizontal="center")
-            cell.border = thin_border
-
-        for row_idx, order in enumerate(orders.values(), 2):
-            products_list = []
-            val_produse = 0.0
-            produse = order.get("produse", {})
-            if isinstance(produse, dict):
-                for p in produse.values():
-                    if isinstance(p, dict):
-                        name = p.get("nume", "?")
-                        qty = int(float(p.get("cantitate", 1)))
-                        pret = safe_float(p.get("pret_unitar", 0))
-                        val_produse += pret * qty
-                        products_list.append(f"{name} x{qty}")
-
-            client = order.get("client", {})
-            if isinstance(client, dict):
-                client_name = client.get("nume", "")
-                client_phone = client.get("telefon", "")
-                livrare = client.get("livrare", {})
-                judet = livrare.get("judet", "") if isinstance(livrare, dict) else ""
-            else:
-                client_name = str(client)
-                client_phone = ""
-                judet = ""
-
-            total_comanda = safe_float(order.get("total_comanda", 0))
-            pret_livrare = safe_float(order.get("pret_livrare", 0))
-
-            row_data = [
-                order.get("id_comanda", ""),
-                order.get("data", ""),
-                client_name,
-                client_phone,
-                judet,
-                order.get("status", ""),
-                order.get("metoda_plata", ""),
-                "; ".join(products_list),
-                val_produse,
-                pret_livrare,
-                total_comanda,
-            ]
-
-            for col, val in enumerate(row_data, 1):
-                cell = ws_comenzi.cell(row=row_idx, column=col, value=val)
-                cell.border = thin_border
-                if col in (9, 10, 11):
-                    cell.number_format = '#,##0.00'
-
-        for col in range(1, len(headers) + 1):
-            max_len = len(str(headers[col-1]))
-            for row in range(2, min(len(orders) + 2, 50)):
-                val = ws_comenzi.cell(row=row, column=col).value
-                if val:
-                    max_len = max(max_len, min(len(str(val)), 50))
-            ws_comenzi.column_dimensions[get_column_letter(col)].width = max_len + 3
-
-        ws_prod_detail = wb.create_sheet("Produse Detaliu")
-        prod_detail_headers = ["Nr Comandă", "Data", "Produs", "Brand", "Categorie", "Cantitate",
-                               "Preț Unitar", "Preț Fără Discount", "Discount", "Total Produs"]
-
-        for col, h in enumerate(prod_detail_headers, 1):
-            cell = ws_prod_detail.cell(row=1, column=col, value=h)
-            cell.fill = header_fill
-            cell.font = header_font
-            cell.alignment = Alignment(horizontal="center")
-            cell.border = thin_border
-
-        prod_row_detail = 2
-        for order in orders.values():
-            produse = order.get("produse", {})
-            if not isinstance(produse, dict):
-                continue
-            for p in produse.values():
-                if not isinstance(p, dict):
-                    continue
-                qty = int(float(p.get("cantitate", 1)))
-                pret = safe_float(p.get("pret_unitar", 0))
-                pret_full = safe_float(p.get("pret_unitar_fara_discount", 0))
-                discount = safe_float(p.get("discount_unitar_valoric", 0))
-
-                row_data = [
-                    order.get("id_comanda", ""),
-                    order.get("data", ""),
-                    p.get("nume", ""),
-                    p.get("brand_nume", ""),
-                    p.get("categorie_nume", ""),
-                    qty,
-                    pret,
-                    pret_full,
-                    discount,
-                    pret * qty,
-                ]
-                for col, val in enumerate(row_data, 1):
-                    cell = ws_prod_detail.cell(row=prod_row_detail, column=col, value=val)
-                    cell.border = thin_border
-                    if col in (7, 8, 9, 10):
-                        cell.number_format = '#,##0.00'
-                prod_row_detail += 1
-
-        for col in range(1, len(prod_detail_headers) + 1):
-            ws_prod_detail.column_dimensions[get_column_letter(col)].width = 18
-
-        ws_sumar = wb.create_sheet("Sumar")
-        total_val = sum(safe_float(o.get("total_comanda", 0)) for o in orders.values())
-        total_transport = sum(safe_float(o.get("pret_livrare", 0)) for o in orders.values())
-
-        pay_methods = {}
-        for o in orders.values():
-            pm = o.get("metoda_plata", "Necunoscut") or "Necunoscut"
-            pay_methods[pm] = pay_methods.get(pm, 0) + 1
-
-        prod_stats = {}
-        for o in orders.values():
-            produse = o.get("produse", {})
-            if not isinstance(produse, dict):
-                continue
-            for p in produse.values():
-                if not isinstance(p, dict):
-                    continue
-                name = p.get("nume", "?")
-                qty = int(float(p.get("cantitate", 1)))
-                pret = safe_float(p.get("pret_unitar", 0))
-                key = name
-                if key not in prod_stats:
-                    prod_stats[key] = {"qty": 0, "revenue": 0, "brand": p.get("brand_nume", "")}
-                prod_stats[key]["qty"] += qty
-                prod_stats[key]["revenue"] += pret * qty
-
-        top_products = sorted(prod_stats.items(), key=lambda x: -x[1]["revenue"])[:20]
-
-        brand_stats = {}
-        for name, stats in prod_stats.items():
-            b = stats["brand"]
-            if b not in brand_stats:
-                brand_stats[b] = {"qty": 0, "revenue": 0, "orders": 0}
-            brand_stats[b]["qty"] += stats["qty"]
-            brand_stats[b]["revenue"] += stats["revenue"]
-
-        report_title = "RAPORT VÂNZĂRI" if report_type == "vanzari" else ("RAPORT ÎNCASATE" if report_type == "incasate" else "RAPORT RETURNATE")
-        summary_data = [
-            [report_title + " - " + label, ""],
-            ["", ""],
-            ["Total comenzi", len(orders)],
-            ["Valoare totală", total_val],
-            ["Transport total", total_transport],
-            ["Valoare netă (fără transport)", total_val - total_transport],
-            ["Medie per comandă", total_val / len(orders) if orders else 0],
-            ["", ""],
-            ["METODE PLATĂ", "Comenzi"],
-        ]
-        for pm, cnt in sorted(pay_methods.items(), key=lambda x: -x[1]):
-            summary_data.append([pm, cnt])
-
-        summary_data.append(["", ""])
-        summary_data.append(["PE BRANDURI", "Venit (RON)"])
-        for b, stats in sorted(brand_stats.items(), key=lambda x: -x[1]["revenue"]):
-            summary_data.append([f"{b} ({stats['qty']} buc)", stats["revenue"]])
-
-        summary_data.append(["", ""])
-        summary_data.append(["TOP 20 PRODUSE", "Venit (RON)"])
-        for name, stats in top_products:
-            summary_data.append([f"{name} ({stats['qty']} buc)", stats["revenue"]])
-
-        for row_idx, (a, b) in enumerate(summary_data, 1):
-            ws_sumar.cell(row=row_idx, column=1, value=a)
-            cell_b = ws_sumar.cell(row=row_idx, column=2, value=b)
-            if row_idx == 1:
-                ws_sumar.cell(row=row_idx, column=1).font = title_font
-            elif a in ("METODE PLATĂ", "PE BRANDURI", "TOP 20 PRODUSE"):
-                ws_sumar.cell(row=row_idx, column=1).font = section_font
-                cell_b.font = section_font
-            if isinstance(b, float):
-                cell_b.number_format = '#,##0.00'
-
-        ws_sumar.column_dimensions['A'].width = 55
-        ws_sumar.column_dimensions['B'].width = 18
-
-    wb.save(output)
-    print(f"✅ Excel salvat: {output}")
-    return output
+            
+            ws_prod.cell(row=row, column=1, value=nr_comanda)
+            ws_prod.cell(row=row, column=2, value=nume)
+            ws_prod.cell(row=row, column=3, value=prod.get("brand_nume", ""))
+            
+            try:
+                qty = int(float(str(prod.get("cantitate", 1)).replace(",", ".")))
+            except (ValueError, TypeError):
+                qty = 1
+            ws_prod.cell(row=row, column=4, value=qty)
+            
+            try:
+                price = float(str(prod.get("pret_unitar", 0)).replace(",", "."))
+            except (ValueError, TypeError):
+                price = 0
+            cell = ws_prod.cell(row=row, column=5, value=price)
+            cell.number_format = '#,##0.00'
+            
+            cell = ws_prod.cell(row=row, column=6, value=price * qty)
+            cell.number_format = '#,##0.00'
+            
+            for col in range(1, 7):
+                ws_prod.cell(row=row, column=col).border = thin_border
+            
+            row += 1
+    
+    for col_letter, width in [('A', 15), ('B', 50), ('C', 15), ('D', 12), ('E', 18), ('F', 15)]:
+        ws_prod.column_dimensions[col_letter].width = width
+    
+    ws_prod.auto_filter.ref = f"A1:F{row-1}"
+    
+    # Save
+    wb.save(output_path)
+    print(f"✅ Fișier Excel salvat: {output_path}")
+    return output_path
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--period", default="luna trecuta")
-    parser.add_argument("--brand", default=None)
-    parser.add_argument("--output", default=None)
-    parser.add_argument("--type", default="vanzari", choices=["vanzari", "incasate", "returnate", "produse", "profit"], help="Tip raport: vanzari (toate), incasate (status 14), returnate (status 9), produse, profit")
-    args = parser.parse_args()
-
-    output = export_orders_xlsx(args.period, args.brand, args.output, args.type)
-    print(f"XLSX {output}")
+    period_text = "luna februarie"
+    data_start, data_end, period_label = parse_period(period_text)
+    print(f"📅 Perioadă: {period_label}")
+    
+    print("📡 Se preiau comenzile din API...", flush=True)
+    orders = fetch_orders(data_start, data_end)
+    print(f"✅ {len(orders)} comenzi găsite.", flush=True)
+    
+    output_path = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        f"raport_vanzari_februarie_2026.xlsx"
+    )
+    
+    export_vanzari_xlsx(orders, period_label, output_path)
 
 
 if __name__ == "__main__":

@@ -3,36 +3,6 @@
     "id": "12400",
     "name": "Salopeta Nicola fucsia",
     "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Roz",
-          "value_id": 24
-        }
-      ],
-      "Material": [
-        {
-          "value": "Crep",
-          "value_id": 3076
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Lungi",
-          "value_id": 51
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Peplum",
-          "value_id": 58
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Elegant",
-          "value_id": 1147
-        }
-      ],
       "Model": [
         {
           "value": "Un umar gol",
@@ -44,22 +14,18 @@
         }
       ]
     },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
+    "kept_existing": [
       "Culoare",
       "Material",
       "Lungime",
       "Croi",
-      "Stil",
+      "Stil"
+    ],
+    "unmapped": [],
+    "missing": [
       "Model"
     ],
     "gemini_raw": {
-      "Culoare": "Fucsia",
-      "Material": "Crep",
-      "Lungime": "Lungi",
-      "Croi": "Peplum",
-      "Stil": "Elegant",
       "Model": "Un umar gol, Brosa"
     }
   },
@@ -67,36 +33,6 @@
     "id": "12397",
     "name": "Salopeta Mara neagra",
     "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Negru",
-          "value_id": 20
-        }
-      ],
-      "Material": [
-        {
-          "value": "Stofa",
-          "value_id": 43
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Lungi",
-          "value_id": 51
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Lejer",
-          "value_id": 59
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Elegant",
-          "value_id": 1147
-        }
-      ],
       "Model": [
         {
           "value": "Fara maneci",
@@ -105,90 +41,52 @@
         {
           "value": "Centura inclusa",
           "value_id": 14499
+        },
+        {
+          "value": "Cu pliuri",
+          "value_id": 84
         }
       ]
     },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
+    "kept_existing": [
       "Culoare",
       "Material",
       "Lungime",
       "Croi",
-      "Stil",
+      "Stil"
+    ],
+    "unmapped": [],
+    "missing": [
       "Model"
     ],
     "gemini_raw": {
-      "Culoare": "Negru",
-      "Material": "Stofa",
-      "Lungime": "Lungi",
-      "Croi": "Lejer",
-      "Stil": "Elegant",
-      "Model": "Fara maneci, Centura inclusa"
+      "Model": "Fara maneci, Centura inclusa, Cu pliuri"
     }
   },
   {
     "id": "12381",
     "name": "Salopeta Aria",
     "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Negru",
-          "value_id": 20
-        }
-      ],
       "Material": [
         {
           "value": "Sifon",
           "value_id": 14482
         }
-      ],
-      "Lungime": [
-        {
-          "value": "Lungi",
-          "value_id": 51
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Lejer",
-          "value_id": 59
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Elegant",
-          "value_id": 1147
-        }
-      ],
-      "Model": [
-        {
-          "value": "Maneca lunga",
-          "value_id": 7488
-        },
-        {
-          "value": "Cu nasturi",
-          "value_id": 14507
-        }
       ]
     },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
+    "kept_existing": [
       "Culoare",
-      "Material",
       "Lungime",
       "Croi",
       "Stil",
       "Model"
     ],
+    "unmapped": [],
+    "missing": [
+      "Material"
+    ],
     "gemini_raw": {
-      "Culoare": "Negru",
-      "Material": "Sifon",
-      "Lungime": "Lungi",
-      "Croi": "Lejer",
-      "Stil": "Elegant",
-      "Model": "Maneca lunga, Cu nasturi"
+      "Material": "Sifon"
     }
   },
   {
@@ -221,24 +119,6 @@
     "id": "12364",
     "name": "Rochie Patrizia caramizie cu imprimeu",
     "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "floral",
-          "value_id": 3052
-        }
-      ],
-      "Material": [
-        {
-          "value": "Sifon",
-          "value_id": 14482
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
       "Croi": [
         {
           "value": "Petrecuta",
@@ -250,57 +130,32 @@
           "value": "Casual-Elegant",
           "value_id": 7465
         }
-      ],
-      "Model": [
-        {
-          "value": "Cu decolteu in V",
-          "value_id": 81
-        },
-        {
-          "value": "Cu cordon",
-          "value_id": 14503
-        }
       ]
     },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
+    "kept_existing": [
       "Culoare",
       "Material",
       "Lungime",
-      "Croi",
-      "Stil",
       "Model"
     ],
+    "unmapped": [],
+    "missing": [
+      "Croi",
+      "Stil"
+    ],
     "gemini_raw": {
-      "Culoare": "floral",
-      "Material": "Sifon",
-      "Lungime": "Medii",
       "Croi": "Petrecuta",
-      "Stil": "Casual-Elegant",
-      "Model": "Cu decolteu in V, Cu cordon"
+      "Stil": "Casual-Elegant"
     }
   },
   {
     "id": "12363",
     "name": "Rochie Katinca cu imprimeu verde",
     "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Verde",
-          "value_id": 23
-        }
-      ],
       "Material": [
         {
           "value": "Sifon",
           "value_id": 14482
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
         }
       ],
       "Croi": [
@@ -314,503 +169,33 @@
           "value": "Casual-Elegant",
           "value_id": 7465
         }
-      ],
-      "Model": [
-        {
-          "value": "Cu nasturi",
-          "value_id": 14507
-        },
-        {
-          "value": "Cu volane",
-          "value_id": 83
-        }
       ]
     },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
+    "kept_existing": [
       "Culoare",
-      "Material",
       "Lungime",
-      "Croi",
-      "Stil",
       "Model"
     ],
+    "unmapped": [],
+    "missing": [
+      "Material",
+      "Croi",
+      "Stil"
+    ],
     "gemini_raw": {
-      "Culoare": "Verde",
       "Material": "Sifon",
-      "Lungime": "Medii",
       "Croi": "Volane",
-      "Stil": "Casual-Elegant",
-      "Model": "Cu nasturi, Cu volane"
+      "Stil": "Casual-Elegant"
     }
   },
   {
     "id": "12362",
     "name": "Rochie Leticia cu imprimeu",
     "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Animal print",
-          "value_id": 3037
-        }
-      ],
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
       "Croi": [
         {
           "value": "Petrecuta",
           "value_id": 14487
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Elegant",
-          "value_id": 1147
-        }
-      ],
-      "Model": [
-        {
-          "value": "Fara maneci",
-          "value_id": 14508
-        },
-        {
-          "value": "Centura inclusa",
-          "value_id": 14499
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [
-      [
-        "Model",
-        "Cu crapatura"
-      ]
-    ],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Animal print",
-      "Material": "Poliester",
-      "Lungime": "Medii",
-      "Croi": "Petrecuta",
-      "Stil": "Elegant",
-      "Model": "Fara maneci, Centura inclusa, Cu crapatura"
-    }
-  },
-  {
-    "id": "12361",
-    "name": "Rochie Patrizia kaki cu imprimeu",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Kaki",
-          "value_id": 3055
-        }
-      ],
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Petrecuta",
-          "value_id": 14487
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Elegant",
-          "value_id": 7465
-        }
-      ],
-      "Model": [
-        {
-          "value": "Cu cordon",
-          "value_id": 14503
-        },
-        {
-          "value": "Decolteu in V",
-          "value_id": 81
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Kaki",
-      "Material": "Poliester",
-      "Lungime": "Medii",
-      "Croi": "Petrecuta",
-      "Stil": "Casual-Elegant",
-      "Model": "Cu cordon, Decolteu in V"
-    }
-  },
-  {
-    "id": "12360",
-    "name": "Rochie Fiesta cu imprimeu",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Animal print",
-          "value_id": 3037
-        }
-      ],
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Petrecuta",
-          "value_id": 14487
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Elegant",
-          "value_id": 7465
-        }
-      ],
-      "Model": [
-        {
-          "value": "Centura inclusa",
-          "value_id": 14499
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [
-      [
-        "Model",
-        "Cu crapatura"
-      ]
-    ],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Animal print",
-      "Material": "Poliester",
-      "Lungime": "Medii",
-      "Croi": "Petrecuta",
-      "Stil": "Casual-Elegant",
-      "Model": "Cu crapatura, Centura inclusa"
-    }
-  },
-  {
-    "id": "12359",
-    "name": "Rochie Marcia cu imprimeu",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Multicolor",
-          "value_id": 3059
-        }
-      ],
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Petrecuta",
-          "value_id": 14487
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Elegant",
-          "value_id": 7465
-        }
-      ],
-      "Model": [
-        {
-          "value": "Cordon",
-          "value_id": 14500
-        },
-        {
-          "value": "Cu decolteu in V",
-          "value_id": 81
-        },
-        {
-          "value": "Cu pliuri",
-          "value_id": 84
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Multicolor",
-      "Material": "Poliester",
-      "Lungime": "Medii",
-      "Croi": "Petrecuta",
-      "Stil": "Casual-Elegant",
-      "Model": "Cordon, Cu decolteu in V, Cu pliuri"
-    }
-  },
-  {
-    "id": "12358",
-    "name": "Rochie Rachel cu imprimeu albastru",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Albastru",
-          "value_id": 22
-        }
-      ],
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Petrecuta",
-          "value_id": 14487
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Elegant",
-          "value_id": 7465
-        }
-      ],
-      "Model": [
-        {
-          "value": "Centura inclusa",
-          "value_id": 14499
-        },
-        {
-          "value": "Decolteu in V",
-          "value_id": 81
-        },
-        {
-          "value": "Maneca lunga",
-          "value_id": 7488
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Albastru",
-      "Material": "Poliester",
-      "Lungime": "Medii",
-      "Croi": "Petrecuta",
-      "Stil": "Casual-Elegant",
-      "Model": "Centura inclusa, Decolteu in V, Maneca lunga"
-    }
-  },
-  {
-    "id": "12357",
-    "name": "Rochie Patrizia albastra cu imprimeu",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Albastru",
-          "value_id": 22
-        }
-      ],
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Petrecuta",
-          "value_id": 14487
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Elegant",
-          "value_id": 7465
-        }
-      ],
-      "Model": [
-        {
-          "value": "Cordon",
-          "value_id": 14500
-        },
-        {
-          "value": "Cu decolteu in V",
-          "value_id": 81
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Albastru",
-      "Material": "Poliester",
-      "Lungime": "Medii",
-      "Croi": "Petrecuta",
-      "Stil": "Casual-Elegant",
-      "Model": "Cordon, Cu decolteu in V"
-    }
-  },
-  {
-    "id": "12356",
-    "name": "Rochie Nicola bordo",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Bordo",
-          "value_id": 27
-        }
-      ],
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Mulat",
-          "value_id": 57
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Elegant",
-          "value_id": 1147
-        }
-      ],
-      "Model": [
-        {
-          "value": "Maneca lunga",
-          "value_id": 7488
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Bordo",
-      "Material": "Poliester",
-      "Lungime": "Medii",
-      "Croi": "Mulat",
-      "Stil": "Elegant",
-      "Model": "Maneca lunga"
-    }
-  },
-  {
-    "id": "12350",
-    "name": "Rochie Valery neagra",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Mulat",
-          "value_id": 57
         }
       ]
     },
@@ -826,25 +211,23 @@
       "Croi"
     ],
     "gemini_raw": {
-      "Croi": "Mulat"
+      "Croi": "Petrecuta"
     }
   },
   {
-    "id": "12268",
-    "name": "Rochie Allegra cu imprimeu divers",
+    "id": "12361",
+    "name": "Rochie Patrizia kaki cu imprimeu",
     "specs_to_add": {
-      "Model": [
+      "Croi": [
         {
-          "value": "Maneca lunga",
-          "value_id": 7488
-        },
+          "value": "Petrecuta",
+          "value_id": 14487
+        }
+      ],
+      "Stil": [
         {
-          "value": "Decolteu in V",
-          "value_id": 81
-        },
-        {
-          "value": "Cu nasturi",
-          "value_id": 14507
+          "value": "Casual-Elegant",
+          "value_id": 7465
         }
       ]
     },
@@ -852,37 +235,32 @@
       "Culoare",
       "Material",
       "Lungime",
-      "Croi",
-      "Stil"
+      "Model"
     ],
     "unmapped": [],
     "missing": [
-      "Model"
+      "Croi",
+      "Stil"
     ],
     "gemini_raw": {
-      "Model": "Maneca lunga, Decolteu in V, Cu nasturi"
+      "Croi": "Petrecuta",
+      "Stil": "Casual-Elegant"
     }
   },
   {
-    "id": "12263",
-    "name": "Rochie Allegra cu imprimeu floral",
+    "id": "12360",
+    "name": "Rochie Fiesta cu imprimeu",
     "specs_to_add": {
-      "Model": [
+      "Croi": [
         {
-          "value": "Cu decolteu in V",
-          "value_id": 81
-        },
+          "value": "Mulat",
+          "value_id": 57
+        }
+      ],
+      "Stil": [
         {
-          "value": "Maneca lunga",
-          "value_id": 7488
-        },
-        {
-          "value": "Cu nasturi",
-          "value_id": 14507
-        },
-        {
-          "value": "Cu cordon",
-          "value_id": 14503
+          "value": "Casual-Elegant",
+          "value_id": 7465
         }
       ]
     },
@@ -890,37 +268,32 @@
       "Culoare",
       "Material",
       "Lungime",
-      "Croi",
-      "Stil"
+      "Model"
     ],
     "unmapped": [],
     "missing": [
-      "Model"
+      "Croi",
+      "Stil"
     ],
     "gemini_raw": {
-      "Model": "Cu decolteu in V, Maneca lunga, Cu nasturi, Cu cordon"
+      "Croi": "Mulat",
+      "Stil": "Casual-Elegant"
     }
   },
   {
-    "id": "12262",
-    "name": "Rochie Allegra roz cu imprimeu abstract",
+    "id": "12359",
+    "name": "Rochie Marcia cu imprimeu",
     "specs_to_add": {
-      "Model": [
+      "Croi": [
         {
-          "value": "Rochie camasa",
-          "value_id": 14510
-        },
+          "value": "Plisat",
+          "value_id": 14488
+        }
+      ],
+      "Stil": [
         {
-          "value": "Cu nasturi",
-          "value_id": 14507
-        },
-        {
-          "value": "Cu decolteu in V",
-          "value_id": 81
-        },
-        {
-          "value": "Maneca lunga",
-          "value_id": 7488
+          "value": "Casual-Elegant",
+          "value_id": 7465
         }
       ]
     },
@@ -928,15 +301,82 @@
       "Culoare",
       "Material",
       "Lungime",
-      "Croi",
-      "Stil"
+      "Model"
     ],
     "unmapped": [],
     "missing": [
-      "Model"
+      "Croi",
+      "Stil"
     ],
     "gemini_raw": {
-      "Model": "Rochie camasa, Cu nasturi, Cu decolteu in V, Maneca lunga"
+      "Croi": "Plisat",
+      "Stil": "Casual-Elegant"
+    }
+  },
+  {
+    "id": "12358",
+    "name": "Rochie Rachel cu imprimeu albastru",
+    "specs_to_add": {
+      "Croi": [
+        {
+          "value": "Petrecuta",
+          "value_id": 14487
+        }
+      ],
+      "Stil": [
+        {
+          "value": "Casual-Elegant",
+          "value_id": 7465
+        }
+      ]
+    },
+    "kept_existing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Model"
+    ],
+    "unmapped": [],
+    "missing": [
+      "Croi",
+      "Stil"
+    ],
+    "gemini_raw": {
+      "Croi": "Petrecuta",
+      "Stil": "Casual-Elegant"
+    }
+  },
+  {
+    "id": "12357",
+    "name": "Rochie Patrizia albastra cu imprimeu",
+    "specs_to_add": {
+      "Croi": [
+        {
+          "value": "Petrecuta",
+          "value_id": 14487
+        }
+      ],
+      "Stil": [
+        {
+          "value": "Casual-Elegant",
+          "value_id": 7465
+        }
+      ]
+    },
+    "kept_existing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Model"
+    ],
+    "unmapped": [],
+    "missing": [
+      "Croi",
+      "Stil"
+    ],
+    "gemini_raw": {
+      "Croi": "Petrecuta",
+      "Stil": "Casual-Elegant"
     }
   },
   {
@@ -975,115 +415,6 @@
     }
   },
   {
-    "id": "12213",
-    "name": "Rochie Sole olive",
-    "specs_to_add": {
-      "Material": [
-        {
-          "value": "Bumbac",
-          "value_id": 47
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Material"
-    ],
-    "gemini_raw": {
-      "Culoare": "Olive",
-      "Material": "Bumbac",
-      "Lungime": "Midi",
-      "Croi": "Lejer",
-      "Stil": "Casual",
-      "Model": "Maneca scurta, Decolteu in V"
-    }
-  },
-  {
-    "id": "12212",
-    "name": "Compleu Verona bej",
-    "specs_to_add": {
-      "Material": [
-        {
-          "value": "Stofa",
-          "value_id": 43
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Material"
-    ],
-    "gemini_raw": {
-      "Material": "Stofa"
-    }
-  },
-  {
-    "id": "12211",
-    "name": "Rochie Colette alba cu imprimeu",
-    "specs_to_add": {
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Material"
-    ],
-    "gemini_raw": {
-      "Material": "Poliester"
-    }
-  },
-  {
-    "id": "12204",
-    "name": "Compleu Siena bej",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Lejer",
-          "value_id": 59
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Croi"
-    ],
-    "gemini_raw": {
-      "Croi": "Lejer"
-    }
-  },
-  {
     "id": "12203",
     "name": "Rochie Gaia fucsia cu imprimeu",
     "specs_to_add": {
@@ -1110,18 +441,18 @@
       "Material": "Vascoza",
       "Lungime": "Midi",
       "Croi": "Clos",
-      "Stil": "Casual",
+      "Stil": "Elegant",
       "Model": "Decolteu in V"
     }
   },
   {
-    "id": "12201",
-    "name": "Bluza Tara alba",
+    "id": "11294",
+    "name": "Rochie Beatriz neagra cu maneci brodate",
     "specs_to_add": {
       "Material": [
         {
-          "value": "Bumbac",
-          "value_id": 47
+          "value": "Poliester",
+          "value_id": 49
         }
       ]
     },
@@ -1137,307 +468,12 @@
       "Material"
     ],
     "gemini_raw": {
-      "Material": "Bumbac"
-    }
-  },
-  {
-    "id": "11753",
-    "name": "Rochie Elia rosu-negru",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Mulat",
-          "value_id": 57
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Croi"
-    ],
-    "gemini_raw": {
-      "Croi": "Mulat"
-    }
-  },
-  {
-    "id": "11747",
-    "name": "Rochie Elia lila-olive",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Drept",
-          "value_id": 56
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Croi"
-    ],
-    "gemini_raw": {
-      "Croi": "Drept"
-    }
-  },
-  {
-    "id": "11744",
-    "name": "Rochie Elia alb-negru",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Cambrat",
-          "value_id": 7462
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Croi"
-    ],
-    "gemini_raw": {
-      "Croi": "Cambrat"
-    }
-  },
-  {
-    "id": "11707",
-    "name": "Bluza Zhavia bleumarin cu imprimeu roz",
-    "specs_to_add": {
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Model": [
-        {
-          "value": "Maneca lunga",
-          "value_id": 7488
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Croi",
-      "Stil"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Lungime",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Lungime": "Medii",
-      "Model": "Maneca lunga"
-    }
-  },
-  {
-    "id": "11469",
-    "name": "Rochie Luna roz din catifea",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Roz",
-          "value_id": 24
-        }
-      ],
-      "Material": [
-        {
-          "value": "Catifea",
-          "value_id": 39
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Mulat",
-          "value_id": 57
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Elegant",
-          "value_id": 1147
-        }
-      ],
-      "Model": [
-        {
-          "value": "Cu decolteu in V",
-          "value_id": 81
-        },
-        {
-          "value": "Maneca lunga",
-          "value_id": 7488
-        },
-        {
-          "value": "Centura inclusa",
-          "value_id": 14499
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [
-      [
-        "Model",
-        "Cu crapatura"
-      ]
-    ],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Roz",
-      "Material": "Catifea",
-      "Lungime": "Medii",
-      "Croi": "Mulat",
-      "Stil": "Elegant",
-      "Model": "Cu decolteu in V, Maneca lunga, Centura inclusa, Cu crapatura"
-    }
-  },
-  {
-    "id": "11363",
-    "name": "Fusta Vasia neagra",
-    "specs_to_add": {
-      "Model": [
-        {
-          "value": "Cu buzunare",
-          "value_id": 14501
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Model"
-    ],
-    "gemini_raw": {
-      "Model": "Cu buzunare"
-    }
-  },
-  {
-    "id": "11294",
-    "name": "Rochie Beatriz neagra cu maneci brodate",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Negru",
-          "value_id": 20
-        }
-      ],
-      "Material": [
-        {
-          "value": "Crep",
-          "value_id": 3076
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Scurte",
-          "value_id": 52
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Lejer",
-          "value_id": 59
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Elegant",
-          "value_id": 1147
-        }
-      ],
-      "Model": [
-        {
-          "value": "Broderie",
-          "value_id": 77
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
       "Culoare": "Negru",
-      "Material": "Crep",
-      "Lungime": "Scurte",
-      "Croi": "Lejer",
+      "Material": "Poliester",
+      "Lungime": "Scurta",
+      "Croi": "Drept",
       "Stil": "Elegant",
-      "Model": "Broderie"
-    }
-  },
-  {
-    "id": "11214",
-    "name": "Rochie Violeta alba",
-    "specs_to_add": {
-      "Model": [
-        {
-          "value": "Cu decolteu in V",
-          "value_id": 81
-        },
-        {
-          "value": "Cu pliuri",
-          "value_id": 84
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Model"
-    ],
-    "gemini_raw": {
-      "Model": "Cu decolteu in V, Cu pliuri"
+      "Model": "Maneci brodate"
     }
   },
   {
@@ -1464,70 +500,6 @@
     ],
     "gemini_raw": {
       "Croi": "Petrecuta"
-    }
-  },
-  {
-    "id": "11014",
-    "name": "Rochie Carmen alba cu imprimeu albastru",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Alb",
-          "value_id": 19
-        }
-      ],
-      "Material": [
-        {
-          "value": "Sifon",
-          "value_id": 14482
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Petrecuta",
-          "value_id": 14487
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Elegant",
-          "value_id": 7465
-        }
-      ],
-      "Model": [
-        {
-          "value": "Maneci scurte",
-          "value_id": 14509
-        },
-        {
-          "value": "Cu cordon",
-          "value_id": 14503
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Alb",
-      "Material": "Sifon",
-      "Lungime": "Medii",
-      "Croi": "Petrecuta",
-      "Stil": "Casual-Elegant",
-      "Model": "Maneci scurte, Cu cordon"
     }
   },
   {
@@ -2085,6 +1057,10 @@
         {
           "value": "Maneca lunga",
           "value_id": 7488
+        },
+        {
+          "value": "Cu fermoar",
+          "value_id": 14504
         }
       ]
     },
@@ -2104,7 +1080,7 @@
       "Lungime": "Medii",
       "Croi": "Cambrat",
       "Stil": "Elegant",
-      "Model": "Maneca lunga"
+      "Model": "Maneca lunga, Cu fermoar"
     }
   },
   {
@@ -2273,10 +1249,6 @@
         {
           "value": "Maneca lunga",
           "value_id": 7488
-        },
-        {
-          "value": "Decolteu in V",
-          "value_id": 81
         }
       ]
     },
@@ -2296,7 +1268,7 @@
       "Lungime": "Scurte",
       "Croi": "Lejer",
       "Stil": "Casual-Elegant",
-      "Model": "Cordon, Maneca lunga, Decolteu in V"
+      "Model": "Cordon, Maneca lunga"
     }
   },
   {
@@ -2425,6 +1397,71 @@
       "Croi": "Clos",
       "Stil": "Elegant",
       "Model": "Umeri goi, Cu pliuri"
+    }
+  },
+  {
+    "id": "10928",
+    "name": "Rochie Adela bordo din catifea",
+    "specs_to_add": {
+      "Culoare": [
+        {
+          "value": "Bordo",
+          "value_id": 27
+        }
+      ],
+      "Material": [
+        {
+          "value": "Catifea",
+          "value_id": 39
+        }
+      ],
+      "Lungime": [
+        {
+          "value": "Lungi",
+          "value_id": 51
+        }
+      ],
+      "Croi": [
+        {
+          "value": "Sirena",
+          "value_id": 14484
+        }
+      ],
+      "Stil": [
+        {
+          "value": "De seara",
+          "value_id": 75
+        }
+      ],
+      "Model": [
+        {
+          "value": "Umeri goi",
+          "value_id": 14511
+        }
+      ]
+    },
+    "kept_existing": [],
+    "unmapped": [
+      [
+        "Model",
+        "Cu crapatura"
+      ]
+    ],
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "gemini_raw": {
+      "Culoare": "Bordo",
+      "Material": "Catifea",
+      "Lungime": "Lungi",
+      "Croi": "Sirena",
+      "Stil": "De seara",
+      "Model": "Cu crapatura, Umeri goi"
     }
   },
   {
@@ -2684,37 +1721,6 @@
     }
   },
   {
-    "id": "10885",
-    "name": "Rochie midi Angelika roz cu negru",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Clos",
-          "value_id": 55
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Croi"
-    ],
-    "gemini_raw": {
-      "Culoare": "Roz cu negru",
-      "Material": "Voal",
-      "Lungime": "Midi",
-      "Croi": "Clos",
-      "Stil": "Elegant",
-      "Model": "One shoulder, Cu volane"
-    }
-  },
-  {
     "id": "10867",
     "name": "Rochie Asma bordo",
     "specs_to_add": {
@@ -2754,8 +1760,8 @@
           "value_id": 14507
         },
         {
-          "value": "Cu pliuri",
-          "value_id": 84
+          "value": "Cu decolteu in V",
+          "value_id": 81
         }
       ]
     },
@@ -2775,7 +1781,7 @@
       "Lungime": "Medii",
       "Croi": "Lejer",
       "Stil": "Casual-Elegant",
-      "Model": "Cu nasturi, Cu pliuri"
+      "Model": "Cu nasturi, Cu decolteu in V"
     }
   },
   {
@@ -2890,12 +1896,8 @@
           "value_id": 81
         },
         {
-          "value": "Fara maneci",
-          "value_id": 14508
-        },
-        {
-          "value": "Cordon",
-          "value_id": 14500
+          "value": "Cu cordon",
+          "value_id": 14503
         }
       ]
     },
@@ -2915,7 +1917,7 @@
       "Lungime": "Medii",
       "Croi": "Plisat",
       "Stil": "Elegant",
-      "Model": "Bretele reglabile, Decolteu in V, Fara maneci, Cordon"
+      "Model": "Bretele reglabile, Decolteu in V, Cu cordon"
     }
   },
   {
@@ -3209,8 +2211,8 @@
       ],
       "Stil": [
         {
-          "value": "Casual-Elegant",
-          "value_id": 7465
+          "value": "Elegant",
+          "value_id": 1147
         }
       ],
       "Model": [
@@ -3243,7 +2245,7 @@
       "Material": "Sifon",
       "Lungime": "Medii",
       "Croi": "Plisat",
-      "Stil": "Casual-Elegant",
+      "Stil": "Elegant",
       "Model": "Bretele reglabile, Decolteu in V, Fara maneci"
     }
   },
@@ -3372,13 +2374,13 @@
     }
   },
   {
-    "id": "10394",
-    "name": "Rochie Electra verde",
+    "id": "10594",
+    "name": "Bluza Marly bleumarin cu buline",
     "specs_to_add": {
       "Culoare": [
         {
-          "value": "Verde",
-          "value_id": 23
+          "value": "Bleumarin",
+          "value_id": 28
         }
       ],
       "Material": [
@@ -3389,225 +2391,61 @@
       ],
       "Lungime": [
         {
-          "value": "Lungi",
-          "value_id": 51
+          "value": "Scurte",
+          "value_id": 52
         }
       ],
-      "Croi": [
-        {
-          "value": "Petrecuta",
-          "value_id": 14487
-        }
-      ],
-      "Stil": [
-        {
-          "value": "De seara",
-          "value_id": 75
-        }
-      ],
-      "Model": [
-        {
-          "value": "Maneca lunga",
-          "value_id": 7488
-        },
-        {
-          "value": "Cordon",
-          "value_id": 14500
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [
-      [
-        "Model",
-        "Cu crapatura"
-      ]
-    ],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Verde",
-      "Material": "Sifon",
-      "Lungime": "Lungi",
-      "Croi": "Petrecuta",
-      "Stil": "De seara",
-      "Model": "Cu crapatura, Maneca lunga, Cordon"
-    }
-  },
-  {
-    "id": "10171",
-    "name": "Rochie Fabiana ivoar cu imprimeu floral",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "floral",
-          "value_id": 3052
-        }
-      ]
-    },
-    "kept_existing": [
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Culoare"
-    ],
-    "gemini_raw": {
-      "Culoare": "floral"
-    }
-  },
-  {
-    "id": "10150",
-    "name": "Rochie Carla aurie",
-    "specs_to_add": {
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Material"
-    ],
-    "gemini_raw": {
-      "Material": "Poliester"
-    }
-  },
-  {
-    "id": "10051",
-    "name": "Rochie Frances alba cu pene si manusi",
-    "specs_to_add": {
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Mulat",
-          "value_id": 57
-        }
-      ],
-      "Stil": [
-        {
-          "value": "De ocazie",
-          "value_id": 67
-        }
-      ],
-      "Model": [
-        {
-          "value": "Fara maneci",
-          "value_id": 14508
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Alb",
-      "Material": "Poliester",
-      "Lungime": "Medii",
-      "Croi": "Mulat",
-      "Stil": "De ocazie",
-      "Model": "Fara maneci"
-    }
-  },
-  {
-    "id": "9986",
-    "name": "Pantaloni Betty kaki",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Drept",
-          "value_id": 56
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Croi"
-    ],
-    "gemini_raw": {
-      "Croi": "Drept"
-    }
-  },
-  {
-    "id": "9972",
-    "name": "Blugi Talia albastri",
-    "specs_to_add": {
-      "Material": [
-        {
-          "value": "Bumbac",
-          "value_id": 47
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Material"
-    ],
-    "gemini_raw": {
-      "Material": "Bumbac"
-    }
-  },
-  {
-    "id": "9742",
-    "name": "Bluza Ranya bleumarin cu dungi albe",
-    "specs_to_add": {
       "Croi": [
         {
           "value": "Lejer",
           "value_id": 59
         }
+      ],
+      "Stil": [
+        {
+          "value": "Casual-Elegant",
+          "value_id": 7465
+        }
+      ],
+      "Model": [
+        {
+          "value": "Maneci scurte",
+          "value_id": 14509
+        },
+        {
+          "value": "Cu volane",
+          "value_id": 83
+        }
+      ]
+    },
+    "kept_existing": [],
+    "unmapped": [],
+    "missing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Stil",
+      "Model"
+    ],
+    "gemini_raw": {
+      "Culoare": "Bleumarin",
+      "Material": "Sifon",
+      "Lungime": "Scurte",
+      "Croi": "Lejer",
+      "Stil": "Casual-Elegant",
+      "Model": "Maneci scurte, Cu volane"
+    }
+  },
+  {
+    "id": "10394",
+    "name": "Rochie Electra verde",
+    "specs_to_add": {
+      "Croi": [
+        {
+          "value": "Petrecuta",
+          "value_id": 14487
+        }
       ]
     },
     "kept_existing": [
@@ -3622,7 +2460,12 @@
       "Croi"
     ],
     "gemini_raw": {
-      "Croi": "Lejer"
+      "Culoare": "Verde",
+      "Material": "Voal",
+      "Lungime": "Lungi",
+      "Croi": "Petrecuta",
+      "Stil": "Elegant",
+      "Model": "Animal print, Cu maneci lungi, Cu slit"
     }
   },
   {
@@ -3652,542 +2495,8 @@
     }
   },
   {
-    "id": "9719",
-    "name": "Bluza Ranya cu dungi roz si bleumarin",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Lejer",
-          "value_id": 59
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Croi"
-    ],
-    "gemini_raw": {
-      "Croi": "Lejer"
-    }
-  },
-  {
-    "id": "9717",
-    "name": "Bluza Sandy rosie",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Lejer",
-          "value_id": 59
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Croi"
-    ],
-    "gemini_raw": {
-      "Croi": "Lejer"
-    }
-  },
-  {
-    "id": "9714",
-    "name": "Bluza Sandy crem",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Cambrat",
-          "value_id": 7462
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Croi"
-    ],
-    "gemini_raw": {
-      "Croi": "Cambrat"
-    }
-  },
-  {
-    "id": "9703",
-    "name": "Bluza Sandy roz prafuit",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Lejer",
-          "value_id": 59
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Croi"
-    ],
-    "gemini_raw": {
-      "Croi": "Lejer"
-    }
-  },
-  {
-    "id": "9692",
-    "name": "Bluza Larina verde",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Lejer",
-          "value_id": 59
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Croi"
-    ],
-    "gemini_raw": {
-      "Croi": "Lejer"
-    }
-  },
-  {
-    "id": "9647",
-    "name": "Bluza Marly portocalie",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Lejer",
-          "value_id": 59
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Croi"
-    ],
-    "gemini_raw": {
-      "Croi": "Lejer"
-    }
-  },
-  {
-    "id": "9573",
-    "name": "Rochie Inga roz",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Drept",
-          "value_id": 56
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Croi"
-    ],
-    "gemini_raw": {
-      "Croi": "Drept"
-    }
-  },
-  {
-    "id": "9567",
-    "name": "Bluza Paola alba cu buline",
-    "specs_to_add": {
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Material"
-    ],
-    "gemini_raw": {
-      "Material": "Poliester"
-    }
-  },
-  {
-    "id": "9312",
-    "name": "Rochie Bellona roz cu dungi albe si negre",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Roz",
-          "value_id": 24
-        }
-      ],
-      "Material": [
-        {
-          "value": "Sifon",
-          "value_id": 14482
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Scurte",
-          "value_id": 52
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Petrecuta",
-          "value_id": 14487
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Elegant",
-          "value_id": 7465
-        }
-      ],
-      "Model": [
-        {
-          "value": "Cu decolteu in V",
-          "value_id": 81
-        },
-        {
-          "value": "Maneci lungi",
-          "value_id": 7488
-        },
-        {
-          "value": "Centura inclusa",
-          "value_id": 14499
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Roz",
-      "Material": "Sifon",
-      "Lungime": "Scurte",
-      "Croi": "Petrecuta",
-      "Stil": "Casual-Elegant",
-      "Model": "Cu decolteu in V, Maneci lungi, Centura inclusa"
-    }
-  },
-  {
-    "id": "9281",
-    "name": "Rochie Taipa fucsia",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Roz",
-          "value_id": 24
-        }
-      ],
-      "Material": [
-        {
-          "value": "Lycra",
-          "value_id": 14480
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Mulat",
-          "value_id": 57
-        }
-      ],
-      "Stil": [
-        {
-          "value": "De seara",
-          "value_id": 75
-        }
-      ],
-      "Model": [
-        {
-          "value": "Fara maneci",
-          "value_id": 14508
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [
-      [
-        "Model",
-        "Cu crapatura"
-      ]
-    ],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Fucsia",
-      "Material": "Lycra",
-      "Lungime": "Medii",
-      "Croi": "Mulat",
-      "Stil": "De seara",
-      "Model": "Cu crapatura, Fara maneci"
-    }
-  },
-  {
-    "id": "9150",
-    "name": "Rochie Adina verde",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Verde",
-          "value_id": 23
-        }
-      ],
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Clos",
-          "value_id": 55
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Elegant",
-          "value_id": 7465
-        }
-      ],
-      "Model": [
-        {
-          "value": "Centura inclusa",
-          "value_id": 14499
-        },
-        {
-          "value": "Maneci scurte",
-          "value_id": 14509
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Verde",
-      "Material": "Poliester",
-      "Lungime": "Medii",
-      "Croi": "Clos",
-      "Stil": "Casual-Elegant",
-      "Model": "Centura inclusa, Maneci scurte"
-    }
-  },
-  {
-    "id": "9148",
-    "name": "Rochie Josephine roz",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Roz",
-          "value_id": 24
-        }
-      ],
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Scurte",
-          "value_id": 52
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Mulat",
-          "value_id": 57
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Elegant",
-          "value_id": 1147
-        }
-      ],
-      "Model": [
-        {
-          "value": "Maneca lunga",
-          "value_id": 7488
-        },
-        {
-          "value": "Corset",
-          "value_id": 14490
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Roz",
-      "Material": "Poliester",
-      "Lungime": "Scurte",
-      "Croi": "Mulat",
-      "Stil": "Elegant",
-      "Model": "Maneca lunga, Corset"
-    }
-  },
-  {
     "id": "9147",
     "name": "Rochie Ines fucsia",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Roz",
-          "value_id": 24
-        }
-      ],
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Mulat",
-          "value_id": 57
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Elegant",
-          "value_id": 1147
-        }
-      ],
-      "Model": [
-        {
-          "value": "Maneci scurte",
-          "value_id": 14509
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [
-      [
-        "Model",
-        "Cu crapatura"
-      ]
-    ],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Roz",
-      "Material": "Poliester",
-      "Lungime": "Medii",
-      "Croi": "Mulat",
-      "Stil": "Elegant",
-      "Model": "Maneci scurte, Cu crapatura"
-    }
-  },
-  {
-    "id": "9110",
-    "name": "Bluza Marisol cu imprimeu verde si corai",
     "specs_to_add": {
       "Model": [
         {
@@ -4212,6 +2521,11 @@
       "Model"
     ],
     "gemini_raw": {
+      "Culoare": "Fucsia",
+      "Material": "Poliester",
+      "Lungime": "Midi",
+      "Croi": "Mulat",
+      "Stil": "Elegant",
       "Model": "Accesorizata la baza gatului, Maneci scurte"
     }
   },
@@ -4242,403 +2556,80 @@
     }
   },
   {
-    "id": "9049",
-    "name": "Rochie Evelyn fucsia",
+    "id": "9069",
+    "name": "Bluza Mikaela cu imprimeu bordo",
     "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Roz",
-          "value_id": 24
-        }
-      ],
-      "Material": [
-        {
-          "value": "Satin",
-          "value_id": 3079
-        }
-      ],
       "Lungime": [
         {
           "value": "Medii",
           "value_id": 53
         }
       ],
-      "Croi": [
-        {
-          "value": "Petrecuta",
-          "value_id": 14487
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Elegant",
-          "value_id": 1147
-        }
-      ],
       "Model": [
         {
-          "value": "Maneci lungi",
+          "value": "Maneca lunga",
           "value_id": 7488
-        },
-        {
-          "value": "Centura inclusa",
-          "value_id": 14499
         },
         {
           "value": "Cu decolteu in V",
           "value_id": 81
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Fucsia",
-      "Material": "Satin",
-      "Lungime": "Medii",
-      "Croi": "Petrecuta",
-      "Stil": "Elegant",
-      "Model": "Maneci lungi, Centura inclusa, Cu decolteu in V"
-    }
-  },
-  {
-    "id": "8808",
-    "name": "Rochie Jesica verde din catifea cu fronseu la spate",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Verde",
-          "value_id": 23
-        }
-      ],
-      "Material": [
-        {
-          "value": "Catifea",
-          "value_id": 39
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Scurte",
-          "value_id": 52
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Mulat",
-          "value_id": 57
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Elegant",
-          "value_id": 1147
-        }
-      ],
-      "Model": [
-        {
-          "value": "Maneca lunga",
-          "value_id": 7488
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Verde",
-      "Material": "Catifea",
-      "Lungime": "Scurte",
-      "Croi": "Mulat",
-      "Stil": "Elegant",
-      "Model": "Maneca lunga"
-    }
-  },
-  {
-    "id": "8667",
-    "name": "Camasa Delice bleumarin cu dungi albe",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Bleumarin",
-          "value_id": 28
-        }
-      ],
-      "Material": [
-        {
-          "value": "Bumbac",
-          "value_id": 47
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Lejer",
-          "value_id": 59
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Office",
-          "value_id": 14491
-        }
-      ],
-      "Model": [
-        {
-          "value": "Maneca lunga",
-          "value_id": 7488
         },
         {
-          "value": "Cu nasturi",
-          "value_id": 14507
+          "value": "Cu funda",
+          "value_id": 14505
         }
       ]
     },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
+    "kept_existing": [
       "Culoare",
       "Material",
-      "Lungime",
       "Croi",
-      "Stil",
+      "Stil"
+    ],
+    "unmapped": [],
+    "missing": [
+      "Lungime",
       "Model"
     ],
     "gemini_raw": {
-      "Culoare": "Bleumarin",
-      "Material": "Bumbac",
       "Lungime": "Medii",
-      "Croi": "Lejer",
-      "Stil": "Casual-Office",
-      "Model": "Maneca lunga, Cu nasturi"
+      "Model": "Maneca lunga, Cu decolteu in V, Cu funda"
     }
   },
   {
     "id": "8653",
     "name": "Camasa Delice alba cu dungi negre",
     "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Alb",
-          "value_id": 19
-        }
-      ],
-      "Material": [
-        {
-          "value": "Bumbac",
-          "value_id": 47
-        }
-      ],
       "Lungime": [
         {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Lejer",
-          "value_id": 59
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual",
-          "value_id": 64
-        }
-      ],
-      "Model": [
-        {
-          "value": "Cu nasturi",
-          "value_id": 14507
-        },
-        {
-          "value": "Maneca lunga",
-          "value_id": 7488
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Alb",
-      "Material": "Bumbac",
-      "Lungime": "Medii",
-      "Croi": "Lejer",
-      "Stil": "Casual",
-      "Model": "Cu nasturi, Maneca lunga"
-    }
-  },
-  {
-    "id": "8588",
-    "name": "Rochie Colley fucsia",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Roz",
-          "value_id": 24
-        }
-      ],
-      "Material": [
-        {
-          "value": "Stofa",
-          "value_id": 43
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Medii",
-          "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Cambrat",
-          "value_id": 7462
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Office",
-          "value_id": 14491
-        }
-      ],
-      "Model": [
-        {
-          "value": "Cu nasturi",
-          "value_id": 14507
-        },
-        {
-          "value": "Centura inclusa",
-          "value_id": 14499
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Roz",
-      "Material": "Stofa",
-      "Lungime": "Medii",
-      "Croi": "Cambrat",
-      "Stil": "Casual-Office",
-      "Model": "Cu nasturi, Centura inclusa"
-    }
-  },
-  {
-    "id": "7813",
-    "name": "Bluza June ivoar cu umerii goi",
-    "specs_to_add": {
-      "Material": [
-        {
-          "value": "Bumbac",
-          "value_id": 47
+          "value": "Lungi",
+          "value_id": 51
         }
       ]
     },
     "kept_existing": [
       "Culoare",
-      "Lungime",
+      "Material",
       "Croi",
       "Stil",
       "Model"
     ],
     "unmapped": [],
     "missing": [
-      "Material"
+      "Lungime"
     ],
     "gemini_raw": {
-      "Material": "Bumbac"
-    }
-  },
-  {
-    "id": "7690",
-    "name": "Bluza June cu umerii goi si imprimeu multicolor",
-    "specs_to_add": {
-      "Material": [
-        {
-          "value": "Poliester",
-          "value_id": 49
-        }
-      ]
-    },
-    "kept_existing": [
-      "Culoare",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "unmapped": [],
-    "missing": [
-      "Material"
-    ],
-    "gemini_raw": {
-      "Material": "Poliester"
+      "Lungime": "Lungi"
     }
   },
   {
     "id": "7579",
     "name": "Rochie Marta turcoaz din neopren",
     "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Turcoaz",
-          "value_id": 3070
-        }
-      ],
-      "Material": [
-        {
-          "value": "Neopren",
-          "value_id": 7457
-        }
-      ],
       "Lungime": [
         {
           "value": "Medii",
           "value_id": 53
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Mulat",
-          "value_id": 57
         }
       ],
       "Stil": [
@@ -4649,70 +2640,40 @@
       ],
       "Model": [
         {
-          "value": "Decolteu in V",
+          "value": "Cu decolteu in V",
           "value_id": 81
         },
         {
           "value": "Maneci scurte",
           "value_id": 14509
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Turcoaz",
-      "Material": "Neopren",
-      "Lungime": "Medii",
-      "Croi": "Mulat",
-      "Stil": "Elegant",
-      "Model": "Decolteu in V, Maneci scurte"
-    }
-  },
-  {
-    "id": "7053",
-    "name": "Sacou Adonia verde",
-    "specs_to_add": {
-      "Croi": [
+        },
         {
-          "value": "Cambrat",
-          "value_id": 7462
+          "value": "Cu pliuri",
+          "value_id": 84
         }
       ]
     },
     "kept_existing": [
       "Culoare",
       "Material",
+      "Croi"
+    ],
+    "unmapped": [],
+    "missing": [
       "Lungime",
       "Stil",
       "Model"
     ],
-    "unmapped": [],
-    "missing": [
-      "Croi"
-    ],
     "gemini_raw": {
-      "Croi": "Cambrat"
+      "Lungime": "Medii",
+      "Stil": "Elegant",
+      "Model": "Cu decolteu in V, Maneci scurte, Cu pliuri"
     }
   },
   {
     "id": "6973",
     "name": "Rochie Natalia corai cu insertii stralucitoare si detalii din plasa cu cristale",
     "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Corai",
-          "value_id": 3048
-        }
-      ],
       "Material": [
         {
           "value": "Piele ecologica",
@@ -4748,7 +2709,9 @@
         }
       ]
     },
-    "kept_existing": [],
+    "kept_existing": [
+      "Culoare"
+    ],
     "unmapped": [
       [
         "Model",
@@ -4756,7 +2719,6 @@
       ]
     ],
     "missing": [
-      "Culoare",
       "Material",
       "Lungime",
       "Croi",
@@ -4776,12 +2738,6 @@
     "id": "6934",
     "name": "Rochie Natalia bordo cu insertii stralucitoare si detalii din plasa cu cristale",
     "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Bordo",
-          "value_id": 27
-        }
-      ],
       "Material": [
         {
           "value": "Piele ecologica",
@@ -4817,7 +2773,9 @@
         }
       ]
     },
-    "kept_existing": [],
+    "kept_existing": [
+      "Culoare"
+    ],
     "unmapped": [
       [
         "Model",
@@ -4825,7 +2783,6 @@
       ]
     ],
     "missing": [
-      "Culoare",
       "Material",
       "Lungime",
       "Croi",
@@ -4914,15 +2871,10 @@
           "value": "Multicolor",
           "value_id": 3059
         }
-      ],
-      "Material": [
-        {
-          "value": "Jerseu",
-          "value_id": 3078
-        }
       ]
     },
     "kept_existing": [
+      "Material",
       "Lungime",
       "Croi",
       "Stil",
@@ -4930,12 +2882,10 @@
     ],
     "unmapped": [],
     "missing": [
-      "Culoare",
-      "Material"
+      "Culoare"
     ],
     "gemini_raw": {
-      "Culoare": "Multicolor",
-      "Material": "Jerseu"
+      "Culoare": "Multicolor"
     }
   },
   {
@@ -4980,10 +2930,6 @@
         {
           "value": "Cordon",
           "value_id": 14500
-        },
-        {
-          "value": "Maneca lunga",
-          "value_id": 7488
         }
       ]
     },
@@ -5003,457 +2949,17 @@
       "Lungime": "Medii",
       "Croi": "Petrecuta",
       "Stil": "Casual-Elegant",
-      "Model": "Cu decolteu in V, Cordon, Maneca lunga"
+      "Model": "Cu decolteu in V, Cordon"
     }
   },
   {
     "id": "654",
     "name": "Pantaloni Aurora bleumarin cu dungi",
     "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Bleumarin",
-          "value_id": 28
-        }
-      ],
-      "Material": [
-        {
-          "value": "Stofa",
-          "value_id": 43
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Lungi",
-          "value_id": 51
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Drept",
-          "value_id": 56
-        }
-      ],
       "Stil": [
         {
-          "value": "Casual-Office",
-          "value_id": 14491
-        }
-      ],
-      "Model": [
-        {
-          "value": "Buzunare",
-          "value_id": 14496
-        },
-        {
-          "value": "Cu fermoar",
-          "value_id": 14504
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Bleumarin",
-      "Material": "Stofa",
-      "Lungime": "Lungi",
-      "Croi": "Drept",
-      "Stil": "Casual-Office",
-      "Model": "Buzunare, Cu fermoar"
-    }
-  },
-  {
-    "id": "652",
-    "name": "Pantaloni Aurora negri cu dungi",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Negru",
-          "value_id": 20
-        }
-      ],
-      "Material": [
-        {
-          "value": "Stofa",
-          "value_id": 43
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Lungi",
-          "value_id": 51
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Drept",
-          "value_id": 56
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Office",
-          "value_id": 14491
-        }
-      ],
-      "Model": [
-        {
-          "value": "Buzunare",
-          "value_id": 14496
-        },
-        {
-          "value": "Cu fermoar",
-          "value_id": 14504
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Negru",
-      "Material": "Stofa",
-      "Lungime": "Lungi",
-      "Croi": "Drept",
-      "Stil": "Casual-Office",
-      "Model": "Buzunare, Cu fermoar"
-    }
-  },
-  {
-    "id": "650",
-    "name": "Pantaloni Filipa Maro",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Maro",
-          "value_id": 35
-        }
-      ],
-      "Material": [
-        {
-          "value": "Stofa",
-          "value_id": 43
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Lungi",
-          "value_id": 51
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Drept",
-          "value_id": 56
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Office",
-          "value_id": 14491
-        }
-      ],
-      "Model": [
-        {
-          "value": "Cu buzunare",
-          "value_id": 14501
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Maro",
-      "Material": "Stofa",
-      "Lungime": "Lungi",
-      "Croi": "Drept",
-      "Stil": "Casual-Office",
-      "Model": "Cu buzunare"
-    }
-  },
-  {
-    "id": "648",
-    "name": "Pantaloni Aurelia maro cu carouri",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Maro",
-          "value_id": 35
-        }
-      ],
-      "Material": [
-        {
-          "value": "Stofa",
-          "value_id": 43
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Lungi",
-          "value_id": 51
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Drept",
-          "value_id": 56
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Office",
-          "value_id": 14491
-        }
-      ],
-      "Model": [
-        {
-          "value": "Cu buzunare",
-          "value_id": 14501
-        },
-        {
-          "value": "Centura inclusa",
-          "value_id": 14499
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Maro",
-      "Material": "Stofa",
-      "Lungime": "Lungi",
-      "Croi": "Drept",
-      "Stil": "Casual-Office",
-      "Model": "Cu buzunare, Centura inclusa"
-    }
-  },
-  {
-    "id": "646",
-    "name": "Pantaloni Aurelia bej cu carouri",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Bej",
-          "value_id": 31
-        }
-      ],
-      "Material": [
-        {
-          "value": "Stofa",
-          "value_id": 43
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Lungi",
-          "value_id": 51
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Drept",
-          "value_id": 56
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Office",
-          "value_id": 14491
-        }
-      ],
-      "Model": [
-        {
-          "value": "Buzunare",
-          "value_id": 14496
-        },
-        {
-          "value": "Centura inclusa",
-          "value_id": 14499
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Bej",
-      "Material": "Stofa",
-      "Lungime": "Lungi",
-      "Croi": "Drept",
-      "Stil": "Casual-Office",
-      "Model": "Buzunare, Centura inclusa"
-    }
-  },
-  {
-    "id": "644",
-    "name": "Pantaloni Anda bordo",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Bordo",
-          "value_id": 27
-        }
-      ],
-      "Material": [
-        {
-          "value": "Stofa",
-          "value_id": 43
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Lungi",
-          "value_id": 51
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Drept",
-          "value_id": 56
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Office",
-          "value_id": 14491
-        }
-      ],
-      "Model": [
-        {
-          "value": "Buzunare",
-          "value_id": 14496
-        },
-        {
-          "value": "Centura inclusa",
-          "value_id": 14499
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Bordo",
-      "Material": "Stofa",
-      "Lungime": "Lungi",
-      "Croi": "Drept",
-      "Stil": "Casual-Office",
-      "Model": "Buzunare, Centura inclusa"
-    }
-  },
-  {
-    "id": "642",
-    "name": "Pantaloni Filipa bleumarin",
-    "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Bleumarin",
-          "value_id": 28
-        }
-      ],
-      "Material": [
-        {
-          "value": "Stofa",
-          "value_id": 43
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Lungi",
-          "value_id": 51
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Drept",
-          "value_id": 56
-        }
-      ],
-      "Stil": [
-        {
-          "value": "Casual-Office",
-          "value_id": 14491
-        }
-      ],
-      "Model": [
-        {
-          "value": "Cu buzunare",
-          "value_id": 14501
-        }
-      ]
-    },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
-      "Culoare",
-      "Material",
-      "Lungime",
-      "Croi",
-      "Stil",
-      "Model"
-    ],
-    "gemini_raw": {
-      "Culoare": "Bleumarin",
-      "Material": "Stofa",
-      "Lungime": "Lungi",
-      "Croi": "Drept",
-      "Stil": "Casual-Office",
-      "Model": "Cu buzunare"
-    }
-  },
-  {
-    "id": "641",
-    "name": "Sacou Ines verde",
-    "specs_to_add": {
-      "Croi": [
-        {
-          "value": "Cambrat",
-          "value_id": 7462
+          "value": "Birou",
+          "value_id": 63
         }
       ]
     },
@@ -5461,75 +2967,171 @@
       "Culoare",
       "Material",
       "Lungime",
-      "Stil",
+      "Croi",
       "Model"
     ],
     "unmapped": [],
     "missing": [
-      "Croi"
+      "Stil"
     ],
     "gemini_raw": {
-      "Croi": "Cambrat"
+      "Stil": "Birou"
     }
   },
   {
-    "id": "640",
-    "name": "Pantaloni Nadia gri cu carouri",
+    "id": "652",
+    "name": "Pantaloni Aurora negri cu dungi",
     "specs_to_add": {
-      "Culoare": [
-        {
-          "value": "Gri",
-          "value_id": 33
-        }
-      ],
-      "Material": [
-        {
-          "value": "Stofa",
-          "value_id": 43
-        }
-      ],
-      "Lungime": [
-        {
-          "value": "Lungi",
-          "value_id": 51
-        }
-      ],
-      "Croi": [
-        {
-          "value": "Drept",
-          "value_id": 56
-        }
-      ],
       "Stil": [
         {
           "value": "Casual-Office",
           "value_id": 14491
         }
-      ],
-      "Model": [
-        {
-          "value": "Cu buzunare",
-          "value_id": 14501
-        }
       ]
     },
-    "kept_existing": [],
-    "unmapped": [],
-    "missing": [
+    "kept_existing": [
       "Culoare",
       "Material",
       "Lungime",
       "Croi",
-      "Stil",
       "Model"
     ],
+    "unmapped": [],
+    "missing": [
+      "Stil"
+    ],
     "gemini_raw": {
-      "Culoare": "Gri",
-      "Material": "Stofa",
-      "Lungime": "Lungi",
-      "Croi": "Drept",
-      "Stil": "Casual-Office",
-      "Model": "Cu buzunare"
+      "Stil": "Casual-Office"
+    }
+  },
+  {
+    "id": "650",
+    "name": "Pantaloni Filipa Maro",
+    "specs_to_add": {
+      "Stil": [
+        {
+          "value": "Birou",
+          "value_id": 63
+        }
+      ]
+    },
+    "kept_existing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Model"
+    ],
+    "unmapped": [],
+    "missing": [
+      "Stil"
+    ],
+    "gemini_raw": {
+      "Stil": "Birou"
+    }
+  },
+  {
+    "id": "648",
+    "name": "Pantaloni Aurelia maro cu carouri",
+    "specs_to_add": {
+      "Stil": [
+        {
+          "value": "Casual-Office",
+          "value_id": 14491
+        }
+      ]
+    },
+    "kept_existing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Model"
+    ],
+    "unmapped": [],
+    "missing": [
+      "Stil"
+    ],
+    "gemini_raw": {
+      "Stil": "Casual-Office"
+    }
+  },
+  {
+    "id": "646",
+    "name": "Pantaloni Aurelia bej cu carouri",
+    "specs_to_add": {
+      "Stil": [
+        {
+          "value": "Casual-Office",
+          "value_id": 14491
+        }
+      ]
+    },
+    "kept_existing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Model"
+    ],
+    "unmapped": [],
+    "missing": [
+      "Stil"
+    ],
+    "gemini_raw": {
+      "Stil": "Casual-Office"
+    }
+  },
+  {
+    "id": "644",
+    "name": "Pantaloni Anda bordo",
+    "specs_to_add": {
+      "Stil": [
+        {
+          "value": "Casual-Office",
+          "value_id": 14491
+        }
+      ]
+    },
+    "kept_existing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Model"
+    ],
+    "unmapped": [],
+    "missing": [
+      "Stil"
+    ],
+    "gemini_raw": {
+      "Stil": "Casual-Office"
+    }
+  },
+  {
+    "id": "642",
+    "name": "Pantaloni Filipa bleumarin",
+    "specs_to_add": {
+      "Stil": [
+        {
+          "value": "Birou",
+          "value_id": 63
+        }
+      ]
+    },
+    "kept_existing": [
+      "Culoare",
+      "Material",
+      "Lungime",
+      "Croi",
+      "Model"
+    ],
+    "unmapped": [],
+    "missing": [
+      "Stil"
+    ],
+    "gemini_raw": {
+      "Stil": "Birou"
     }
   }
 ]
