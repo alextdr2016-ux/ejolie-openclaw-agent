@@ -178,7 +178,7 @@ def main():
     import subprocess
     result = subprocess.run(
         [sys.executable, BLOG_GEN, "--keyword", keyword],
-        capture_output=True, text=True, timeout=120,
+        capture_output=True, text=True, timeout=300,
     )
     print(result.stdout)
     if result.returncode != 0:
