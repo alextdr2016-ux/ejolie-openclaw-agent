@@ -1,5 +1,5 @@
 {
- "updated": "2026-03-07 16:01:54",
+ "updated": "2026-03-07 20:01:58",
  "total_products": 682,
  "products": {
   "12415": {
@@ -17164,7 +17164,7 @@
     },
     "38": {
      "stoc": "In stoc",
-     "stoc_fizic": 5,
+     "stoc_fizic": 4,
      "in_stock": true,
      "pret": "310.50",
      "pret_discount": "0.00"

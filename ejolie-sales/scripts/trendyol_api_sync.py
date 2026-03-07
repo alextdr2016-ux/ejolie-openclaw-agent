@@ -118,7 +118,8 @@ def get_trendyol_headers():
     return {
         "Authorization": f"Basic {auth_base64}",
         "Content-Type": "application/json",
-        "User-Agent": f"{SELLER_ID} - SelfIntegration"
+        "User-Agent": f"{SELLER_ID} - SelfIntegration",
+        "storeFrontCode": STOREFRONT_CODE
     }
 
 
@@ -465,7 +466,7 @@ def update_trendyol_stock(items_to_update):
         log(f"  📦 Batch {batch_num}: {len(batch)} items")
 
         try:
-            response = requests.put(
+            response = requests.post(
                 TRENDYOL_STOCK_URL,
                 headers=headers,
                 json=payload,
