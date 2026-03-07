@@ -53,7 +53,12 @@ def fetch_stock_by_id(ejolie_id):
         resp = requests.get(url, headers=HEADERS, timeout=30)
         resp.raise_for_status()
         data = resp.json()
+        # API returnează uneori list [] pentru produse inexistente
+        if not data or not isinstance(data, dict):
+            return {}, f'(produs inexistent ID {ejolie_id})'
         product = data.get(str(ejolie_id), {})
+        if not product:
+            return {}, f'(gol ID {ejolie_id})'
         optiuni = product.get('optiuni', {})
         sizes = {}
         for opt in optiuni.values():
