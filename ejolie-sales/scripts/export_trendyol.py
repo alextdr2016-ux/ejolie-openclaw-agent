@@ -33,6 +33,7 @@ GEMINI_KEY = os.getenv('GEMINI_API_KEY', '')
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '44151343')
 HEADERS_API = {'User-Agent': 'Mozilla/5.0'}
+MAP_FILE = os.path.join(SCRIPT_DIR, 'barcode_ejolie_map.json')
 
 # ═══════════════════════════════════════════
 #  OFFICIAL TRENDYOL TEMPLATE - 51 columns
@@ -136,6 +137,26 @@ ALLOWED_SEZON = ["Iarna", "Primăvară / Toamnă",
 # ═══════════════════════════════════════════
 
 _ean_counter = 0
+_existing_barcodes = set()
+
+
+def init_ean_counter():
+    """Încarcă barcodes existente din mapping și setează counter-ul să continue de unde a rămas."""
+    global _ean_counter, _existing_barcodes
+    if os.path.exists(MAP_FILE):
+        with open(MAP_FILE, 'r') as f:
+            mapping = json.load(f)
+        _existing_barcodes = set(mapping.keys())
+        for bc in _existing_barcodes:
+            if bc.startswith('200') and len(bc) == 13:
+                try:
+                    counter = int(bc[3:12])
+                    if counter > _ean_counter:
+                        _ean_counter = counter
+                except ValueError:
+                    pass
+        print(
+            f"  ✓ Barcodes existente: {len(_existing_barcodes)}, counter continuă de la {_ean_counter + 1}")
 
 
 def generate_ean13():
@@ -145,7 +166,26 @@ def generate_ean13():
     base = base[:12]
     total = sum(int(d) * (1 if i % 2 == 0 else 3) for i, d in enumerate(base))
     check = (10 - (total % 10)) % 10
-    return base + str(check)
+    barcode = base + str(check)
+    # Safety check
+    if barcode in _existing_barcodes:
+        return generate_ean13()  # recurse until unique
+    return barcode
+
+
+def update_barcode_mapping(new_barcodes):
+    """Adaugă barcodes noi în mapping-ul existent."""
+    if not new_barcodes:
+        return
+    mapping = {}
+    if os.path.exists(MAP_FILE):
+        with open(MAP_FILE, 'r') as f:
+            mapping = json.load(f)
+    mapping.update(new_barcodes)
+    with open(MAP_FILE, 'w') as f:
+        json.dump(mapping, f)
+    print(
+        f"  ✓ Mapping actualizat: +{len(new_barcodes)} barcodes (total: {len(mapping)})")
 
 
 def extract_color(name):
@@ -296,6 +336,7 @@ def export_trendyol(products, output_path):
     row_idx = 2
     prod_count = 0
     attr_cache = {}
+    new_barcodes = {}  # barcode → ejolie_id (for updating mapping)
 
     for pid, prod in products.items():
         optiuni = prod.get("optiuni", {})
@@ -358,6 +399,7 @@ def export_trendyol(products, output_path):
                 opt_sell = sell_price
 
             barcode = generate_ean13()
+            new_barcodes[barcode] = pid  # track for mapping update
 
             # 51 columns in EXACT Trendyol template order
             row = [
@@ -431,6 +473,11 @@ def export_trendyol(products, output_path):
 
     total = row_idx - 2
     wb.save(output_path)
+
+    # Actualizează barcode mapping cu noile barcodes
+    if new_barcodes:
+        update_barcode_mapping(new_barcodes)
+
     return total, prod_count
 
 
@@ -515,6 +562,10 @@ def main():
         sys.exit(1)
 
     print(f"\n  📦 {len(products)} produse\n")
+
+    # Inițializează counter EAN-13 din barcodes existente
+    init_ean_counter()
+
     total_rows, prod_count = export_trendyol(products, output_path)
 
     print(f"""
