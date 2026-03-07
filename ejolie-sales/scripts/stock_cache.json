@@ -1,5 +1,5 @@
 {
- "updated": "2026-03-07 08:02:01",
+ "updated": "2026-03-07 16:01:54",
  "total_products": 682,
  "products": {
   "12415": {
@@ -3632,13 +3632,6 @@
      "pret": "529.00",
      "pret_discount": "396.75"
     },
-    "40": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "529.00",
-     "pret_discount": "396.75"
-    },
     "42": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
@@ -3647,6 +3640,13 @@
      "pret_discount": "396.75"
     },
     "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "529.00",
+     "pret_discount": "396.75"
+    },
+    "40": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -4199,13 +4199,6 @@
      "pret": "385.00",
      "pret_discount": "288.75"
     },
-    "38": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "385.00",
-     "pret_discount": "288.75"
-    },
     "40": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
@@ -4217,6 +4210,13 @@
      "stoc": "In stoc",
      "stoc_fizic": 1,
      "in_stock": true,
+     "pret": "385.00",
+     "pret_discount": "288.75"
+    },
+    "38": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
      "pret": "385.00",
      "pret_discount": "288.75"
     }
@@ -5718,65 +5718,6 @@
      "stoc_fizic": 0,
      "in_stock": false,
      "pret": "567.00",
-     "pret_discount": "0.00"
-    }
-   }
-  },
-  "12238": {
-   "id": "12238",
-   "nume": "Rochie Ignacia aurie cu paiete bordo",
-   "cod": "TYAV85637",
-   "brand": "Trendya",
-   "pret": "0.00",
-   "stoc_general": "In stoc",
-   "sizes": {
-    "40": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "634.50",
-     "pret_discount": "0.00"
-    },
-    "36": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "634.50",
-     "pret_discount": "0.00"
-    },
-    "38": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "634.50",
-     "pret_discount": "0.00"
-    },
-    "42": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "634.50",
-     "pret_discount": "0.00"
-    },
-    "44": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "634.50",
-     "pret_discount": "0.00"
-    },
-    "46": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "634.50",
-     "pret_discount": "0.00"
-    },
-    "48": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "634.50",
      "pret_discount": "0.00"
     }
    }
@@ -7932,14 +7873,14 @@
      "pret": "459.00",
      "pret_discount": "0.00"
     },
-    "40": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
+    "38": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
      "pret": "459.00",
      "pret_discount": "0.00"
     },
-    "38": {
+    "40": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -9637,65 +9578,6 @@
      "stoc_fizic": 5,
      "in_stock": true,
      "pret": "526.50",
-     "pret_discount": "0.00"
-    }
-   }
-  },
-  "11865": {
-   "id": "11865",
-   "nume": "Rochie Ilinca lila",
-   "cod": "TYA4101",
-   "brand": "Trendya",
-   "pret": "0.00",
-   "stoc_general": "In stoc",
-   "sizes": {
-    "38": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "432.00",
-     "pret_discount": "0.00"
-    },
-    "36": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "432.00",
-     "pret_discount": "0.00"
-    },
-    "40": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "432.00",
-     "pret_discount": "0.00"
-    },
-    "42": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "432.00",
-     "pret_discount": "0.00"
-    },
-    "44": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "432.00",
-     "pret_discount": "0.00"
-    },
-    "46": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "432.00",
-     "pret_discount": "0.00"
-    },
-    "48": {
-     "stoc": "Lipsa Stoc",
-     "stoc_fizic": 0,
-     "in_stock": false,
-     "pret": "432.00",
      "pret_discount": "0.00"
     }
    }
@@ -15864,13 +15746,6 @@
    "pret": "0.00",
    "stoc_general": "In stoc",
    "sizes": {
-    "38": {
-     "stoc": "In stoc",
-     "stoc_fizic": 1,
-     "in_stock": true,
-     "pret": "432.00",
-     "pret_discount": "0.00"
-    },
     "40": {
      "stoc": "In stoc",
      "stoc_fizic": 1,
@@ -15879,6 +15754,13 @@
      "pret_discount": "0.00"
     },
     "36": {
+     "stoc": "Lipsa Stoc",
+     "stoc_fizic": 0,
+     "in_stock": false,
+     "pret": "432.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
      "stoc": "Lipsa Stoc",
      "stoc_fizic": 0,
      "in_stock": false,
@@ -23371,6 +23253,65 @@
     }
    }
   },
+  "10826": {
+   "id": "10826",
+   "nume": "Compleu Imani rosu cu negru",
+   "cod": "17649",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1299.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1299.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1299.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1299.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1299.00",
+     "pret_discount": "0.00"
+    },
+    "46": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1299.00",
+     "pret_discount": "0.00"
+    },
+    "48": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1299.00",
+     "pret_discount": "0.00"
+    }
+   }
+  },
   "10820": {
    "id": "10820",
    "nume": "Rochie lunga Aida neagra",
@@ -23475,6 +23416,65 @@
      "in_stock": false,
      "pret": "1899.00",
      "pret_discount": "1044.45"
+    }
+   }
+  },
+  "10627": {
+   "id": "10627",
+   "nume": "Compleu Imani crem cu negru",
+   "cod": "17649",
+   "brand": "Ejolie",
+   "pret": "0.00",
+   "stoc_general": "In stoc",
+   "sizes": {
+    "36": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1299.00",
+     "pret_discount": "0.00"
+    },
+    "38": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1299.00",
+     "pret_discount": "0.00"
+    },
+    "40": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1299.00",
+     "pret_discount": "0.00"
+    },
+    "42": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1299.00",
+     "pret_discount": "0.00"
+    },
+    "44": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1299.00",
+     "pret_discount": "0.00"
+    },
+    "46": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1299.00",
+     "pret_discount": "0.00"
+    },
+    "48": {
+     "stoc": "In stoc",
+     "stoc_fizic": 1,
+     "in_stock": true,
+     "pret": "1299.00",
+     "pret_discount": "0.00"
     }
    }
   },

@@ -734,9 +734,9 @@
   ],
   "link": "https://ejolie.ro/product/rochie-ines-neagra-12376",
   "brand": "Ejolie",
-  "category": "Noua Colectie",
+  "category": "Rochii de Zi",
   "available": "in stock",
-  "description": ""
+  "description": "<p>Rochia Ines crem-roze este o declarație de stil rafinat, o piesă vestimentară ce îmbină clasicul cu accente moderne. Croiala dreaptă, mulată subtil, flatează silueta, iar drapajele delicate din zon"
  },
  {
   "id": "12375",
@@ -829,9 +829,9 @@
   ],
   "link": "https://ejolie.ro/product/rochie-stacy-cu-imprimeu-12371",
   "brand": "Ejolie",
-  "category": "Noua Colectie",
+  "category": "Rochii de Zi",
   "available": "in stock",
-  "description": "<p>Rochie Stacy cu imprimeu</p>"
+  "description": "<p>Rochia Stacy este o expresie a feminității boeme, o piesă vestimentară ce îmbină rafinamentul cu o notă jucăușă. Imprimeul paisley, în nuanțe calde de maro, ocru și bej, pe un fundal închis, creeaz"
  },
  {
   "id": "12370",
@@ -848,9 +848,9 @@
   ],
   "link": "https://ejolie.ro/product/rochie-vanessa-plisata",
   "brand": "Ejolie",
-  "category": "Noua Colectie",
+  "category": "Rochii de Zi",
   "available": "in stock",
-  "description": ""
+  "description": "<p>Rochia Vanessa este o expresie a stilului modern, perfectă pentru femeia care îmbrățișează eleganța casual-chic. Croiala lejeră, tip A-line, oferă libertate de mișcare și o siluetă fluidă, ideală p"
  },
  {
   "id": "12369",
@@ -924,9 +924,9 @@
   ],
   "link": "https://ejolie.ro/product/rochie-patrizia-cu-imprimeu-kaki-12366",
   "brand": "Ejolie",
-  "category": "Noua Colectie",
+  "category": "Rochii de Zi",
   "available": "in stock",
-  "description": ""
+  "description": "<p>Rochia Patrizia crem cu imprimeu te învăluie într-o eleganță relaxată, perfectă pentru zilele calde de primăvară și vară. Croiala midi, tip petrecere, cu decolteu în V și cordon în talie, flatează "
  },
  {
   "id": "12365",
@@ -962,7 +962,7 @@
   ],
   "link": "https://ejolie.ro/product/rochie-patrizia-cu-imprimeu-kaki-12364",
   "brand": "Ejolie",
-  "category": "Noua Colectie",
+  "category": "Rochii de Zi",
   "available": "in stock",
   "description": "<p>Rochia Patrizia te învăluie într-o aură de rafinament și delicatețe, o piesă vestimentară perfectă pentru femeia care apreciază stilul boem-chic. Cu o croială lejeră, ce flatează silueta, această r"
  },
@@ -1019,7 +1019,7 @@
   ],
   "link": "https://ejolie.ro/product/rochie-patrizia-cu-imprimeu-albastru-12361",
   "brand": "Ejolie",
-  "category": "Noua Colectie",
+  "category": "Rochii de Zi",
   "available": "in stock",
   "description": "<p>Rochia Patrizia kaki cu imprimeu floral este o celebrare a feminității relaxate, o piesă vestimentară versatilă care îmbină eleganța discretă cu un aer boem. Croiala midi, tip petrecută, avantajeaz"
  },
@@ -1095,7 +1095,7 @@
   ],
   "link": "https://ejolie.ro/product/rochie-patrizia-cu-imprimeu-albastru",
   "brand": "Ejolie",
-  "category": "Noua Colectie",
+  "category": "Rochii de Zi",
   "available": "in stock",
   "description": "<p>Rochia Patrizia albastră cu imprimeu floral este o celebrare a feminității relaxate și sofisticate, perfectă pentru zilele calde de vară sau evenimente informale. Croiala în A, ușor evazată, avanta"
  },
@@ -2466,23 +2466,6 @@
   "description": "<p>Rochia Opalia maro cu imprimeu este o declarație de stil modern și rafinat, perfectă pentru femeia care îmbrățișează eleganța în fiecare zi. Croiala midi, în linie A, flatulează orice siluetă, iar "
  },
  {
-  "id": "12238",
-  "title": "Rochie Ignacia aurie cu paiete bordo",
-  "price": "634.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12238/1000/rochie-ignacia-aurie-cu-paiete-bordo_101649.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12238/1000/rochie-ignacia-aurie-cu-paiete-bordo_101649.webp",
-   "https://ejolie.ro/continut/produse/12238/1000/rochie-ignacia-aurie-cu-paiete-bordo_101650.webp",
-   "https://ejolie.ro/continut/produse/12238/1000/rochie-ignacia-aurie-cu-paiete-bordo_101651.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-ignacia-aurie-cu-paiete-bordo",
-  "brand": "Trendya",
-  "category": "Rochii de ocazie",
-  "available": "in stock",
-  "description": "<p>Rochia Ignacia este o declarație de stil, o piesă ce îmbină rafinamentul clasic cu accente moderne. Croiala tip A-line, cu o fustă amplă, fluidă, conferă o alură grațioasă, perfectă pentru evenimen"
- },
- {
   "id": "12237",
   "title": "Compleu Aveline crem cu negru",
   "price": "634.50 RON",
@@ -3667,22 +3650,6 @@
   "category": "Rochii de seara",
   "available": "in stock",
   "description": "<p>Rochia Luana fucsia este o explozie de stil și încredere, o piesă vestimentară vibrantă, concepută pentru femeia modernă care nu se teme să iasă în evidență. Cu o croială mini, mulată, ce accentuea"
- },
- {
-  "id": "11865",
-  "title": "Rochie Ilinca lila",
-  "price": "432.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/11865/1000/rochie-ilinca-lila_99473.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11865/1000/rochie-ilinca-lila_99473.webp",
-   "https://ejolie.ro/continut/produse/11865/1000/rochie-ilinca-lila_99474.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-ilinca-portocalie-11865",
-  "brand": "Trendya",
-  "category": "Rochii de Zi",
-  "available": "in stock",
-  "description": "Rochie Ilinca lila<div>- stil office, elegant</div><div>- croi drept</div><div>- maneci scurte, usor bufante</div><div>- decolteu patrat cu decupaj in V</div><div>- volan maxi</div><div>- inchidere la"
  },
  {
   "id": "11863",
@@ -7810,6 +7777,24 @@
   "description": "<p>Rochia Zeny neagră este o declarație de stil îndrăzneață și sofisticată, perfectă pentru femeia care dorește să captiveze privirile. Cu o croială mulată, ce pune în valoare silueta, și detalii auri"
  },
  {
+  "id": "10826",
+  "title": "Compleu Imani rosu cu negru",
+  "price": "1299.00 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10826/1000/compleu-imani-rosu-cu-negru_94361.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10826/1000/compleu-imani-rosu-cu-negru_94361.webp",
+   "https://ejolie.ro/continut/produse/10826/1000/compleu-imani-rosu-cu-negru_94593.webp",
+   "https://ejolie.ro/continut/produse/10826/1000/compleu-imani-rosu-cu-negru_94362.webp",
+   "https://ejolie.ro/continut/produse/10826/1000/compleu-imani-rosu-cu-negru_94363.webp"
+  ],
+  "link": "https://ejolie.ro/product/compleu-imani-fucsia-cu-negru-10826",
+  "brand": "Ejolie",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "<p style=\"box-sizing:border-box;margin:0px 0px 1.25em;color:#0d0d0d;font-family:ui-sans-serif, -apple-system, system-ui, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, Helvetica, 'App"
+ },
+ {
   "id": "10820",
   "title": "Rochie lunga Aida neagra",
   "price": "1237.50 RON",
@@ -7862,6 +7847,23 @@
   "category": "Rochii de ocazie",
   "available": "in stock",
   "description": "<p>Rochia lungă Maja neagră este o declarație de stil rafinat și senzualitate subtilă, perfectă pentru a captiva privirile la orice eveniment special. Croiala mulată pe corp, combinată cu un decolteu "
+ },
+ {
+  "id": "10627",
+  "title": "Compleu Imani crem cu negru",
+  "price": "1299.00 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10627/1000/compleu-imani-crem-cu-negru_93333.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10627/1000/compleu-imani-crem-cu-negru_93333.webp",
+   "https://ejolie.ro/continut/produse/10627/1000/compleu-imani-crem-cu-negru_93334.webp",
+   "https://ejolie.ro/continut/produse/10627/1000/compleu-imani-crem-cu-negru_93335.webp"
+  ],
+  "link": "https://ejolie.ro/product/compleu-imani-crem-cu-negru",
+  "brand": "Ejolie",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "<p style=\"box-sizing:border-box;margin:0px 0px 1.25em;color:#0d0d0d;font-family:ui-sans-serif, -apple-system, system-ui, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, Helvetica, 'App"
  },
  {
   "id": "10610",

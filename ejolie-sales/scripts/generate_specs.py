@@ -63,24 +63,30 @@ SPEC_NAMES = ['Culoare', 'Material', 'Lungime', 'Croi', 'Stil', 'Model']
 # ══════════════════════════════════════════════════════════════════
 
 CULOARE_MAP = {
-    "Alb": 19, "Albastru": 22, "Albastru deschis": 3038, "Albastru inchis": 3039,
-    "Albastru petrol": 7476, "Animal print": 3037, "Aramiu": 3041, "Argintiu": 3040,
-    "Auriu": 26, "Bej": 31, "Bleumarin": 28, "Bordo": 27, "Caramel": 3046,
-    "Ciocolatiu": 3047, "Corai": 3048, "Crem": 3051, "Galben": 34, "Gri": 33,
-    "Kaki": 3055, "Lavanda": 3056, "Lila": 3057, "Maro": 35, "Mov": 25,
-    "Multicolor": 3059, "Negru": 20, "Nude": 38, "Olive": 3060, "Piersica": 3061,
-    "Portocaliu": 36, "Pudra": 3062, "Rosu": 21, "Roz": 24, "Somon": 3067,
-    "Turcoaz": 3070, "Verde": 23, "Verde inchis": 3044, "Verde lime": 7477,
-    "Verde mint": 7478, "Vernil": 7479, "Visiniu": 7480, "floral": 3052
+    "Alb": 19, "Albastru": 22, "Albastru deschis": 34, "Albastru inchis": 7460,
+    "Albastru petrol": 7481, "Animal print": 7465, "Aramiu": 14494, "Argintiu": 3040,
+    "Auriu": 26, "Beige": 31, "Bej": 31, "Bleu": 3150, "Bleumarin": 30,
+    "Bleumarin-Inchis": 3056, "Bordo": 27, "Bronz": 3061, "Cappuccino": 14500,
+    "Caramiziu": 3054, "Corai": 3156, "Crem": 3051, "Fistic": 14499,
+    "Fucsia": 3053, "Galben": 3038, "Grena": 37, "Gri": 33,
+    "Gri metalizat": 14495, "Ivoar": 3154, "Kaki": 3052, "Lavanda": 3055,
+    "Leopard": 3067, "Lila": 3153, "Magenta": 3157, "Maro": 29,
+    "Marsala": 3037, "Mint": 14488, "Mov": 25, "Mov pruna": 14478,
+    "Multicolor": 3042, "Mustar": 3096, "Negru": 20, "Nude": 38,
+    "Olive": 14477, "Pastel": 7463, "Portocaliu": 3041, "Rosu": 21,
+    "Roz": 24, "Roz prafuit": 14498, "Somon": 36, "Turcoaz": 28,
+    "Verde": 23, "Verde inchis": 3044, "Verde lime": 3155,
+    "Verde mint": 14497, "Vernil": 3151, "Visiniu": 7480, "floral": 3152
 }
 
 MATERIAL_MAP = {
-    "Acryl": 7452, "Barbie": 7453, "Brocart": 7454, "Bumbac": 47, "Catifea": 39,
-    "Casmir": 14478, "Crep": 3076, "Dantela": 7455, "Jerseu": 3078,
-    "Lana": 48, "Lycra": 14480, "Matase": 14479, "Neopren": 7457,
-    "Organza": 7456, "Paiete": 42, "Piele ecologica": 14481, "Poliester": 49,
-    "Satin": 3079, "Sifon": 14482, "Stofa": 43, "Tafta": 7459, "Tricot": 50,
-    "Tul": 41, "Tweed": 14483, "Velur": 7461, "Voal": 44
+    "Acryl": 3092, "Barbie": 46, "Brocart": 45, "Bumbac": 47, "Catifea": 39,
+    "Casmir": 3097, "Crep": 3149, "Dantela": 7455, "Elasten": 48,
+    "In": 7458, "Licra": 7470, "Lurex": 3057, "Matase": 14479,
+    "Neopren": 7461, "Nylon": 3078, "Organza": 7456, "Paiete": 42,
+    "Piele eco": 7489, "Poliester": 49, "Satin": 3079,
+    "Stofa": 3048, "Tafta": 43, "Tricot": 3039, "Tul": 41,
+    "Vascoza": 50, "Voal": 44, "Lana": 3073
 }
 
 LUNGIME_MAP = {
@@ -88,31 +94,31 @@ LUNGIME_MAP = {
 }
 
 CROI_MAP = {
-    "Baby Doll": 54, "Cambrat": 7462, "Clos": 55, "Drept": 56,
-    "Evazat": 14485, "In clini": 14486, "Lejer": 59, "Mulat": 57,
-    "Peplum": 58, "Petrecuta": 14487, "Plisat": 14488, "Pliuri": 14489,
-    "Volane": 7464, "in A": 60, "Sirena": 14484
+    "Baby Doll": 54, "Cambrat": 7462, "Clos": 55, "Conic": 62, "Drept": 56,
+    "Evazat": 14485, "In clini": 3046, "Lejer": 59, "Mulat": 57,
+    "Peplum": 58, "Petrecuta": 3045, "Plisat": 14491, "Pliuri": 61,
+    "Volane": 7471, "in A": 60
 }
 
 STIL_MAP = {
-    "Asimetrica": 62, "Birou": 63, "Casual": 64, "Casual-Elegant": 7465,
-    "Casual-Office": 14491, "Cu crapatura": 14492, "De ocazie": 67,
-    "De seara": 75, "Elegant": 1147, "Eleganta": 1147,
-    "Lejera": 69, "Lunga": 71, "Lunga sirena": 72,
-    "Scurta": 73, "Sport": 14493
+    "Asimetrica": 7472, "Birou": 63, "Casual": 64, "Casual-Elegant": 65,
+    "Casual-Office": 66, "Cu crapatura": 73, "De ocazie": 67,
+    "De seara": 75, "De zi": 68, "Dreapta": 74, "Elegant": 1147, "Eleganta": 1147,
+    "Evazata": 70, "Lejera": 69, "Lunga": 71, "Lunga sirena": 72,
+    "cu trena": 3047
 }
 
 MODEL_MAP = {
-    "Accesorizata la baza gatului": 76, "Aplicatii 3D": 7466, "Bretele reglabile": 14494,
-    "Broderie": 77, "Brosa": 14495, "Buzunare": 14496, "Cambrat": 14497,
-    "Captuseala": 14498, "Centura inclusa": 14499, "Cordon": 14500,
-    "Corset": 14490, "Cu buzunare": 14501, "Cu captuseala": 14502,
-    "Cu cordon": 14503, "Cu decolteu in V": 81, "Cu fermoar": 14504,
-    "Cu funda": 14505, "Cu gluga": 14506, "Cu nasturi": 14507,
-    "Cu pliuri": 84, "Cu volane": 83, "Dantela": 40,
-    "Decolteu in V": 81, "Fara maneci": 14508,
-    "Maneca lunga": 7488, "Maneci lungi": 7488, "Maneci scurte": 14509,
-    "Paiete": 7467, "Rochie camasa": 14510, "Umeri goi": 14511, "Un umar gol": 14512
+    "Accesorizata la baza gatului": 3050, "Aplicatii 3D": 14484, "Bretele reglabile": 7482,
+    "Broderie": 77, "Brosa": 7479, "Buzunare": 7485, "Cambrat": 76,
+    "Cordon": 7484, "Corset": 14490,
+    "Cu decolteu in V": 81, "Cu pliuri": 84, "Cu volane": 83, "Dantela": 40,
+    "Decolteu in V": 14481, "Fara maneci": 14501,
+    "Fermoar": 14480, "Funda": 14483,
+    "Maneca lunga": 7488, "Maneci lungi": 7488, "Maneca scurta": 14489,
+    "Maneci 3/4": 7473, "Maneci bufante": 14468, "Maneci evazate": 14496,
+    "Nasturi": 7487, "Paiete": 7467, "Plisata": 7466,
+    "Umeri goi": 7468, "Cu umerii goi": 7468
 }
 
 SPEC_MAPS = {
@@ -126,20 +132,24 @@ SPEC_MAPS = {
 
 # ── Fuzzy Mappings ─────────────────────────────────────────────────
 FUZZY_MAP = {
-    "Fucsia": "Roz", "Grena": "Bordo", "Roz prafuit": "Pudra",
-    "Roz prafu": "Pudra", "Rose": "Roz", "Ivory": "Crem",
-    "Ivoar": "Crem", "Ecru": "Crem", "Caramiziu": "Portocaliu",
-    "Caramizius": "Portocaliu", "Portolicalie": "Portocaliu",
+    "Grena": "Bordo", "Roz prafuit": "Roz prafuit",
+    "Roz prafu": "Roz prafuit", "Rose": "Roz", "Ivory": "Crem",
+    "Ecru": "Crem", "Caramizius": "Caramiziu", "Portolicalie": "Portocaliu",
     "Smarald": "Verde inchis", "Verde smarald": "Verde inchis",
-    "Bleu": "Albastru deschis", "Turquoise": "Turcoaz",
-    "Burgundy": "Bordo", "Champagne": "Bej", "Gold": "Auriu",
+    "Turquoise": "Turcoaz", "Bej": "Beige",
+    "Burgundy": "Bordo", "Champagne": "Beige", "Gold": "Auriu",
     "Silver": "Argintiu", "Navy": "Bleumarin", "Coral": "Corai",
     "Negru cu alb": "Negru", "Crem-roze": "Crem",
-    "Magenta": "Roz", "Indigo": "Albastru inchis",
+    "Indigo": "Albastru inchis",
     "Orange": "Portocaliu", "Petrol": "Albastru petrol",
-    "Licra": "Lycra", "Tulle": "Tul", "Tull": "Tul",
-    "Sifon": "Voal", "Mătase": "Matase",
+    "Lycra": "Licra", "Tulle": "Tul", "Tull": "Tul",
+    "Sifon": "Voal", "Mătase": "Matase", "Pudra": "Roz prafuit",
     "Sport": "Casual", "Elegant": "Eleganta",
+    "Piele ecologica": "Piele eco", "Jerseu": "Tricot",
+    "Maneci scurte": "Maneca scurta", "Cu nasturi": "Nasturi",
+    "Cu fermoar": "Fermoar", "Cu funda": "Funda",
+    "Cu cordon": "Cordon", "Cu buzunare": "Buzunare",
+    "Sirena": "Lunga sirena", "Scurta": "De zi",
 }
 
 SPEC_VALUES = {
