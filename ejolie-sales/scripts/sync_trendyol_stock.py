@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-sync_trendyol_stock.py v3 - Sincronizare stoc Trendyol cu ejolie.ro
+sync_trendyol_stock.py v4 - Sincronizare stoc Trendyol cu ejolie.ro
 
-Generează fișier Excel în formatul Trendyol "Actualizează stocul și prețul":
-  Cod de bare | Stoc | Preț de vânzare Trendyol
+Generează fișier Excel în formatul EXACT Trendyol "Actualizarea stocului și prețul":
+  Sheet: "Actualizarea stocului și prețul"
+  Coloane: Cod de bare | Prețul inițial (de listă) | Preț de vânzare | Stoc
 
-Upload: partner.trendyol.com → Produse → Acțiuni colective → Încărcați șablonul
-        Selectează: "Actualizează stocul și prețul"
+Upload: partner.trendyol.com → Produse → Acțiuni colective
+        Tab "Încărcați șablonul" → Tip: "Actualizează stocul și prețul"
 
 Utilizare:
     python3 sync_trendyol_stock.py --input Products_export.xlsx
@@ -23,7 +24,7 @@ from datetime import datetime
 import requests
 from dotenv import load_dotenv
 from openpyxl import Workbook, load_workbook
-from openpyxl.styles import Font, PatternFill, Alignment
+from openpyxl.styles import Font, PatternFill
 
 # === CONFIG ===
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -52,10 +53,10 @@ def fetch_stock_by_id(ejolie_id):
         resp.raise_for_status()
         data = resp.json()
         if not data or not isinstance(data, dict):
-            return {}, f'(inexistent ID {ejolie_id})'
+            return {}, ''
         product = data.get(str(ejolie_id), {})
         if not product:
-            return {}, f'(gol ID {ejolie_id})'
+            return {}, ''
         optiuni = product.get('optiuni', {})
         sizes = {}
         for opt in optiuni.values():
@@ -119,7 +120,7 @@ def main():
         SCRIPT_DIR, f"stoc_trendyol_{datetime.now().strftime('%Y-%m-%d_%H%M')}.xlsx"
     )
 
-    print(f"═══ Sync Stoc Trendyol v3 ═══")
+    print(f"═══ Sync Stoc Trendyol v4 ═══")
     print(f"  Input:    {args.input}")
     print(f"  Output:   {output_path}")
     print(f"  Telegram: {'Da' if args.telegram else 'Nu'}")
@@ -144,35 +145,32 @@ def main():
     barcode_col = headers['Cod de bare']
     size_col = headers['Mărime']
     name_col = headers['Numele produsului']
-    price_col = headers['Preț de vânzare Trendyol']
     stoc_old_col = headers['Stoc']
 
     # Grupăm pe ejolie_id
-    ejolie_groups = {}  # ejolie_id → [(barcode, size, name, price, old_stock)]
+    ejolie_groups = {}
     no_barcode = []
     for row in range(2, ws_in.max_row + 1):
         barcode_raw = ws_in.cell(row=row, column=barcode_col).value
         barcode = str(int(barcode_raw)) if barcode_raw else ''
         size = str(ws_in.cell(row=row, column=size_col).value or '').strip()
         name = str(ws_in.cell(row=row, column=name_col).value or '')
-        price = ws_in.cell(row=row, column=price_col).value or 0
-        old_stock = ws_in.cell(row=row, column=stoc_old_col).value or 0
+        old_stock = int(ws_in.cell(row=row, column=stoc_old_col).value or 0)
 
         ejolie_id = barcode_map.get(barcode)
         if ejolie_id:
             if ejolie_id not in ejolie_groups:
                 ejolie_groups[ejolie_id] = []
-            ejolie_groups[ejolie_id].append(
-                (barcode, size, name, float(price), int(old_stock)))
+            ejolie_groups[ejolie_id].append((barcode, size, name, old_stock))
         else:
-            no_barcode.append((barcode, name, size))
+            no_barcode.append((barcode, name, size, old_stock))
 
     total_rows = ws_in.max_row - 1
     wb_in.close()
     print(f"  ✓ {total_rows} rânduri → {len(ejolie_groups)} produse unice")
 
-    # === STEP 3: Fetch stoc din API și construiește output ===
-    output_rows = []  # [(barcode, new_stock, price)]
+    # === STEP 3: Fetch stoc din API ===
+    output_rows = []  # [(barcode, new_stock)]
     stats = {'total': total_rows, 'matched': 0, 'stock_changed': 0,
              'stock_zero': 0, 'stock_same': 0, 'api_empty': 0}
 
@@ -182,17 +180,16 @@ def main():
         sizes, product_name = fetch_stock_by_id(ejolie_id)
 
         if sizes is None:
-            # API error - keep old stock
             print(f"    ✗ API error ID {ejolie_id}: {product_name}")
-            for barcode, size, name, price, old_stock in items:
-                output_rows.append((barcode, old_stock, price))
+            for barcode, size, name, old_stock in items:
+                output_rows.append((barcode, old_stock))
             time.sleep(0.5)
             continue
 
-        for barcode, size, name, price, old_stock in items:
+        for barcode, size, name, old_stock in items:
             new_stock = sizes.get(size, 0)
             stats['matched'] += 1
-            output_rows.append((barcode, new_stock, price))
+            output_rows.append((barcode, new_stock))
 
             if new_stock == 0:
                 stats['stock_zero'] += 1
@@ -214,42 +211,44 @@ def main():
             print(f"    ... {i+1}/{len(ejolie_groups)} produse procesate")
         time.sleep(0.3)
 
-    # No-barcode items → stoc 0
-    for barcode, name, size in no_barcode:
-        output_rows.append((barcode, 0, 0))
+    for barcode, name, size, old_stock in no_barcode:
+        output_rows.append((barcode, 0))
         print(f"    ? NO BARCODE: {barcode} | {name} size {size}")
 
     # === STEP 4: Generate Trendyol stock update Excel ===
+    # Format EXACT: sheet "Actualizarea stocului și prețul"
+    # Coloane: Cod de bare | Prețul inițial (de listă) | Preț de vânzare | Stoc
     print(f"\n  Generez Excel Trendyol format ({len(output_rows)} rânduri)...")
 
     wb_out = Workbook()
     ws_out = wb_out.active
-    ws_out.title = "Stoc"
+    ws_out.title = "Actualizarea stocului și prețul"
 
-    # Header - exact cum cere Trendyol
+    # Header exact ca în template-ul Trendyol
     ws_out['A1'] = 'Cod de bare'
-    ws_out['B1'] = 'Stoc'
-    ws_out['C1'] = 'Preț de vânzare Trendyol'
+    ws_out['B1'] = 'Prețul inițial (de listă)'
+    ws_out['C1'] = 'Preț de vânzare'
+    ws_out['D1'] = 'Stoc'
 
     header_font = Font(name='Arial', bold=True, size=11)
-    for col in ['A', 'B', 'C']:
+    for col in ['A', 'B', 'C', 'D']:
         ws_out[f'{col}1'].font = header_font
 
     ws_out.column_dimensions['A'].width = 20
-    ws_out.column_dimensions['B'].width = 10
-    ws_out.column_dimensions['C'].width = 25
+    ws_out.column_dimensions['B'].width = 25
+    ws_out.column_dimensions['C'].width = 20
+    ws_out.column_dimensions['D'].width = 10
 
-    # Data rows
+    # Data rows - doar barcode + stoc (prețurile le lăsăm goale = nu se modifică)
     zero_fill = PatternFill('solid', fgColor='FFC7CE')
-    changed_fill = PatternFill('solid', fgColor='C6EFCE')
 
-    for idx, (barcode, stock, price) in enumerate(output_rows, start=2):
+    for idx, (barcode, stock) in enumerate(output_rows, start=2):
         ws_out.cell(row=idx, column=1, value=int(barcode) if barcode else '')
-        ws_out.cell(row=idx, column=2, value=stock)
-        ws_out.cell(row=idx, column=3, value=price)
+        # Coloanele B și C (prețuri) le lăsăm GOALE = nu se modifică
+        ws_out.cell(row=idx, column=4, value=stock)
 
         if stock == 0:
-            ws_out.cell(row=idx, column=2).fill = zero_fill
+            ws_out.cell(row=idx, column=4).fill = zero_fill
 
     ws_out.freeze_panes = 'A2'
     wb_out.save(output_path)
@@ -265,13 +264,13 @@ def main():
   API empty (șterse):  {stats['api_empty']}
   API calls:           {len(ejolie_groups)}
 
-  📁 Fișier salvat: {output_path}
+  📁 Fișier: {output_path}
 
   ⬆ UPLOAD PE TRENDYOL:
     1. partner.trendyol.com → Produse → Acțiuni colective
     2. Tab "Încărcați șablonul"
-    3. Selectează "Actualizează stocul și prețul"
-    4. Upload fișierul {os.path.basename(output_path)}""")
+    3. Tip șablon: "Actualizează stocul și prețul"
+    4. Upload: {os.path.basename(output_path)}""")
 
     # === STEP 6: Telegram ===
     if args.telegram:
