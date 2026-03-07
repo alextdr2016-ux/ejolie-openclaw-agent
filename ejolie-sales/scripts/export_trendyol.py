@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """
-export_trendyol.py v2 - Export ejolie.ro products to Trendyol import template
-Supports both brand-based and ID range export. Uses Gemini for attribute extraction.
+export_trendyol.py v3 - Export ejolie.ro products to Trendyol import template
+Column order matches official Trendyol "Evening & Prom Dress" template (51 columns).
 
 Utilizare:
-    python3 export_trendyol.py --brand ejolie                    # toate produsele unui brand
-    python3 export_trendyol.py --start 12356 --end 12415         # range de ID-uri
-    python3 export_trendyol.py --ids 12356,12360,12370           # ID-uri specifice
-    python3 export_trendyol.py --brand ejolie --limit 5          # primele 5 produse
+    python3 export_trendyol.py --brand ejolie
+    python3 export_trendyol.py --start 12356 --end 12415
+    python3 export_trendyol.py --ids 12356,12360,12370
     python3 export_trendyol.py --start 12356 --end 12415 --telegram
 """
 
@@ -33,10 +32,69 @@ API_BASE = os.getenv('EJOLIE_API_URL', 'https://ejolie.ro/api/')
 GEMINI_KEY = os.getenv('GEMINI_API_KEY', '')
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '44151343')
-HEADERS = {'User-Agent': 'Mozilla/5.0'}
+HEADERS_API = {'User-Agent': 'Mozilla/5.0'}
 
 # ═══════════════════════════════════════════
-#  CONSTANTS
+#  OFFICIAL TRENDYOL TEMPLATE - 51 columns
+#  Category: Evening & Prom Dress (543)
+# ═══════════════════════════════════════════
+
+TRENDYOL_HEADERS = [
+    "Cod de bare",                    # 0
+    "Codul modelului",                # 1
+    "Marca produsului",               # 2
+    "ID categorie",                   # 3
+    "Titlu",                          # 4
+    "Descriere",                      # 5
+    "Preț inițial",                   # 6
+    "Preț de vânzare Trendyol",       # 7
+    "Stoc",                           # 8
+    "Cod stoc",                       # 9
+    "Cotă TVA",                       # 10
+    "Imagine 1",                      # 11
+    "Imagine 2",                      # 12
+    "Imagine 3",                      # 13
+    "Imagine 4",                      # 14
+    "Imagine 5",                      # 15
+    "Imagine 6",                      # 16
+    "Imagine 7",                      # 17
+    "Imagine 8",                      # 18
+    "Termendeprelucrare",             # 19
+    "Mărime",                         # 20
+    "Culoare",                        # 21
+    "Persona",                        # 22
+    "Tipul de material",              # 23
+    "Material",                       # 24
+    "Grupa de vârstă",                # 25
+    "Potrivire",                      # 26
+    "Model",                          # 27
+    "Detalii privind durabilitatea",  # 28
+    "Lungimea mânecii",              # 29
+    "Tipul de material",              # 30
+    "Buzunar",                        # 31
+    "Lungime",                        # 32
+    "Siluetă",                        # 33
+    "Tipul de închidere",             # 34
+    "Tip de produs",                  # 35
+    "Ocazie",                         # 36
+    "Numele producătorului",          # 37
+    "Culoare",                        # 38
+    "Detalii despre produs",          # 39
+    "Origine",                        # 40
+    "Caracteristici suplimentare",    # 41
+    "Compoziția materialului",        # 42
+    "Starea curelei",                 # 43
+    "Tipul de mânecă",               # 44
+    "Colecția",                       # 45
+    "Instrucțiuni de îngrijire",      # 46
+    "Guler",                          # 47
+    "Căptușeală",                     # 48
+    "Sex",                            # 49
+    "Sezonul",                        # 50
+]
+
+# ═══════════════════════════════════════════
+#  COLOR MAPPING
 # ═══════════════════════════════════════════
 
 TRENDYOL_COLORS = {
@@ -69,6 +127,8 @@ ALLOWED_OCAZIE = ["Absolvire / Bal de absolvire", "Bal", "Casual",
                   "Cocktail", "Elegant", "Elegant / Noapte", "Petrecere", "Seara / zilnic"]
 ALLOWED_MATERIAL = ["Amestec poliester", "Catifea", "Crepe", "Cu paiete",
                     "Dantelă", "Fabric lucios", "Satin", "Tul", "Voal", "Altele"]
+ALLOWED_SEZON = ["Iarna", "Primăvară / Toamnă",
+                 "Toamnă / Iarnă", "Toate anotimpurile", "Vara"]
 
 
 # ═══════════════════════════════════════════
@@ -87,10 +147,6 @@ def generate_ean13():
     check = (10 - (total % 10)) % 10
     return base + str(check)
 
-
-# ═══════════════════════════════════════════
-#  COLOR EXTRACTION
-# ═══════════════════════════════════════════
 
 def extract_color(name):
     words = name.lower().split()
@@ -139,10 +195,11 @@ OCAZIE: {', '.join(ALLOWED_OCAZIE)}
 MATERIAL: {', '.join(ALLOWED_MATERIAL)}
 TIP_MATERIAL: Knit, Laced, Țesut, Nespecificat
 MODEL: Simplu, Cu model floral, Dantelă, Satin, Plain
-CAPTUSIT: Căptușit sau Fără căptușeală
+CAPTUSIT: Căptușit, Fără căptușeală
 INCHIDERE: Cu fermoar, Fără închidere, Buton
+SEZON: {', '.join(ALLOWED_SEZON)}
 
-Răspunde EXACT în formatul:
+Răspunde EXACT:
 SILUETA: valoare
 LUNGIME_MANECA: valoare
 GULER: valoare
@@ -151,7 +208,8 @@ MATERIAL: valoare
 TIP_MATERIAL: valoare
 MODEL: valoare
 CAPTUSIT: valoare
-INCHIDERE: valoare"""
+INCHIDERE: valoare
+SEZON: valoare"""
 
     response = call_gemini(prompt)
     attrs = {}
@@ -167,25 +225,22 @@ INCHIDERE: valoare"""
 # ═══════════════════════════════════════════
 
 def fetch_products_by_brand(brand="ejolie"):
-    """Fetch toate produsele unui brand cu paginare."""
     all_products = {}
     page = 1
     print(f"  Fetch produse brand '{brand}'...")
     while True:
         url = f"{API_BASE}?produse&brand={brand}&apikey={API_KEY}&pagina={page}&limit=50"
         try:
-            resp = requests.get(url, headers=HEADERS, timeout=60)
+            resp = requests.get(url, headers=HEADERS_API, timeout=60)
             data = resp.json()
         except Exception as e:
             print(f"  ✗ Eroare pagina {page}: {e}")
             break
-
         if not data or not isinstance(data, dict):
             break
         all_products.update(data)
         count = len(data)
-        print(
-            f"    Pagina {page}: {count} produse (total: {len(all_products)})")
+        print(f"    Pagina {page}: {count} (total: {len(all_products)})")
         if count < 50:
             break
         page += 1
@@ -194,26 +249,23 @@ def fetch_products_by_brand(brand="ejolie"):
 
 
 def fetch_products_by_ids(product_ids):
-    """Fetch produse individuale pe id_produs."""
     all_products = {}
     print(f"  Fetch {len(product_ids)} produse pe ID...")
     for i, pid in enumerate(product_ids):
         url = f"{API_BASE}?id_produs={pid}&apikey={API_KEY}"
         try:
-            resp = requests.get(url, headers=HEADERS, timeout=30)
+            resp = requests.get(url, headers=HEADERS_API, timeout=30)
             data = resp.json()
             if isinstance(data, dict) and str(pid) in data:
                 product = data[str(pid)]
-                # Skip dacă nu are opțiuni (produs inactiv)
                 if product.get('optiuni'):
                     all_products[str(pid)] = product
                 else:
-                    print(f"    ⚠ ID {pid}: fără opțiuni (inactiv?)")
+                    print(f"    ⚠ ID {pid}: fără opțiuni")
             else:
                 print(f"    ✗ ID {pid}: nu există")
         except Exception as e:
             print(f"    ✗ ID {pid}: {e}")
-
         if (i + 1) % 10 == 0:
             print(f"    ... {i+1}/{len(product_ids)}")
         time.sleep(0.3)
@@ -221,7 +273,7 @@ def fetch_products_by_ids(product_ids):
 
 
 # ═══════════════════════════════════════════
-#  EXCEL EXPORT
+#  EXCEL EXPORT - NEW COLUMN ORDER
 # ═══════════════════════════════════════════
 
 def export_trendyol(products, output_path):
@@ -232,27 +284,9 @@ def export_trendyol(products, output_path):
     ws = wb.active
     ws.title = "Introdu informațiile despre pro"
 
-    headers = [
-        "Cod de bare", "Codul modelului", "Marca produsului", "ID categorie",
-        "Titlu", "Descriere", "Preț inițial", "Preț de vânzare Trendyol",
-        "Stoc", "Cod stoc", "Cotă TVA",
-        "Imagine 1", "Imagine 2", "Imagine 3", "Imagine 4",
-        "Imagine 5", "Imagine 6", "Imagine 7", "Imagine 8",
-        "Termendeprelucrare", "Mărime", "Buzunar", "Siluetă",
-        "Lungimea mânecii", "Potrivire", "Ocazie",
-        "Detalii privind durabilitatea", "Compoziția materialului",
-        "Culoare", "Guler", "Tipul de material", "Tipul de mânecă",
-        "Tip de produs", "Model", "Tipul de material",
-        "Origine", "Tipul de închidere", "Instrucțiuni de îngrijire",
-        "Grupa de vârstă", "Detalii despre produs",
-        "Numele producătorului", "Starea curelei", "Culoare",
-        "Sex", "Persona", "Material", "Colecția",
-        "Caracteristici suplimentare", "Căptușeală", "Lungime"
-    ]
-
     red_fill = PatternFill(start_color="FFD9D9",
                            end_color="FFD9D9", fill_type="solid")
-    for col, h in enumerate(headers, 1):
+    for col, h in enumerate(TRENDYOL_HEADERS, 1):
         cell = ws.cell(row=1, column=col, value=h)
         cell.font = Font(bold=True, size=9)
         cell.alignment = Alignment(horizontal="center", wrap_text=True)
@@ -261,7 +295,7 @@ def export_trendyol(products, output_path):
 
     row_idx = 2
     prod_count = 0
-    gpt_cache = {}
+    attr_cache = {}
 
     for pid, prod in products.items():
         optiuni = prod.get("optiuni", {})
@@ -283,14 +317,15 @@ def export_trendyol(products, output_path):
         if imagine_main and imagine_main not in imagini:
             imagini.insert(0, imagine_main)
 
-        if pid not in gpt_cache:
+        # Gemini attributes
+        if pid not in attr_cache:
             prod_count += 1
             print(f"  🤖 [{prod_count}] {name[:45]}...", end=" ", flush=True)
             attrs = extract_attributes(name, descriere)
-            gpt_cache[pid] = attrs
+            attr_cache[pid] = attrs
             print("✅")
             time.sleep(0.5)
-        attrs = gpt_cache[pid]
+        attrs = attr_cache[pid]
 
         try:
             p = float(str(pret).replace(",", ".")) if pret else 0
@@ -300,6 +335,10 @@ def export_trendyol(products, output_path):
         except:
             p = 0
             sell_price = 0
+
+        brand_data = prod.get("brand", {})
+        brand_name = brand_data.get("nume", "Ejolie") if isinstance(
+            brand_data, dict) else str(brand_data)
 
         for oid, opt in optiuni.items():
             if not isinstance(opt, dict):
@@ -319,42 +358,74 @@ def export_trendyol(products, output_path):
                 opt_sell = sell_price
 
             barcode = generate_ean13()
-            brand_data = prod.get("brand", {})
-            brand_name = brand_data.get("nume", "Ejolie") if isinstance(
-                brand_data, dict) else str(brand_data)
 
+            # 51 columns in EXACT Trendyol template order
             row = [
-                barcode, cod or pid, brand_name, 543,
-                name, clean_desc[:5000], op, opt_sell,
-                stoc_fizic, f"{cod}-{size}", 21,
+                barcode,                                          # 0  Cod de bare
+                cod or pid,                                       # 1  Codul modelului
+                brand_name,                                       # 2  Marca produsului
+                543,                                              # 3  ID categorie
+                name,                                             # 4  Titlu
+                # 5  Descriere
+                clean_desc[:5000],
+                op,                                               # 6  Preț inițial
+                opt_sell,                                         # 7  Preț de vânzare Trendyol
+                stoc_fizic,                                       # 8  Stoc
+                f"{cod}-{size}",                                  # 9  Cod stoc
+                21,                                               # 10 Cotă TVA
             ]
+            # Imagini 1-8 (columns 11-18)
             for i in range(8):
                 row.append(imagini[i] if i < len(imagini) else "")
+
             row.extend([
-                3, size, "Fără buzunar",
+                3,                                                # 19 Termendeprelucrare
+                size,                                             # 20 Mărime
+                color,                                            # 21 Culoare
+                "Feminin",                                        # 22 Persona
+                # 23 Tipul de material
+                attrs.get("TIP_MATERIAL", "Țesut"),
+                attrs.get("MATERIAL", "Amestec poliester"),       # 24 Material
+                "Adult",                                          # 25 Grupa de vârstă
+                # 26 Potrivire
                 attrs.get("SILUETA", "A-line"),
+                attrs.get("MODEL", "Simplu"),                     # 27 Model
+                "Nu",                                             # 28 Detalii privind durabilitatea
+                # 29 Lungimea mânecii
                 attrs.get("LUNGIME_MANECA", "Fără mâneci"),
-                attrs.get("SILUETA", "A-line"),
-                attrs.get("OCAZIE", "Elegant"),
-                "Nu", "",
+                # 30 Tipul de material (2)
+                attrs.get("TIP_MATERIAL", "Țesut"),
+                "Fără buzunar",                                   # 31 Buzunar
+                "",                                               # 32 Lungime
+                attrs.get("SILUETA", "A-line"),                   # 33 Siluetă
+                # 34 Tipul de închidere
+                attrs.get("INCHIDERE", "Cu fermoar"),
+                "Simplu",                                         # 35 Tip de produs
+                attrs.get("OCAZIE", "Elegant / Noapte"),          # 36 Ocazie
+                brand_name,                                       # 37 Numele producătorului
+                # 38 Culoare (2)
                 color,
-                attrs.get("GULER", "Gât rotund"),
-                attrs.get("TIP_MATERIAL", "Țesut"),
+                "",                                               # 39 Detalii despre produs
+                "RO",                                             # 40 Origine
+                "",                                               # 41 Caracteristici suplimentare
+                "",                                               # 42 Compoziția materialului
+                "Fără centură",                                   # 43 Starea curelei
+                # 44 Tipul de mânecă
                 attrs.get("LUNGIME_MANECA", "Fără mâneci"),
-                "Simplu", attrs.get("MODEL", "Simplu"),
-                attrs.get("TIP_MATERIAL", "Țesut"),
-                "RO", attrs.get("INCHIDERE", "Cu fermoar"),
-                "", "Adult", "", brand_name, "Fără centură",
-                color, "Femeie", "Feminin",
-                attrs.get("MATERIAL", "Amestec poliester"),
-                "Elegant / Noapte", "",
-                attrs.get("CAPTUSIT", "Căptușit"), "",
+                "Elegant / Noapte",                               # 45 Colecția
+                "",                                               # 46 Instrucțiuni de îngrijire
+                attrs.get("GULER", "Gât rotund"),                 # 47 Guler
+                # 48 Căptușeală
+                attrs.get("CAPTUSIT", "Fără căptușeală"),
+                "Femeie",                                         # 49 Sex
+                attrs.get("SEZON", "Toate anotimpurile"),         # 50 Sezonul
             ])
+
             for col, val in enumerate(row, 1):
                 ws.cell(row=row_idx, column=col, value=val)
             row_idx += 1
 
-    for col in range(1, len(headers) + 1):
+    for col in range(1, len(TRENDYOL_HEADERS) + 1):
         import openpyxl.utils
         ws.column_dimensions[openpyxl.utils.get_column_letter(col)].width = 18
 
@@ -388,7 +459,7 @@ def send_telegram_file(filepath, caption=''):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Export ejolie.ro products to Trendyol template')
+        description='Export ejolie.ro to Trendyol template')
     parser.add_argument("--brand", default=None,
                         help="Export pe brand (ejolie, trendya, artista)")
     parser.add_argument("--start", type=int, help="ID produs start")
@@ -397,7 +468,7 @@ def main():
                         help="ID-uri specifice separate prin virgulă")
     parser.add_argument("--output", default=None, help="Fișier output")
     parser.add_argument("--limit", type=int, default=None,
-                        help="Limită număr produse")
+                        help="Limită produse")
     parser.add_argument("--telegram", action='store_true',
                         help="Trimite pe Telegram")
     args = parser.parse_args()
@@ -409,13 +480,12 @@ def main():
         print("✗ GEMINI_API_KEY nu e setat!")
         sys.exit(1)
 
-    # Determină modul de fetch
     if args.ids:
         product_ids = [int(x.strip()) for x in args.ids.split(',')]
         mode = f"IDs: {len(product_ids)} produse"
     elif args.start and args.end:
         product_ids = list(range(args.start, args.end + 1))
-        mode = f"Range: {args.start}-{args.end} ({len(product_ids)} IDs)"
+        mode = f"Range: {args.start}-{args.end}"
     elif args.brand:
         product_ids = None
         mode = f"Brand: {args.brand}"
@@ -427,13 +497,11 @@ def main():
         SCRIPT_DIR, f"trendyol_export_{datetime.now().strftime('%Y-%m-%d_%H%M')}.xlsx"
     )
 
-    print(f"═══ Export Trendyol ═══")
+    print(f"═══ Export Trendyol v3 ═══")
     print(f"  Mod:      {mode}")
     print(f"  Output:   {output_path}")
-    print(f"  Telegram: {'Da' if args.telegram else 'Nu'}")
     print()
 
-    # Fetch produse
     if product_ids:
         products = fetch_products_by_ids(product_ids)
     else:
@@ -441,40 +509,27 @@ def main():
 
     if args.limit:
         products = dict(list(products.items())[:args.limit])
-        print(f"  ⚡ Limitat la {args.limit} produse")
 
     if not products:
-        print("✗ Niciun produs găsit!")
+        print("✗ Niciun produs!")
         sys.exit(1)
 
-    print(f"\n  📦 {len(products)} produse de exportat\n")
-
-    # Export
+    print(f"\n  📦 {len(products)} produse\n")
     total_rows, prod_count = export_trendyol(products, output_path)
 
     print(f"""
 ═══ EXPORT COMPLET ═══
   Fișier:    {output_path}
-  Rânduri:   {total_rows} (1 per mărime cu stoc > 0)
-  Produse:   {prod_count} (atribute Gemini)
+  Rânduri:   {total_rows}
+  Produse:   {prod_count} (Gemini)
+  Coloane:   51 (template oficial + Sezonul)
 
-  ⬆ UPLOAD PE TRENDYOL:
-    1. partner.trendyol.com → Produse → Acțiuni colective
-    2. Tab "Încărcați șablonul"
-    3. Tip: "Crearea de produse noi"
-    4. Upload: {os.path.basename(output_path)}""")
+  ⬆ UPLOAD: Acțiuni colective → Crearea de produse noi""")
 
     if args.telegram:
-        print(f"\n  📤 Trimit pe Telegram...")
-        caption = (
-            f"📦 <b>Trendyol Export — {datetime.now().strftime('%d.%m.%Y')}</b>\n\n"
-            f"✅ {total_rows} rânduri, {prod_count} produse\n"
-            f"⬆ Upload: Crearea de produse noi"
-        )
+        caption = f"📦 <b>Trendyol Export — {datetime.now().strftime('%d.%m.%Y')}</b>\n✅ {total_rows} rânduri, {prod_count} produse"
         if send_telegram_file(output_path, caption=caption):
             print("  ✓ Trimis pe Telegram!")
-        else:
-            print("  ✗ Eroare Telegram")
 
 
 if __name__ == "__main__":
