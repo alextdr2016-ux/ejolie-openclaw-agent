@@ -477,7 +477,7 @@
  {
   "id": "12390",
   "title": "Rochie Briana cu imprimeu roz",
-  "price": "508.00 RON",
+  "price": "499.00 RON",
   "sale_price": "0.00 RON",
   "image": "https://ejolie.ro/continut/produse/12390/1000/rochie-briana-cu-imprimeu-maro_102514.webp",
   "images": [
@@ -533,7 +533,7 @@
  {
   "id": "12386",
   "title": "Rochie Briana cu imprimeu multicolor",
-  "price": "508.00 RON",
+  "price": "499.00 RON",
   "sale_price": "0.00 RON",
   "image": "https://ejolie.ro/continut/produse/12386/1000/rochie-briana-cu-imprimeu-multicolor_102330.webp",
   "images": [
@@ -552,7 +552,7 @@
  {
   "id": "12385",
   "title": "Rochie Briana cu imprimeu maro",
-  "price": "508.00 RON",
+  "price": "499.00 RON",
   "sale_price": "0.00 RON",
   "image": "https://ejolie.ro/continut/produse/12385/1000/rochie-briana-cu-imprimeu-maro_102325.webp",
   "images": [
@@ -813,6 +813,25 @@
   "category": "Noua Colectie",
   "available": "in stock",
   "description": "<p>Rochia Miriam maro este expresia chic a rafinamentului relaxat, perfectă pentru femeia modernă care apreciază stilul atemporal. Cu o croială lejeră tip cămașă și un imprimeu delicat cu buline maro,"
+ },
+ {
+  "id": "12371",
+  "title": "Rochie Stacy cu imprimeu",
+  "price": "370.50 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/12371/1000/rochie-stacy-cu-imprimeu_102255.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/12371/1000/rochie-stacy-cu-imprimeu_102255.webp",
+   "https://ejolie.ro/continut/produse/12371/1000/rochie-stacy-cu-imprimeu_102251.webp",
+   "https://ejolie.ro/continut/produse/12371/1000/rochie-stacy-cu-imprimeu_102254.webp",
+   "https://ejolie.ro/continut/produse/12371/1000/rochie-stacy-cu-imprimeu_102252.webp",
+   "https://ejolie.ro/continut/produse/12371/1000/rochie-stacy-cu-imprimeu_102253.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-stacy-cu-imprimeu-12371",
+  "brand": "Ejolie",
+  "category": "Noua Colectie",
+  "available": "in stock",
+  "description": "<p>Rochie Stacy cu imprimeu</p>"
  },
  {
   "id": "12370",
@@ -1120,7 +1139,7 @@
   "id": "12351",
   "title": "Rochie Elysia neagra",
   "price": "1438.50 RON",
-  "sale_price": "1150.80 RON",
+  "sale_price": "1078.88 RON",
   "image": "https://ejolie.ro/continut/produse/12351/1000/rochie-elysia-neagra_101976.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12351/1000/rochie-elysia-neagra_101976.webp",
@@ -1138,7 +1157,7 @@
   "id": "12350",
   "title": "Rochie Valery neagra",
   "price": "1188.72 RON",
-  "sale_price": "950.98 RON",
+  "sale_price": "891.54 RON",
   "image": "https://ejolie.ro/continut/produse/12350/1000/rochie-valery-neagra_102401.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12350/1000/rochie-valery-neagra_102401.webp",
@@ -1156,7 +1175,7 @@
   "id": "12348",
   "title": "Rochie Odessa bordo",
   "price": "1799.00 RON",
-  "sale_price": "1439.20 RON",
+  "sale_price": "1349.25 RON",
   "image": "https://ejolie.ro/continut/produse/12348/1000/rochie-odessa-bordo_101968.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12348/1000/rochie-odessa-bordo_101968.webp",
@@ -1173,7 +1192,7 @@
   "id": "12347",
   "title": "Rochie Esme neagra",
   "price": "1298.00 RON",
-  "sale_price": "1038.40 RON",
+  "sale_price": "973.50 RON",
   "image": "https://ejolie.ro/continut/produse/12347/1000/rochie-esme-neagra_101966.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12347/1000/rochie-esme-neagra_101966.webp",
@@ -1190,7 +1209,7 @@
   "id": "12346",
   "title": "Rochie Ambra neagra",
   "price": "1308.00 RON",
-  "sale_price": "1046.40 RON",
+  "sale_price": "981.00 RON",
   "image": "https://ejolie.ro/continut/produse/12346/1000/rochie-ambra-neagra_101963.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12346/1000/rochie-ambra-neagra_101963.webp",
@@ -1209,7 +1228,7 @@
   "id": "12345",
   "title": "Rochie Odessa aurie",
   "price": "1799.00 RON",
-  "sale_price": "1439.20 RON",
+  "sale_price": "1349.25 RON",
   "image": "https://ejolie.ro/continut/produse/12345/1000/rochie-odessa-aurie_101959.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12345/1000/rochie-odessa-aurie_101959.webp",
@@ -1298,7 +1317,7 @@
   "id": "12340",
   "title": "Rochie Savine bej",
   "price": "739.00 RON",
-  "sale_price": "591.20 RON",
+  "sale_price": "554.25 RON",
   "image": "https://ejolie.ro/continut/produse/12340/1000/rochie-savine-bej_101945.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12340/1000/rochie-savine-bej_101945.webp",
@@ -1386,7 +1405,7 @@
   "id": "12334",
   "title": "Rochie Savine verde",
   "price": "739.00 RON",
-  "sale_price": "591.20 RON",
+  "sale_price": "554.25 RON",
   "image": "https://ejolie.ro/continut/produse/12334/1000/rochie-savine-verde_101928.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12334/1000/rochie-savine-verde_101928.webp",
@@ -1454,7 +1473,7 @@
   "id": "12330",
   "title": "Rochie Sabina neagra",
   "price": "589.00 RON",
-  "sale_price": "471.20 RON",
+  "sale_price": "441.75 RON",
   "image": "https://ejolie.ro/continut/produse/12330/1000/rochie-sabina-neagra_101920.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12330/1000/rochie-sabina-neagra_101920.webp",
@@ -1471,7 +1490,7 @@
   "id": "12328",
   "title": "Rochie Fiorelle neagra",
   "price": "543.40 RON",
-  "sale_price": "434.72 RON",
+  "sale_price": "407.55 RON",
   "image": "https://ejolie.ro/continut/produse/12328/1000/rochie-fiorelle-neagra_101916.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12328/1000/rochie-fiorelle-neagra_101916.webp",
@@ -1488,7 +1507,7 @@
   "id": "12327",
   "title": "Rochie Tesia bordo",
   "price": "611.00 RON",
-  "sale_price": "488.80 RON",
+  "sale_price": "458.25 RON",
   "image": "https://ejolie.ro/continut/produse/12327/1000/rochie-tesia-bordo_101914.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12327/1000/rochie-tesia-bordo_101914.webp",
@@ -1505,7 +1524,7 @@
   "id": "12326",
   "title": "Rochie Dianne bordo",
   "price": "529.00 RON",
-  "sale_price": "423.20 RON",
+  "sale_price": "396.75 RON",
   "image": "https://ejolie.ro/continut/produse/12326/1000/rochie-dianne-bordo_101912.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12326/1000/rochie-dianne-bordo_101912.webp",
@@ -1522,7 +1541,7 @@
   "id": "12324",
   "title": "Rochie Selma bordo",
   "price": "693.00 RON",
-  "sale_price": "554.40 RON",
+  "sale_price": "519.75 RON",
   "image": "https://ejolie.ro/continut/produse/12324/1000/rochie-selma-bordo_101908.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12324/1000/rochie-selma-bordo_101908.webp",
@@ -1553,40 +1572,6 @@
   "description": "<p>Rochia Isaline albastru regal este o definiție a rafinamentului modern, o piesă vestimentară ce îmbină eleganța clasică cu un aer fresh și jucăuș. Croiala amplă a fustei, cu lungime midi, oferă o s"
  },
  {
-  "id": "12322",
-  "title": "Rochie Alma albastru regal",
-  "price": "625.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12322/1000/rochie-alma-albastru-regal_101904.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12322/1000/rochie-alma-albastru-regal_101904.webp",
-   "https://ejolie.ro/continut/produse/12322/1000/rochie-alma-albastru-regal_102043.webp",
-   "https://ejolie.ro/continut/produse/12322/1000/rochie-alma-albastru-regal_101905.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-alma-albastru-regal",
-  "brand": "Trendya",
-  "category": "Rochii de ocazie",
-  "available": "in stock",
-  "description": "<p>Rochia Alma, într-o nuanță vibrantă de albastru regal, este o celebrare a feminității și a stilului sofisticat. Croiala amplă, tip A-line, oferă o siluetă grațioasă și o mișcare fluidă, fiind alege"
- },
- {
-  "id": "12321",
-  "title": "Rochie Isaline bleu",
-  "price": "712.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12321/1000/rochie-isaline-bleu_101902.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12321/1000/rochie-isaline-bleu_101902.webp",
-   "https://ejolie.ro/continut/produse/12321/1000/rochie-isaline-bleu_102042.webp",
-   "https://ejolie.ro/continut/produse/12321/1000/rochie-isaline-bleu_101903.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-isaline-bleu",
-  "brand": "Trendya",
-  "category": "Rochii de ocazie",
-  "available": "in stock",
-  "description": "<p>Rochia Isaline bleu este o reverie diafană, o declarație de stil ce îmbină grația cu o notă de joacă sofisticată. Cu o croială lejeră, ce flatează orice siluetă, și un top cu guler tip eșarfă, acea"
- },
- {
   "id": "12320",
   "title": "Rochie Elara bleu",
   "price": "562.50 RON",
@@ -1604,84 +1589,10 @@
   "description": "<p>Rochia Elara bleu este o odă adusă rafinamentului minimalist, o piesă ce emana o eleganță serenă și atemporală. Croiala dreaptă, fluidă, se așază impecabil, conturând o siluetă grațioasă, perfectă "
  },
  {
-  "id": "12319",
-  "title": "Compleu Lyris maro",
-  "price": "637.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12319/1000/compleu-lyris-maro_101897.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12319/1000/compleu-lyris-maro_101897.webp",
-   "https://ejolie.ro/continut/produse/12319/1000/compleu-lyris-maro_101895.webp",
-   "https://ejolie.ro/continut/produse/12319/1000/compleu-lyris-maro_101898.webp",
-   "https://ejolie.ro/continut/produse/12319/1000/compleu-lyris-maro_102040.webp",
-   "https://ejolie.ro/continut/produse/12319/1000/compleu-lyris-maro_101896.webp",
-   "https://ejolie.ro/continut/produse/12319/1000/compleu-lyris-maro_101899.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-lyris-negru-12319",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<h3 start=\"0\" end=\"53\">Compleu&nbsp;<strong start=\"12\" end=\"21\">Lyris</strong>&nbsp;– putere şi fluiditate urbană</h3><p start=\"55\" end=\"320\">Un duo contemporan, definit de un sacou-vestă cu rever dra"
- },
- {
-  "id": "12318",
-  "title": "Compleu Rhea maro",
-  "price": "598.42 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12318/1000/compleu-rhea-maro_101891.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12318/1000/compleu-rhea-maro_101891.webp",
-   "https://ejolie.ro/continut/produse/12318/1000/compleu-rhea-maro_101893.webp",
-   "https://ejolie.ro/continut/produse/12318/1000/compleu-rhea-maro_102039.webp",
-   "https://ejolie.ro/continut/produse/12318/1000/compleu-rhea-maro_101892.webp",
-   "https://ejolie.ro/continut/produse/12318/1000/compleu-rhea-maro_101894.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-rhea-negru-12318",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<p start=\"26\" end=\"189\">Eleganță și arhitectură vestimentară într-un deux-pièces ce impresionează prin liniile curate, tonul clasic&nbsp;și versatilitatea de la birou până la cocktail.</p><hr start=\"1"
- },
- {
-  "id": "12317",
-  "title": "Fusta Vasia maro",
-  "price": "405.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12317/1000/fusta-vasia-maro_101889.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12317/1000/fusta-vasia-maro_101889.webp",
-   "https://ejolie.ro/continut/produse/12317/1000/fusta-vasia-maro_102038.webp",
-   "https://ejolie.ro/continut/produse/12317/1000/fusta-vasia-maro_101890.webp"
-  ],
-  "link": "https://ejolie.ro/product/fusta-vasia-neagra-12317",
-  "brand": "Trendya",
-  "category": "Fuste",
-  "available": "in stock",
-  "description": "<p start=\"172\" end=\"242\"><em start=\"172\" end=\"240\">Esența feminității moderne – elegantă, fluidă și plină de mișcare.</em></p>\r\n<p start=\"244\" end=\"558\"><strong start=\"244\" end=\"259\">Fusta Vasia</stro"
- },
- {
-  "id": "12316",
-  "title": "Bluza Naty bleu",
-  "price": "297.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12316/1000/bluza-naty-bleu_101886.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12316/1000/bluza-naty-bleu_101886.webp",
-   "https://ejolie.ro/continut/produse/12316/1000/bluza-naty-bleu_101887.webp",
-   "https://ejolie.ro/continut/produse/12316/1000/bluza-naty-bleu_101885.webp",
-   "https://ejolie.ro/continut/produse/12316/1000/bluza-naty-bleu_101888.webp"
-  ],
-  "link": "https://ejolie.ro/product/bluza-naty-verde-12316",
-  "brand": "Trendya",
-  "category": "Bluze | Camasi",
-  "available": "in stock",
-  "description": "<div><p start=\"114\" end=\"177\"><em start=\"114\" end=\"175\">Strălucire subtilă, feminitate clasică și detalii rafinate.</em></p>\r\n<p start=\"179\" end=\"625\"><strong start=\"179\" end=\"196\">Bluză Naty</strong>"
- },
- {
   "id": "12315",
   "title": "Rochie Adara maro",
   "price": "529.00 RON",
-  "sale_price": "423.20 RON",
+  "sale_price": "396.75 RON",
   "image": "https://ejolie.ro/continut/produse/12315/1000/rochie-adara-maro_101883.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12315/1000/rochie-adara-maro_101883.webp",
@@ -1698,7 +1609,7 @@
   "id": "12314",
   "title": "Rochie Vivienne maro",
   "price": "642.00 RON",
-  "sale_price": "513.60 RON",
+  "sale_price": "481.50 RON",
   "image": "https://ejolie.ro/continut/produse/12314/1000/rochie-vivienne-maro_101881.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12314/1000/rochie-vivienne-maro_101881.webp",
@@ -1715,7 +1626,7 @@
   "id": "12313",
   "title": "Rochie Mirelle maro",
   "price": "559.00 RON",
-  "sale_price": "447.20 RON",
+  "sale_price": "419.25 RON",
   "image": "https://ejolie.ro/continut/produse/12313/1000/rochie-mirelle-maro_101877.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12313/1000/rochie-mirelle-maro_101877.webp",
@@ -1732,7 +1643,7 @@
   "id": "12310",
   "title": "Rochie Savine maro",
   "price": "739.00 RON",
-  "sale_price": "591.20 RON",
+  "sale_price": "554.25 RON",
   "image": "https://ejolie.ro/continut/produse/12310/1000/rochie-savine-maro_101871.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12310/1000/rochie-savine-maro_101871.webp",
@@ -1749,7 +1660,7 @@
   "id": "12308",
   "title": "Rochie Tess cu imprimeu maro",
   "price": "429.00 RON",
-  "sale_price": "343.20 RON",
+  "sale_price": "321.75 RON",
   "image": "https://ejolie.ro/continut/produse/12308/1000/rochie-tess-cu-imprimeu-maro_101867.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12308/1000/rochie-tess-cu-imprimeu-maro_101867.webp",
@@ -1763,83 +1674,10 @@
   "description": "<p start=\"215\" end=\"286\"><em start=\"215\" end=\"284\">Eleganță boemă, într-o combinație subtilă de rafinament și confort.</em></p>\r\n<p start=\"288\" end=\"741\"><strong start=\"288\" end=\"303\">Rochia Tess</str"
  },
  {
-  "id": "12307",
-  "title": "Compleu Kaia albastru",
-  "price": "715.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12307/1000/compleu-kaia-albastru_101864.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12307/1000/compleu-kaia-albastru_101864.webp",
-   "https://ejolie.ro/continut/produse/12307/1000/compleu-kaia-albastru_101865.webp",
-   "https://ejolie.ro/continut/produse/12307/1000/compleu-kaia-albastru_102029.webp",
-   "https://ejolie.ro/continut/produse/12307/1000/compleu-kaia-albastru_101866.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-azure-albastru-12307",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<p start=\"259\" end=\"313\"><em start=\"259\" end=\"311\">Feminitate rafinată, în tonuri senine de albastru.</em></p><p start=\"315\" end=\"786\"><strong start=\"315\" end=\"332\">Compleul Kaia</strong> surprinde pr"
- },
- {
-  "id": "12306",
-  "title": "Compleu Azure albastru",
-  "price": "688.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12306/1000/compleu-azure-albastru_101862.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12306/1000/compleu-azure-albastru_101862.webp",
-   "https://ejolie.ro/continut/produse/12306/1000/compleu-azure-albastru_101863.webp",
-   "https://ejolie.ro/continut/produse/12306/1000/compleu-azure-albastru_102028.webp",
-   "https://ejolie.ro/continut/produse/12306/1000/compleu-azure-albastru_101861.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-azure-albastru",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<p start=\"227\" end=\"300\"><em start=\"227\" end=\"298\">Eleganță modernă, într-o nuanță care inspiră încredere și rafinament.</em></p>\r\n<p start=\"302\" end=\"760\"><strong start=\"302\" end=\"320\">Compleul Azure"
- },
- {
-  "id": "12305",
-  "title": "Compleu Rhea albastru",
-  "price": "598.42 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12305/1000/compleu-rhea-albastru_101859.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12305/1000/compleu-rhea-albastru_101859.webp",
-   "https://ejolie.ro/continut/produse/12305/1000/compleu-rhea-albastru_101858.webp",
-   "https://ejolie.ro/continut/produse/12305/1000/compleu-rhea-albastru_102027.webp",
-   "https://ejolie.ro/continut/produse/12305/1000/compleu-rhea-albastru_101860.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-rhea-negru-12305",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<p start=\"26\" end=\"189\">Eleganță și arhitectură vestimentară într-un deux-pièces ce impresionează prin liniile curate, tonul clasic&nbsp;și versatilitatea de la birou până la cocktail.</p><hr start=\"1"
- },
- {
-  "id": "12304",
-  "title": "Compleu Lyris albastru",
-  "price": "637.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12304/1000/compleu-lyris-albastru_101856.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12304/1000/compleu-lyris-albastru_101856.webp",
-   "https://ejolie.ro/continut/produse/12304/1000/compleu-lyris-albastru_101854.webp",
-   "https://ejolie.ro/continut/produse/12304/1000/compleu-lyris-albastru_101857.webp",
-   "https://ejolie.ro/continut/produse/12304/1000/compleu-lyris-albastru_102026.webp",
-   "https://ejolie.ro/continut/produse/12304/1000/compleu-lyris-albastru_101855.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-lyris-rosu-12304",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<h3 start=\"0\" end=\"53\">Compleu&nbsp;<strong start=\"12\" end=\"21\">Lyris</strong>&nbsp;– putere şi fluiditate urbană</h3><p start=\"55\" end=\"320\">Un duo contemporan, definit de un sacou-vestă cu rever dra"
- },
- {
   "id": "12302",
   "title": "Rochie Adara bej",
   "price": "529.00 RON",
-  "sale_price": "423.20 RON",
+  "sale_price": "396.75 RON",
   "image": "https://ejolie.ro/continut/produse/12302/1000/rochie-adara-bej_101850.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12302/1000/rochie-adara-bej_101850.webp",
@@ -1857,7 +1695,7 @@
   "id": "12301",
   "title": "Rochie Dianne bej",
   "price": "529.00 RON",
-  "sale_price": "423.20 RON",
+  "sale_price": "396.75 RON",
   "image": "https://ejolie.ro/continut/produse/12301/1000/rochie-dianne-bej_101847.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12301/1000/rochie-dianne-bej_101847.webp",
@@ -1874,7 +1712,7 @@
   "id": "12300",
   "title": "Rochie Odette bej",
   "price": "449.00 RON",
-  "sale_price": "359.20 RON",
+  "sale_price": "336.75 RON",
   "image": "https://ejolie.ro/continut/produse/12300/1000/rochie-odette-bej_101836.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12300/1000/rochie-odette-bej_101836.webp",
@@ -1891,7 +1729,7 @@
   "id": "12299",
   "title": "Rochie Alira neagra",
   "price": "649.00 RON",
-  "sale_price": "519.20 RON",
+  "sale_price": "486.75 RON",
   "image": "https://ejolie.ro/continut/produse/12299/1000/rochie-alira-neagra_101845.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12299/1000/rochie-alira-neagra_101845.webp",
@@ -1908,7 +1746,7 @@
   "id": "12298",
   "title": "Rochie Isolde neagra",
   "price": "596.00 RON",
-  "sale_price": "476.80 RON",
+  "sale_price": "447.00 RON",
   "image": "https://ejolie.ro/continut/produse/12298/1000/rochie-isolde-neagra_101843.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12298/1000/rochie-isolde-neagra_101843.webp",
@@ -1925,7 +1763,7 @@
   "id": "12297",
   "title": "Rochie Savine neagra",
   "price": "739.00 RON",
-  "sale_price": "591.20 RON",
+  "sale_price": "554.25 RON",
   "image": "https://ejolie.ro/continut/produse/12297/1000/rochie-savine-neagra_101840.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12297/1000/rochie-savine-neagra_101840.webp",
@@ -1943,7 +1781,7 @@
   "id": "12296",
   "title": "Rochie Althea neagra",
   "price": "739.00 RON",
-  "sale_price": "591.20 RON",
+  "sale_price": "554.25 RON",
   "image": "https://ejolie.ro/continut/produse/12296/1000/rochie-althea-neagra_101838.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12296/1000/rochie-althea-neagra_101838.webp",
@@ -1960,7 +1798,7 @@
   "id": "12295",
   "title": "Rochie Adara neagra",
   "price": "529.00 RON",
-  "sale_price": "423.20 RON",
+  "sale_price": "396.75 RON",
   "image": "https://ejolie.ro/continut/produse/12295/1000/rochie-adara-neagra_101826.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12295/1000/rochie-adara-neagra_101826.webp",
@@ -1977,7 +1815,7 @@
   "id": "12294",
   "title": "Rochie Dianne neagra",
   "price": "529.00 RON",
-  "sale_price": "423.20 RON",
+  "sale_price": "396.75 RON",
   "image": "https://ejolie.ro/continut/produse/12294/1000/rochie-dianne-neagra_101824.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12294/1000/rochie-dianne-neagra_101824.webp",
@@ -1994,7 +1832,7 @@
   "id": "12293",
   "title": "Rochie Margot neagra",
   "price": "412.00 RON",
-  "sale_price": "329.60 RON",
+  "sale_price": "309.00 RON",
   "image": "https://ejolie.ro/continut/produse/12293/1000/rochie-margot-neagra_101822.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12293/1000/rochie-margot-neagra_101822.webp",
@@ -2011,7 +1849,7 @@
   "id": "12292",
   "title": "Rochie Vivienne neagra",
   "price": "642.00 RON",
-  "sale_price": "513.60 RON",
+  "sale_price": "481.50 RON",
   "image": "https://ejolie.ro/continut/produse/12292/1000/rochie-vivienne-neagra_101832.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12292/1000/rochie-vivienne-neagra_101832.webp",
@@ -2028,7 +1866,7 @@
   "id": "12291",
   "title": "Rochie Fiorelle rosie",
   "price": "543.40 RON",
-  "sale_price": "434.72 RON",
+  "sale_price": "407.55 RON",
   "image": "https://ejolie.ro/continut/produse/12291/1000/rochie-fiorelle-rosie_101818.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12291/1000/rochie-fiorelle-rosie_101818.webp",
@@ -2040,25 +1878,6 @@
   "category": "Rochii de Zi",
   "available": "in stock",
   "description": "<p start=\"162\" end=\"474\"><em start=\"162\" end=\"222\">O declarație de putere feminină și rafinament contemporan.</em><br start=\"222\" end=\"225\">\r\n<strong start=\"225\" end=\"244\">Rochia Fiorelle</strong> imp"
- },
- {
-  "id": "12290",
-  "title": "Compleu Lyris rosu",
-  "price": "637.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12290/1000/compleu-lyris-rosu_101816.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12290/1000/compleu-lyris-rosu_101816.webp",
-   "https://ejolie.ro/continut/produse/12290/1000/compleu-lyris-rosu_101814.webp",
-   "https://ejolie.ro/continut/produse/12290/1000/compleu-lyris-rosu_101817.webp",
-   "https://ejolie.ro/continut/produse/12290/1000/compleu-lyris-rosu_102011.webp",
-   "https://ejolie.ro/continut/produse/12290/1000/compleu-lyris-rosu_101815.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-lyris-negru-12290",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<h3 start=\"0\" end=\"53\">Compleu&nbsp;<strong start=\"12\" end=\"21\">Lyris</strong>&nbsp;– putere şi fluiditate urbană</h3><p start=\"55\" end=\"320\">Un duo contemporan, definit de un sacou-vestă cu rever dra"
  },
  {
   "id": "12288",
@@ -2080,7 +1899,7 @@
   "id": "12287",
   "title": "Body Amara negru",
   "price": "385.00 RON",
-  "sale_price": "308.00 RON",
+  "sale_price": "288.75 RON",
   "image": "https://ejolie.ro/continut/produse/12287/1000/body-amara-negru_101808.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12287/1000/body-amara-negru_101808.webp",
@@ -2096,7 +1915,7 @@
   "id": "12285",
   "title": "Pantaloni Ameline negri",
   "price": "371.80 RON",
-  "sale_price": "297.44 RON",
+  "sale_price": "278.85 RON",
   "image": "https://ejolie.ro/continut/produse/12285/1000/pantaloni-ameline-negri_101804.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12285/1000/pantaloni-ameline-negri_101804.webp",
@@ -2113,7 +1932,7 @@
   "id": "12284",
   "title": "Body Amara alb",
   "price": "385.00 RON",
-  "sale_price": "308.00 RON",
+  "sale_price": "288.75 RON",
   "image": "https://ejolie.ro/continut/produse/12284/1000/body-amara-alb_101802.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12284/1000/body-amara-alb_101802.webp",
@@ -2126,114 +1945,10 @@
   "description": "<p start=\"252\" end=\"650\">Rafinat și senzual prin simplitate, <em start=\"288\" end=\"303\">Body-ul Amara</em> este o piesă statement în garderoba feminină. Realizat din satin fluid, cu un luciu subtil și "
  },
  {
-  "id": "12283",
-  "title": "Camasa Anais neagra",
-  "price": "297.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12283/1000/camasa-anais-neagra_101800.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12283/1000/camasa-anais-neagra_101800.webp",
-   "https://ejolie.ro/continut/produse/12283/1000/camasa-anais-neagra_101801.webp",
-   "https://ejolie.ro/continut/produse/12283/1000/camasa-anais-neagra_102007.webp"
-  ],
-  "link": "https://ejolie.ro/product/camasa-anais-alba-12283",
-  "brand": "Trendya",
-  "category": "Bluze | Camasi",
-  "available": "in stock",
-  "description": "<p start=\"201\" end=\"658\">Modernă și rafinată, <em start=\"222\" end=\"236\">Camasa Anaïs</em> este reinterpretarea contemporană a unei piese clasice. Realizată din poplin fin, cu o textură plăcută și o cr"
- },
- {
-  "id": "12282",
-  "title": "Camasa Anais alba",
-  "price": "297.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12282/1000/camasa-anais-alba_101798.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12282/1000/camasa-anais-alba_101798.webp",
-   "https://ejolie.ro/continut/produse/12282/1000/camasa-anais-alba_101799.webp",
-   "https://ejolie.ro/continut/produse/12282/1000/camasa-anais-alba_102006.webp"
-  ],
-  "link": "https://ejolie.ro/product/camasa-anais-bej-12282",
-  "brand": "Trendya",
-  "category": "Bluze | Camasi",
-  "available": "in stock",
-  "description": "<p start=\"201\" end=\"658\">Modernă și rafinată, <em start=\"222\" end=\"236\">Camasa Anaïs</em> este reinterpretarea contemporană a unei piese clasice. Realizată din poplin fin, cu o textură plăcută și o cr"
- },
- {
-  "id": "12281",
-  "title": "Camasa Anais bej",
-  "price": "297.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12281/1000/camasa-anais-bej_101796.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12281/1000/camasa-anais-bej_101796.webp",
-   "https://ejolie.ro/continut/produse/12281/1000/camasa-anais-bej_101797.webp",
-   "https://ejolie.ro/continut/produse/12281/1000/camasa-anais-bej_102005.webp"
-  ],
-  "link": "https://ejolie.ro/product/camasa-anais-bordo-12281",
-  "brand": "Trendya",
-  "category": "Bluze | Camasi",
-  "available": "in stock",
-  "description": "<p start=\"201\" end=\"658\">Modernă și rafinată, <em start=\"222\" end=\"236\">Camasa Anaïs</em> este reinterpretarea contemporană a unei piese clasice. Realizată din poplin fin, cu o textură plăcută și o cr"
- },
- {
-  "id": "12280",
-  "title": "Camasa Anais bordo",
-  "price": "297.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12280/1000/camasa-anais-bordo_101795.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12280/1000/camasa-anais-bordo_101795.webp",
-   "https://ejolie.ro/continut/produse/12280/1000/camasa-anais-bordo_101794.webp",
-   "https://ejolie.ro/continut/produse/12280/1000/camasa-anais-bordo_102004.webp"
-  ],
-  "link": "https://ejolie.ro/product/camasa-anais-bordo",
-  "brand": "Trendya",
-  "category": "Bluze | Camasi",
-  "available": "in stock",
-  "description": "<p start=\"201\" end=\"658\">Modernă și rafinată, <em start=\"222\" end=\"236\">Camasa Anaïs</em> este reinterpretarea contemporană a unei piese clasice. Realizată din poplin fin, cu o textură plăcută și o cr"
- },
- {
-  "id": "12279",
-  "title": "Compleu Orielle mint",
-  "price": "688.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12279/1000/compleu-orielle-mint_101792.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12279/1000/compleu-orielle-mint_101792.webp",
-   "https://ejolie.ro/continut/produse/12279/1000/compleu-orielle-mint_101793.webp",
-   "https://ejolie.ro/continut/produse/12279/1000/compleu-orielle-mint_102003.webp",
-   "https://ejolie.ro/continut/produse/12279/1000/compleu-orielle-mint_101790.webp",
-   "https://ejolie.ro/continut/produse/12279/1000/compleu-orielle-mint_101791.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-orielle-negru-12279",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<p start=\"42\" end=\"325\">Sacoul cropped cu rever amplu şi pantalonul wide-leg cu talie înaltă transformă nuanţa de verde mint&nbsp;&nbsp;într-un statement plin de încredere. Poartă-l atât la evenimente"
- },
- {
-  "id": "12278",
-  "title": "Compleu Solange mint",
-  "price": "688.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12278/1000/compleu-solange-mint_101788.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12278/1000/compleu-solange-mint_101788.webp",
-   "https://ejolie.ro/continut/produse/12278/1000/compleu-solange-mint_101789.webp",
-   "https://ejolie.ro/continut/produse/12278/1000/compleu-solange-mint_102002.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-solange-negru-12278",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<h3 start=\"0\" end=\"50\">Solange – compleul two-piece în trend</h3><p start=\"52\" end=\"405\">Un ansamblu tailor-made care dă replică costumului clasic, reinterpretat printr-un sacou scurt cu aer fashion-f"
- },
- {
   "id": "12277",
   "title": "Body Amara maro",
   "price": "385.00 RON",
-  "sale_price": "308.00 RON",
+  "sale_price": "288.75 RON",
   "image": "https://ejolie.ro/continut/produse/12277/1000/body-amara-maro_101786.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12277/1000/body-amara-maro_101786.webp",
@@ -2249,7 +1964,7 @@
   "id": "12276",
   "title": "Pantaloni Alix bej",
   "price": "471.00 RON",
-  "sale_price": "376.80 RON",
+  "sale_price": "353.25 RON",
   "image": "https://ejolie.ro/continut/produse/12276/1000/pantaloni-alix-bej_101784.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12276/1000/pantaloni-alix-bej_101784.webp",
@@ -2261,23 +1976,6 @@
   "category": "Pantaloni",
   "available": "in stock",
   "description": "<p start=\"1226\" end=\"1589\">Cu o croială impecabilă și o linie fluidă, <em start=\"1269\" end=\"1286\">Pantalonii Alix</em> sunt definiția eleganței minimaliste. Talia înaltă și betelia amplă, accesorizată"
- },
- {
-  "id": "12275",
-  "title": "Compleu Solange negru",
-  "price": "688.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12275/1000/compleu-solange-negru_101782.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12275/1000/compleu-solange-negru_101782.webp",
-   "https://ejolie.ro/continut/produse/12275/1000/compleu-solange-negru_101783.webp",
-   "https://ejolie.ro/continut/produse/12275/1000/compleu-solange-negru_102000.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-solange-corai-12275",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<h3 start=\"0\" end=\"50\">Solange – compleul two-piece în trend</h3><p start=\"52\" end=\"405\">Un ansamblu tailor-made care dă replică costumului clasic, reinterpretat printr-un sacou scurt cu aer fashion-f"
  },
  {
   "id": "12274",
@@ -2297,45 +1995,10 @@
   "description": "<p start=\"42\" end=\"325\">Sacoul cropped cu rever amplu plus pantalonul wide-leg cu talie înaltă transformă nuanţa clasica de negru&nbsp;într-un statement plin de încredere. Poartă-l atât la evenimente "
  },
  {
-  "id": "12273",
-  "title": "Compleu Rhea negru",
-  "price": "598.42 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12273/1000/compleu-rhea-negru_101777.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12273/1000/compleu-rhea-negru_101777.webp",
-   "https://ejolie.ro/continut/produse/12273/1000/compleu-rhea-negru_101778.webp",
-   "https://ejolie.ro/continut/produse/12273/1000/compleu-rhea-negru_101998.webp",
-   "https://ejolie.ro/continut/produse/12273/1000/compleu-rhea-negru_101779.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-rhea-rosu-12273",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<h2 start=\"0\" end=\"24\">Compleu&nbsp;<strong start=\"11\" end=\"24\">Rhea Negru</strong></h2><p start=\"26\" end=\"189\">Eleganță și arhitectură vestimentară într-un deux-pièces ce impresionează prin liniile c"
- },
- {
-  "id": "12272",
-  "title": "Compleu Lyris negru",
-  "price": "637.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12272/1000/compleu-lyris-negru_101772.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12272/1000/compleu-lyris-negru_101772.webp",
-   "https://ejolie.ro/continut/produse/12272/1000/compleu-lyris-negru_101773.webp",
-   "https://ejolie.ro/continut/produse/12272/1000/compleu-lyris-negru_101997.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-lyris-olive-12272",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<h3 start=\"0\" end=\"53\">Compleu&nbsp;<strong start=\"12\" end=\"21\">Lyris</strong>&nbsp;– putere şi fluiditate urbană</h3><p start=\"55\" end=\"320\">Un duo contemporan, definit de un sacou-vestă cu rever dra"
- },
- {
   "id": "12270",
   "title": "Rochie Odette neagra",
   "price": "449.00 RON",
-  "sale_price": "359.20 RON",
+  "sale_price": "336.75 RON",
   "image": "https://ejolie.ro/continut/produse/12270/1000/rochie-odette-neagra_101768.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12270/1000/rochie-odette-neagra_101768.webp",
@@ -2352,7 +2015,7 @@
   "id": "12269",
   "title": "Rochie Clarisse bej cu imprimeu",
   "price": "449.00 RON",
-  "sale_price": "359.20 RON",
+  "sale_price": "336.75 RON",
   "image": "https://ejolie.ro/continut/produse/12269/1000/rochie-clarisse-bej-cu-imprimeu_101766.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12269/1000/rochie-clarisse-bej-cu-imprimeu_101766.webp",
@@ -2383,23 +2046,6 @@
   "description": "<p start=\"204\" end=\"657\">Dinamică, fresh și plină de personalitate, <em start=\"247\" end=\"263\">Rochia Allegra</em> în imprimeu abstract multicolor aduce un aer modern și energic colecției. Nuanțele vii"
  },
  {
-  "id": "12267",
-  "title": "Rochie Violette mov",
-  "price": "639.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12267/1000/rochie-violette-mov_101762.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12267/1000/rochie-violette-mov_101762.webp",
-   "https://ejolie.ro/continut/produse/12267/1000/rochie-violette-mov_101763.webp",
-   "https://ejolie.ro/continut/produse/12267/1000/rochie-violette-mov_101992.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-violette-mov-12267",
-  "brand": "Trendya",
-  "category": "Rochii de ocazie",
-  "available": "in stock",
-  "description": "<p>Rochia Violette mov este o declarație de stil rafinat, perfectă pentru femeia ce își dorește să strălucească cu o eleganță subtilă la evenimente speciale. Combinația de texturi și nuanța vibrantă d"
- },
- {
   "id": "12266",
   "title": "Rochie Sonia corai cu imprimeu",
   "price": "639.00 RON",
@@ -2420,7 +2066,7 @@
   "id": "12265",
   "title": "Rochie Sabina verde",
   "price": "589.00 RON",
-  "sale_price": "471.20 RON",
+  "sale_price": "441.75 RON",
   "image": "https://ejolie.ro/continut/produse/12265/1000/rochie-sabina-verde_101758.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12265/1000/rochie-sabina-verde_101758.webp",
@@ -2437,7 +2083,7 @@
   "id": "12264",
   "title": "Rochie Mirelle turcoaz",
   "price": "559.00 RON",
-  "sale_price": "447.20 RON",
+  "sale_price": "419.25 RON",
   "image": "https://ejolie.ro/continut/produse/12264/1000/rochie-mirelle-turcoaz_101756.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12264/1000/rochie-mirelle-turcoaz_101756.webp",
@@ -2488,7 +2134,7 @@
   "id": "12261",
   "title": "Rochie Adara magenta",
   "price": "529.00 RON",
-  "sale_price": "423.20 RON",
+  "sale_price": "396.75 RON",
   "image": "https://ejolie.ro/continut/produse/12261/1000/rochie-adara-magenta_101750.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12261/1000/rochie-adara-magenta_101750.webp",
@@ -2505,7 +2151,7 @@
   "id": "12260",
   "title": "Rochie Lara cu imprimeu",
   "price": "389.50 RON",
-  "sale_price": "311.60 RON",
+  "sale_price": "292.13 RON",
   "image": "https://ejolie.ro/continut/produse/12260/1000/rochie-lara-cu-imprimeu_101748.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12260/1000/rochie-lara-cu-imprimeu_101748.webp",
@@ -2522,7 +2168,7 @@
   "id": "12259",
   "title": "Rochie Amelie neagra cu imprimeu",
   "price": "679.00 RON",
-  "sale_price": "543.20 RON",
+  "sale_price": "509.25 RON",
   "image": "https://ejolie.ro/continut/produse/12259/1000/rochie-amelie-neagra-cu-imprimeu_101746.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12259/1000/rochie-amelie-neagra-cu-imprimeu_101746.webp",
@@ -2539,7 +2185,7 @@
   "id": "12258",
   "title": "Rochie Nolia bleumarin cu buline",
   "price": "559.00 RON",
-  "sale_price": "447.20 RON",
+  "sale_price": "419.25 RON",
   "image": "https://ejolie.ro/continut/produse/12258/1000/rochie-nolia-bleumarin-cu-buline_101744.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12258/1000/rochie-nolia-bleumarin-cu-buline_101744.webp",
@@ -2556,7 +2202,7 @@
   "id": "12257",
   "title": "Rochie Nolia maro cu buline",
   "price": "559.00 RON",
-  "sale_price": "447.20 RON",
+  "sale_price": "419.25 RON",
   "image": "https://ejolie.ro/continut/produse/12257/1000/rochie-nolia-maro-cu-buline_101742.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12257/1000/rochie-nolia-maro-cu-buline_101742.webp",
@@ -2573,7 +2219,7 @@
   "id": "12256",
   "title": "Rochie Nolia bej cu buline",
   "price": "559.00 RON",
-  "sale_price": "447.20 RON",
+  "sale_price": "419.25 RON",
   "image": "https://ejolie.ro/continut/produse/12256/1000/rochie-nolia-bej-cu-buline_101740.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12256/1000/rochie-nolia-bej-cu-buline_101740.webp",
@@ -2590,7 +2236,7 @@
   "id": "12255",
   "title": "Rochie Adara verde",
   "price": "529.00 RON",
-  "sale_price": "423.20 RON",
+  "sale_price": "396.75 RON",
   "image": "https://ejolie.ro/continut/produse/12255/1000/rochie-adara-verde_101738.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12255/1000/rochie-adara-verde_101738.webp",
@@ -2619,23 +2265,6 @@
   "category": "Rochii de seara",
   "available": "in stock",
   "description": "<p>Rochia Elara verde este o declarație de stil, un echilibru perfect între rafinament și o notă jucăușă de prospețime. Croiala lejeră, fluidă, urmărește delicat linia corpului, oferind o siluetă graț"
- },
- {
-  "id": "12253",
-  "title": "Rochie Navya Soleil",
-  "price": "688.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12253/1000/rochie-navya-soleil_101734.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12253/1000/rochie-navya-soleil_101734.webp",
-   "https://ejolie.ro/continut/produse/12253/1000/rochie-navya-soleil_101735.webp",
-   "https://ejolie.ro/continut/produse/12253/1000/rochie-navya-soleil_101978.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-navya-vernil-12253",
-  "brand": "Trendya",
-  "category": "Rochii de seara",
-  "available": "in stock",
-  "description": "<p>Rochia Navya Soleil este o declarație de stil radiantă, o piesă ce îmbracă silueta cu o eleganță modernă și un aer sofisticat. Culoarea vibrantă de galben solar, alături de croiala fluidă, o transf"
  },
  {
   "id": "12252",
@@ -2686,23 +2315,6 @@
   "category": "Rochii de ocazie",
   "available": "in stock",
   "description": "<p>Rochia Serena aurie este o odă adusă rafinamentului clasic, o piesă vestimentară ce îmbină grația cu opulența discretă. Croiala în A, cu fusta amplă, subliniază talia și flatează silueta, transform"
- },
- {
-  "id": "12249",
-  "title": "Rochie Ralida nude",
-  "price": "589.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12249/1000/rochie-ralida-nude_101679.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12249/1000/rochie-ralida-nude_101679.webp",
-   "https://ejolie.ro/continut/produse/12249/1000/rochie-ralida-nude_101678.webp",
-   "https://ejolie.ro/continut/produse/12249/1000/rochie-ralida-nude_101680.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-raluca-bordo-12249",
-  "brand": "Trendya",
-  "category": "Rochii de ocazie",
-  "available": "in stock",
-  "description": "<p>Rochia Ralida nude este o odă adusă rafinamentului și feminității delicate, o piesă vestimentară ce te învăluie într-o aură de grație. Croiala sa tip A-line, vaporoasă și elegantă, este perfectă pe"
  },
  {
   "id": "12248",
@@ -2768,23 +2380,6 @@
   "category": "Rochii de ocazie",
   "available": "in stock",
   "description": "<p>Rochia Lilith ivoar cu corai este o celebrare a rafinamentului și a prospețimii, o piesă vestimentară ce îmbină grația cu un aer jucăuș, perfectă pentru evenimente de zi sau cocktailuri elegante. C"
- },
- {
-  "id": "12244",
-  "title": "Rochie Lilith ivoar cu bleu",
-  "price": "567.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12244/1000/rochie-lilith-ivoar-cu-bleu_101667.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12244/1000/rochie-lilith-ivoar-cu-bleu_101667.webp",
-   "https://ejolie.ro/continut/produse/12244/1000/rochie-lilith-ivoar-cu-bleu_101668.webp",
-   "https://ejolie.ro/continut/produse/12244/1000/rochie-lilith-ivoar-cu-bleu_101666.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-lilith-ivoar-12244",
-  "brand": "Trendya",
-  "category": "Rochii de ocazie",
-  "available": "in stock",
-  "description": "<p>Rochia Lilith este o îmbinare armonioasă de rafinament și delicatețe, creată pentru a-ți evidenția grația naturală. Partea superioară, decorată cu broderie florală complexă în nuanțe de ivoar, bleu"
  },
  {
   "id": "12243",
@@ -2920,38 +2515,6 @@
   "description": "<h3 start=\"0\" end=\"50\">Solange – compleul two-piece în nuanţă Paprika</h3><p start=\"52\" end=\"405\">Un ansamblu tailor-made care dă replică costumului clasic, reinterpretat printr-un sacou scurt cu aer "
  },
  {
-  "id": "12235",
-  "title": "Compleu Orielle corai",
-  "price": "688.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12235/1000/compleu-orielle-corai_101643.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12235/1000/compleu-orielle-corai_101643.webp",
-   "https://ejolie.ro/continut/produse/12235/1000/compleu-orielle-corai_101644.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-orielle-corai",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<h3 start=\"0\" end=\"40\">Orielle – compleul care electrizează</h3><p start=\"42\" end=\"325\">Sacoul cropped cu rever amplu şi nasture-bijuterie auriu plus pantalonul wide-leg cu talie înaltă transformă nua"
- },
- {
-  "id": "12234",
-  "title": "Compleu Lyris olive",
-  "price": "637.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12234/1000/compleu-lyris-olive_101641.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12234/1000/compleu-lyris-olive_101641.webp",
-   "https://ejolie.ro/continut/produse/12234/1000/compleu-lyris-olive_101642.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-lyris-olive",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<h3 start=\"0\" end=\"53\">Compleu&nbsp;<strong start=\"12\" end=\"21\">Lyris</strong>&nbsp;– putere şi fluiditate urbană</h3><p start=\"55\" end=\"320\">Un duo contemporan, definit de un sacou-vestă cu rever dra"
- },
- {
   "id": "12233",
   "title": "Rochie Siora olive",
   "price": "418.50 RON",
@@ -2968,38 +2531,6 @@
   "description": "<h3 start=\"0\" end=\"56\">Rochie&nbsp;<strong start=\"11\" end=\"20\">Siora</strong>&nbsp;– eleganţă pură în linii impecabile</h3><p start=\"58\" end=\"385\">O siluetă creion, un decolteu Bardot ce mângâie umeri"
  },
  {
-  "id": "12232",
-  "title": "Compleu Inessa roz pudra",
-  "price": "567.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12232/1000/compleu-inessa-roz-pudra_101637.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12232/1000/compleu-inessa-roz-pudra_101637.webp",
-   "https://ejolie.ro/continut/produse/12232/1000/compleu-inessa-roz-pudra_101638.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-inessa-roz-pudra",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "Compleu&nbsp;<strong start=\"12\" end=\"22\">Inessa</strong>&nbsp;– roz pudră<div><article dir=\"auto\" testid=\"conversation-turn-166\" anchor=\"true\"><div tabindex=\"-1\"><div role=\"assistant\" dir=\"auto\" slug="
- },
- {
-  "id": "12231",
-  "title": "Rochie Venus roz",
-  "price": "418.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12231/1000/rochie-venus-roz_101635.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12231/1000/rochie-venus-roz_101635.webp",
-   "https://ejolie.ro/continut/produse/12231/1000/rochie-venus-roz_101636.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-venus-neagra-12231",
-  "brand": "Trendya",
-  "category": "Rochii de ocazie",
-  "available": "in stock",
-  "description": "<p>Rochia Venus roz este o declarație de stil relaxat și feminitate jucăușă, perfectă pentru zilele calde de vară sau evenimente casual chic. Croiala lejeră, în A, conferă libertate de mișcare și un a"
- },
- {
   "id": "12230",
   "title": "Rochie Livia crem roze",
   "price": "432.00 RON",
@@ -3014,22 +2545,6 @@
   "category": "Rochii de Zi",
   "available": "in stock",
   "description": "<p start=\"189\" end=\"500\"><strong start=\"223\" end=\"239\">Rochia Livia</strong>, o piesă scurtă, fără mâneci, inspirată de croiala wrap a unui sacou couture. Reverul ascuțit și linia petrecută, prinsă la"
- },
- {
-  "id": "12229",
-  "title": "Compleu Adele crem",
-  "price": "594.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12229/1000/compleu-adele-crem_101632.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12229/1000/compleu-adele-crem_101632.webp",
-   "https://ejolie.ro/continut/produse/12229/1000/compleu-adele-crem_101631.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-adele-crem",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<h3 start=\"0\" end=\"63\">Compleu Adele&nbsp;crem&nbsp;– eleganța minimalistă care nu dă greș</h3><ul start=\"96\" end=\"483\"><li start=\"96\" end=\"217\"><p start=\"98\" end=\"217\">Siluetă contemporană: vestă lun"
  },
  {
   "id": "12228",
@@ -3062,23 +2577,6 @@
   "category": "Rochii de Zi",
   "available": "in stock",
   "description": "<h3 start=\"0\" end=\"55\">Rochia&nbsp;<strong start=\"11\" end=\"21\">Marina</strong>&nbsp;– eleganță clară în roșu aprins</h3><p start=\"57\" end=\"374\">Croită pe linia clasică a rochiei creion midi,&nbsp;<str"
- },
- {
-  "id": "12226",
-  "title": "Rochie Carmine rosie",
-  "price": "594.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12226/1000/rochie-carmine-rosie_101625.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12226/1000/rochie-carmine-rosie_101625.webp",
-   "https://ejolie.ro/continut/produse/12226/1000/rochie-carmine-rosie_101626.webp",
-   "https://ejolie.ro/continut/produse/12226/1000/rochie-carmine-rosie_101624.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-carmine-rosie",
-  "brand": "Trendya",
-  "category": "Rochii de ocazie",
-  "available": "in stock",
-  "description": "<p>Rochia Carmine roșie este o declarație de stil și feminitate, o piesă vestimentară ce îmbină grația clasică cu un aer modern. Croiala în A, lejeră și flatantă, avantajează orice siluetă, iar detali"
  },
  {
   "id": "12225",
@@ -3133,6 +2631,23 @@
   "description": "<p>Rochia Navya vernil este o declarație de stil rafinat, o piesă vestimentară ce îmbină simplitatea sofisticată cu un aer modern. Culoarea proaspătă, un vernil delicat, aduce o notă de prospețime și "
  },
  {
+  "id": "12222",
+  "title": "Rochie Neela bleu",
+  "price": "475.00 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/12222/1000/rochie-neela-bleu_101612.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/12222/1000/rochie-neela-bleu_101612.webp",
+   "https://ejolie.ro/continut/produse/12222/1000/rochie-neela-bleu_101611.webp",
+   "https://ejolie.ro/continut/produse/12222/1000/rochie-neela-bleu_101613.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-neela-bleu",
+  "brand": "Trendya",
+  "category": "Rochii de seara",
+  "available": "in stock",
+  "description": "<p start=\"58\" end=\"422\"><strong start=\"58\" end=\"67\">Neela</strong>&nbsp;captează reflexele cerului de amurg într-un satin bleu luminos.</p><p start=\"58\" end=\"422\">Decolteul halter în V alungeşte elega"
+ },
+ {
   "id": "12221",
   "title": "Rochie Indira albastra",
   "price": "526.50 RON",
@@ -3166,36 +2681,38 @@
   "description": "<p start=\"189\" end=\"500\"><strong start=\"223\" end=\"239\">Rochia Livia</strong>, o piesă scurtă, fără mâneci, inspirată de croiala wrap a unui sacou couture. Reverul ascuțit și linia petrecută, prinsă la"
  },
  {
-  "id": "12217",
-  "title": "Compleu Zoya fucsia",
-  "price": "594.00 RON",
+  "id": "12219",
+  "title": "Rochie Lyra fucsia cu negru",
+  "price": "487.50 RON",
   "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12217/1000/compleu-zoya-fucsia_101598.webp",
+  "image": "https://ejolie.ro/continut/produse/12219/1000/rochie-lyra-fucsia-cu-negru_101604.webp",
   "images": [
-   "https://ejolie.ro/continut/produse/12217/1000/compleu-zoya-fucsia_101598.webp",
-   "https://ejolie.ro/continut/produse/12217/1000/compleu-zoya-fucsia_101599.webp"
+   "https://ejolie.ro/continut/produse/12219/1000/rochie-lyra-fucsia-cu-negru_101604.webp",
+   "https://ejolie.ro/continut/produse/12219/1000/rochie-lyra-fucsia-cu-negru_101603.webp",
+   "https://ejolie.ro/continut/produse/12219/1000/rochie-lyra-fucsia-cu-negru_101605.webp"
   ],
-  "link": "https://ejolie.ro/product/compleu-zoya-fucsia",
+  "link": "https://ejolie.ro/product/rochie-lyra-fucsia-cu-negru",
   "brand": "Trendya",
-  "category": "Compleuri",
+  "category": "Rochii de seara",
   "available": "in stock",
-  "description": "<h3 start=\"0\" end=\"74\">Compleul Zoya – un mix perfect de putere&nbsp;&amp; feminitate în nuanță fuchsia</h3><p start=\"76\" end=\"461\">Fă cunoștință cu&nbsp;<strong start=\"93\" end=\"110\">Compleul Zoya</st"
+  "description": "<h3 start=\"0\" end=\"59\">Rochia&nbsp;<strong start=\"11\" end=\"19\">Lyra</strong>&nbsp;– armonie grafică în fuchsia și negru</h3><p start=\"61\" end=\"360\">Îndrăznește să cucerești seara cu&nbsp;<strong start"
  },
  {
-  "id": "12216",
-  "title": "Compleu Selene lila",
-  "price": "567.00 RON",
+  "id": "12218",
+  "title": "Rochie Zinnia cu imprimeu floral",
+  "price": "412.50 RON",
   "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12216/1000/compleu-selene-lila_101596.webp",
+  "image": "https://ejolie.ro/continut/produse/12218/1000/rochie-zinnia-cu-imprimeu-floral_101600.webp",
   "images": [
-   "https://ejolie.ro/continut/produse/12216/1000/compleu-selene-lila_101596.webp",
-   "https://ejolie.ro/continut/produse/12216/1000/compleu-selene-lila_101597.webp"
+   "https://ejolie.ro/continut/produse/12218/1000/rochie-zinnia-cu-imprimeu-floral_101600.webp",
+   "https://ejolie.ro/continut/produse/12218/1000/rochie-zinnia-cu-imprimeu-floral_101601.webp",
+   "https://ejolie.ro/continut/produse/12218/1000/rochie-zinnia-cu-imprimeu-floral_101602.webp"
   ],
-  "link": "https://ejolie.ro/product/compleu-selene-lila",
+  "link": "https://ejolie.ro/product/rochie-zinnia-cu-imprimeu-floral",
   "brand": "Trendya",
-  "category": "Compleuri",
+  "category": "Rochii de Zi",
   "available": "in stock",
-  "description": "<p start=\"157\" end=\"537\"><strong start=\"188\" end=\"207\">Compleul Selene</strong>&nbsp;este&nbsp;format dintr-o vestă crop fără mâneci şi o fustă conică midi, ambele realizate din&nbsp;<strong start=\"29"
+  "description": "<h3 start=\"0\" end=\"74\">Rochia Zinnia – explozie florală într-un design off-shoulder seducător</h3><p start=\"76\" end=\"409\">Îmbracă energia verii cu&nbsp;<strong start=\"101\" end=\"118\">Rochia Zinnia</str"
  },
  {
   "id": "12214",
@@ -3228,23 +2745,6 @@
   "category": "Rochii de Zi",
   "available": "in stock",
   "description": "<p start=\"186\" end=\"585\">Împrospătează-ți garderoba cu&nbsp;<strong start=\"216\" end=\"233\">Rochia Sole</strong>, o rochie midi din&nbsp;<strong start=\"253\" end=\"281\">amestec de in și vâscoză</strong>&n"
- },
- {
-  "id": "12212",
-  "title": "Compleu Verona bej",
-  "price": "594.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12212/1000/compleu-verona-bej_101587.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12212/1000/compleu-verona-bej_101587.webp",
-   "https://ejolie.ro/continut/produse/12212/1000/compleu-verona-bej_101589.webp",
-   "https://ejolie.ro/continut/produse/12212/1000/compleu-verona-bej_101588.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-verona-bej",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<p start=\"23\" end=\"142\"><strong start=\"23\" end=\"42\">Compleul Verona</strong>&nbsp;– eleganță italiană reinterpretată pentru zilele călduroase de vară, într-o nuanță nude impecabilă.</p><p start=\"200\" "
  },
  {
   "id": "12211",
@@ -3314,25 +2814,6 @@
   "description": "<p start=\"166\" end=\"505\">Intră direct în atmosfera unei vacanțe tropicale cu&nbsp;<strong start=\"222\" end=\"241\">Compleul Paloma</strong>, alcătuit dintr-un top scurt&nbsp;<strong start=\"271\" end=\"287\""
  },
  {
-  "id": "12204",
-  "title": "Compleu Siena bej",
-  "price": "594.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12204/1000/compleu-siena-bej_101567.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12204/1000/compleu-siena-bej_101567.webp",
-   "https://ejolie.ro/continut/produse/12204/1000/compleu-siena-bej_101564.webp",
-   "https://ejolie.ro/continut/produse/12204/1000/compleu-siena-bej_101566.webp",
-   "https://ejolie.ro/continut/produse/12204/1000/compleu-siena-bej_101565.webp",
-   "https://ejolie.ro/continut/produse/12204/1000/compleu-siena-bej_101568.webp"
-  ],
-  "link": "https://ejolie.ro/product/compleu-siena-bej",
-  "brand": "Trendya",
-  "category": "Compleuri",
-  "available": "in stock",
-  "description": "<p start=\"168\" end=\"264\">Eleganță naturală și rafinament minimalist definesc compleul&nbsp;<strong start=\"386\" end=\"395\">Siena</strong>, creat dintr-un&nbsp;<strong start=\"412\" end=\"429\">amestec de in"
- },
- {
   "id": "12203",
   "title": "Rochie Gaia fucsia cu imprimeu",
   "price": "445.50 RON",
@@ -3348,61 +2829,6 @@
   "category": "Rochii de Zi",
   "available": "in stock",
   "description": "<p start=\"373\" end=\"672\">Emană feminitate și încredere cu&nbsp;<strong start=\"406\" end=\"421\">rochia Gaia</strong>, o piesă statement ce îmbină eleganța cu spiritul artistic. Imprimeul hipnotizant, cu "
- },
- {
-  "id": "12202",
-  "title": "Pantaloni Aruna mov",
-  "price": "297.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12202/1000/pantaloni-aruna-mov_101558.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12202/1000/pantaloni-aruna-mov_101558.webp",
-   "https://ejolie.ro/continut/produse/12202/1000/pantaloni-aruna-mov_101555.webp",
-   "https://ejolie.ro/continut/produse/12202/1000/pantaloni-aruna-mov_101556.webp",
-   "https://ejolie.ro/continut/produse/12202/1000/pantaloni-aruna-mov_101554.webp",
-   "https://ejolie.ro/continut/produse/12202/1000/pantaloni-aruna-mov_101557.webp"
-  ],
-  "link": "https://ejolie.ro/product/pantaloni-aruna-mov",
-  "brand": "Trendya",
-  "category": "Pantaloni",
-  "available": "in stock",
-  "description": "<strong>Pantaloni Harem Unisex cu Tur Relaxat, Ideali pentru Yoga și Meditație</strong><div><br></div><div>Simte libertatea mișcării și confortul absolut cu pantalonii&nbsp;<strong start=\"896\" end=\"90"
- },
- {
-  "id": "12201",
-  "title": "Bluza Tara alba",
-  "price": "256.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12201/1000/bluza-tara-alba_101560.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12201/1000/bluza-tara-alba_101560.webp",
-   "https://ejolie.ro/continut/produse/12201/1000/bluza-tara-alba_101559.webp",
-   "https://ejolie.ro/continut/produse/12201/1000/bluza-tara-alba_101550.webp",
-   "https://ejolie.ro/continut/produse/12201/1000/bluza-tara-alba_101549.webp",
-   "https://ejolie.ro/continut/produse/12201/1000/bluza-tara-alba_101552.webp",
-   "https://ejolie.ro/continut/produse/12201/1000/bluza-tara-alba_101551.webp"
-  ],
-  "link": "https://ejolie.ro/product/bluza-tara-alba",
-  "brand": "Trendya",
-  "category": "Bluze | Camasi",
-  "available": "in stock",
-  "description": "<h3 start=\"231\" end=\"298\"><strong start=\"235\" end=\"298\">Bluză Oversized Unisex pentru Yoga și Relaxare</strong></h3><p start=\"323\" end=\"751\">Descoperă libertatea absolută cu bluza&nbsp;<strong start=\""
- },
- {
-  "id": "12200",
-  "title": "Pantaloni Ravi negri",
-  "price": "324.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12200/1000/pantaloni-ravi-negri_101547.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12200/1000/pantaloni-ravi-negri_101547.webp",
-   "https://ejolie.ro/continut/produse/12200/1000/pantaloni-ravi-negri_101548.webp"
-  ],
-  "link": "https://ejolie.ro/product/pantaloni-ravi-negri",
-  "brand": "Trendya",
-  "category": "Pantaloni",
-  "available": "in stock",
-  "description": "Pantaloni Harem Unisex pentru Yoga, Meditație și Relaxare<div><br></div><div><p start=\"1446\" end=\"1827\">Experimentează confortul absolut cu pantalonii&nbsp;<strong start=\"1493\" end=\"1501\">Ravi</strong"
  },
  {
   "id": "12198",
@@ -3443,7 +2869,7 @@
   "id": "12195",
   "title": "Rochie lunga Melisa bordo",
   "price": "1237.50 RON",
-  "sale_price": "990.00 RON",
+  "sale_price": "928.13 RON",
   "image": "https://ejolie.ro/continut/produse/12195/1000/rochie-lunga-melisa-bordo_101362.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12195/1000/rochie-lunga-melisa-bordo_101362.webp",
@@ -3454,41 +2880,6 @@
   "category": "Rochii de ocazie",
   "available": "in stock",
   "description": "<p>Rochia Melisa este o odă adusă feminității pasionale, o creație bordo, vibrantă și plină de rafinament, concepută pentru a te transforma în centrul atenției. Croiala lungă, tip sirenă, îmbrățișează"
- },
- {
-  "id": "12021",
-  "title": "Pantaloni Ramo negri",
-  "price": "351.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12021/1000/pantaloni-ramo-negri_101168.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12021/1000/pantaloni-ramo-negri_101168.webp",
-   "https://ejolie.ro/continut/produse/12021/1000/pantaloni-ramo-negri_101169.webp",
-   "https://ejolie.ro/continut/produse/12021/1000/pantaloni-ramo-negri_101170.webp",
-   "https://ejolie.ro/continut/produse/12021/1000/pantaloni-ramo-negri_101171.webp",
-   "https://ejolie.ro/continut/produse/12021/1000/pantaloni-ramo-negri_101172.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-7",
-  "brand": "Trendya",
-  "category": "Pantaloni",
-  "available": "in stock",
-  "description": "<h3 start=\"168\" end=\"253\"><strong start=\"172\" end=\"253\">Pantaloni cu pliuri arhitecturale – Siluetă structurată și elegantă</strong></h3><p start=\"255\" end=\"684\">Acești pantaloni statement impresionea"
- },
- {
-  "id": "12020",
-  "title": "Rochie Misty neagra",
-  "price": "675.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12020/1000/rochie-misty-neagra_101166.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12020/1000/rochie-misty-neagra_101166.webp",
-   "https://ejolie.ro/continut/produse/12020/1000/rochie-misty-neagra_101167.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-8",
-  "brand": "Trendya",
-  "category": "Rochii de ocazie",
-  "available": "in stock",
-  "description": "<p>Rochia Misty neagră este o declarație de stil îndrăzneț și rafinat, o piesă ce emana încredere și senzualitate. Cu o croială mini, mulată, și un decolteu tip corset, această rochie este alegerea pe"
  },
  {
   "id": "12019",
@@ -3522,40 +2913,6 @@
   "category": "Rochii de ocazie",
   "available": "in stock",
   "description": "<p>Rochia Evia roșie este o declarație de stil vibrantă și sofisticată, concepută pentru femeia care dorește să captiveze privirile. Croiala A-line, cu umeri goi și decolteu tip barcă, emană o eleganț"
- },
- {
-  "id": "12017",
-  "title": "Rochie Misty rosie",
-  "price": "675.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12017/1000/rochie-misty-rosie_101159.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12017/1000/rochie-misty-rosie_101159.webp",
-   "https://ejolie.ro/continut/produse/12017/1000/rochie-misty-rosie_101158.webp",
-   "https://ejolie.ro/continut/produse/12017/1000/rochie-misty-rosie_101160.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-11",
-  "brand": "Trendya",
-  "category": "Rochii de ocazie",
-  "available": "in stock",
-  "description": "<p>Rochia Misty roșie este o declarație de stil și pasiune, o piesă vestimentară ce îmbină senzualitatea cu eleganța modernă. Croiala scurtă, tip cache-coeur, avantajează silueta, iar decolteul tip ba"
- },
- {
-  "id": "12016",
-  "title": "Rochie Misty crem",
-  "price": "675.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/12016/1000/rochie-misty-crem_101156.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/12016/1000/rochie-misty-crem_101156.webp",
-   "https://ejolie.ro/continut/produse/12016/1000/rochie-misty-crem_101155.webp",
-   "https://ejolie.ro/continut/produse/12016/1000/rochie-misty-crem_101157.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-12",
-  "brand": "Trendya",
-  "category": "Rochii de ocazie",
-  "available": "in stock",
-  "description": "<p>Rochia Misty crem este o declarație de stil, un echilibru perfect între senzualitate și rafinament. Croiala mini, cu bust tip corset și umeri goi, îți va asigura o apariție memorabilă la orice even"
  },
  {
   "id": "12015",
@@ -3613,7 +2970,7 @@
   "id": "12000",
   "title": "Rochie Zondra neagra cu franjuri",
   "price": "1199.00 RON",
-  "sale_price": "959.20 RON",
+  "sale_price": "899.25 RON",
   "image": "https://ejolie.ro/continut/produse/12000/1000/rochie-zondra-neagra-cu-franjuri_99790.webp",
   "images": [
    "https://ejolie.ro/continut/produse/12000/1000/rochie-zondra-neagra-cu-franjuri_99790.webp",
@@ -3631,7 +2988,7 @@
   "id": "11995",
   "title": "Rochie Dorina neagra",
   "price": "999.00 RON",
-  "sale_price": "799.20 RON",
+  "sale_price": "749.25 RON",
   "image": "https://ejolie.ro/continut/produse/11995/1000/rochie-doris-neagra_99807.webp",
   "images": [
    "https://ejolie.ro/continut/produse/11995/1000/rochie-doris-neagra_99807.webp",
@@ -4184,22 +3541,6 @@
   "description": "Rochie Maria rosie<div>- stil elegant, office</div><div>- croi conic, cambrat</div><div>- maneci 3/4</div><div>- slit la spate</div><div>- inchidere cu fermoar la spate</div><div>- realizata din stofa"
  },
  {
-  "id": "11874",
-  "title": "Rochie Elia rosu-alb",
-  "price": "432.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/11874/1000/rochie-elia-rosu-alb_99453.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11874/1000/rochie-elia-rosu-alb_99453.webp",
-   "https://ejolie.ro/continut/produse/11874/1000/rochie-elia-rosu-alb_99454.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-elia-corai-albastru-11874",
-  "brand": "Trendya",
-  "category": "Rochii de Zi",
-  "available": "in stock",
-  "description": "Rochie Elia rosu-alb<br><div>- stil elegant</div><div>- model bicolor cu&nbsp;croi drept</div><div>- decolteu rotund, la baza gatului</div><div>- maneci lungi</div><div>- crepeu la spate</div><div>- i"
- },
- {
   "id": "11873",
   "title": "Rochie Anna albastra",
   "price": "418.50 RON",
@@ -4344,22 +3685,6 @@
   "description": "Rochie Ilinca lila<div>- stil office, elegant</div><div>- croi drept</div><div>- maneci scurte, usor bufante</div><div>- decolteu patrat cu decupaj in V</div><div>- volan maxi</div><div>- inchidere la"
  },
  {
-  "id": "11864",
-  "title": "Rochie Karina fucsia",
-  "price": "432.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/11864/1000/rochie-karina-fucsia_99475.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11864/1000/rochie-karina-fucsia_99475.webp",
-   "https://ejolie.ro/continut/produse/11864/1000/rochie-karina-fucsia_99476.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-karina-neagra-11864",
-  "brand": "Trendya",
-  "category": "Rochii de Zi",
-  "available": "in stock",
-  "description": "Rochie Karina fucsia<div>- stil office, elegant</div><div>- croi drept, usor cambrata</div><div>- maneci scurte tip petala</div><div>- decolteu rotund</div><div>- volane suprapuse</div><div>- inchider"
- },
- {
   "id": "11863",
   "title": "Rochie Marta cu imprimeu mov",
   "price": "432.00 RON",
@@ -4410,20 +3735,20 @@
   "description": "Compleu Mihaela corai<div>Acest compleu modern este alegerea perfectă pentru femeile care își doresc un look rafinat și stilat. Setul este compus din doua&nbsp;piese:  <br></div><div><br></div><div>✔ "
  },
  {
-  "id": "11860",
-  "title": "Rochie Ilinca portocalie",
+  "id": "11859",
+  "title": "Rochie Elia corai-albastru",
   "price": "432.00 RON",
   "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/11860/1000/rochie-ilinca-portocalie_99443.webp",
+  "image": "https://ejolie.ro/continut/produse/11859/1000/rochie-elia-corai-albastru_99439.webp",
   "images": [
-   "https://ejolie.ro/continut/produse/11860/1000/rochie-ilinca-portocalie_99443.webp",
-   "https://ejolie.ro/continut/produse/11860/1000/rochie-ilinca-portocalie_99444.webp"
+   "https://ejolie.ro/continut/produse/11859/1000/rochie-elia-corai-albastru_99439.webp",
+   "https://ejolie.ro/continut/produse/11859/1000/rochie-elia-corai-albastru_99441.webp"
   ],
-  "link": "https://ejolie.ro/product/rochie-ilinca-magenta-11860",
+  "link": "https://ejolie.ro/product/rochie-elia-magenta-turcoaz-11859",
   "brand": "Trendya",
   "category": "Rochii de Zi",
   "available": "in stock",
-  "description": "Rochie Ilinca portocalie<div>- stil office, elegant</div><div>- croi drept</div><div>- maneci scurte, usor bufante</div><div>- decolteu patrat cu decupaj in V</div><div>- volan maxi</div><div>- inchid"
+  "description": "Rochie Elia corai-albastru<br><div>- stil elegant</div><div>- model bicolor cu&nbsp;croi drept</div><div>- decolteu rotund, la baza gatului</div><div>- maneci lungi</div><div>- crepeu la spate</div><d"
  },
  {
   "id": "11858",
@@ -4460,22 +3785,6 @@
   "description": "Rochie Ilinca crem roze<div>- stil office, elegant</div><div>- croi drept</div><div>- maneci scurte, usor bufante</div><div>- decolteu patrat cu decupaj in V</div><div>- volan maxi</div><div>- inchide"
  },
  {
-  "id": "11856",
-  "title": "Rochie Maria corai",
-  "price": "445.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/11856/1000/rochie-maria-corai_99435.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11856/1000/rochie-maria-corai_99435.webp",
-   "https://ejolie.ro/continut/produse/11856/1000/rochie-maria-corai_99436.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-maria-magenta-11856",
-  "brand": "Trendya",
-  "category": "Rochii de Zi",
-  "available": "in stock",
-  "description": "Rochie Maria corai<div>- stil elegant, office</div><div>- croi conic, cambrat</div><div>- maneci 3/4</div><div>- slit la spate</div><div>- inchidere cu fermoar la spate</div><div>- realizata din stofa"
- },
- {
   "id": "11855",
   "title": "Compleu Tina corai",
   "price": "456.00 RON",
@@ -4510,22 +3819,6 @@
   "description": "Rochie Ilinca magenta<div>- stil office, elegant</div><div>- croi drept</div><div>- maneci scurte, usor bufante</div><div>- decolteu patrat cu decupaj in V</div><div>- volan maxi</div><div>- inchidere"
  },
  {
-  "id": "11852",
-  "title": "Rochie Maria magenta",
-  "price": "445.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/11852/1000/rochie-maria-magenta_99485.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11852/1000/rochie-maria-magenta_99485.webp",
-   "https://ejolie.ro/continut/produse/11852/1000/rochie-maria-magenta_99486.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-maria-verde-11852",
-  "brand": "Trendya",
-  "category": "Rochii de Zi",
-  "available": "in stock",
-  "description": "Rochie Maria magenta<div>- stil elegant, office</div><div>- croi conic, cambrat</div><div>- maneci 3/4</div><div>- slit la spate</div><div>- inchidere cu fermoar la spate</div><div>- realizata din sto"
- },
- {
   "id": "11851",
   "title": "Rochie Elia magenta-turcoaz",
   "price": "432.00 RON",
@@ -4556,22 +3849,6 @@
   "category": "Rochii de Zi",
   "available": "in stock",
   "description": "Rochie Ilinca turcoaz   <div>- stil office, elegant</div><div>- croi drept</div><div>- maneci scurte, usor bufante</div><div>- decolteu patrat cu decupaj in V</div><div>- volan maxi</div><div>- inchid"
- },
- {
-  "id": "11849",
-  "title": "Rochie Anna neagra",
-  "price": "418.50 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/11849/1000/rochie-anna-neagra_99493.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11849/1000/rochie-anna-neagra_99493.webp",
-   "https://ejolie.ro/continut/produse/11849/1000/rochie-anna-neagra_99494.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-anna-neagra",
-  "brand": "Trendya",
-  "category": "Rochii de Zi",
-  "available": "in stock",
-  "description": "Rochie Anna neagra   <div>- stil office, elegant</div><div>- croi conic, cambrata pe talie</div><div>- model fara maneci</div><div>- crepeu la spate</div><div>- inchidere la spate cu fermoar&nbsp;</di"
  },
  {
   "id": "11848",
@@ -5901,6 +5178,22 @@
   "description": "<p>Rochia Sorina lila este o declarație de stil rafinat, o piesă ce îmbină cu măiestrie eleganța clasică cu accente moderne. Croiala mulată, tip creion, subliniază armonios silueta, iar volanele asime"
  },
  {
+  "id": "11766",
+  "title": "Rochie Ioana lila",
+  "price": "465.50 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/11766/1000/rochie-ioana-lila_99083.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/11766/1000/rochie-ioana-lila_99083.webp",
+   "https://ejolie.ro/continut/produse/11766/1000/rochie-ioana-lila_99084.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-ioana-lila",
+  "brand": "Trendya",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "Rochie Ioana lila<div>- stil elegant</div><div>- croi in clos</div><div>- decolteu petrecut, in V</div><div>- maneci 3/4</div><div>- talie marcata cu cordon detasabil</div><div>- realizata din tesatur"
+ },
+ {
   "id": "11765",
   "title": "Rochie Roxana gri",
   "price": "648.00 RON",
@@ -5915,22 +5208,6 @@
   "category": "Rochii de ocazie",
   "available": "in stock",
   "description": "<p>Rochia Roxana gri este o declarație de stil rafinat, o piesă ce îmbină eleganța clasică cu un detaliu modern și îndrăzneț. Croiala tip creion, ce urmărește linia corpului, este accentuată de un vol"
- },
- {
-  "id": "11764",
-  "title": "Rochie Laurence fucsia",
-  "price": "594.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/11764/1000/rochie-laurence-fucsia_99079.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11764/1000/rochie-laurence-fucsia_99079.webp",
-   "https://ejolie.ro/continut/produse/11764/1000/rochie-laurence-fucsia_99080.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-laurence-turcoaz-11764",
-  "brand": "Trendya",
-  "category": "Rochii de seara",
-  "available": "in stock",
-  "description": "<p>Rochia Laurence fucsia este o expresie vibrantă a rafinamentului modern, o piesă ce îmbină cu măiestrie îndrăzneala culorii cu o croială sofisticată. Designul fluid, cu drapaje elegante și un nod s"
  },
  {
   "id": "11763",
@@ -6098,22 +5375,6 @@
   "category": "Rochii de Zi",
   "available": "in stock",
   "description": "Rochie Catrinel neagra  <div>- stil elegant</div><div>- croi in clos</div><div>- slit pe picior, cu insertie de dantela neagra</div><div>- decolteu patrat, accesorizat cu dantela neagra</div><div>- ma"
- },
- {
-  "id": "11753",
-  "title": "Rochie Elia rosu-negru",
-  "price": "432.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/11753/1000/rochie-elia-rosu-negru_99050.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11753/1000/rochie-elia-rosu-negru_99050.webp",
-   "https://ejolie.ro/continut/produse/11753/1000/rochie-elia-rosu-negru_99051.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-elia-alb-negru-11753",
-  "brand": "Trendya",
-  "category": "Rochii de Zi",
-  "available": "in stock",
-  "description": "Rochie Elia rosu-negru  <div>- stil elegant</div><div>- model bicolor cu&nbsp;croi drept</div><div>- decolteu rotund, la baza gatului</div><div>- maneci lungi</div><div>- crepeu la spate</div><div>- i"
  },
  {
   "id": "11752",
@@ -6721,39 +5982,6 @@
   "description": "<p>Rochia Evia verde este o declarație de stil rafinat, emanând o eleganță atemporală, perfectă pentru evenimente speciale. Culoarea vibrantă, de smarald, se îmbină armonios cu croiala modernă, transf"
  },
  {
-  "id": "11636",
-  "title": "Rochie Misty verde",
-  "price": "675.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/11636/1000/rochie-misty-verde_101177.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11636/1000/rochie-misty-verde_101177.webp",
-   "https://ejolie.ro/continut/produse/11636/1000/rochie-misty-verde_101178.webp"
-  ],
-  "link": "https://ejolie.ro/product/geaca",
-  "brand": "Trendya",
-  "category": "Rochii de ocazie",
-  "available": "in stock",
-  "description": "<p>Rochia Misty verde este un omagiu adus seducției moderne, o piesă ce îmbină rafinamentul cu îndrăzneala. Croiala mini, tip bodycon, îți va evidenția silueta, iar decolteul bardot, senzual și elegan"
- },
- {
-  "id": "11635",
-  "title": "Rochie Laurence neagra",
-  "price": "594.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/11635/1000/rochie-laurence-neagra_98215.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11635/1000/rochie-laurence-neagra_98215.webp",
-   "https://ejolie.ro/continut/produse/11635/1000/rochie-laurence-neagra_98216.webp",
-   "https://ejolie.ro/continut/produse/11635/1000/rochie-laurence-neagra_98217.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-laurence-rosie-11635",
-  "brand": "Trendya",
-  "category": "Rochii de seara",
-  "available": "in stock",
-  "description": "<p>Rochia Laurence neagră este o piesă vestimentară sofisticată, ce emană un aer de rafinament discret și modernitate. Croiala midi, ușor mulată, este accentuată de drapajele artistice din zona taliei"
- },
- {
   "id": "11634",
   "title": "Rochie Laurence rosie",
   "price": "594.00 RON",
@@ -7067,6 +6295,22 @@
   "description": "<p>Rochie Pilar albastra</p><div https:=\"\" www.ejolie.ro=\"\" manager=\"\" application=\"\" views=\"\" platforma=\"\" module=\"\" elrte=\"\" images=\"\" pixel.gif\"=\"\" class=\"elrte-media elrte-media-x-shockwave-flash "
  },
  {
+  "id": "11469",
+  "title": "Rochie Luna roz din catifea",
+  "price": "399.00 RON",
+  "sale_price": "299.25 RON",
+  "image": "https://ejolie.ro/continut/produse/11469/1000/rochie-luna-roz-din-catifea_97788.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/11469/1000/rochie-luna-roz-din-catifea_97788.webp",
+   "https://ejolie.ro/continut/produse/11469/1000/rochie-luna-roz-din-catifea_97789.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-luna-roz-din-catifea",
+  "brand": "Ejolie",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "<p>Rochie Luna roz  din catifea</p><div https:=\"\" www.ejolie.ro=\"\" manager=\"\" application=\"\" views=\"\" platforma=\"\" module=\"\" elrte=\"\" images=\"\" pixel.gif\"=\"\" class=\"elrte-media elrte-media-x-shockwave"
+ },
+ {
   "id": "11441",
   "title": "Rochie Lora verde",
   "price": "487.50 RON",
@@ -7081,6 +6325,38 @@
   "category": "Outlet",
   "available": "in stock",
   "description": "<p>Rochie Lora verde</p><p>-&nbsp;Compozitie: 92% poliester; 8% lycra</p><p>- Inchidere cu fermoar la spate</p><p>- Rochia nu are jupa</p>"
+ },
+ {
+  "id": "11381",
+  "title": "Rochie Amelia albastra",
+  "price": "487.50 RON",
+  "sale_price": "365.63 RON",
+  "image": "https://ejolie.ro/continut/produse/11381/1000/rochie-amelia-turcoaz_97109.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/11381/1000/rochie-amelia-turcoaz_97109.webp",
+   "https://ejolie.ro/continut/produse/11381/1000/rochie-amelia-turcoaz_97107.webp",
+   "https://ejolie.ro/continut/produse/11381/1000/rochie-amelia-turcoaz_97108.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-amelia-turcoaz-11381",
+  "brand": "Ejolie",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "<p>Rochie Amelia albastra  </p><p https:=\"\" www.ejolie.ro=\"\" manager=\"\" application=\"\" views=\"\" platforma=\"\" module=\"\" elrte=\"\" images=\"\" pixel.gif\"=\"\" class=\"elrte-media elrte-media-x-shockwave-flash"
+ },
+ {
+  "id": "11379",
+  "title": "Rochie Amelia turcoaz",
+  "price": "487.50 RON",
+  "sale_price": "365.63 RON",
+  "image": "https://ejolie.ro/continut/produse/11379/1000/rochie-amelia-turcoaz_97101.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/11379/1000/rochie-amelia-turcoaz_97101.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-amelia-turcoaz",
+  "brand": "Ejolie",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "<p>Rochie Amelia turcoaz  </p><p https:=\"\" www.ejolie.ro=\"\" manager=\"\" application=\"\" views=\"\" platforma=\"\" module=\"\" elrte=\"\" images=\"\" pixel.gif\"=\"\" class=\"elrte-media elrte-media-x-shockwave-flash "
  },
  {
   "id": "11367",
@@ -7098,23 +6374,6 @@
   "category": "Rochii de seara",
   "available": "in stock",
   "description": "<p>Rochia Ruth verde cu fulgi este o piesă vestimentară vibrantă, care îmbină eleganța cu un aer jucăuș și sofisticat. Culoarea verde smarald, intensă și plină de viață, alături de detaliile cu fulgi "
- },
- {
-  "id": "11363",
-  "title": "Fusta Vasia neagra",
-  "price": "405.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/11363/1000/fusta-neagra_97059.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11363/1000/fusta-neagra_97059.webp",
-   "https://ejolie.ro/continut/produse/11363/1000/fusta-neagra_97060.webp",
-   "https://ejolie.ro/continut/produse/11363/1000/fusta-neagra_97061.webp"
-  ],
-  "link": "https://ejolie.ro/product/fusta-neagra",
-  "brand": "Trendya",
-  "category": "Fuste",
-  "available": "in stock",
-  "description": "<p start=\"172\" end=\"242\" style=\"background:undefined \"><em start=\"172\" end=\"240\">Esența feminității moderne – elegantă, fluidă și plină de mișcare.</em></p>\r\n<p start=\"244\" end=\"558\"><strong start=\"24"
  },
  {
   "id": "11348",
@@ -7308,6 +6567,24 @@
   "description": "<p>Rochie Violeta alba este o&nbsp;<strong>rochie scurtă,</strong>&nbsp;cu un design modern și elegant, potrivită pentru evenimente de seară sau cocktail-uri.</p><ul><li>Rochia este confecționată dint"
  },
  {
+  "id": "11171",
+  "title": "Rochie Alisha neagra",
+  "price": "2399.00 RON",
+  "sale_price": "1679.30 RON",
+  "image": "https://ejolie.ro/continut/produse/11171/1000/rochie-alisha-neagra_96611.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/11171/1000/rochie-alisha-neagra_96611.webp",
+   "https://ejolie.ro/continut/produse/11171/1000/rochie-alisha-neagra_96612.webp",
+   "https://ejolie.ro/continut/produse/11171/1000/rochie-alisha-neagra_96613.webp",
+   "https://ejolie.ro/continut/produse/11171/1000/rochie-alisha-neagra_96614.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-alisha-neagra",
+  "brand": "Ejolie",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "<p>Rochie Alisha neagra este o rochie elegantă de seară,&nbsp;o piesă spectaculoasă, perfectă pentru evenimente speciale sau ocazii formale. Realizată dintr-un material negru lucios, rochia impresione"
+ },
+ {
   "id": "11168",
   "title": "Rochie Tea neagra",
   "price": "899.00 RON",
@@ -7475,23 +6752,6 @@
   "description": "Camasa Timea corai<div><div>- camasa cu maneci lungi,&nbsp;stil elegant, office</div><div>- are guler si mansete incretite, formand volane</div><div>-&nbsp;este recomandata atat pentru o tinuta casual"
  },
  {
-  "id": "11086",
-  "title": "Rochie Sidonia rosie",
-  "price": "1045.80 RON",
-  "sale_price": "575.19 RON",
-  "image": "https://ejolie.ro/continut/produse/11086/1000/rochie-sidonia-rosie_95663.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11086/1000/rochie-sidonia-rosie_95663.webp",
-   "https://ejolie.ro/continut/produse/11086/1000/rochie-sidonia-rosie_95664.webp",
-   "https://ejolie.ro/continut/produse/11086/1000/rochie-sidonia-rosie_95665.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-sidonia-fucsia-11086",
-  "brand": "Ejolie",
-  "category": "Rochii de ocazie",
-  "available": "in stock",
-  "description": "<p>Rochia Sidonia roșie este o declarație de stil, o piesă ce îmbină cu măiestrie rafinamentul clasic cu accente moderne. Culoarea vibrantă, plină de pasiune, transformă fiecare apariție într-un momen"
- },
- {
   "id": "11045",
   "title": "Rochie Hanna verde satinata cu imprimeu rosu",
   "price": "437.50 RON",
@@ -7509,23 +6769,6 @@
   "description": "<p>Rochie Hanna verde satinata cu imprimeu rosu</p>-&nbsp;Rochie midi&nbsp;eleganta, de ocazie<br>- Are&nbsp;croi&nbsp;lejer, cu pliuri<br>- Manecile sunt 3/4<br>- Rochia are&nbsp;decolteu rotund&nbsp"
  },
  {
-  "id": "11039",
-  "title": "Rochie Hanna verde satinata cu imprimeu mov",
-  "price": "495.00 RON",
-  "sale_price": "396.00 RON",
-  "image": "https://ejolie.ro/continut/produse/11039/1000/rochie-hanna-verde-satinata-cu-imprimeu-mov_95787.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11039/1000/rochie-hanna-verde-satinata-cu-imprimeu-mov_95787.webp",
-   "https://ejolie.ro/continut/produse/11039/1000/rochie-hanna-verde-satinata-cu-imprimeu-mov_95788.webp",
-   "https://ejolie.ro/continut/produse/11039/1000/rochie-hanna-verde-satinata-cu-imprimeu-mov_95789.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-hanna-gri-satinata-cu-imprimeu-maro-11039",
-  "brand": "Ejolie",
-  "category": "Rochii de Zi",
-  "available": "in stock",
-  "description": "<p>Rochie Hanna verde satinata cu imprimeu mov</p>-&nbsp;Rochie midi&nbsp;eleganta, de ocazie<br>- Are&nbsp;croi&nbsp;lejer, cu pliuri<br>- Manecile sunt 3/4<br>- Rochia are&nbsp;decolteu rotund&nbsp;"
- },
- {
   "id": "11037",
   "title": "Rochie Tiana verde cu imprimeu divers",
   "price": "379.50 RON",
@@ -7541,22 +6784,6 @@
   "category": "Rochii de Zi",
   "available": "in stock",
   "description": "Tiana&nbsp;este o rochie midi, verde, cu imprimeu paisley în nuanțe de albastru&nbsp;și roz, având o croială lejeră și elegantă. Rochia are mâneci lungi și largi, strânse la manșete cu detalii decorat"
- },
- {
-  "id": "11032",
-  "title": "Rochie Hanna portocalie cu imprimeu bleu",
-  "price": "437.50 RON",
-  "sale_price": "350.00 RON",
-  "image": "https://ejolie.ro/continut/produse/11032/1000/rochie-hanna-satinata-cu-imprimeu-caramiziu_95805.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/11032/1000/rochie-hanna-satinata-cu-imprimeu-caramiziu_95805.webp",
-   "https://ejolie.ro/continut/produse/11032/1000/rochie-hanna-satinata-cu-imprimeu-caramiziu_95806.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-hanna-satinata-cu-imprimeu-caramiziu-11032",
-  "brand": "Ejolie",
-  "category": "Rochii de Zi",
-  "available": "in stock",
-  "description": "<p>Rochie Hanna portocalie cu imprimeu bleu    <br>- stil elegant, de ocazie<br>- croi clos,&nbsp;lejer, evazat<br>- rochie midi cu maneci trei sferturi<br>- cu pliuri<br>- decolteu la baza gatului<br"
  },
  {
   "id": "11029",
@@ -8024,22 +7251,6 @@
   "description": "<p>Rochia Helen neagră cu pene este o piesă vestimentară ce emană rafinament și un aer jucăuș, perfectă pentru serile în care vrei să te simți specială și admirată. Croiala mulată, tip creion, sublini"
  },
  {
-  "id": "10930",
-  "title": "Rochie Bianca bordo",
-  "price": "471.90 RON",
-  "sale_price": "188.76 RON",
-  "image": "https://ejolie.ro/continut/produse/10930/1000/rochie-bianca-bordo_95067.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/10930/1000/rochie-bianca-bordo_95067.webp",
-   "https://ejolie.ro/continut/produse/10930/1000/rochie-bianca-bordo_95068.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-bianca-mov-pruna-10930",
-  "brand": "Trendya",
-  "category": "Outlet",
-  "available": "in stock",
-  "description": "<p>Rochia Bianca bordo este o simfonie de rafinament și îndrăzneală, concepută pentru femeia care dorește să captiveze atenția prin eleganță și stil. Croiala midi, cu o fustă amplă și structurată, îi "
- },
- {
   "id": "10929",
   "title": "Rochie Bianca mov pruna",
   "price": "471.90 RON",
@@ -8154,6 +7365,54 @@
   "description": "<p>Rochia Monica fucsia este o expresie vibrantă a eleganței moderne, concepută pentru a te plasa în centrul atenției. Culoarea intensă și detaliile sofisticate transformă această rochie într-o aleger"
  },
  {
+  "id": "10914",
+  "title": "Salopeta Henrieta lila",
+  "price": "322.15 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10914/1000/salopeta-henrieta-lila_95087.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10914/1000/salopeta-henrieta-lila_95087.webp",
+   "https://ejolie.ro/continut/produse/10914/1000/salopeta-henrieta-lila_95088.webp"
+  ],
+  "link": "https://ejolie.ro/product/salopeta-henrieta-lila",
+  "brand": "Trendya",
+  "category": "Rochii de Zi",
+  "available": "in stock",
+  "description": "<p>Salopeta Henrieta lila emană eleganță și rafinament, fiind potrivită pentru diverse ocazii speciale. Detaliile care o definesc includ:</p><ol><li><p><strong>Culoare și Material</strong>: Salopeta e"
+ },
+ {
+  "id": "10913",
+  "title": "Rochie Elisabeta lila",
+  "price": "359.00 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10913/1000/rochie-elisabeta-lila_95089.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10913/1000/rochie-elisabeta-lila_95089.webp",
+   "https://ejolie.ro/continut/produse/10913/1000/rochie-elisabeta-lila_95090.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-elisabeta-lila",
+  "brand": "Trendya",
+  "category": "Rochii de Zi",
+  "available": "in stock",
+  "description": "<p>Rochia Elisabeta lila emană un aer sofisticat și relaxat, fiind ideală pentru ocazii casual-chic sau pentru întâlniri de afaceri relaxate.</p><ul><li><strong>Culoare:</strong> Lavandă, un ton paste"
+ },
+ {
+  "id": "10912",
+  "title": "Rochie Eman roz barbie",
+  "price": "244.30 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10912/1000/rochie-eman-roz-barbie_95091.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10912/1000/rochie-eman-roz-barbie_95091.webp",
+   "https://ejolie.ro/continut/produse/10912/1000/rochie-eman-roz-barbie_95092.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-eman-crem-cu-imprimeu-10912",
+  "brand": "Trendya",
+  "category": "Rochii de Zi",
+  "available": "in stock",
+  "description": "Rochia Eman roz barbie&nbsp;este ideală pentru sezonul cald, aducând un aer proaspăt și feminin. Este confecționată dintr-un material ușor și vaporos, perfect pentru zilele însorite de vară.&nbsp;<br>"
+ },
+ {
   "id": "10911",
   "title": "Rochie Daciana roz cu fucsia",
   "price": "258.30 RON",
@@ -8168,6 +7427,39 @@
   "category": "Outlet",
   "available": "in stock",
   "description": "<p>Rochia Daciana roz cu fucsia este o explozie de prospețime și stil, o piesă vestimentară ce celebrează feminitatea într-o manieră jucăușă și sofisticată. Croiala lejeră, cu o notă retro, o transfor"
+ },
+ {
+  "id": "10910",
+  "title": "Rochie Cerasela verde mint",
+  "price": "351.50 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10910/1000/rochie-cerasela-verde-mint_95095.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10910/1000/rochie-cerasela-verde-mint_95095.webp",
+   "https://ejolie.ro/continut/produse/10910/1000/rochie-cerasela-verde-mint_95096.webp",
+   "https://ejolie.ro/continut/produse/10910/1000/rochie-cerasela-verde-mint_95097.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-cerasela-verde-mint",
+  "brand": "Trendya",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "<p>Rochie Cerasela&nbsp;este o rochie midi elegantă de culoare verde mint, cu un design drapat și detalii plisate. Materialul lucios, usor elastic, conferă rochiei un aspect sofisticat și rafinat. Roc"
+ },
+ {
+  "id": "10909",
+  "title": "Rochie Adelina fucsia",
+  "price": "277.50 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10909/1000/rochie-adelina-fucsia_95098.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10909/1000/rochie-adelina-fucsia_95098.webp",
+   "https://ejolie.ro/continut/produse/10909/1000/rochie-adelina-fucsia_95099.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-adelina-galbena-10909",
+  "brand": "Trendya",
+  "category": "Rochii de Zi",
+  "available": "in stock",
+  "description": "<p>Rochia Adelina este o piesă vestimentară vibrantă și plină de viață, de culoare fucsia, care emană o energie și un stil deosebit. Confecționată dintr-un material ușor și texturat, această rochie sc"
  },
  {
   "id": "10907",
@@ -8187,20 +7479,86 @@
   "description": "<p>Rochia Ruxandra este o declarație de stil îndrăzneață și plină de feminitate, perfectă pentru femeia care iubește să impresioneze. Croiala mulată, mini, subliniază armonios silueta, iar umerii goi,"
  },
  {
-  "id": "10885",
-  "title": "Rochie midi Angelika roz cu negru",
-  "price": "799.00 RON",
-  "sale_price": "479.40 RON",
-  "image": "https://ejolie.ro/continut/produse/10885/1000/rochie-midi-angelika-roz-cu-neagru_95015.webp",
+  "id": "10904",
+  "title": "Rochie Theodora ivoar cu imprimeu albastru",
+  "price": "379.00 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10904/1000/rochie-theodora-ivoar-cu-imprimeu-albastru_95109.webp",
   "images": [
-   "https://ejolie.ro/continut/produse/10885/1000/rochie-midi-angelika-roz-cu-neagru_95015.webp",
-   "https://ejolie.ro/continut/produse/10885/1000/rochie-midi-angelika-roz-cu-neagru_95016.webp"
+   "https://ejolie.ro/continut/produse/10904/1000/rochie-theodora-ivoar-cu-imprimeu-albastru_95109.webp",
+   "https://ejolie.ro/continut/produse/10904/1000/rochie-theodora-ivoar-cu-imprimeu-albastru_95110.webp",
+   "https://ejolie.ro/continut/produse/10904/1000/rochie-theodora-ivoar-cu-imprimeu-albastru_95111.webp"
   ],
-  "link": "https://ejolie.ro/product/rochie-midi-angelika-crem-cu-neagru-10885",
-  "brand": "Ejolie",
-  "category": "Rochii de ocazie",
+  "link": "https://ejolie.ro/product/rochie-theodora-ivoar-cu-imprimeu-albastru",
+  "brand": "Trendya",
+  "category": "Rochii de seara",
   "available": "in stock",
-  "description": "<p>Rochia Angelika este o celebrare a rafinamentului și a feminității, o piesă statement ce îmbină delicatețea rozului pudrat cu accente misterioase de negru. Croiala midi, în stil A-line, conferă o a"
+  "description": "<p>Rochia&nbsp;Theodora ivoar cu imprimeu albastru este o piesă sofisticată și feminină, perfectă pentru ocazii speciale. Confecționată dintr-un material ușor și confortabil, rochia se mulează delicat"
+ },
+ {
+  "id": "10897",
+  "title": "Salopeta Nela roz cu imprimeu rosu",
+  "price": "289.50 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10897/1000/salopeta-nela-roz-cu-imprimeu-rosu_95114.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10897/1000/salopeta-nela-roz-cu-imprimeu-rosu_95114.webp",
+   "https://ejolie.ro/continut/produse/10897/1000/salopeta-nela-roz-cu-imprimeu-rosu_95115.webp",
+   "https://ejolie.ro/continut/produse/10897/1000/salopeta-nela-roz-cu-imprimeu-rosu_95116.webp"
+  ],
+  "link": "https://ejolie.ro/product/salopeta-nela-roz-cu-imprimeu-rosu",
+  "brand": "Trendya",
+  "category": "Rochii de Zi",
+  "available": "in stock",
+  "description": "<p>Salopeta Nela roz cu imprimeu rosu este una elegantă și modernă, perfectă pentru evenimentele de vară. Salopeta este realizată dintr-un material ușor și vaporos, cu un imprimeu floral în nuanțe de "
+ },
+ {
+  "id": "10895",
+  "title": "Rochie Marilena rosie",
+  "price": "330.65 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10895/1000/rochie-marilena-rosie_95119.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10895/1000/rochie-marilena-rosie_95119.webp",
+   "https://ejolie.ro/continut/produse/10895/1000/rochie-marilena-rosie_95120.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-marilena-rosie",
+  "brand": "Trendya",
+  "category": "Rochii de seara",
+  "available": "in stock",
+  "description": "<p>Rochia Marilena, rosie, este un model mini, concepută pentru a accentua și a evidenția silueta purtătoarei. Detaliile sunt următoarele:</p><ol><li><p><strong>Culoare:</strong> Rochia este de un roș"
+ },
+ {
+  "id": "10877",
+  "title": "Rochie Adelina galbena",
+  "price": "277.50 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10877/1000/rochie-adelina-galbena_95144.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10877/1000/rochie-adelina-galbena_95144.webp",
+   "https://ejolie.ro/continut/produse/10877/1000/rochie-adelina-galbena_95145.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-adelina-galbena",
+  "brand": "Trendya",
+  "category": "Rochii de Zi",
+  "available": "in stock",
+  "description": "<p>Rochia Adelina&nbsp;este o piesă vestimentară vibrantă și plină de viață, de culoare galbenă, care emană o energie și un stil deosebit. Confecționată dintr-un material ușor și texturat, această roc"
+ },
+ {
+  "id": "10869",
+  "title": "Salopeta Dalila animal print",
+  "price": "341.10 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10869/1000/salopeta-dalila-animal-print_95160.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10869/1000/salopeta-dalila-animal-print_95160.webp",
+   "https://ejolie.ro/continut/produse/10869/1000/salopeta-dalila-animal-print_95161.webp"
+  ],
+  "link": "https://ejolie.ro/product/salopeta-dalila-animal-print",
+  "brand": "Trendya",
+  "category": "Rochii de Zi",
+  "available": "in stock",
+  "description": "<p>Salopeta Dalila cu imprimeu leopard este o piesă vestimentară îndrăzneață și elegantă, perfectă pentru femeile care doresc să iasă în evidență. Realizată dintr-un material ușor și vaporos, salopeta"
  },
  {
   "id": "10867",
@@ -8558,6 +7916,24 @@
   "description": "<div><p>Bluza Marly bleumarin cu buline,&nbsp;realizata din voal,&nbsp;este o piesă vestimentară elegantă și versatilă, ideală pentru diverse ocazii. Aceasta are un design modern, cu un imprimeu jucău"
  },
  {
+  "id": "10593",
+  "title": "Bluza Marly bleumarin",
+  "price": "197.00 RON",
+  "sale_price": "98.50 RON",
+  "image": "https://ejolie.ro/continut/produse/10593/1000/bluza-marly-bleumarin_92595.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10593/1000/bluza-marly-bleumarin_92595.webp",
+   "https://ejolie.ro/continut/produse/10593/1000/bluza-marly-bleumarin_92597.webp",
+   "https://ejolie.ro/continut/produse/10593/1000/bluza-marly-bleumarin_92594.webp",
+   "https://ejolie.ro/continut/produse/10593/1000/bluza-marly-bleumarin_92596.webp"
+  ],
+  "link": "https://ejolie.ro/product/bluza-marly-portocalie-10593",
+  "brand": "Trendya",
+  "category": "Bluze | Camasi",
+  "available": "in stock",
+  "description": "<p>Bluza Marly de culoare bleumarin este o piesă vestimentară elegantă și versatilă, ideală pentru diverse ocazii. Aceasta este confecționată dintr-un material ușor și fluid, oferind confort și libert"
+ },
+ {
   "id": "10592",
   "title": "Camasa Brenda bleumarin",
   "price": "159.00 RON",
@@ -8610,6 +7986,24 @@
   "description": "<p><strong>Descriere:</strong>\r\nRochia Ellis roz&nbsp;cu imprimeu floral este perfectă pentru o varietate de ocazii, aducând un plus de eleganță și feminitate. Confecționată dintr-un material lejer și"
  },
  {
+  "id": "10557",
+  "title": "Rochie Sofia mov",
+  "price": "712.50 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10557/1000/rochie-sofia-mov_92994.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10557/1000/rochie-sofia-mov_92994.webp",
+   "https://ejolie.ro/continut/produse/10557/1000/rochie-sofia-mov_92996.webp",
+   "https://ejolie.ro/continut/produse/10557/1000/rochie-sofia-mov_92995.webp",
+   "https://ejolie.ro/continut/produse/10557/1000/rochie-sofia-mov_92997.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-10557",
+  "brand": "Trendya",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "<p><strong>Descriere generală:</strong></p><ul><li><strong>Culoare:</strong> Mov</li><li><strong>Material:</strong> Țesătură cu model floral brodat</li><li><strong>Lungime:</strong> Midi</li><li><stro"
+ },
+ {
   "id": "10545",
   "title": "Rochie Aura maro cu imprimeu",
   "price": "337.50 RON",
@@ -8640,6 +8034,56 @@
   "category": "Outlet",
   "available": "in stock",
   "description": "<br><ul><li><strong>Culoare</strong>: Turcoaz&nbsp;cu imprimeu variat</li><li><strong>Material</strong>: Ușor și vaporos, ideal pentru zilele călduroase</li><li><strong>Design</strong>: Rochie midi, c"
+ },
+ {
+  "id": "10523",
+  "title": "Rochie Alison maro cu animal print",
+  "price": "525.00 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10523/1000/rochie-alison-maro-cu-animal-print_93076.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10523/1000/rochie-alison-maro-cu-animal-print_93076.webp",
+   "https://ejolie.ro/continut/produse/10523/1000/rochie-alison-maro-cu-animal-print_93077.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-10523",
+  "brand": "Trendya",
+  "category": "Rochii de Zi",
+  "available": "in stock",
+  "description": "<p>Rochia Alison de culoare maro cu animal print este o alegere sofisticată și îndrăzneață, perfectă pentru femeile care doresc să iasă în evidență. Construită dintr-un material ușor și vaporos, rochi"
+ },
+ {
+  "id": "10505",
+  "title": "Rochie Sofia vernil",
+  "price": "712.50 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10505/1000/rochie-sofia-vernil_93120.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10505/1000/rochie-sofia-vernil_93120.webp",
+   "https://ejolie.ro/continut/produse/10505/1000/rochie-sofia-vernil_93119.webp",
+   "https://ejolie.ro/continut/produse/10505/1000/rochie-sofia-vernil_93121.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-10505",
+  "brand": "Trendya",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "<p><strong>Descriere generală:</strong></p><ul><li><strong>Culoare:</strong> Vernil</li><li><strong>Material:</strong> Țesătură cu model floral brodat</li><li><strong>Lungime:</strong> Midi</li><li><s"
+ },
+ {
+  "id": "10497",
+  "title": "Rochie Sofia roz",
+  "price": "712.50 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10497/1000/rochie-sofia-roz_93138.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10497/1000/rochie-sofia-roz_93138.webp",
+   "https://ejolie.ro/continut/produse/10497/1000/rochie-sofia-roz_93139.webp",
+   "https://ejolie.ro/continut/produse/10497/1000/rochie-sofia-roz_93140.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-10497",
+  "brand": "Trendya",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "<p><strong>Descriere generală:</strong></p><ul><li><strong>Culoare:</strong> Roz</li><li><strong>Material:</strong> Țesătură cu model floral brodat</li><li><strong>Lungime:</strong> Midi</li><li><stro"
  },
  {
   "id": "10495",
@@ -8921,6 +8365,38 @@
   "description": "Rochie Fabiana ivoar cu imprimeu floral     <div>- stil elegant</div><div>- croi in clos</div><div>- maneci 3/4, bufante, cu manseta</div><div>- decolteu la baza gatului cu guler plisat</div><div>- ta"
  },
  {
+  "id": "10164",
+  "title": "Rochie Chiara verde cu sclipici",
+  "price": "462.50 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10164/1000/rochie-chiara-verde-cu-sclipici_90303.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10164/1000/rochie-chiara-verde-cu-sclipici_90303.webp",
+   "https://ejolie.ro/continut/produse/10164/1000/rochie-chiara-verde-cu-sclipici_90304.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-chiara-neagra-cu-sclipici-10164",
+  "brand": "Trendya",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "Rochie Chiara verde cu sclipici       <div>- stil elegant, pentru un eveniment special</div><div>- croi in clos</div><div>- decolteu rotund la baza gatului</div><div>- maneci 3/4 despicate,</div><div>"
+ },
+ {
+  "id": "10163",
+  "title": "Rochie Antonia albastra cu sclipici",
+  "price": "462.50 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/10163/1000/rochie-antonia-albastra-cu-sclipici_90305.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/10163/1000/rochie-antonia-albastra-cu-sclipici_90305.webp",
+   "https://ejolie.ro/continut/produse/10163/1000/rochie-antonia-albastra-cu-sclipici_90306.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-antonia-roz-cu-sclipici-10163",
+  "brand": "Trendya",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "Rochie Antonia albastra cu sclipici       <div>- stil elegant, pentru un eveniment special</div><div>- croi in clos</div><div>- decolteu petrecut, in V</div><div>- maneci 3/4 cu volane aplicate</div><"
+ },
+ {
   "id": "10158",
   "title": "Rochie Ava cu imprimeu floral mov",
   "price": "351.00 RON",
@@ -9132,24 +8608,6 @@
   "category": "Rochii de Zi",
   "available": "in stock",
   "description": "Rochie Lolita bordo cu imprimeu<div>- stil casual</div><div>- croi in clos</div><div>- maneci 3/4 cu manseta</div><div>- talie cu cordon integrat</div><div>- fusta plisata</div><div>- guler inalt</div"
- },
- {
-  "id": "9767",
-  "title": "Rochie Zasha portocalie",
-  "price": "351.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/9767/1000/rochie-zasha-portocalie_87893.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/9767/1000/rochie-zasha-portocalie_87893.webp",
-   "https://ejolie.ro/continut/produse/9767/1000/rochie-zasha-portocalie_87982.webp",
-   "https://ejolie.ro/continut/produse/9767/1000/rochie-zasha-portocalie_87894.webp",
-   "https://ejolie.ro/continut/default_video.png"
-  ],
-  "link": "https://ejolie.ro/product/rochie-zasha-bleumarin-9767",
-  "brand": "Trendya",
-  "category": "Rochii de Zi",
-  "available": "in stock",
-  "description": "Rochie Zasha portocalie  <div>- stil casual</div><div>- croi in clos</div><div>- maneci lungi&nbsp;cu terminatie elastica</div><div>- talie elastica marcata cu cordon&nbsp;detasabil</div><div>- decolt"
  },
  {
   "id": "9766",
@@ -9544,6 +9002,41 @@
   "description": "Bluza Naty roz<div>- stil office, elegant</div><div>- maneci lungi, bufante, cu manseta lata</div><div>- pliuri frontale</div><div>- inchidere la spate cu nasturi</div><div>- esarfa detasabila la baza"
  },
  {
+  "id": "9699",
+  "title": "Rochie Zinna bleumarin",
+  "price": "337.50 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/9699/1000/rochie-zinna-bleumarin_87797.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/9699/1000/rochie-zinna-bleumarin_87797.webp",
+   "https://ejolie.ro/continut/produse/9699/1000/rochie-zinna-bleumarin_88004.webp",
+   "https://ejolie.ro/continut/produse/9699/1000/rochie-zinna-bleumarin_87798.webp",
+   "https://ejolie.ro/continut/default_video.png"
+  ],
+  "link": "https://ejolie.ro/product/rochie-zinna-corai-9699",
+  "brand": "Trendya",
+  "category": "Rochii de seara",
+  "available": "in stock",
+  "description": "<div>Rochie Zinna bleumarin<br></div><div>- stil elegant</div><div>- croi drept, cambrata pe talie</div><div>- maneci 3/4</div><div>- decolteu in V, la baza gatului</div><div>- slit la spate</div><div"
+ },
+ {
+  "id": "9695",
+  "title": "Rochie Rozalia neagra cu paiete fucsia",
+  "price": "449.00 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/9695/1000/rochie-rozalia-neagra-cu-paiete-fucsia_87779.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/9695/1000/rochie-rozalia-neagra-cu-paiete-fucsia_87779.webp",
+   "https://ejolie.ro/continut/produse/9695/1000/rochie-rozalia-neagra-cu-paiete-fucsia_88008.webp",
+   "https://ejolie.ro/continut/produse/9695/1000/rochie-rozalia-neagra-cu-paiete-fucsia_87780.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-rozalia-neagra-cu-paiete-fucsia",
+  "brand": "Trendya",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "<p>Rochie Rozalia neagra cu paiete fucsia</p>"
+ },
+ {
   "id": "9692",
   "title": "Bluza Larina verde",
   "price": "162.44 RON",
@@ -9599,25 +9092,6 @@
   "category": "Bluze | Camasi",
   "available": "in stock",
   "description": "Bluza Natasha&nbsp;cu imprimeu portocaliu<div>- stil casual, elegant</div><div>- decolteu rotund, la baza gatului</div><div>- umeri buretati</div><div>- fara maneci</div><div>- pliuri pe un umar</div>"
- },
- {
-  "id": "9679",
-  "title": "Bluza Natasha alba cu imprimeu",
-  "price": "162.44 RON",
-  "sale_price": "64.98 RON",
-  "image": "https://ejolie.ro/continut/produse/9679/1000/bluza-natasha-alba-cu-imprimeu_87275.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/9679/1000/bluza-natasha-alba-cu-imprimeu_87275.webp",
-   "https://ejolie.ro/continut/produse/9679/1000/bluza-natasha-alba-cu-imprimeu_87274.webp",
-   "https://ejolie.ro/continut/produse/9679/1000/bluza-natasha-alba-cu-imprimeu_87276.webp",
-   "https://ejolie.ro/continut/produse/9679/1000/bluza-natasha-alba-cu-imprimeu_87277.webp",
-   "https://ejolie.ro/continut/produse/9679/1000/bluza-natasha-alba-cu-imprimeu_87278.webp"
-  ],
-  "link": "https://ejolie.ro/product/bluza-natasha-alba-cu-imprimeu",
-  "brand": "Trendya",
-  "category": "Bluze | Camasi",
-  "available": "in stock",
-  "description": "Bluza Natasha alba cu imprimeu<div>- stil casual, elegant</div><div>- decolteu rotund, la baza gatului</div><div>- umeri buretati</div><div>- fara maneci</div><div>- pliuri pe un umar</div><div>- fron"
  },
  {
   "id": "9676",
@@ -9776,6 +9250,23 @@
   "description": "Bluza Giana mov<div>- stil casual elegant</div><div>- decolteu in V, cu guler intors</div><div>- fara maneci</div><div>- aspect parte peste parte</div><div>- realizata din tesatura satinata</div>"
  },
  {
+  "id": "9615",
+  "title": "Rochie Athena fucsia",
+  "price": "459.00 RON",
+  "sale_price": "0.00 RON",
+  "image": "https://ejolie.ro/continut/produse/9615/1000/rochie-athena-fucsia_83371.webp",
+  "images": [
+   "https://ejolie.ro/continut/produse/9615/1000/rochie-athena-fucsia_83371.webp",
+   "https://ejolie.ro/continut/produse/9615/1000/rochie-athena-fucsia_83415.webp",
+   "https://ejolie.ro/continut/produse/9615/1000/rochie-athena-fucsia_83372.webp"
+  ],
+  "link": "https://ejolie.ro/product/rochie-athena-fucsia",
+  "brand": "Trendya",
+  "category": "Rochii de ocazie",
+  "available": "in stock",
+  "description": "Rochie Athena fucsia<div>- stil elegant</div><div>- croi drept, usor cambrata pe talie</div><div>- maneci 3/4</div><div>- decolteu rotund, la baza gatului</div><div>- decolteu in V, pe spate</div><div"
+ },
+ {
   "id": "9594",
   "title": "Rochie Iris verde",
   "price": "437.00 RON",
@@ -9895,22 +9386,6 @@
   "category": "Rochii de Zi",
   "available": "in stock",
   "description": "<div>Rochie Inga roz<div>- stil casual, office</div><div>- croi usor evazat, cambrata pe talie</div><div>- fara maneci</div><div>- guler tip camasa</div><div>- buzunare aplicate</div><div>- nasturi de"
- },
- {
-  "id": "9568",
-  "title": "Bluza Calista neagra cu dungi roz",
-  "price": "152.00 RON",
-  "sale_price": "60.80 RON",
-  "image": "https://ejolie.ro/continut/produse/9568/1000/bluza-calista-neagra-cu-dungi-roz_83496.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/9568/1000/bluza-calista-neagra-cu-dungi-roz_83496.webp",
-   "https://ejolie.ro/continut/produse/9568/1000/bluza-calista-neagra-cu-dungi-roz_83497.webp"
-  ],
-  "link": "https://ejolie.ro/product/bluza-calista-neagra-cu-dungi-roz",
-  "brand": "Trendya",
-  "category": "Bluze | Camasi",
-  "available": "in stock",
-  "description": "<div><div><div>Bluza Calista neagra cu dungi roz<div>- stil casual</div><div>- croi supradimensionat</div><div>- maneci scurte, largi,&nbsp; cu umeri cazuti</div><div>- inchidere frontala cu nasturi</"
  },
  {
   "id": "9567",
@@ -10216,7 +9691,7 @@
   "id": "9395",
   "title": "Rochie Daria fucsia cu funda maxi",
   "price": "375.00 RON",
-  "sale_price": "112.50 RON",
+  "sale_price": "0.00 RON",
   "image": "https://ejolie.ro/continut/produse/9395/1000/rochie-daria-fucsia-cu-funda-maxi_84217.webp",
   "images": [
    "https://ejolie.ro/continut/produse/9395/1000/rochie-daria-fucsia-cu-funda-maxi_84217.webp",
@@ -10312,7 +9787,7 @@
   "id": "9362",
   "title": "Rochie lunga Caterine albastra",
   "price": "799.00 RON",
-  "sale_price": "239.70 RON",
+  "sale_price": "0.00 RON",
   "image": "https://ejolie.ro/continut/produse/9362/1000/rochie-lunga-caterine-albastra_84305.webp",
   "images": [
    "https://ejolie.ro/continut/produse/9362/1000/rochie-lunga-caterine-albastra_84305.webp",
@@ -10333,7 +9808,7 @@
   "id": "9361",
   "title": "Rochie lunga Caterine roz",
   "price": "799.00 RON",
-  "sale_price": "239.70 RON",
+  "sale_price": "0.00 RON",
   "image": "https://ejolie.ro/continut/produse/9361/1000/rochie-lunga-caterine-roz_84312.webp",
   "images": [
    "https://ejolie.ro/continut/produse/9361/1000/rochie-lunga-caterine-roz_84312.webp",
@@ -10406,7 +9881,7 @@
   "id": "9316",
   "title": "Rochie Despina mov cu umarul gol",
   "price": "449.00 RON",
-  "sale_price": "134.70 RON",
+  "sale_price": "0.00 RON",
   "image": "https://ejolie.ro/continut/produse/9316/1000/rochie-despina-mov-cu-umarul-gol_84444.webp",
   "images": [
    "https://ejolie.ro/continut/produse/9316/1000/rochie-despina-mov-cu-umarul-gol_84444.webp",
@@ -10439,7 +9914,7 @@
   "id": "9313",
   "title": "Rochie Despina fucsia cu umarul gol",
   "price": "449.00 RON",
-  "sale_price": "134.70 RON",
+  "sale_price": "0.00 RON",
   "image": "https://ejolie.ro/continut/produse/9313/1000/rochie-despina-fucsia-cu-umarul-gol_84450.webp",
   "images": [
    "https://ejolie.ro/continut/produse/9313/1000/rochie-despina-fucsia-cu-umarul-gol_84450.webp",
@@ -11580,25 +11055,6 @@
   "description": "<p>Pantaloni Asha portocalii cu carouri aduc o notă de prospețime și rafinament garderobei tale de zi cu zi. Această piesă vestimentară versatilă îmbină eleganța clasică a imprimeului în carouri cu o "
  },
  {
-  "id": "8298",
-  "title": "Rochie Matilda cu imprimeu kaki",
-  "price": "475.00 RON",
-  "sale_price": "0.00 RON",
-  "image": "https://ejolie.ro/continut/produse/8298/1000/rochie-matilda-cu-imprimeu-kaki_84918.webp",
-  "images": [
-   "https://ejolie.ro/continut/produse/8298/1000/rochie-matilda-cu-imprimeu-kaki_84918.webp",
-   "https://ejolie.ro/continut/produse/8298/1000/rochie-matilda-cu-imprimeu-kaki_84919.webp",
-   "https://ejolie.ro/continut/produse/8298/1000/rochie-matilda-cu-imprimeu-kaki_84915.webp",
-   "https://ejolie.ro/continut/produse/8298/1000/rochie-matilda-cu-imprimeu-kaki_84916.webp",
-   "https://ejolie.ro/continut/produse/8298/1000/rochie-matilda-cu-imprimeu-kaki_84917.webp"
-  ],
-  "link": "https://ejolie.ro/product/rochie-matilda-neagra-8298",
-  "brand": "Trendya",
-  "category": "Rochii de Zi",
-  "available": "in stock",
-  "description": "Rochie Matilda cu imprimeu kaki     <div>- stil elegant</div><div>- rochie din voal, croi clos,&nbsp;straturi suprapuse</div><div>-&nbsp;lungime midi</div><div>-&nbsp;maneci bufante&nbsp;3/4, cu elast"
- },
- {
   "id": "8115",
   "title": "Rochie Siran mov cu bretele din zale",
   "price": "175.00 RON",
@@ -11850,7 +11306,7 @@
   "id": "7138",
   "title": "Rochie Veda neagra asimetrica din organza cu insertii din catifea",
   "price": "859.00 RON",
-  "sale_price": "687.20 RON",
+  "sale_price": "644.25 RON",
   "image": "https://ejolie.ro/continut/produse/7138/1000/rochie-veda-neagra-asimetrica-din-organza-cu-insertii-din-catifea_98984.webp",
   "images": [
    "https://ejolie.ro/continut/produse/7138/1000/rochie-veda-neagra-asimetrica-din-organza-cu-insertii-din-catifea_98984.webp",
@@ -11990,7 +11446,7 @@
   "id": "6905",
   "title": "Salopeta Gloria fucsia din voal plisat cu decolteu adanc",
   "price": "1035.00 RON",
-  "sale_price": "828.00 RON",
+  "sale_price": "776.25 RON",
   "image": "https://ejolie.ro/continut/produse/6905/1000/salopeta-gloria-fucsia-din-voal-plisat-cu-decolteu-adanc_85509.webp",
   "images": [
    "https://ejolie.ro/continut/produse/6905/1000/salopeta-gloria-fucsia-din-voal-plisat-cu-decolteu-adanc_85509.webp",
@@ -12190,7 +11646,7 @@
   "id": "651",
   "title": "Compleu Aria verde",
   "price": "363.00 RON",
-  "sale_price": "290.40 RON",
+  "sale_price": "272.25 RON",
   "image": "https://ejolie.ro/continut/produse/651/1000/compleu-aria-verde_102152.webp",
   "images": [
    "https://ejolie.ro/continut/produse/651/1000/compleu-aria-verde_102152.webp",
@@ -12329,7 +11785,7 @@
   "id": "641",
   "title": "Sacou Ines verde",
   "price": "239.58 RON",
-  "sale_price": "191.66 RON",
+  "sale_price": "179.69 RON",
   "image": "https://ejolie.ro/continut/produse/641/1000/sacou-ines-verde_102128.webp",
   "images": [
    "https://ejolie.ro/continut/produse/641/1000/sacou-ines-verde_102128.webp",
