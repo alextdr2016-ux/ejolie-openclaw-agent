@@ -351,6 +351,10 @@ def export_trendyol(products, output_path):
         clean_desc = re.sub(r'<[^>]+>', '', str(descriere))[:2000]
         color = extract_color(name)
 
+        if len(name) > 100:
+            print(
+                f"    ⚠ Titlu trunchiat: {name[:50]}... ({len(name)} → 100 char)")
+
         imagini = prod.get("imagini", [])
         if not isinstance(imagini, list):
             imagini = []
@@ -407,7 +411,7 @@ def export_trendyol(products, output_path):
                 cod or pid,                                       # 1  Codul modelului
                 brand_name,                                       # 2  Marca produsului
                 543,                                              # 3  ID categorie
-                name,                                             # 4  Titlu
+                name[:100],                                       # 4  Titlu
                 # 5  Descriere
                 clean_desc[:5000],
                 op,                                               # 6  Preț inițial
@@ -421,7 +425,8 @@ def export_trendyol(products, output_path):
                 row.append(imagini[i] if i < len(imagini) else "")
 
             row.extend([
-                3,                                                # 19 Termendeprelucrare
+                # 19 Termendeprelucrare (1 zi)
+                1,
                 size,                                             # 20 Mărime
                 color,                                            # 21 Culoare
                 "Feminin",                                        # 22 Persona
