@@ -255,7 +255,12 @@ def map_products(trendyol_products, barcode_map):
 def fetch_ejolie_stock(ejolie_ids):
     """
     Fetch stoc din Extended API per id_produs.
-    Folosim API individual (?id_produs=ID) care returnează TOATE produsele.
+
+    STRUCTURA Extended API (important!):
+    - Returnează un DICT, nu o listă: {ejolie_id: {product_data}}
+    - Dacă produsul nu există: returnează [] (listă goală)
+    - Stocul per mărime: data[ejolie_id]["optiuni"][opt_id]["stoc_fizic"]
+    - Numele mărimii: data[ejolie_id]["optiuni"][opt_id]["nume_optiune"]
     """
     log(f"📡 Pas 4: Fetch stoc din ejolie.ro ({len(ejolie_ids)} produse)...")
 
@@ -282,23 +287,37 @@ def fetch_ejolie_stock(ejolie_ids):
 
             data = response.json()
 
-            # Produs dezactivat/șters → stoc 0
-            if isinstance(data, list) and len(data) == 0:
+            # Produs dezactivat/șters → returnează [] (listă goală)
+            if not data or (isinstance(data, list) and len(data) == 0):
                 vlog(f"  ⚠️ Produs {ejolie_id}: dezactivat → stoc 0")
                 empty += 1
                 ejolie_stock[ejolie_id] = {}
                 time.sleep(EJOLIE_API_DELAY)
                 continue
 
+            # Extended API returnează dict: {ejolie_id: {product_data}}
+            # Accesăm produsul prin cheia ejolie_id
+            if isinstance(data, dict):
+                product = data.get(str(ejolie_id), {})
+            else:
+                # Fallback dacă e listă
+                product = data[0] if data else {}
+
+            if not product:
+                vlog(f"  ⚠️ Produs {ejolie_id}: structură goală → stoc 0")
+                empty += 1
+                ejolie_stock[ejolie_id] = {}
+                time.sleep(EJOLIE_API_DELAY)
+                continue
+
             # Extrage stoc per opțiune (mărime)
-            product_data = data[0] if isinstance(data, list) else data
-            optiuni = product_data.get('optiuni', {})
+            # Câmpul corect este "nume_optiune" (nu "optiune_valoare")
+            optiuni = product.get('optiuni', {})
             size_stock = {}
 
             for opt_id, opt_data in optiuni.items():
                 if isinstance(opt_data, dict):
-                    size_value = str(opt_data.get(
-                        'optiune_valoare', '')).strip()
+                    size_value = str(opt_data.get('nume_optiune', '')).strip()
                     stoc = int(opt_data.get('stoc_fizic', 0))
                     if size_value:
                         size_stock[size_value] = stoc
