@@ -143,7 +143,8 @@ def fetch_all_products():
         )
 
         try:
-            response = requests.get(url, timeout=60)
+            response = requests.get(url, timeout=60, headers={
+                                    "User-Agent": "Extended API"})
             response.raise_for_status()
             raw_text = response.text.strip()
             if not raw_text:
