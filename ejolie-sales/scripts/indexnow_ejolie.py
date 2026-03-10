@@ -60,7 +60,7 @@ LOG_FILE = os.path.join(LOGS_DIR, "indexnow.log")
 
 # Limits
 BATCH_SIZE = 10000          # IndexNow max per request
-PRODUCTS_PER_PAGE = 500     # Extended API pagination
+PRODUCTS_PER_PAGE = 50      # Extended API pagination (50 to avoid timeout)
 
 # ============================================================
 # LOGGING
@@ -143,7 +143,7 @@ def fetch_all_products():
         )
 
         try:
-            response = requests.get(url, timeout=60, headers={
+            response = requests.get(url, timeout=120, headers={
                                     "User-Agent": "Extended API"})
             response.raise_for_status()
             raw_text = response.text.strip()
