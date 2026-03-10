@@ -42,7 +42,7 @@ EXTENDED_API_KEY = os.getenv(
     "EJOLIE_API_KEY", "N9komxWU3aclwDHyrXfLjJdBA6ZRTs")
 
 # IndexNow
-INDEXNOW_API_URL = "https://api.indexnow.org/indexnow"
+INDEXNOW_API_URL = "https://www.bing.com/indexnow"
 INDEXNOW_KEY = os.getenv("INDEXNOW_KEY", "27c64659075d4e448d749ba41c5910c7")
 INDEXNOW_KEY_LOCATION = f"https://ejolie.ro/{INDEXNOW_KEY}.txt"
 SITE_HOST = "ejolie.ro"
