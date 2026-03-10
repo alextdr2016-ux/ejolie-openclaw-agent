@@ -133,24 +133,30 @@ def fetch_all_products():
     logger.info("Incep fetch produse din Extended API...")
 
     while True:
-        params = {
-            "produse": "",
-            "apikey": EXTENDED_API_KEY,
-            "limit": PRODUCTS_PER_PAGE,
-            "pagina": page,
-            "sort": 11  # Cele mai noi
-        }
+        # Construim URL-ul manual (Extended API cere ?produse fara =)
+        url = (
+            f"{EXTENDED_API_URL}?produse"
+            f"&apikey={EXTENDED_API_KEY}"
+            f"&limit={PRODUCTS_PER_PAGE}"
+            f"&pagina={page}"
+            f"&sort=11"
+        )
 
         try:
-            response = requests.get(
-                EXTENDED_API_URL, params=params, timeout=60)
+            response = requests.get(url, timeout=60)
             response.raise_for_status()
-            data = response.json()
+            raw_text = response.text.strip()
+            if not raw_text:
+                logger.warning(f"Pagina {page}: raspuns gol")
+                break
+            data = json.loads(raw_text)
         except requests.exceptions.RequestException as e:
             logger.error(f"Eroare la fetch pagina {page}: {e}")
             break
         except json.JSONDecodeError as e:
             logger.error(f"Eroare JSON la pagina {page}: {e}")
+            logger.error(
+                f"Raspuns raw (primele 200 chars): {response.text[:200]}")
             break
 
         # Verifica eroare API
