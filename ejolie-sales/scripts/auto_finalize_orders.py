@@ -31,7 +31,7 @@ from pathlib import Path
 # ============================================================
 
 # ID-ul minim de comandă de procesat (comenzile mai vechi nu se ating)
-MIN_ORDER_ID = 112984
+MIN_ORDER_ID = 112979  # Comanda #112979 a fost plasată pe 05.03.2026
 
 # Numărul de zile de la livrare după care se finalizează comanda
 DAYS_TO_FINALIZE = 15
