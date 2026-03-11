@@ -228,7 +228,12 @@ def update_order_status(api_key, order_id, new_status_id):
 def get_delivery_date(order):
     """
     Extrage data livrării din AWB stadii.
-    Caută stadiul care conține 'livrat' + 'succes'.
+
+    Detectează livrarea pentru mai mulți curieri:
+      - Sameday: "Coletul a fost livrat cu succes."
+      - GLS:     "Livrat"
+      - Generic: orice status care conține "livrat" (case insensitive)
+
     Returnează datetime sau None.
     """
     awb_data = order.get("awb", {})
@@ -236,13 +241,29 @@ def get_delivery_date(order):
         return None
 
     for awb_id, awb_info in awb_data.items():
+        # Metoda 1: Verifică câmpul "last" (cel mai recent status)
+        # Dacă last conține "livrat", stadiul [1] e data livrării
+        last_status = awb_info.get("last", "").lower()
+
         stadii = awb_info.get("stadii", {})
         if not stadii or not isinstance(stadii, dict):
             continue
 
         for sid, stadiu in stadii.items():
-            status_text = stadiu.get("status", "").lower()
-            if "livrat" in status_text and "succes" in status_text:
+            status_text = stadiu.get("status", "").lower().strip()
+
+            # Verificăm dacă e un status de livrare reușită:
+            # - "livrat" exact (GLS)
+            # - "livrat cu succes" (Sameday)
+            # - "coletul a fost livrat" (Sameday varianta lungă)
+            # Excludem: "nelivrat", "relivrat", "eșuat"
+            is_delivered = (
+                status_text == "livrat" or
+                "livrat cu succes" in status_text or
+                ("livrat" in status_text and "nelivrat" not in status_text and "esuat" not in status_text and "eșuat" not in status_text)
+            )
+
+            if is_delivered:
                 # Format: "10-03-2026 / 18:01:48"
                 data_str = stadiu.get("data", "")
                 date_part = data_str.split(" / ")[0]  # "10-03-2026"
