@@ -5,7 +5,7 @@ auto_finalize_orders.py — Finalizare automată comenzi ejolie.ro
 Comenzile cu status INCASATA (ID 14) care au 15+ zile de la livrare
 sunt trecute automat în status Comanda Finalizata (ID 36).
 
-Se procesează doar comenzile cu ID >= 112984 (din 06.03.2026).
+Se procesează doar comenzile cu ID >= 112979 (din 05.03.2026).
 
 Endpoint-uri Extended API folosite:
   - GET  ?comenzi&idstatus=14  → listare comenzi incasate
