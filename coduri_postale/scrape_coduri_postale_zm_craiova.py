@@ -1,24 +1,20 @@
 #!/usr/bin/env python3
 """
-Script: scrape_coduri_postale_zm_craiova.py
+Script: scrape_coduri_postale_zm_craiova.py  v2
 Descriere: Extrage codurile postale pe strazi de pe site-ul Postei Romane
            pentru toate localitatile din Zona Metropolitana Craiova.
            
 Sursa: https://www.posta-romana.ro/ccp.html
-Endpoint-uri API descoperite:
+API Endpoints (reverse-engineered):
   - POST /cnpr-app/modules/cauta-cod-postal/ajax/cauta_orase.php?q=
-    Body: judet=Dolj  →  returneaza lista localitati (HTML select options)
+    Body: k_judet=Dolj&k_lang=ro
   - POST /cnpr-app/modules/cauta-cod-postal/ajax/cautare_pentru_cod.php?q=
-    Body: judet=Dolj&localitate=Craiova&adresa=Calea Bucuresti
-    →  returneaza JSON cu {formular: "HTML cu rezultate", found: N}
+    Body: k_adresa=X&k_judet=Dolj&k_localitate=Craiova&k_lang=ro
+    
+IMPORTANT: API-ul necesita cuvinte reale (nu litere singure).
+Strategie: cautam cu lista de nume de strazi/bulevarde cunoscute.
 
-Strategie: Pentru fiecare localitate, cautam cu fiecare litera a-z
-           pentru a acoperi toate strazile posibile.
-           
-Autor: Alex Tudor (generat cu Claude)
-Data: Martie 2026
-Rulare: python3 scrape_coduri_postale_zm_craiova.py
-Output: coduri_postale_zm_craiova_complet.xlsx
+v2: Fix parametri k_judet/k_localitate/k_adresa/k_lang + strategie cuvinte
 """
 
 import requests
@@ -27,32 +23,16 @@ import time
 import re
 import os
 from datetime import datetime
+from urllib.parse import quote
 
-# ============================================================
-# CONFIGURARE
-# ============================================================
-
-# URL-uri API Posta Romana
 BASE_URL = "https://www.posta-romana.ro"
 URL_LOCALITATI = f"{BASE_URL}/cnpr-app/modules/cauta-cod-postal/ajax/cauta_orase.php?q="
 URL_CAUTARE = f"{BASE_URL}/cnpr-app/modules/cauta-cod-postal/ajax/cautare_pentru_cod.php?q="
-
-# Judet
 JUDET = "Dolj"
+LOCALITATI_CU_STRAZI = ["Craiova", "Filiași", "Segarcea"]
 
-# Localitati din Zona Metropolitana Craiova (cele care au coduri pe strazi = orase)
-# Comunele/satele au de obicei 1 singur cod postal
-LOCALITATI_CU_STRAZI = [
-    "Craiova",
-    "Filiași",     # oras
-    "Segarcea",    # oras
-    "Băilești",    # oras mare din Dolj, optional
-]
-
-# Toate localitatile din ZM Craiova (inclusiv sate - au cod unic)
 LOCALITATI_ZM = [
     "Craiova", "Filiași", "Segarcea",
-    # Comune
     "Almăj", "Beharca", "Bogea", "Cotofenii din Față", "Moșneni", "Șitoaia",
     "Brădești", "Brădeștii Bătrâni", "Meteu", "Piscani", "Răcarii de Jos", "Tatomirești",
     "Breasta", "Cotu", "Crovna", "Făget", "Obedin", "Roșieni", "Valea Lungului",
@@ -75,149 +55,138 @@ LOCALITATI_ZM = [
     "Vela", "Bucovicior", "Cetățuia", "Desnățui", "Gubaucea", "Segleț", "Suharu", "Știubei",
 ]
 
-# Litere pentru cautare (acoperim tot alfabetul)
-LITERE_CAUTARE = list("abcdefghijklmnoprstuvzăâîșț")
+# ~200 cuvinte de cautare care acopera majoritatea strazilor din Craiova
+CUVINTE_CAUTARE_CRAIOVA = [
+    "Calea Bucuresti", "Calea Severinului", "Calea Unirii", "Dacia",
+    "Decebal", "Nicolae Titulescu", "Stirbei Voda", "Carol",
+    "1 Mai", "Oltenia", "Romanescu",
+    "Albinelor", "Alecsandri", "Alexandru", "Amaradia", "Amurgului", "Aries",
+    "Arges", "Armata", "Avram Iancu", "Aviatorilor",
+    "Bariera Valcii", "Bechetului", "Bibescu", "Borsec", "Bradului", "Brazda",
+    "Brestei", "Bucegi", "Bucovat", "Buftea", "Buzaului", "Barbu",
+    "Calarasi", "Calafat", "Calugareni", "Cameliei", "Campeni", "Caracal",
+    "Carpati", "Castanilor", "Cernei", "Cimentului", "Ciocarliei", "Closca",
+    "Cornitoiu", "Cosuna", "Craiovesti", "Craiovita", "Crangului", "Crisan",
+    "Croitori", "Cuza Voda",
+    "Danubiu", "Desnatu", "Deva", "Dobrogea", "Dorobanti", "Dunarii",
+    "Dimitrie", "Dolj",
+    "Ecaterina", "Elena", "Emil", "Energiei", "Eroilor",
+    "Fabricii", "Fagului", "Filantropiei", "Florilor", "Frasinului", "Fulger",
+    "Garlesti", "Garofitei", "George", "Gheorghe", "Girlesti", "Gorjului", "Gradinari",
+    "Haiducilor", "Henri Coanda", "Horea", "Hortensiei", "Hunedoara", "Hydepark",
+    "Iancu Jianu", "Iederei", "Independentei", "Industriei", "Ion", "Izvorul Rece",
+    "Jianu", "Jiului", "Jiu",
+    "Lacului", "Lalelei", "Lapus", "Libertatii", "Liliacului",
+    "Lipscani", "Livezilor", "Locomotivei", "Lungulescu",
+    "Madona Dudu", "Malinului", "Manzatului", "Maria", "Marinescu",
+    "Matasarilor", "Mehedinti", "Meseriasilor", "Mihai Viteazu", "Minerva",
+    "Mircea", "Mitropolit", "Moldovei", "Muresului", "Muncii",
+    "Nanterre", "Narciselor", "Negru Voda", "Nicolae Balcescu", "Nicolae Iorga", "Nordului", "Nucului",
+    "Obedeanu", "Oltet", "Olt", "Operelor", "Orhideelor", "Ostroveni",
+    "Pacii", "Padurii", "Parangului", "Parului", "Pasteur", "Pelendava",
+    "Petru Rares", "Piata", "Pietii", "Plaiului", "Podului", "Popa Sapca",
+    "Popoveni", "Portului", "Potelu", "Prelungirea", "Primaverii", "Progresul", "Putnei", "Putul Rece",
+    "Rahovei", "Razboieni", "Recoltei", "Renasterii", "Republicii",
+    "Riului", "Rocadei", "Romanesti", "Romania Muncitoare", "Romul",
+    "Rovinari", "Rovine",
+    "Sacelu", "Sandulescu", "Sararilor", "Savinesti", "Severin",
+    "Siretului", "Slatina", "Smeurei", "Socului", "Spahii",
+    "Stefan cel Mare", "Stirbei", "Sudului",
+    "Tabaci", "Teilor", "Tepes Voda", "Tineretului", "Tismana",
+    "Toamnei", "Traian", "Trandafirilor", "Turbinei",
+    "Ulmului", "Unirii", "Uranus",
+    "Vailor", "Vasile", "Verde", "Viitorului", "Vlad Tepes", "Vulturi",
+    "Zambilei", "Zarandului", "Zorilor",
+    "Brazda lui Novac", "Craiovita Noua", "Lapus Arges",
+    "Valea Rosie", "Sarari", "Ghiseu",
+    # Extra - cartiere si zone
+    "Balta Verde", "Cernele", "Facai", "Mofleni", "Popoveni", "Simnicu",
+    "Barcanesti", "Cioroiasu", "Isalnita", "Preajba",
+]
 
-# Delay intre requesturi (secunde) - respectam serverul
-DELAY = 0.5
+CUVINTE_CAUTARE_ORAS_MIC = [
+    "Calea", "Unirii", "Libertatii", "Republicii",
+    "Garii", "Stefan", "Nicolae", "Ion", "Mihai",
+    "Independentei", "Victoriei", "Eroilor", "Tineretului",
+    "Alexandru", "Carol", "Dunarii", "Jiului", "Oltului",
+    "Traian", "Decebal", "Avram Iancu",
+]
 
-# Headers
+DELAY = 0.4
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-    "Accept": "application/json, text/javascript, */*",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+    "Accept": "application/json, text/javascript, */*; q=0.01",
     "Accept-Language": "ro-RO,ro;q=0.9,en;q=0.8",
     "Referer": "https://www.posta-romana.ro/ccp.html",
     "X-Requested-With": "XMLHttpRequest",
+    "Origin": "https://www.posta-romana.ro",
+    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
 }
-
-# ============================================================
-# FUNCTII
-# ============================================================
 
 
 def parse_results_html(html_str):
-    """
-    Parseaza HTML-ul din raspunsul API si extrage datele.
-    Formatul e: div-uri cu p-uri care contin cod postal, judet, localitate, strada, subunitate.
-    """
     results = []
-    # Pattern: fiecare rand e un div.cod-postal-line cu mai multe div-uri copii
-    # Extragem textul din tagurile <p>
-    lines = re.findall(
-        r'<div class="col-md-12 cod-postal-line">(.*?)</div>\s*</div>\s*</div>\s*</div>\s*</div>', html_str, re.DOTALL)
-
-    if not lines:
-        # Incercam alt pattern
-        lines = html_str.split('cod-postal-line')
-
-    # Pattern mai simplu - extragem toate <p>...</p> din fiecare linie
-    # Fiecare "linie" din rezultat are 5 valori: cod, judet, localitate, strada, subunitate
     p_tags = re.findall(r'<p[^>]*>(.*?)</p>', html_str)
-
-    # Grupam cate 5 (sau 6 daca include si unitati postale)
-    # Din observatii: sunt 5 coloane per rand
-    chunk_size = 5
-    for i in range(0, len(p_tags), chunk_size):
-        chunk = p_tags[i:i+chunk_size]
+    for i in range(0, len(p_tags), 5):
+        chunk = p_tags[i:i+5]
         if len(chunk) >= 4:
             cod = chunk[0].strip()
-            judet = chunk[1].strip() if len(chunk) > 1 else ""
-            localitate = chunk[2].strip() if len(chunk) > 2 else ""
-            strada = chunk[3].strip() if len(chunk) > 3 else ""
-            subunitate = chunk[4].strip() if len(chunk) > 4 else ""
-
-            # Skip header rows sau mesaje de eroare
             if cod and cod[0].isdigit() and len(cod) == 6:
                 results.append({
                     "cod_postal": cod,
-                    "judet": judet,
-                    "localitate": localitate,
-                    "strada": strada,
-                    "subunitate_postala": subunitate,
+                    "judet": chunk[1].strip(),
+                    "localitate": chunk[2].strip(),
+                    "strada": chunk[3].strip(),
+                    "subunitate_postala": chunk[4].strip() if len(chunk) > 4 else "",
                 })
-
     return results
 
 
-def cauta_coduri(judet, localitate, adresa="", session=None):
-    """
-    Cauta coduri postale pe Posta Romana.
-    Returneaza lista de dict-uri cu rezultatele.
-    Parametri API reali: k_judet, k_localitate, k_adresa, k_lang
-    Body: URL-encoded string (NU FormData)
-    """
-    if session is None:
-        session = requests.Session()
-        session.headers.update(HEADERS)
-
-    # Parametrii reali ai API-ului Posta Romana (descoperiti prin reverse engineering)
-    data = f"k_adresa={requests.utils.quote(adresa)}&k_judet={requests.utils.quote(judet)}&k_localitate={requests.utils.quote(localitate)}&k_lang=ro"
-
+def cauta_coduri(judet, localitate, adresa, session):
+    data = f"k_adresa={quote(adresa)}&k_judet={quote(judet)}&k_localitate={quote(localitate)}&k_lang=ro"
     try:
-        resp = session.post(
-            URL_CAUTARE,
-            data=data,
-            headers={
-                **HEADERS, "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
-            timeout=30
-        )
+        resp = session.post(URL_CAUTARE, data=data, timeout=30)
         resp.raise_for_status()
-
         result = resp.json()
-        found = result.get("found", 0)
-        html = result.get("formular", "")
-
-        if found > 0:
-            return parse_results_html(html)
-        else:
-            return []
-
+        if result.get("found", 0) > 0:
+            return parse_results_html(result.get("formular", ""))
+        return []
     except Exception as e:
-        print(f"  [EROARE] {judet}/{localitate}/{adresa}: {e}")
+        print(f"  [EROARE] {localitate}/{adresa}: {e}")
         return []
 
 
-def scrape_localitate_completa(judet, localitate, session):
-    """
-    Extrage TOATE codurile postale pentru o localitate.
-    Strategie: cautam cu fiecare litera + cautare goala (pt localitati mici).
-    """
-    all_results = {}  # key = cod_postal+strada pentru deduplicare
+def scrape_localitate(judet, localitate, session, cuvinte=None):
+    all_results = {}
 
-    # 1. Cautare fara adresa (pt localitati mici cu cod unic)
-    print(f"  Cautare generala...")
+    # Cautare fara adresa
     results = cauta_coduri(judet, localitate, "", session)
     for r in results:
-        key = f"{r['cod_postal']}|{r['strada']}"
-        all_results[key] = r
+        all_results[f"{r['cod_postal']}|{r['strada']}"] = r
     time.sleep(DELAY)
 
-    # 2. Cautare cu fiecare litera (pt orase cu multe strazi)
-    if localitate in LOCALITATI_CU_STRAZI:
-        for litera in LITERE_CAUTARE:
-            print(f"  Cautare '{litera}'...", end=" ")
-            results = cauta_coduri(judet, localitate, litera, session)
-            new_count = 0
+    if cuvinte:
+        total = len(cuvinte)
+        for idx, cuvant in enumerate(cuvinte):
+            results = cauta_coduri(judet, localitate, cuvant, session)
+            new = sum(
+                1 for r in results if f"{r['cod_postal']}|{r['strada']}" not in all_results)
             for r in results:
-                key = f"{r['cod_postal']}|{r['strada']}"
-                if key not in all_results:
-                    all_results[key] = r
-                    new_count += 1
-            print(f"{len(results)} gasite, {new_count} noi")
+                all_results[f"{r['cod_postal']}|{r['strada']}"] = r
+
+            if results:
+                print(
+                    f"    [{idx+1}/{total}] '{cuvant}': {len(results)} gasite, {new} noi → total {len(all_results)}")
             time.sleep(DELAY)
 
     return list(all_results.values())
 
 
 def export_to_excel(all_data, filename):
-    """
-    Exporta datele in format Excel cu formatare profesionala.
-    """
     try:
         from openpyxl import Workbook
         from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
     except ImportError:
-        print("Instalare openpyxl...")
         os.system("pip3 install openpyxl --break-system-packages -q")
         from openpyxl import Workbook
         from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
@@ -226,179 +195,100 @@ def export_to_excel(all_data, filename):
     ws = wb.active
     ws.title = "Coduri Postale ZM Craiova"
 
-    # Stiluri
-    header_font = Font(name='Arial', bold=True, size=11, color='FFFFFF')
-    header_fill = PatternFill('solid', fgColor='2F5496')
-    header_align = Alignment(
-        horizontal='center', vertical='center', wrap_text=True)
-    data_font = Font(name='Arial', size=10)
-    thin_border = Border(
-        left=Side(style='thin'), right=Side(style='thin'),
-        top=Side(style='thin'), bottom=Side(style='thin')
-    )
+    hf = Font(name='Arial', bold=True, size=11, color='FFFFFF')
+    hfill = PatternFill('solid', fgColor='2F5496')
+    ha = Alignment(horizontal='center', vertical='center', wrap_text=True)
+    df = Font(name='Arial', size=10)
+    tb = Border(left=Side(style='thin'), right=Side(style='thin'),
+                top=Side(style='thin'), bottom=Side(style='thin'))
 
-    # Titlu
     ws.merge_cells('A1:F1')
-    ws['A1'] = f'CODURI POȘTALE PE STRĂZI - ZONA METROPOLITANĂ CRAIOVA'
+    ws['A1'] = 'CODURI POȘTALE PE STRĂZI - ZONA METROPOLITANĂ CRAIOVA'
     ws['A1'].font = Font(name='Arial', bold=True, size=14, color='2F5496')
     ws['A1'].alignment = Alignment(horizontal='center')
-
     ws.merge_cells('A2:F2')
-    ws['A2'] = f'Sursa: Poșta Română (posta-romana.ro) | Generat: {datetime.now().strftime("%d.%m.%Y %H:%M")}'
+    ws['A2'] = f'Sursa: Poșta Română | Generat: {datetime.now().strftime("%d.%m.%Y %H:%M")}'
     ws['A2'].font = Font(name='Arial', size=10, italic=True, color='666666')
     ws['A2'].alignment = Alignment(horizontal='center')
 
-    # Headers
-    headers = ['Nr.', 'Cod Poștal', 'Județ', 'Localitate',
-               'Strada / Adresa', 'Subunitate Poștală']
-    for col, h in enumerate(headers, 1):
-        cell = ws.cell(row=4, column=col, value=h)
-        cell.font = header_font
-        cell.fill = header_fill
-        cell.alignment = header_align
-        cell.border = thin_border
+    for col, h in enumerate(['Nr.', 'Cod Poștal', 'Județ', 'Localitate', 'Strada / Adresa', 'Subunitate Poștală'], 1):
+        c = ws.cell(row=4, column=col, value=h)
+        c.font, c.fill, c.alignment, c.border = hf, hfill, ha, tb
 
-    # Date
-    # Sortam dupa localitate, apoi dupa strada
     all_data.sort(key=lambda x: (x['localitate'], x['strada']))
-
-    for i, row_data in enumerate(all_data):
+    for i, rd in enumerate(all_data):
         row = i + 5
-        ws.cell(row=row, column=1, value=i+1).font = data_font
-        ws.cell(row=row, column=1).alignment = Alignment(horizontal='center')
-        ws.cell(row=row, column=1).border = thin_border
+        for col, val in enumerate([i+1, rd['cod_postal'], rd['judet'], rd['localitate'], rd['strada'], rd['subunitate_postala']], 1):
+            c = ws.cell(row=row, column=col, value=val)
+            c.font = Font(name='Arial', size=10, bold=(col == 2))
+            c.alignment = Alignment(horizontal='center') if col in (
+                1, 2) else Alignment()
+            c.border = tb
 
-        ws.cell(row=row, column=2, value=row_data['cod_postal']).font = Font(
-            name='Arial', size=10, bold=True)
-        ws.cell(row=row, column=2).alignment = Alignment(horizontal='center')
-        ws.cell(row=row, column=2).border = thin_border
-
-        ws.cell(row=row, column=3, value=row_data['judet']).font = data_font
-        ws.cell(row=row, column=3).border = thin_border
-
-        ws.cell(row=row, column=4,
-                value=row_data['localitate']).font = data_font
-        ws.cell(row=row, column=4).border = thin_border
-
-        ws.cell(row=row, column=5, value=row_data['strada']).font = data_font
-        ws.cell(row=row, column=5).border = thin_border
-
-        ws.cell(row=row, column=6,
-                value=row_data['subunitate_postala']).font = data_font
-        ws.cell(row=row, column=6).border = thin_border
-
-    # Latimi coloane
     ws.column_dimensions['A'].width = 7
     ws.column_dimensions['B'].width = 12
     ws.column_dimensions['C'].width = 10
     ws.column_dimensions['D'].width = 20
     ws.column_dimensions['E'].width = 50
     ws.column_dimensions['F'].width = 30
-
-    # Freeze panes
     ws.freeze_panes = 'A5'
     ws.auto_filter.ref = f'A4:F{4 + len(all_data)}'
-
     wb.save(filename)
-    print(f"\n✅ Excel salvat: {filename}")
-    print(f"   Total randuri: {len(all_data)}")
+    print(f"\n✅ Excel: {filename} ({len(all_data)} randuri)")
 
-
-# ============================================================
-# MAIN
-# ============================================================
 
 def main():
     print("=" * 60)
-    print("SCRAPER CODURI POSTALE - ZONA METROPOLITANA CRAIOVA")
-    print(
-        f"Sursa: Posta Romana | Data: {datetime.now().strftime('%d.%m.%Y %H:%M')}")
+    print("SCRAPER CODURI POSTALE - ZONA METROPOLITANA CRAIOVA  v2")
+    print(f"Sursa: Posta Romana | {datetime.now().strftime('%d.%m.%Y %H:%M')}")
     print("=" * 60)
 
     session = requests.Session()
     session.headers.update(HEADERS)
 
-    # Pas 1: Verificam conexiunea si initializam sesiunea
-    print("\n[1] Verificare conexiune Posta Romana...")
-    try:
-        resp = session.get(f"{BASE_URL}/ccp.html", timeout=10)
-        print(f"    Status: {resp.status_code} OK")
-        print(f"    Cookies: {dict(session.cookies)}")
-    except Exception as e:
-        print(f"    EROARE: {e}")
-        print("    Verificati conexiunea la internet!")
+    print("\n[1] Conectare...")
+    session.get(f"{BASE_URL}/ccp.html", timeout=10)
+    session.post(URL_LOCALITATI, data=f"k_judet={JUDET}&k_lang=ro", timeout=10)
+
+    print("[2] Test: 'Calea Bucuresti' in Craiova...")
+    test = cauta_coduri(JUDET, "Craiova", "Calea Bucuresti", session)
+    if not test:
+        print("    ❌ API nu raspunde. Oprire.")
         return
+    print(f"    ✅ {len(test)} rezultate. Mergem!")
 
-    # Pas 1b: Initializam sesiunea cu cauta_orase (necesar pentru ca API-ul sa functioneze)
-    print("\n[1b] Initializare sesiune - incarc localitati Dolj...")
-    try:
-        resp_orase = session.post(
-            URL_LOCALITATI,
-            data=f"k_judet={JUDET}&k_lang=ro",
-            headers={
-                **HEADERS, "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
-            timeout=10
-        )
-        print(
-            f"    Status: {resp_orase.status_code}, Response length: {len(resp_orase.text)}")
-    except Exception as e:
-        print(f"    EROARE localitati: {e}")
-
-    # Pas 1c: Test rapid cu o cautare cunoscuta
-    print("\n[1c] Test: caut 'Calea Bucuresti' in Craiova...")
-    test_results = cauta_coduri(JUDET, "Craiova", "Calea Bucuresti", session)
-    print(f"    Rezultate test: {len(test_results)}")
-    if test_results:
-        print(f"    Exemplu: {test_results[0]}")
-    else:
-        print("    ⚠️  ATENTIE: Testul nu a returnat rezultate!")
-        print("    Posibil API-ul Postei Romane blocheaza requesturi de pe server.")
-        print("    Incercati sa rulati scriptul de pe PC-ul local.")
-        cont = input("    Continuam oricum? (da/nu): ").strip().lower()
-        if cont != "da":
-            return
-
-    # Pas 2: Extragem coduri pentru fiecare localitate
     all_data = []
-
-    for localitate in LOCALITATI_ZM:
-        print(f"\n[*] {localitate}...")
-        results = scrape_localitate_completa(JUDET, localitate, session)
+    for loc in LOCALITATI_ZM:
+        print(f"\n{'='*40}\n[*] {loc}\n{'='*40}")
+        cuvinte = CUVINTE_CAUTARE_CRAIOVA if loc == "Craiova" else (
+            CUVINTE_CAUTARE_ORAS_MIC if loc in LOCALITATI_CU_STRAZI else None)
+        results = scrape_localitate(JUDET, loc, session, cuvinte)
         all_data.extend(results)
-        print(f"    → {len(results)} coduri gasite")
+        print(f"  → {len(results)} coduri")
 
-    # Pas 3: Deduplicare finala
     unique = {}
     for r in all_data:
-        key = f"{r['cod_postal']}|{r['strada']}"
-        unique[key] = r
+        unique[f"{r['cod_postal']}|{r['strada']}"] = r
     all_data = list(unique.values())
 
-    print(f"\n{'=' * 60}")
-    print(f"TOTAL: {len(all_data)} coduri postale unice")
-    print(f"{'=' * 60}")
+    print(f"\n{'='*60}\nTOTAL: {len(all_data)} coduri postale unice\n{'='*60}")
 
-    # Pas 4: Export Excel - salvam in acelasi folder cu scriptul
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    output_file = os.path.join(
-        script_dir, "coduri_postale_zm_craiova_complet.xlsx")
-    export_to_excel(all_data, output_file)
+    sd = os.path.dirname(os.path.abspath(__file__))
+    export_to_excel(all_data, os.path.join(
+        sd, "coduri_postale_zm_craiova_complet.xlsx"))
 
-    # Pas 5: Export si CSV (backup)
-    csv_file = os.path.join(
-        script_dir, "coduri_postale_zm_craiova_complet.csv")
-    try:
-        import csv
-        with open(csv_file, 'w', newline='', encoding='utf-8-sig') as f:
-            writer = csv.DictWriter(f, fieldnames=[
-                                    'cod_postal', 'judet', 'localitate', 'strada', 'subunitate_postala'])
-            writer.writeheader()
-            writer.writerows(all_data)
-        print(f"✅ CSV salvat: {csv_file}")
-    except Exception as e:
-        print(f"⚠️  Eroare CSV: {e}")
+    import csv
+    with open(os.path.join(sd, "coduri_postale_zm_craiova_complet.csv"), 'w', newline='', encoding='utf-8-sig') as f:
+        w = csv.DictWriter(f, fieldnames=[
+                           'cod_postal', 'judet', 'localitate', 'strada', 'subunitate_postala'])
+        w.writeheader()
+        w.writerows(all_data)
+    print(f"✅ CSV salvat")
 
-    print(f"\n🎉 Gata! Fisierele sunt in: {os.getcwd()}")
+    with open(os.path.join(sd, "coduri_postale_zm_craiova_complet.json"), 'w', encoding='utf-8') as f:
+        json.dump(all_data, f, ensure_ascii=False, indent=2)
+    print(f"✅ JSON salvat")
+    print(f"\n🎉 Gata! Output in: {sd}")
 
 
 if __name__ == "__main__":
