@@ -143,19 +143,24 @@ def cauta_coduri(judet, localitate, adresa="", session=None):
     """
     Cauta coduri postale pe Posta Romana.
     Returneaza lista de dict-uri cu rezultatele.
+    Parametri API reali: k_judet, k_localitate, k_adresa, k_lang
+    Body: URL-encoded string (NU FormData)
     """
     if session is None:
         session = requests.Session()
         session.headers.update(HEADERS)
 
-    data = {
-        "judet": judet,
-        "localitate": localitate,
-        "adresa": adresa,
-    }
+    # Parametrii reali ai API-ului Posta Romana (descoperiti prin reverse engineering)
+    data = f"k_adresa={requests.utils.quote(adresa)}&k_judet={requests.utils.quote(judet)}&k_localitate={requests.utils.quote(localitate)}&k_lang=ro"
 
     try:
-        resp = session.post(URL_CAUTARE, data=data, timeout=30)
+        resp = session.post(
+            URL_CAUTARE,
+            data=data,
+            headers={
+                **HEADERS, "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
+            timeout=30
+        )
         resp.raise_for_status()
 
         result = resp.json()
@@ -313,15 +318,45 @@ def main():
     session = requests.Session()
     session.headers.update(HEADERS)
 
-    # Pas 1: Verificam conexiunea
+    # Pas 1: Verificam conexiunea si initializam sesiunea
     print("\n[1] Verificare conexiune Posta Romana...")
     try:
         resp = session.get(f"{BASE_URL}/ccp.html", timeout=10)
         print(f"    Status: {resp.status_code} OK")
+        print(f"    Cookies: {dict(session.cookies)}")
     except Exception as e:
         print(f"    EROARE: {e}")
         print("    Verificati conexiunea la internet!")
         return
+
+    # Pas 1b: Initializam sesiunea cu cauta_orase (necesar pentru ca API-ul sa functioneze)
+    print("\n[1b] Initializare sesiune - incarc localitati Dolj...")
+    try:
+        resp_orase = session.post(
+            URL_LOCALITATI,
+            data=f"k_judet={JUDET}&k_lang=ro",
+            headers={
+                **HEADERS, "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
+            timeout=10
+        )
+        print(
+            f"    Status: {resp_orase.status_code}, Response length: {len(resp_orase.text)}")
+    except Exception as e:
+        print(f"    EROARE localitati: {e}")
+
+    # Pas 1c: Test rapid cu o cautare cunoscuta
+    print("\n[1c] Test: caut 'Calea Bucuresti' in Craiova...")
+    test_results = cauta_coduri(JUDET, "Craiova", "Calea Bucuresti", session)
+    print(f"    Rezultate test: {len(test_results)}")
+    if test_results:
+        print(f"    Exemplu: {test_results[0]}")
+    else:
+        print("    ⚠️  ATENTIE: Testul nu a returnat rezultate!")
+        print("    Posibil API-ul Postei Romane blocheaza requesturi de pe server.")
+        print("    Incercati sa rulati scriptul de pe PC-ul local.")
+        cont = input("    Continuam oricum? (da/nu): ").strip().lower()
+        if cont != "da":
+            return
 
     # Pas 2: Extragem coduri pentru fiecare localitate
     all_data = []
