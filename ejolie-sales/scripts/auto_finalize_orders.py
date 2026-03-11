@@ -5,7 +5,7 @@ auto_finalize_orders.py — Finalizare automată comenzi ejolie.ro
 Comenzile cu status INCASATA (ID 14) care au 15+ zile de la livrare
 sunt trecute automat în status Comanda Finalizata (ID 36).
 
-Se procesează doar comenzile cu ID >= 112979 (din 05.03.2026).
+Se procesează doar comenzile cu ID >= 112984 (din 06.03.2026).
 
 Endpoint-uri Extended API folosite:
   - GET  ?comenzi&idstatus=14  → listare comenzi incasate
@@ -31,7 +31,7 @@ from pathlib import Path
 # ============================================================
 
 # ID-ul minim de comandă de procesat (comenzile mai vechi nu se ating)
-MIN_ORDER_ID = 112979  # Comanda #112979 a fost plasată pe 05.03.2026
+MIN_ORDER_ID = 112984
 
 # Numărul de zile de la livrare după care se finalizează comanda
 DAYS_TO_FINALIZE = 15
@@ -135,24 +135,28 @@ def send_telegram(message):
 def get_incasate_orders(api_key):
     """
     Ia toate comenzile cu status INCASATA (14).
+    Folosește data_start pentru a limita volumul de date (ultima lună).
     Returnează dict cu {order_id: order_data}.
     """
+    # Luăm comenzi din ultima lună + 15 zile buffer (să nu pierdem nimic)
+    data_start = (datetime.now() - timedelta(days=45)).strftime("%d-%m-%Y")
+
     params = {
         "comenzi": "",
         "idstatus": STATUS_INCASATA,
+        "data_start": data_start,
         "limit": 2000,
         "apikey": api_key
     }
 
-    logger.info(
-        f"📡 Preiau comenzile cu status INCASATA (ID {STATUS_INCASATA})...")
+    logger.info(f"📡 Preiau comenzile INCASATE de la {data_start}...")
 
     try:
         response = requests.get(
             API_BASE_URL,
             params=params,
             headers=API_HEADERS,
-            timeout=60
+            timeout=120
         )
 
         if response.status_code != 200:
