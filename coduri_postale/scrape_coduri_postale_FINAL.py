@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 """
-scrape_coduri_postale_FINAL.py v3
+scrape_coduri_postale_FINAL.py v4
 Sursa: codul-postal.ro | HTML static | ~2 min
 
-Structura HTML descoperita:
-  Lista localitati:
-    <a href="/judet/dolj/craiova" class="loc" data-name="craiova">
-      <span class="loc-name">Craiova</span>
-      <span class="loc-code">1557 străzi</span>
-    </a>
-    
-  Tabel coduri (3 coloane): <tr><td>Strada</td><td>Numere</td><td>Cod</td></tr>
+v4 FIX: Fallback-ul pentru sate mici extrăgea TOATE codurile de pe pagină,
+inclusiv cele din "Localități apropiate". Acum extrage DOAR codul principal
+din elementul .code-card sau din <meta name="fact:postal-code">.
 """
 
 import requests
@@ -35,16 +30,16 @@ ZM_CRAIOVA = {
     "Almăj", "Beharca", "Bogea", "Cotofenii din Față", "Cotofenii din Faţă", "Moşneni", "Moșneni", "Şitoaia", "Șitoaia",
     "Brădeşti", "Brădești", "Brădeştii Bătrâni", "Brădeștii Bătrâni", "Meteu", "Piscani", "Răcarii de Jos", "Tatomireşti", "Tatomirești",
     "Breasta", "Cotu", "Crovna", "Făget", "Obedin", "Roşieni", "Roșieni", "Valea Lungului",
-    "Bucovăţ", "Bucovăț", "Cârligei", "Cârligei", "Italieni", "Leamna de Jos", "Leamna de Sus", "Palilula", "Sărbătoarea",
-    "Calopăr", "Bâzdâna", "Bâzdâna", "Belcinu", "Panaghia", "Sălcuţa", "Sălcuța",
-    "Cârcea", "Cârcea", "Coşoveni", "Coșoveni",
+    "Bucovăţ", "Bucovăț", "Cârligei", "Italieni", "Leamna de Jos", "Leamna de Sus", "Palilula", "Sărbătoarea",
+    "Calopăr", "Bâzdâna", "Belcinu", "Panaghia", "Sălcuţa", "Sălcuța",
+    "Cârcea", "Coşoveni", "Coșoveni",
     "Gherceşti", "Ghercești", "Gârleşti", "Gârlești", "Luncşoru", "Luncșoru", "Ungureni", "Ungurenii Mici",
     "Işalniţa", "Ișalnița", "Izvoare",
     "Malu Mare", "Ghindeni", "Preajba",
     "Mischii", "Călineşti", "Călinești", "Gogoşeşti", "Gogoșești", "Mlecăneşti", "Mlecănești", "Motoci", "Urecheşti", "Urechești",
     "Murgaşi", "Murgași", "Gaia", "Picăturile", "Rupturile", "Veleşti", "Velești",
-    "Pieleşti", "Pielești", "Câmpeni", "Lânga", "Lânga",
-    "Predeşti", "Predești", "Bucicani", "Cârstovani", "Cârstovani", "Frasin", "Milovan", "Pleşoi", "Pleșoi", "Predeştii Mici", "Predeștii Mici",
+    "Pieleşti", "Pielești", "Câmpeni", "Lânga",
+    "Predeşti", "Predești", "Bucicani", "Cârstovani", "Frasin", "Milovan", "Pleşoi", "Pleșoi", "Predeştii Mici", "Predeștii Mici",
     "Şimnicu de Sus", "Șimnicu de Sus", "Albeşti", "Albești", "Cornetu", "Deleni", "Dudoviceşti", "Dudovicești",
     "Floreşti", "Florești", "Izvor", "Jieni", "Leşile", "Leșile", "Mileşti", "Milești", "Româneşti", "Românești",
     "Teasc", "Secui",
@@ -53,39 +48,28 @@ ZM_CRAIOVA = {
     "Vârvoru de Jos", "Bujor", "Ciutura", "Criva", "Dobromira", "Drăgoaia", "Gabru", "Vârvor",
     "Vela", "Bucovicior", "Cetăţuia", "Cetățuia", "Desnăţui", "Desnățui", "Gubaucea", "Segleţ", "Segleț", "Suharu", "Ştiubei", "Știubei",
     "Făcăi", "Mofleni", "Popoveni", "Şimnicu de Jos", "Șimnicu de Jos",
-    "Almăjel", "Bâlta", "Bâlta", "Branişte", "Braniște", "Fratoştița", "Fratoștiţa", "Fratostița", "Răcarii de Sus", "Uscăci",
+    "Almăjel", "Bâlta", "Branişte", "Braniște", "Fratoştița", "Fratoștiţa", "Fratostița", "Răcarii de Sus", "Uscăci",
 }
 
 
 def get_localities(session):
-    """Extrage localitati din <span class='loc-name'>Nume</span> + href slug."""
     resp = session.get(f"{BASE_URL}/judet/dolj", timeout=15)
     resp.raise_for_status()
-    html = resp.text
-
-    # Pattern: <a href="/judet/dolj/slug" class="loc" data-name="...">
-    #            <span class="loc-name">Nume Localitate</span>
     pattern = r'href="/judet/dolj/([^"]+)"[^>]*>.*?<span class="loc-name">([^<]+)</span>'
-    matches = re.findall(pattern, html, re.DOTALL)
-
+    matches = re.findall(pattern, resp.text, re.DOTALL)
     seen = set()
-    localities = []
+    locs = []
     for slug, name in matches:
         slug = slug.strip('/')
         name = name.strip()
         if slug and slug not in seen:
             seen.add(slug)
-            localities.append({
-                'name': name,
-                'slug': slug,
-                'url': f"{BASE_URL}/judet/dolj/{slug}",
-            })
-
-    return localities
+            locs.append({'name': name, 'slug': slug,
+                        'url': f"{BASE_URL}/judet/dolj/{slug}"})
+    return locs
 
 
 def scrape_locality(session, loc):
-    """Extrage coduri din tabelul HTML al localitatii."""
     try:
         resp = session.get(loc['url'], timeout=30)
         resp.raise_for_status()
@@ -96,35 +80,53 @@ def scrape_locality(session, loc):
 
     results = []
 
-    # Tabel 3 coloane: Strada | Numere | Cod postal
+    # Metoda 1: Tabel 3 coloane (orase mari cu strazi)
     rows = re.findall(
         r'<tr[^>]*>\s*<td[^>]*>(.*?)</td>\s*<td[^>]*>(.*?)</td>\s*<td[^>]*>(.*?)</td>\s*</tr>',
         html, re.DOTALL
     )
-
     for c1, c2, c3 in rows:
         strada = re.sub(r'<[^>]+>', '', c1).strip()
         numere = re.sub(r'<[^>]+>', '', c2).strip()
         cod = re.sub(r'<[^>]+>', '', c3).strip()
-
         if cod and cod.isdigit() and len(cod) == 6 and cod.startswith('20'):
             results.append({
-                'cod_postal': cod,
-                'judet': 'Dolj',
-                'localitate': loc['name'],
+                'cod_postal': cod, 'judet': 'Dolj', 'localitate': loc['name'],
                 'strada': f"{strada} {numere}".strip() if numere else strada,
-                'numere': numere,
-                'in_zm': loc['name'] in ZM_CRAIOVA,
+                'numere': numere, 'in_zm': loc['name'] in ZM_CRAIOVA,
             })
 
-    # Fallback: cauta cod postal pe pagina (sate mici fara tabel)
+    # Metoda 2 (sate mici fara tabel): extrage DOAR codul principal
+    # NU extrage codurile din "Localități apropiate"!
     if not results:
-        codes = set(re.findall(r'\b(20[0-7]\d{3})\b', html))
-        for cod in codes:
+        # Prioritate 1: <meta name="fact:postal-code" content="... codul postal 207551">
+        meta_match = re.search(
+            r'<meta\s+name="fact:postal-code"\s+content="[^"]*?(\d{6})', html)
+        if meta_match:
+            cod = meta_match.group(1)
             results.append({
                 'cod_postal': cod, 'judet': 'Dolj', 'localitate': loc['name'],
                 'strada': '', 'numere': '', 'in_zm': loc['name'] in ZM_CRAIOVA,
             })
+        else:
+            # Prioritate 2: titlul paginii "<title>Cod poștal Albești, Dolj — 207551</title>"
+            title_match = re.search(r'<title>[^<]*?(\d{6})[^<]*</title>', html)
+            if title_match:
+                cod = title_match.group(1)
+                results.append({
+                    'cod_postal': cod, 'judet': 'Dolj', 'localitate': loc['name'],
+                    'strada': '', 'numere': '', 'in_zm': loc['name'] in ZM_CRAIOVA,
+                })
+            else:
+                # Prioritate 3: elementul code-card
+                card_match = re.search(
+                    r'class="[^"]*code-card[^"]*"[^>]*>.*?(\d{6})', html, re.DOTALL)
+                if card_match:
+                    cod = card_match.group(1)
+                    results.append({
+                        'cod_postal': cod, 'judet': 'Dolj', 'localitate': loc['name'],
+                        'strada': '', 'numere': '', 'in_zm': loc['name'] in ZM_CRAIOVA,
+                    })
 
     return results
 
@@ -210,7 +212,8 @@ def main():
     sd = os.path.dirname(os.path.abspath(__file__))
 
     print("=" * 60)
-    print("  CODURI POSTALE DOLJ — codul-postal.ro  v3")
+    print("  CODURI POSTALE DOLJ — codul-postal.ro  v4")
+    print(f"  FIX: fallback extrage doar codul principal, nu vecinii")
     print(f"  {datetime.now().strftime('%d.%m.%Y %H:%M')}")
     print("=" * 60)
 
@@ -223,15 +226,12 @@ def main():
     if not locs:
         print("    ❌ Eroare")
         return
-
-    # Show first 5 to verify names
     print(f"    Primele 5: {[l['name'] for l in locs[:5]]}")
-    zm_count = sum(1 for l in locs if l['name'] in ZM_CRAIOVA)
-    print(f"    Din ZM Craiova: {zm_count}")
+    print(
+        f"    Din ZM Craiova: {sum(1 for l in locs if l['name'] in ZM_CRAIOVA)}")
 
     print(f"\n[2] Extragere coduri...\n")
     all_data = []
-
     for i, loc in enumerate(locs):
         r = scrape_locality(s, loc)
         all_data.extend(r)
