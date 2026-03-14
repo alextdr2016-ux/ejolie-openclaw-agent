@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-export_fashiondays.py v2 - Export produse Ejolie+Artista pentru Fashion Days Marketplace
-Ia datele direct din Extended API (stoc per marime, specificatii, imagini)
-Genereaza fisier Excel in formatul template-ului Fashion Days
+export_fashiondays.py v3 - Export produse Ejolie+Artista pentru Fashion Days
+Scrie datele direct in template-ul oficial descarcat din Fashion Days.
+NU creeaza fisier nou - pastreaza structura, sheet-urile, validarile originale.
 
-Rulare: python3 export_fashiondays.py [--brand ejolie,artista] [--limit 10] [--dry-run]
+Rulare: python3 export_fashiondays.py --template template_original.xlsx [--limit 10] [--dry-run]
 """
 
 import json
@@ -12,12 +12,12 @@ import os
 import sys
 import argparse
 import time
+import copy
 import requests
-from openpyxl import Workbook
+from openpyxl import load_workbook
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 BARCODE_PATH = os.path.join(SCRIPT_DIR, 'barcode_ejolie_map.json')
-OUTPUT_PATH = os.path.join(SCRIPT_DIR, 'fashiondays_export.xlsx')
 
 ENV_PATH = os.path.join(SCRIPT_DIR, '..', '.env')
 API_KEY = None
@@ -34,7 +34,11 @@ if not API_KEY:
 API_BASE = 'https://ejolie.ro/api/'
 HEADERS = {'User-Agent': 'Mozilla/5.0'}
 PAGE_SIZE = 50
+START_ROW = 6  # Template data starts at row 6
 
+# ============================================================
+# MAPPINGS Extended → Fashion Days
+# ============================================================
 COLOR_MAP = {
     'Alb': 'Alb', 'Albastru': 'Albastru', 'Albastru deschis': 'Albastru deschis',
     'Albastru inchis': 'Albastru inchis', 'Albastru petrol': 'Albastru',
@@ -49,7 +53,6 @@ COLOR_MAP = {
     'Verde inchis': 'Verde inchis', 'Verde lime': 'Verde', 'Verde mint': 'Verde',
     'Vernil': 'Verde', 'Visiniu': 'Visiniu', 'floral': 'Multicolor', 'Fucsia': 'Roz',
 }
-
 BASE_COLOR_MAP = {
     'Alb': 'Alb', 'Albastru': 'Albastru', 'Albastru deschis': 'Albastru',
     'Albastru inchis': 'Albastru', 'Albastru petrol': 'Albastru',
@@ -64,7 +67,6 @@ BASE_COLOR_MAP = {
     'Verde inchis': 'Verde', 'Verde lime': 'Verde', 'Verde mint': 'Verde',
     'Vernil': 'Verde', 'Visiniu': 'Rosu', 'floral': 'Multicolor', 'Fucsia': 'Roz',
 }
-
 MATERIAL_MAP = {
     'Acryl': 'Acril', 'Barbie': 'Sintetic', 'Brocart': 'Sintetic', 'Bumbac': 'Bumbac',
     'Catifea': 'Catifea', 'Casmir': 'Lana', 'Crep': 'Sintetic', 'Dantela': 'Dantela',
@@ -74,15 +76,12 @@ MATERIAL_MAP = {
     'Sifon': 'Sintetic', 'Stofa': 'Lana', 'Tafta': 'Sintetic', 'Tricot': 'Tricot',
     'Tul': 'Tul', 'Tweed': 'Lana', 'Velur': 'Catifea', 'Voal': 'Sintetic',
 }
-
 LUNGIME_MAP = {'Lungi': 'Lunga', 'Medii': 'Midi', 'Scurte': 'Scurta'}
-
 CROIALA_MAP = {
     'In clini': 'Evazat', 'Lejer': 'Lejer', 'Mulat': 'Bodycon', 'Peplum': 'Cambrata',
     'Petrecuta': 'Petrecuta', 'Plisat': 'Plisata', 'Pliuri': 'Plisata',
     'Volane': 'Evazat', 'in A': 'Evazat',
 }
-
 STIL_MAP = {
     'Asimetrica': 'Elegant', 'Birou': 'Casual', 'Casual': 'Casual',
     'Casual-Elegant': 'Casual', 'Casual-Office': 'Casual',
@@ -90,7 +89,6 @@ STIL_MAP = {
     'De seara': 'Elegant', 'Eleganta': 'Elegant', 'Sport': 'Casual',
     'Lunga sirena': 'Elegant',
 }
-
 SIZE_MAP = {
     'S': 'S INTL', 'M': 'M INTL', 'L': 'L INTL', 'XL': 'XL INTL',
     'XXL': '2XL INTL', '2XL': '2XL INTL', 'XXXL': '3XL INTL', '3XL': '3XL INTL',
@@ -100,6 +98,32 @@ SIZE_MAP = {
     '34': '34 EU', '36': '36 EU', '38': '38 EU', '40': '40 EU',
     '42': '42 EU', '44': '44 EU', '46': '46 EU', '48': '48 EU',
     '50': '50 EU', '52': '52 EU',
+}
+
+# Column positions in Template sheet (1-indexed)
+COL = {
+    'part_number': 1, 'vendor_ext_id': 2, 'ean': 3,
+    'sale_price': 4, 'original_sale_price': 5, 'vat_rate': 6,
+    'status': 7, 'offer_currency': 8, 'stock': 9,
+    'handling_time': 10, 'lead_time': 11, 'warranty': 12,
+    'offer_properties': 13, 'min_sale_price': 14, 'max_sale_price': 15,
+    'name': 16, 'brand': 17, 'description': 18, 'url': 19,
+    'source_language': 20, 'main_image_url': 21,
+    'other_image_url1': 22, 'other_image_url2': 23,
+    'other_image_url3': 24, 'other_image_url4': 25, 'other_image_url5': 26,
+    'family_id': 27, 'family_name': 28, 'family_type': 29,
+    'size_original': 30, 'size_converted': 31,
+    'culoare': 32, 'material': 33, 'colectie': 34,
+    'stil': 35, 'lungime': 36, 'lungime_maneca': 37,
+    'imprimeu': 38, 'detalii': 39, 'sistem_inchidere': 40,
+    'culoare_baza': 41, 'captuseala': 42, 'decolteu': 43,
+    'buzunare': 44, 'exterior': 45, 'barete': 46,
+    'material_garnituri': 47, 'talie': 48, 'pentru': 49,
+    'croiala': 50, 'linie_brand': 51, 'marime_convertita': 52, 'fit': 53,
+    'safety_info': 54, 'manufacturer_name': 55,
+    'manufacturer_address': 56, 'manufacturer_email': 57,
+    'responsible_name': 58, 'responsible_address': 59,
+    'responsible_email': 60,
 }
 
 
@@ -255,7 +279,7 @@ def generate_rows(products, barcode_map, allowed_brands, limit=None):
             continue
 
         price_no_vat = round(price_with_vat / (1 + cota_tva / 100), 2)
-        min_price = round(price_no_vat * 0.5, 2)
+        min_price = round(price_no_vat * 0.75, 2)
         max_price = round(price_no_vat * 2.0, 2)
 
         culoare = get_spec(product, 'Culoare') or extract_color_from_name(name)
@@ -277,25 +301,69 @@ def generate_rows(products, barcode_map, allowed_brands, limit=None):
             fd_size = SIZE_MAP.get(
                 size_info['name'].upper().strip(), size_info['name'] + ' EU')
 
-            rows.append([
-                code, int(pid), ean, price_no_vat, '', cota_tva, 1, 'RON',
-                size_info['stock'], 1, 14, 0, '', min_price, max_price,
-                name[:255], brand_name, description, url, 'ro_RO',
-                images[0] if images else '',
-                images[1] if len(images) > 1 else '',
-                images[2] if len(images) > 2 else '',
-                images[3] if len(images) > 3 else '',
-                images[4] if len(images) > 4 else '',
-                images[5] if len(images) > 5 else '',
-                int(pid), name[:100], 'Marime',
-                fd_size, fd_size,
-                fd_culoare, fd_material, '2026', fd_stil, fd_lungime,
-                '', 'Uni', '', '', fd_base_color, '', '', '', '', '', '', '',
-                'Femei', fd_croiala, brand_name, fd_size, '',
-                '', 'SMARTEX FASHION S.R.L.',
-                'Aninoasa, str. Valea Mare nr. 1, jud. Dambovita, Romania',
-                'contact@ejolie.ro', '', '', '',
-            ])
+            row = {
+                'part_number': code,
+                'vendor_ext_id': int(pid),
+                'ean': ean,
+                'sale_price': price_no_vat,
+                'original_sale_price': None,
+                'vat_rate': cota_tva,
+                'status': 1,
+                'offer_currency': 'RON',
+                'stock': size_info['stock'],
+                'handling_time': 1,
+                'lead_time': 14,
+                'warranty': 0,
+                'offer_properties': None,
+                'min_sale_price': min_price,
+                'max_sale_price': max_price,
+                'name': name[:255],
+                'brand': brand_name,
+                'description': description,
+                'url': url,
+                'source_language': 'ro_RO',
+                'main_image_url': images[0] if images else '',
+                'other_image_url1': images[1] if len(images) > 1 else None,
+                'other_image_url2': images[2] if len(images) > 2 else None,
+                'other_image_url3': images[3] if len(images) > 3 else None,
+                'other_image_url4': images[4] if len(images) > 4 else None,
+                'other_image_url5': images[5] if len(images) > 5 else None,
+                'family_id': int(pid),
+                'family_name': name[:100],
+                'family_type': 'Marime',
+                'size_original': fd_size,
+                'size_converted': fd_size,
+                'culoare': fd_culoare,
+                'material': fd_material,
+                'colectie': '2026',
+                'stil': fd_stil,
+                'lungime': fd_lungime,
+                'lungime_maneca': None,
+                'imprimeu': 'Uni',
+                'detalii': None,
+                'sistem_inchidere': None,
+                'culoare_baza': fd_base_color,
+                'captuseala': None,
+                'decolteu': None,
+                'buzunare': None,
+                'exterior': None,
+                'barete': None,
+                'material_garnituri': None,
+                'talie': None,
+                'pentru': 'Femei',
+                'croiala': fd_croiala,
+                'linie_brand': brand_name,
+                'marime_convertita': fd_size,
+                'fit': None,
+                'safety_info': None,
+                'manufacturer_name': 'FABREX SRL',
+                'manufacturer_address': 'Chiajna, str. Rezervelor nr. 64B, jud. Ilfov, Romania',
+                'manufacturer_email': 'alextdr2016@gmail.com',
+                'responsible_name': None,
+                'responsible_address': None,
+                'responsible_email': None,
+            }
+            rows.append(row)
 
         stats['processed'] += 1
         if limit and stats['processed'] >= limit:
@@ -310,58 +378,58 @@ def generate_rows(products, barcode_map, allowed_brands, limit=None):
     return rows
 
 
-def write_xlsx(rows, output_path):
-    wb = Workbook()
-    ws = wb.active
-    ws.title = 'Template'
+def write_to_template(rows, template_path, output_path):
+    """Write rows into the official Fashion Days template, preserving everything"""
+    print(f"\nLoading official template: {template_path}")
+    wb = load_workbook(template_path)
+    ws = wb['Template']
 
-    groups = ['Identificare produs', '', '', 'Oferta - Pret', '', '', '', 'Moneda', 'Oferta - Stoc & disponibilitate', '', '', '', 'Detalii oferta', 'Oferta - Verificare pret', '', 'Descriere produs', '', '', '', '',
-              'Imagini', '', '', '', '', '', 'Variation (product families)', '', '', 'Caracteristici - Rochii', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
-    ws.append(groups)
+    print(f"  Template sheets: {wb.sheetnames}")
+    print(f"  Writing {len(rows)} rows starting at row {START_ROW}")
 
-    oblig = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Obligatoriu',
-             '', 'Recomandat', '', 'Optional', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
-    ws.append(oblig)
-
-    tech = ['part_number', 'vendor_ext_id', 'ean', 'sale_price', 'original_sale_price', 'vat_rate', 'status', 'offer_currency', 'stock', 'handling_time', 'lead_time', 'warranty', 'offer_properties', 'min_sale_price', 'max_sale_price', 'name', 'brand', 'description', 'url', 'source_language', 'main_image_url', 'other_image_url1', 'other_image_url2', 'other_image_url3', 'other_image_url4', 'other_image_url5', 'family_id', 'family_name', 'family_type', 'Marime [original]: [6506]', 'Marime [converted]: [6506]', 'Culoare: [5401]', 'Material: [6372]', 'Colectie: [5429]',
-            'Stil: [6140]', 'Lungime: [6142]', 'Lungime maneca: [6146]', 'Imprimeu: [6155]', 'Detalii: [6469]', 'Sistem inchidere: [6765]', 'Culoare de baza: [8956]', 'Captuseala: [9011]', 'Decolteu: [9012]', 'Buzunare: [9015]', 'Exterior: [9018]', 'Barete: [9023]', 'Material garnituri: [9025]', 'Talie: [9028]', 'Pentru: [9084]', 'Croiala: [9097]', 'Linie Brand: [9370]', 'Marime convertita: [10770]', 'Fit: [10965]', 'safety_information', 'manufacturer_name', 'manufacturer_address', 'manufacturer_email', 'responsible_name', 'responsible_address', 'responsible_email']
-    ws.append(tech)
-
-    oblig2 = ['Obligatoriu', 'Obligatoriu', 'Optional/Obligatoriu', 'Obligatoriu', 'Optional', 'Obligatoriu', 'Obligatoriu', 'Obligatoriu', 'Obligatoriu', 'Optional', 'Optional', 'Optional/Obligatoriu', 'Optional', 'Optional/Obligatoriu', 'Optional/Obligatoriu', 'Obligatoriu', 'Obligatoriu', 'Obligatoriu', 'Optional',
-              'Obligatoriu (restrictiv)', 'Obligatoriu', 'Optional', 'Optional', 'Optional', 'Optional', 'Optional', 'Optional', 'Optional', 'Optional', 'Obligatoriu (restrictiv)', 'Obligatoriu (restrictiv)', 'Recomandat (restrictiv)', 'Recomandat (restrictiv)', 'Recomandat', 'Recomandat (restrictiv)', 'Recomandat (restrictiv)', 'Recomandat (restrictiv)', 'Recomandat (restrictiv)', 'Recomandat', 'Recomandat (restrictiv)', 'Recomandat (restrictiv)', 'Recomandat', 'Recomandat (restrictiv)', 'Recomandat', 'Recomandat', 'Recomandat', 'Recomandat', 'Recomandat', 'Recomandat (restrictiv)', 'Recomandat (restrictiv)', 'Recomandat', 'Recomandat (restrictiv)', 'Recomandat (restrictiv)', 'Legal', 'Legal', 'Legal', 'Legal', 'Legal', 'Legal', 'Legal']
-    ws.append(oblig2)
-
-    human = ['Cod produs', 'ID produs', 'EAN produs', 'Pret vanzare', 'PRP', 'TVA', 'Status', 'Moneda', 'Stoc', 'In cate zile predai comanda curierului', 'In cate zile poti reaproviziona', 'Garantie', 'Proprietatile ofertei', 'Pret minim', 'Pret maxim', 'Nume', 'Brand', 'Descriere', 'URL site propriu', 'Limba sursa', 'URL imagine principala', 'URL imagine secundara 1', 'URL imagine secundara 2', 'URL imagine secundara 3', 'URL imagine secundara 4', 'URL imagine secundara 5', 'ID familie', 'Nume familie', 'Tip Familie',
-             'Marime [original]', 'Marime [converted]', 'Culoare', 'Material', 'Colectie', 'Stil', 'Lungime', 'Lungime maneca', 'Imprimeu', 'Detalii', 'Sistem inchidere', 'Culoare de baza', 'Captuseala', 'Decolteu', 'Buzunare', 'Exterior', 'Barete', 'Material garnituri', 'Talie', 'Pentru', 'Croiala', 'Linie Brand', 'Marime convertita', 'Fit', 'Avertizari de siguranta', 'Nume producator', 'Adresa producator', 'Adresa email producator', 'Nume persoana responsabila UE', 'Adresa persoana responsabila UE', 'Adresa email persoana responsabila UE']
-    ws.append(human)
-
-    for row in rows:
-        ws.append(row)
+    for row_idx, row_data in enumerate(rows):
+        excel_row = START_ROW + row_idx
+        for key, col_num in COL.items():
+            value = row_data.get(key)
+            if value is not None:
+                ws.cell(row=excel_row, column=col_num, value=value)
 
     wb.save(output_path)
     print(f"\nSaved: {output_path}")
-    print(f"  Header rows: 5, Data rows: {len(rows)}")
+    print(f"  Template preserved: all sheets, validations, formatting intact")
+    print(
+        f"  Data rows written: {len(rows)} (rows {START_ROW} to {START_ROW + len(rows) - 1})")
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Export produse pentru Fashion Days')
+        description='Export produse pentru Fashion Days (scrie in template oficial)')
+    parser.add_argument('--template', required=True,
+                        help='Calea catre template-ul oficial descarcat din Fashion Days')
     parser.add_argument('--brand', default='ejolie,artista',
                         help='Brand filter, comma-separated')
     parser.add_argument('--limit', type=int, default=None,
                         help='Limit number of products')
     parser.add_argument('--dry-run', action='store_true',
                         help='Only show stats')
-    parser.add_argument('--output', default=OUTPUT_PATH,
-                        help='Output file path')
+    parser.add_argument('--output', default=None,
+                        help='Output file path (default: fashiondays_filled.xlsx)')
     args = parser.parse_args()
 
+    if not os.path.exists(args.template):
+        print(f"ERROR: Template file not found: {args.template}")
+        sys.exit(1)
+
+    output_path = args.output or os.path.join(
+        SCRIPT_DIR, 'fashiondays_filled.xlsx')
+
     print("=" * 60)
-    print("Fashion Days Export v2 - Produse Ejolie + Artista")
+    print("Fashion Days Export v3 - Scrie in template oficial")
     print("=" * 60)
 
     allowed_brands = [b.strip().lower() for b in args.brand.split(',')]
     print(f"\nBrands: {', '.join(allowed_brands)}")
+    print(f"Template: {args.template}")
 
     print(f"\nFetching products from Extended API...")
     products = fetch_all_products()
@@ -377,14 +445,13 @@ def main():
     if args.dry_run:
         print("\n[DRY RUN] No file written.")
         if rows:
-            labels = ['part_number', 'vendor_ext_id', 'ean', 'sale_price', '', 'vat', 'status', 'currency',
-                      'stock', 'handling', 'lead', 'warranty', '', 'min_price', 'max_price', 'name', 'brand']
             print(f"\nSample row:")
-            for i, val in enumerate(rows[0][:17]):
-                print(f"  {labels[i]}: {val}")
+            for key in ['part_number', 'vendor_ext_id', 'ean', 'sale_price', 'vat_rate',
+                        'stock', 'name', 'brand', 'size_original', 'culoare', 'material']:
+                print(f"  {key}: {rows[0].get(key)}")
         return
 
-    write_xlsx(rows, args.output)
+    write_to_template(rows, args.template, output_path)
     print("\nDone!")
 
 
