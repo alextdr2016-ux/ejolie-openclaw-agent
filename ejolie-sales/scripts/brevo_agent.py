@@ -431,22 +431,28 @@ def list_campaigns(status_filter=None, limit=10):
             c_date = c.get('sentDate', c.get(
                 'scheduledAt', c.get('createdAt', '?')))
 
-            # Statistici dacă există
-            stats = c.get('statistics', {}).get('globalStats', {})
-            delivered = stats.get('delivered', '-')
-            opens = stats.get('uniqueOpens', '-')
-            clicks = stats.get('uniqueClicks', '-')
-            unsubs = stats.get('unsubscriptions', '-')
+            # Statistici — Brevo pune datele reale în campaignStats[0], NU în globalStats
+            campaign_stats = c.get('statistics', {}).get('campaignStats', [])
+            if campaign_stats:
+                # Agregăm din toate listele (dacă sunt mai multe)
+                delivered = sum(s.get('delivered', 0) for s in campaign_stats)
+                opens = sum(s.get('uniqueViews', 0) for s in campaign_stats)
+                clicks = sum(s.get('clickers', 0) for s in campaign_stats)
+                unsubs = sum(s.get('unsubscriptions', 0)
+                             for s in campaign_stats)
+                sent = sum(s.get('sent', 0) for s in campaign_stats)
+            else:
+                delivered = opens = clicks = unsubs = sent = 0
 
             print(f"\n  #{c_id} | {c_status.upper()} | {c_name}")
             print(f"    Data: {c_date}")
-            if delivered != '-':
-                open_rate = f"{(opens/delivered*100):.1f}%" if isinstance(
-                    delivered, (int, float)) and delivered > 0 else '-'
-                click_rate = f"{(clicks/delivered*100):.1f}%" if isinstance(
-                    delivered, (int, float)) and delivered > 0 else '-'
+            if delivered > 0:
+                open_rate = f"{(opens/delivered*100):.1f}%"
+                click_rate = f"{(clicks/delivered*100):.1f}%"
                 print(
-                    f"    Delivered: {delivered} | Opens: {opens} ({open_rate}) | Clicks: {clicks} ({click_rate}) | Unsubs: {unsubs}")
+                    f"    Sent: {sent} | Delivered: {delivered} | Opens: {opens} ({open_rate}) | Clicks: {clicks} ({click_rate}) | Unsubs: {unsubs}")
+            else:
+                print(f"    Sent: {sent} | Delivered: {delivered}")
 
         print(f"\n  Total: {resp.get('count', len(campaigns))} campanii")
         return campaigns
@@ -464,20 +470,29 @@ def get_campaign_stats(campaign_id):
     if status == 200:
         name = resp.get('name', '?')
         c_status = resp.get('status', '?')
-        stats = resp.get('statistics', {}).get('globalStats', {})
+
+        # Brevo pune datele reale în campaignStats[0], NU în globalStats
+        campaign_stats = resp.get('statistics', {}).get('campaignStats', [])
+        if campaign_stats:
+            # Agregăm din toate listele
+            sent = sum(s.get('sent', 0) for s in campaign_stats)
+            delivered = sum(s.get('delivered', 0) for s in campaign_stats)
+            opens = sum(s.get('uniqueViews', 0) for s in campaign_stats)
+            clicks = sum(s.get('clickers', 0) for s in campaign_stats)
+            unsubs = sum(s.get('unsubscriptions', 0) for s in campaign_stats)
+            hard_bounces = sum(s.get('hardBounces', 0) for s in campaign_stats)
+            soft_bounces = sum(s.get('softBounces', 0) for s in campaign_stats)
+            complaints = sum(s.get('complaints', 0) for s in campaign_stats)
+        else:
+            sent = delivered = opens = clicks = unsubs = hard_bounces = soft_bounces = complaints = 0
+
+        bounces = hard_bounces + soft_bounces
 
         print(f"\n  {'='*60}")
         print(f"  STATISTICI CAMPANIE #{campaign_id}")
         print(f"  Nume: {name}")
         print(f"  Status: {c_status}")
         print(f"  {'='*60}")
-
-        sent = stats.get('sent', 0)
-        delivered = stats.get('delivered', 0)
-        opens = stats.get('uniqueOpens', 0)
-        clicks = stats.get('uniqueClicks', 0)
-        unsubs = stats.get('unsubscriptions', 0)
-        bounces = stats.get('hardBounces', 0) + stats.get('softBounces', 0)
 
         open_rate = f"{(opens/delivered*100):.1f}%" if delivered > 0 else '0%'
         click_rate = f"{(clicks/delivered*100):.1f}%" if delivered > 0 else '0%'
@@ -488,7 +503,9 @@ def get_campaign_stats(campaign_id):
         print(f"  Deschise:     {opens} ({open_rate})")
         print(f"  Click-uri:    {clicks} ({click_rate})")
         print(f"  Dezabonări:   {unsubs} ({unsub_rate})")
-        print(f"  Bounce-uri:   {bounces}")
+        print(
+            f"  Bounce-uri:   {bounces} (hard: {hard_bounces}, soft: {soft_bounces})")
+        print(f"  Reclamații:   {complaints}")
         print(f"  {'='*60}\n")
 
         return {
@@ -774,10 +791,15 @@ Exemple:
         if campaigns:
             msg += f"\n<b>Ultimele campanii:</b>\n"
             for c in campaigns[:3]:
-                stats = c.get('statistics', {}).get('globalStats', {})
-                delivered = stats.get('delivered', 0)
-                opens = stats.get('uniqueOpens', 0)
-                clicks = stats.get('uniqueClicks', 0)
+                campaign_stats = c.get('statistics', {}).get(
+                    'campaignStats', [])
+                if campaign_stats:
+                    delivered = sum(s.get('delivered', 0)
+                                    for s in campaign_stats)
+                    opens = sum(s.get('uniqueViews', 0)
+                                for s in campaign_stats)
+                else:
+                    delivered = opens = 0
                 open_rate = f"{(opens/delivered*100):.0f}%" if delivered > 0 else '0%'
                 msg += f"• {c.get('name', '?')}: {delivered} livrate, {open_rate} open rate\n"
 
