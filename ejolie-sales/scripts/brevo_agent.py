@@ -111,8 +111,9 @@ def get_recent_orders(days=7):
     Obține comenzile din ultimele N zile de la Extended.
     Returnează lista de comenzi cu detalii client.
     """
-    data_start = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
-    data_end = datetime.now().strftime("%Y-%m-%d")
+    # Extended API folosește format DD.MM.YYYY pentru date
+    data_start = (datetime.now() - timedelta(days=days)).strftime("%d.%m.%Y")
+    data_end = datetime.now().strftime("%d.%m.%Y")
 
     all_orders = []
     pagina = 1
@@ -123,13 +124,24 @@ def get_recent_orders(days=7):
             f"&limit=200&pagina={pagina}"
         )
 
-        if not data or not isinstance(data, list) or len(data) == 0:
+        if not data:
             break
 
-        all_orders.extend(data)
-        print(f"  Pagina {pagina}: {len(data)} comenzi")
+        # Extended returnează dict {"ID": {order}, "ID2": {order2}}, NU list
+        if isinstance(data, dict):
+            orders_list = list(data.values())
+        elif isinstance(data, list):
+            orders_list = data
+        else:
+            break
 
-        if len(data) < 200:
+        if len(orders_list) == 0:
+            break
+
+        all_orders.extend(orders_list)
+        print(f"  Pagina {pagina}: {len(orders_list)} comenzi")
+
+        if len(orders_list) < 200:
             break
         pagina += 1
 
@@ -140,20 +152,21 @@ def get_recent_orders(days=7):
 def extract_contact_from_order(order):
     """
     Extrage datele de contact dintr-o comandă Extended.
-    Returnează un dict cu câmpurile necesare pentru Brevo.
+
+    Structura Extended API (reală):
+    - client.email, client.nume (nume complet), client.telefon
+    - client.facturare.oras, client.livrare.oras
+    - total_comanda (nu 'total')
+    - id_comanda (nu 'id')
+    - data = "15.03.2026" (format DD.MM.YYYY)
+    - produse = dict {"143022": {produs}, ...} (NU list!)
     """
-    # Câmpurile client din comanda Extended
+    # Client e dict direct (nu list)
     client = order.get('client', {})
-    if isinstance(client, list) and len(client) > 0:
-        client = client[0]
-    elif not isinstance(client, dict):
+    if not isinstance(client, dict):
         client = {}
 
-    email = (
-        client.get('email', '') or
-        order.get('email', '') or
-        order.get('email_client', '')
-    )
+    email = client.get('email', '')
 
     if not email or '@' not in email:
         return None
@@ -162,22 +175,31 @@ def extract_contact_from_order(order):
     if 'ejolie.ro' in email.lower():
         return None
 
-    firstname = client.get('prenume', '') or client.get(
-        'nume_prenume', '').split(' ')[0] if client.get('nume_prenume') else ''
-    lastname = client.get('nume', '') or ''
-    city = client.get('oras', '') or client.get('localitate', '') or ''
+    # Numele complet — Extended pune tot în câmpul 'nume'
+    full_name = client.get('nume', '').strip()
+    name_parts = full_name.split(' ', 1) if full_name else ['', '']
+    firstname = name_parts[0] if len(name_parts) > 0 else ''
+    lastname = name_parts[1] if len(name_parts) > 1 else ''
+
+    # Orașul — din facturare sau livrare
+    facturare = client.get('facturare', {})
+    livrare = client.get('livrare', {})
+    city = facturare.get('oras', '') or livrare.get('oras', '') or ''
 
     # Date comandă
-    order_value = float(order.get('total', 0) or 0)
-    order_id = order.get('id', '') or order.get('id_comanda', '')
-    order_date = order.get('data', '') or order.get('data_comanda', '')
+    order_value = float(order.get('total_comanda', 0) or 0)
+    order_id = order.get('id_comanda', '')
+    order_date = order.get('data', '')  # format DD.MM.YYYY
 
-    # Produse din comandă
-    products = order.get('produse', [])
+    # Produse — Extended returnează dict, nu list
+    products = order.get('produse', {})
     last_product = ''
-    if products and isinstance(products, list) and len(products) > 0:
-        last_product = products[0].get(
-            'nume', '') or products[0].get('titlu', '') or ''
+    if products and isinstance(products, dict):
+        # Luăm primul produs
+        first_product = next(iter(products.values()), {})
+        last_product = first_product.get('nume', '')
+    elif isinstance(products, list) and len(products) > 0:
+        last_product = products[0].get('nume', '')
 
     return {
         'email': email.lower().strip(),
@@ -187,7 +209,7 @@ def extract_contact_from_order(order):
         'order_value': order_value,
         'order_id': str(order_id),
         'order_date': order_date,
-        'last_product': last_product[:100]  # Limităm la 100 caractere
+        'last_product': last_product[:100]
     }
 
 
