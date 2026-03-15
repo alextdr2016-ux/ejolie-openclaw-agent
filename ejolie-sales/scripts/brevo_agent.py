@@ -109,20 +109,17 @@ def extended_get(params):
 def get_recent_orders(days=7):
     """
     Obține comenzile din ultimele N zile de la Extended.
-    Returnează lista de comenzi cu detalii client.
+    NOTĂ: Extended API ignoră data_start/data_end — filtrăm client-side.
     """
-    # Extended API folosește format DD.MM.YYYY pentru date
-    data_start = (datetime.now() - timedelta(days=days)).strftime("%d.%m.%Y")
-    data_end = datetime.now().strftime("%d.%m.%Y")
+    cutoff_date = datetime.now() - timedelta(days=days)
 
     all_orders = []
     pagina = 1
+    max_pages = 20  # Limită de siguranță (~4000 comenzi max)
+    found_old_order = False
 
-    while True:
-        data = extended_get(
-            f"comenzi&data_start={data_start}&data_end={data_end}"
-            f"&limit=200&pagina={pagina}"
-        )
+    while pagina <= max_pages:
+        data = extended_get(f"comenzi&limit=200&pagina={pagina}")
 
         if not data:
             break
@@ -138,8 +135,26 @@ def get_recent_orders(days=7):
         if len(orders_list) == 0:
             break
 
-        all_orders.extend(orders_list)
-        print(f"  Pagina {pagina}: {len(orders_list)} comenzi")
+        # Filtrăm per dată — Extended returnează în ordine descrescătoare (cele mai noi primele)
+        for order in orders_list:
+            order_date_str = order.get('data', '')  # format DD.MM.YYYY
+            try:
+                order_date = datetime.strptime(order_date_str, '%d.%m.%Y')
+            except (ValueError, TypeError):
+                continue
+
+            if order_date >= cutoff_date:
+                all_orders.append(order)
+            else:
+                # Am ajuns la comenzi mai vechi decât perioada cerută — ne oprim
+                found_old_order = True
+
+        print(
+            f"  Pagina {pagina}: {len(orders_list)} comenzi citite, {len(all_orders)} în perioada")
+
+        # Dacă am găsit comenzi mai vechi, nu mai paginăm
+        if found_old_order:
+            break
 
         if len(orders_list) < 200:
             break
