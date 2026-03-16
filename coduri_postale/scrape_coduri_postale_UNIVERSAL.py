@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
-scrape_coduri_postale_UNIVERSAL.py
+scrape_coduri_postale_UNIVERSAL.py v2
 Script universal pentru extragere coduri postale per județ.
+
+FIX v2: 
+  - max_redirects=10 pe session (previne infinite redirect loop)
+  - timeout scăzut la 15s pentru localități problematice
+  - skip + log la erori (nu oprește scriptul)
+  - retry 1x cu slug normalizat (fără diacritice) la redirect error
 
 UTILIZARE:
   python3 scrape_coduri_postale_UNIVERSAL.py --judet cluj --sursa codul-postal
   python3 scrape_coduri_postale_UNIVERSAL.py --judet brasov --sursa posta-romana
-  python3 scrape_coduri_postale_UNIVERSAL.py --judet constanta --sursa codul-postal
-  python3 scrape_coduri_postale_UNIVERSAL.py --judet sibiu --sursa posta-romana
-
-Surse disponibile:
-  codul-postal  = codul-postal.ro (rapid, ~2 min, cu străzi)
-  posta-romana  = Poșta Română scan cod cu cod (~30 min, 100% complet)
 """
 
 import requests
@@ -21,7 +21,9 @@ import re
 import os
 import csv
 import argparse
+import unicodedata
 from datetime import datetime
+from requests.adapters import HTTPAdapter
 
 BASE_CP = "https://www.codul-postal.ro"
 BASE_PR = "https://www.posta-romana.ro"
@@ -47,6 +49,55 @@ HEADERS_PR = {
 # CONFIGURARE JUDEȚE
 # ============================================================
 JUDETE_CONFIG = {
+    "dolj": {
+        "name": "Dolj", "slug": "dolj",
+        "code_start": 200000, "code_end": 207999,
+        "zm_name": "ZM Craiova",
+        "zm_members": {
+            "Craiova", "Filiaşi", "Filiași", "Segarcea",
+            "Almăj", "Beharca", "Bogea", "Cotofenii din Față", "Cotofenii din Faţă", "Moşneni", "Moșneni", "Şitoaia", "Șitoaia",
+            "Brădeşti", "Brădești", "Brădeştii Bătrâni", "Brădeștii Bătrâni", "Meteu", "Piscani", "Răcarii de Jos", "Tatomireşti", "Tatomirești",
+            "Breasta", "Cotu", "Crovna", "Făget", "Obedin", "Roşieni", "Roșieni", "Valea Lungului",
+            "Bucovăţ", "Bucovăț", "Cârligei", "Italieni", "Leamna de Jos", "Leamna de Sus", "Palilula", "Sărbătoarea",
+            "Calopăr", "Bâzdâna", "Belcinu", "Panaghia", "Sălcuţa", "Sălcuța", "Cârcea", "Coşoveni", "Coșoveni",
+            "Gherceşti", "Ghercești", "Gârleşti", "Gârlești", "Luncşoru", "Luncșoru", "Ungureni", "Ungurenii Mici",
+            "Işalniţa", "Ișalnița", "Izvoare", "Malu Mare", "Ghindeni", "Preajba",
+            "Mischii", "Călineşti", "Călinești", "Gogoşeşti", "Gogoșești", "Mlecăneşti", "Mlecănești", "Motoci", "Urecheşti", "Urechești",
+            "Murgaşi", "Murgași", "Gaia", "Picăturile", "Rupturile", "Veleşti", "Velești",
+            "Pieleşti", "Pielești", "Câmpeni", "Lânga",
+            "Predeşti", "Predești", "Bucicani", "Cârstovani", "Frasin", "Milovan", "Pleşoi", "Pleșoi", "Predeştii Mici", "Predeștii Mici",
+            "Şimnicu de Sus", "Șimnicu de Sus", "Albeşti", "Albești", "Cornetu", "Deleni", "Dudoviceşti", "Dudovicești",
+            "Floreşti", "Florești", "Izvor", "Jieni", "Leşile", "Leșile", "Mileşti", "Milești", "Româneşti", "Românești",
+            "Teasc", "Secui", "Terpeziţa", "Terpezița", "Căciulatu", "Căruia", "Floran", "Lazu",
+            "Ţuglui", "Țuglui", "Jiul", "Unirea",
+            "Vârvoru de Jos", "Bujor", "Ciutura", "Criva", "Dobromira", "Drăgoaia", "Gabru", "Vârvor",
+            "Vela", "Bucovicior", "Cetăţuia", "Cetățuia", "Desnăţui", "Desnățui", "Gubaucea", "Segleţ", "Segleț", "Suharu", "Ştiubei", "Știubei",
+            "Făcăi", "Mofleni", "Popoveni", "Şimnicu de Jos", "Șimnicu de Jos",
+            "Almăjel", "Bâlta", "Branişte", "Braniște", "Fratoştița", "Răcarii de Sus", "Uscăci",
+        },
+    },
+    "iasi": {
+        "name": "Iași", "slug": "iasi",
+        "code_start": 700000, "code_end": 707999,
+        "zm_name": "ZM Iași",
+        "zm_members": {
+            "Iaşi", "Iași", "Aroneanu", "Bârnova", "Bîrnova", "Ciurea", "Comarna", "Costuleni",
+            "Dobrovăţ", "Dobrovăț", "Golăieşti", "Golăiești", "Grajduri", "Holboca",
+            "Horleşti", "Horlești", "Leţcani", "Lețcani", "Miroslava", "Mogoşeşti", "Mogoșești",
+            "Movileni", "Popricani", "Prisăcani", "Rediu", "Româneşti", "Românești",
+            "Scânteia", "Schitu Duca", "Tomeşti", "Tomești", "Ţigănaşi", "Țigănași",
+            "Ţuţora", "Țuțora", "Ungheni", "Valea Lupului", "Victoria", "Voineşti", "Voinești",
+            "Dorobanţ", "Dorobanț", "Şorogari", "Șorogari", "Cercu", "Pietrăria", "Păun",
+            "Vişan", "Vișan", "Todirel", "Curături", "Hlincea", "Picioru Lupului",
+            "Cristeşti", "Cristești", "Dancu", "Orzeni", "Rusenii Noi", "Rusenii Vechi",
+            "Tăuteşti", "Tăutești", "Valea Lungă", "Bogonos", "Cogeasca",
+            "Brătuleni", "Ciurbești", "Cornești", "Dancaș", "Găureni", "Horpaz",
+            "Proselnici", "Uricani", "Voroveşti", "Vorovești", "Cuza Vodă",
+            "Mânjeşti", "Rediu Aldei", "Vulturi", "Breazu",
+            "Chicerea", "Goruni", "Vlădiceni", "Vladiceni", "Frunzeni",
+            "Lunca Cetăţuii", "Lunca Cetățuii",
+        },
+    },
     "cluj": {
         "name": "Cluj", "slug": "cluj",
         "code_start": 400000, "code_end": 407999,
@@ -57,8 +108,7 @@ JUDETE_CONFIG = {
             "Feleacu", "Floreşti", "Florești", "Gilău", "Gârbău", "Gîrbău",
             "Jucu", "Petreştii de Jos", "Petreștii de Jos", "Săvădisla",
             "Sânpaul", "Sîmpaul", "Tureni", "Vultureni",
-            # Sate importante aparținătoare
-            "Dezmir", "Sânnicoara", "Sîmnicoara", "Someșeni",
+            "Dezmir", "Sânnicoara", "Someşeni", "Someșeni",
             "Luna de Sus", "Gheorgheni", "Lomb", "Sălicea",
         },
     },
@@ -69,12 +119,10 @@ JUDETE_CONFIG = {
         "zm_members": {
             "Braşov", "Brașov", "Codlea", "Ghimbav", "Predeal", "Râşnov", "Râșnov",
             "Săcele", "Zărneşti", "Zărnești",
-            # Comune
             "Bod", "Bran", "Cristian", "Feldioara", "Hălchiu",
             "Hărman", "Prejmer", "Sânpetru", "Sîmpetru", "Tărlungeni", "Vulcan",
-            # Sate importante
-            "Stupini", "Poiana Brașov", "Timișu de Jos", "Timișu de Sus",
-            "Colonia Bod", "Crizbav",
+            "Stupini", "Poiana Brașov", "Poiana Braşov", "Timişu de Jos", "Timișu de Jos",
+            "Timişu de Sus", "Timișu de Sus", "Colonia Bod", "Crizbav",
         },
     },
     "constanta": {
@@ -83,14 +131,11 @@ JUDETE_CONFIG = {
         "zm_name": "ZM Constanța",
         "zm_members": {
             "Constanţa", "Constanța",
-            # Orașe
             "Eforie", "Eforie Nord", "Eforie Sud", "Murfatlar", "Năvodari",
             "Ovidiu", "Techirghiol",
-            # Comune
             "23 August", "Agigea", "Corbu", "Costineşti", "Costinești",
             "Cumpăna", "Lumina", "Mihai Kogălniceanu",
             "Poarta Albă", "Tuzla", "Valu lui Traian",
-            # Sate importante
             "Palazu Mare", "Mamaia", "Mamaia-Sat",
         },
     },
@@ -100,7 +145,6 @@ JUDETE_CONFIG = {
         "zm_name": "ZM Sibiu",
         "zm_members": {
             "Sibiu",
-            # Membri ZM (ADI POL DEZVOLTARE SIBIU, 2023)
             "Şelimbăr", "Șelimbăr", "Şura Mică", "Șura Mică",
             "Roşia", "Roșia", "Şura Mare", "Șura Mare",
             "Ocna Sibiului", "Sadu", "Poplaca",
@@ -108,16 +152,37 @@ JUDETE_CONFIG = {
             "Cristian", "Gura Râului",
             "Răşinari", "Rășinari",
             "Orlat", "Tălmaciu",
-            # Sate importante
-            "Turnișor", "Ştrand", "Bungard",
+            "Turnişor", "Turnișor", "Bungard",
         },
     },
 }
 
 
 # ============================================================
+# HELPER: normalize diacritics for retry
+# ============================================================
+def remove_diacritics(text):
+    """Înlocuiește ăâîșț cu aist pentru URL retry."""
+    replacements = {
+        'ă': 'a', 'â': 'a', 'î': 'i', 'ș': 's', 'ț': 't',
+        'Ă': 'A', 'Â': 'A', 'Î': 'I', 'Ș': 'S', 'Ț': 'T',
+        'ş': 's', 'ţ': 't', 'Ş': 'S', 'Ţ': 'T',
+    }
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+    return text
+
+
+# ============================================================
 # FUNCȚII codul-postal.ro
 # ============================================================
+def cp_create_session():
+    s = requests.Session()
+    s.headers.update(HEADERS_CP)
+    s.max_redirects = 10  # FIX: prevent infinite redirect loops
+    return s
+
+
 def cp_get_localities(session, slug):
     resp = session.get(f"{BASE_CP}/judet/{slug}", timeout=15)
     resp.raise_for_status()
@@ -137,13 +202,41 @@ def cp_get_localities(session, slug):
     return locs
 
 
-def cp_scrape_locality(session, loc, judet_name, zm_members):
+def cp_fetch_page(session, url, loc_name):
+    """Fetch cu retry: dacă redirect loop, încearcă fără diacritice."""
     try:
-        resp = session.get(loc['url'], timeout=30)
+        resp = session.get(url, timeout=15)
         resp.raise_for_status()
-        html = resp.text
+        return resp.text
+    except requests.exceptions.TooManyRedirects:
+        # Retry cu slug normalizat (fără diacritice)
+        slug_clean = remove_diacritics(url.split('/')[-1])
+        url_retry = '/'.join(url.split('/')[:-1]) + '/' + slug_clean
+        try:
+            resp = session.get(url_retry, timeout=15)
+            resp.raise_for_status()
+            return resp.text
+        except Exception:
+            pass
+
+        # Retry cu slug lowercase fără diacritice
+        slug_lower = slug_clean.lower().replace(' ', '-')
+        url_retry2 = '/'.join(url.split('/')[:-1]) + '/' + slug_lower
+        try:
+            resp = session.get(url_retry2, timeout=15)
+            resp.raise_for_status()
+            return resp.text
+        except Exception:
+            print(f"    [SKIP] {loc_name}: redirect loop (tried 3 URLs)")
+            return None
     except Exception as e:
-        print(f"    [ERR] {loc['name']}: {e}")
+        print(f"    [ERR] {loc_name}: {e}")
+        return None
+
+
+def cp_scrape_locality(session, loc, judet_name, zm_members):
+    html = cp_fetch_page(session, loc['url'], loc['name'])
+    if not html:
         return []
 
     results = []
@@ -184,8 +277,7 @@ def cp_scrape_locality(session, loc, judet_name, zm_members):
 
 
 def run_codul_postal(config):
-    s = requests.Session()
-    s.headers.update(HEADERS_CP)
+    s = cp_create_session()
 
     print(f"\n[1] Localități {config['name']}...")
     locs = cp_get_localities(s, config['slug'])
@@ -199,13 +291,24 @@ def run_codul_postal(config):
 
     print(f"\n[2] Extragere coduri...\n")
     all_data = []
+    skipped = []
     for i, loc in enumerate(locs):
         r = cp_scrape_locality(s, loc, config['name'], config['zm_members'])
         all_data.extend(r)
         zm = " [ZM]" if loc['name'] in config['zm_members'] else ""
         if r and len(r) > 1:
             print(f"  [{i+1}/{len(locs)}] {loc['name']}{zm}: {len(r)}")
+        if not r:
+            skipped.append(loc['name'])
         time.sleep(0.3)
+
+    if skipped:
+        print(
+            f"\n  ⚠️  {len(skipped)} localități skip-uite (redirect/eroare):")
+        for s_name in skipped[:20]:
+            print(f"    - {s_name}")
+        if len(skipped) > 20:
+            print(f"    ... și încă {len(skipped)-20}")
 
     u = {}
     for r in all_data:
@@ -246,14 +349,16 @@ def run_posta_romana(config):
 
     print(f"\n[1] Test cod {code_start + 100}...")
     data = f"k_cod_postal={code_start + 100}&k_lang=ro"
-    resp = s.post(URL_COD, data=data, timeout=15)
-    result = resp.json()
-    if result.get("found", 0) > 0:
-        print(f"    ✅ OK")
-    else:
-        print(f"    ⚠️  Test nu a returnat rezultate, continuăm...")
+    try:
+        resp = s.post(URL_COD, data=data, timeout=15)
+        result = resp.json()
+        if result.get("found", 0) > 0:
+            print(f"    ✅ OK")
+        else:
+            print(f"    ⚠️  Fără rezultat, continuăm...")
+    except:
+        print(f"    ⚠️  Eroare test, continuăm...")
 
-    # Resume
     all_data = []
     existing_keys = set()
     resume_from = code_start
@@ -277,9 +382,9 @@ def run_posta_romana(config):
             code_str = str(code).zfill(6)
             scanned = code - code_start + 1
 
-            data = f"k_cod_postal={code_str}&k_lang=ro"
             try:
-                resp = s.post(URL_COD, data=data, timeout=15)
+                resp = s.post(
+                    URL_COD, data=f"k_cod_postal={code_str}&k_lang=ro", timeout=15)
                 result = resp.json()
                 results = pr_parse_html(result.get("formular", "")) if result.get(
                     "found", 0) > 0 else []
@@ -320,7 +425,6 @@ def run_posta_romana(config):
         with open(progress_file, 'w', encoding='utf-8') as f:
             json.dump({'last_code': code, 'data': all_data},
                       f, ensure_ascii=False)
-        print(f"  Rulează din nou pentru a continua.")
 
     if os.path.exists(progress_file) and code >= code_end:
         os.remove(progress_file)
@@ -352,7 +456,7 @@ def export_excel(all_data, zm_data, config, filename):
         ws['A1'].font = Font(name='Arial', bold=True, size=13, color='2F5496')
         ws['A1'].alignment = Alignment(horizontal='center')
         ws.merge_cells('A2:G2')
-        ws['A2'] = f'Sursa: codul-postal.ro + Poșta Română | {datetime.now().strftime("%d.%m.%Y %H:%M")}'
+        ws['A2'] = f'{datetime.now().strftime("%d.%m.%Y %H:%M")}'
         ws['A2'].font = Font(name='Arial', size=10,
                              italic=True, color='666666')
         ws['A2'].alignment = Alignment(horizontal='center')
@@ -383,7 +487,6 @@ def export_excel(all_data, zm_data, config, filename):
     write_sheet(
         ws2, f'CODURI POȘTALE — JUDEȚUL {config["name"].upper()} COMPLET', all_data)
 
-    # Sumar
     ws3 = wb.create_sheet("Sumar")
     ws3['A1'] = f'SUMAR {config["name"].upper()}'
     ws3['A1'].font = Font(name='Arial', bold=True, size=14, color='2F5496')
@@ -414,8 +517,8 @@ def export_excel(all_data, zm_data, config, filename):
 def main():
     parser = argparse.ArgumentParser(
         description='Extrage coduri poștale per județ')
-    parser.add_argument('--judet', required=True, choices=['cluj', 'brasov', 'constanta', 'sibiu'],
-                        help='Județul pentru care se extrag codurile')
+    parser.add_argument('--judet', required=True, choices=list(JUDETE_CONFIG.keys()),
+                        help='Județul')
     parser.add_argument('--sursa', required=True, choices=['codul-postal', 'posta-romana'],
                         help='Sursa de date')
     args = parser.parse_args()
@@ -428,8 +531,7 @@ def main():
     print(f"  CODURI POSTALE {config['name'].upper()} — {args.sursa}")
     if args.sursa == 'posta-romana':
         print(f"  Range: {config['code_start']} → {config['code_end']}")
-    print(
-        f"  {config['zm_name']}: {len(config['zm_members'])} localități tracked")
+    print(f"  {config['zm_name']}")
     print(f"  {datetime.now().strftime('%d.%m.%Y %H:%M')}")
     print("=" * 65)
 
