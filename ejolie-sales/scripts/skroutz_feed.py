@@ -85,6 +85,10 @@ def generate_skroutz_feed(products):
     skipped = 0
 
     for product in products:
+        # Filtru — doar produse Ejolie
+        if product.get('brand', '').lower() != 'ejolie':
+            continue
+
         # --- Extragere date din structura cache ---
         prod_id = str(product.get('id', ''))
         name = product.get('nume', product.get('name', ''))
