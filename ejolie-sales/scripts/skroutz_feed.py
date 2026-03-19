@@ -3,7 +3,7 @@
 skroutz_feed.py - Generează XML Feed pentru Skroutz din stock_cache.json
 EC2: 107.23.69.199
 Cron: every 6 hours
-Output: /var/www/html/skroutz_feed.xml
+Output: /home/ubuntu/public_feeds/skroutz_feed.xml
 """
 
 import os
@@ -20,7 +20,7 @@ from pathlib import Path
 # ================================
 SCRIPT_DIR = Path(__file__).parent
 CACHE_FILE = SCRIPT_DIR / "stock_cache.json"
-OUTPUT_PATH = "/var/www/html/skroutz_feed.xml"
+OUTPUT_PATH = "/home/ubuntu/public_feeds/skroutz_feed.xml"
 
 API_KEY = 'C4V9RJKpPOEcXyWDhF7tQYqrNAxeg8'
 BASE_URL = "https://ejolie.ro/api/"
