@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-skroutz_feed.py - Generează XML Feed pentru Skroutz din Extended API
-Deployed: EC2 107.23.69.199
+skroutz_feed.py - Generează XML Feed pentru Skroutz din stock_cache.json
+EC2: 107.23.69.199
 Cron: every 6 hours
-Output: /var/www/html/skroutz_feed.xml → https://ejolie.ro/skroutz_feed.xml
+Output: /var/www/html/skroutz_feed.xml
 """
 
 import os
@@ -16,85 +16,58 @@ from datetime import datetime
 from pathlib import Path
 
 # ================================
-# CONFIG — citit din .env
+# CONFIG
 # ================================
 SCRIPT_DIR = Path(__file__).parent
-ENV_FILE = SCRIPT_DIR / "../.env"
-
-# Citim .env manual (fără python-dotenv)
-env_vars = {}
-if ENV_FILE.exists():
-    with open(ENV_FILE) as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith('#') and '=' in line:
-                key, val = line.split('=', 1)
-                env_vars[key.strip()] = val.strip()
-
-API_KEY = env_vars.get('EJOLIE_API_KEY', 'C4V9RJKpPOEcXyWDhF7tQYqrNAxeg8')
-BASE_URL = "https://ejolie.ro/api/"
-HEADERS = {
-    'User-Agent': 'Extended API',
-    'X-Api-Key': API_KEY
-}
-
-# Unde salvăm feed-ul
+CACHE_FILE = SCRIPT_DIR / "stock_cache.json"
 OUTPUT_PATH = "/var/www/html/skroutz_feed.xml"
-CACHE_FILE = SCRIPT_DIR / "../scripts/stock_cache.json"
+
+API_KEY = 'C4V9RJKpPOEcXyWDhF7tQYqrNAxeg8'
+BASE_URL = "https://ejolie.ro/api/"
+HEADERS = {'User-Agent': 'Extended API', 'X-Api-Key': API_KEY}
 
 # ================================
-# PASUL 1: Citim produsele
+# PASUL 1: Citim produsele din cache
 # ================================
 
 
 def get_products():
-    """
-    Citim din stock_cache.json
-    Structura: {"updated": "...", "total_products": 689, "products": {"12415": {...}}}
-    """
-    cache_path = SCRIPT_DIR / "stock_cache.json"
-    print(f"📦 Citesc produse din cache: {cache_path}")
+    print(f"📦 Citesc din: {CACHE_FILE}")
 
-    if not cache_path.exists():
-        print("⚠️ Cache nu există, fac API call direct...")
+    if not CACHE_FILE.exists():
+        print("⚠️ Cache inexistent, apelam API...")
         return get_products_from_api()
 
-    with open(cache_path) as f:
+    with open(CACHE_FILE) as f:
         cache = json.load(f)
 
-    # Structura cache: {"products": {"id": {...}, ...}}
+    # Structura: {"updated":..., "total_products":..., "products": {"12415": {...}}}
     if "products" in cache:
         products = list(cache["products"].values())
     elif isinstance(cache, dict):
-        products = list(cache.values())
+        products = [v for v in cache.values() if isinstance(v, dict)]
     else:
         products = cache
 
-    print(f"✅ {len(products)} produse din cache")
+    print(f"✅ {len(products)} produse găsite")
     return products
 
 
 def get_products_from_api():
-    """Fallback: preia direct din API dacă nu există cache"""
     products = []
     page = 1
-
     while True:
         url = f"{BASE_URL}?produse&limit=50&pagina={page}&apikey={API_KEY}"
         try:
-            response = requests.get(url, headers=HEADERS, timeout=30)
-            data = response.json()
+            r = requests.get(url, headers=HEADERS, timeout=30)
+            data = r.json()
             if not data:
                 break
-            if isinstance(data, list):
-                products.extend(data)
-            elif isinstance(data, dict):
-                products.extend(data.values())
+            products.extend(data.values() if isinstance(data, dict) else data)
             page += 1
         except Exception as e:
-            print(f"❌ Eroare API pagina {page}: {e}")
+            print(f"❌ API eroare pagina {page}: {e}")
             break
-
     return products
 
 # ================================
@@ -103,143 +76,122 @@ def get_products_from_api():
 
 
 def generate_skroutz_feed(products):
-    """
-    Generează XML în formatul exact cerut de Skroutz
-    Documentație: developer.skroutz.gr/feedspec/
-    """
-
-    # Root element — Skroutz cere <store> nu <products>
     store = ET.Element("store")
-
-    # Data generării — OBLIGATORIE la Skroutz
     ET.SubElement(store, "created_at").text = datetime.now().strftime(
         "%Y-%m-%d %H:%M")
-
     products_elem = ET.SubElement(store, "products")
 
     count = 0
     skipped = 0
 
     for product in products:
-        # Extragem datele de bază
+        # --- Extragere date din structura cache ---
         prod_id = str(product.get('id', ''))
-        name = product.get('name', product.get('title', ''))
-        price = product.get('price', product.get('pret', 0))
-        stock = product.get('stock', product.get('stoc', 0))
-        image = product.get('image', product.get('imagine', ''))
+        name = product.get('nume', product.get('name', ''))
+        brand = product.get('brand', 'OEM') or 'OEM'
+        desc = product.get('descriere', product.get('description', ''))
         slug = product.get('slug', '')
-        category = product.get('category', product.get('categorie', ''))
-        brand = product.get('brand', 'OEM')
-        description = product.get('description', product.get('descriere', ''))
+        category = product.get('categorie', product.get('category', ''))
+        image = product.get('imagine', product.get('image', ''))
 
-        # Specificații (culoare, material, etc.)
+        # --- Preț și stoc din sizes ---
+        sizes_dict = product.get('sizes', {})
+        price = 0.0
+        stock_total = 0
+        sizes_available = []
+
+        for size_name, size_data in sizes_dict.items():
+            if not isinstance(size_data, dict):
+                continue
+            if size_data.get('in_stock', False):
+                stock_total += int(size_data.get('stoc_fizic', 0) or 0)
+                sizes_available.append(str(size_name))
+                if price == 0:
+                    pd = float(size_data.get('pret_discount', 0) or 0)
+                    pp = float(size_data.get('pret', 0) or 0)
+                    price = pd if pd > 0 else pp
+
+        # --- Specificații ---
         specs = product.get('specs', {})
         if isinstance(specs, list):
-            # Convertim lista în dict
-            specs = {s.get('nume', ''): s.get('valoare', []) for s in specs}
+            specs = {s.get('nume', ''): s.get('valoare', [])
+                     for s in specs if isinstance(s, dict)}
 
         color = specs.get('Culoare', [''])[0] if specs.get('Culoare') else ''
         material = specs.get('Material', [''])[
             0] if specs.get('Material') else ''
-        sizes_list = product.get('sizes', product.get('marimi', []))
 
-        # Validare minimă
-        if not prod_id or not name or not price:
+        # --- Validare ---
+        if not prod_id or not name or price == 0:
             skipped += 1
             continue
 
-        # Construim URL produs
+        # --- URL produs ---
         if slug:
-            product_url = f"https://ejolie.ro/product/{slug}-{prod_id}"
+            url = f"https://ejolie.ro/product/{slug}-{prod_id}"
         else:
-            product_url = f"https://ejolie.ro/product/{prod_id}"
+            url = f"https://ejolie.ro/product/{prod_id}"
 
-        # Disponibilitate
-        try:
-            stock_int = int(float(str(stock))) if stock else 0
-        except:
-            stock_int = 0
+        # --- Disponibilitate ---
+        availability = "Disponibil" if stock_total > 0 else "Indisponibil"
 
-        availability = "Disponibil" if stock_int > 0 else "Indisponibil"
-
-        # Formatăm categoria pentru Skroutz (cu >)
+        # --- Categorie format Skroutz ---
         if not category:
             category = "Îmbrăcăminte > Rochii"
         elif '>' not in category:
             category = f"Îmbrăcăminte > {category}"
 
-        # ---- Creăm elementul produs ----
-        prod_elem = ET.SubElement(products_elem, "product")
-
-        ET.SubElement(prod_elem, "uid").text = prod_id
-        ET.SubElement(prod_elem, "name").text = name[:255]  # max 255 chars
-        ET.SubElement(prod_elem, "link").text = product_url
+        # --- Construim elementul XML ---
+        p = ET.SubElement(products_elem, "product")
+        ET.SubElement(p, "uid").text = prod_id
+        ET.SubElement(p, "name").text = name[:255]
+        ET.SubElement(p, "link").text = url
+        ET.SubElement(p, "price_with_vat").text = f"{price:.2f}"
+        ET.SubElement(p, "category").text = category
+        ET.SubElement(p, "manufacturer").text = brand
+        ET.SubElement(p, "availability").text = availability
+        ET.SubElement(p, "quantity").text = str(stock_total)
 
         if image:
-            ET.SubElement(prod_elem, "image").text = image
-
-        ET.SubElement(prod_elem, "price_with_vat").text = str(price)
-        ET.SubElement(prod_elem, "category").text = category
-        ET.SubElement(prod_elem, "manufacturer").text = brand or 'OEM'
-        ET.SubElement(prod_elem, "availability").text = availability
-        ET.SubElement(prod_elem, "quantity").text = str(stock_int)
-
-        if description:
-            ET.SubElement(prod_elem, "description").text = description[:5000]
-
-        # Câmpuri specifice fashion
+            ET.SubElement(p, "image").text = image
+        if desc:
+            ET.SubElement(p, "description").text = desc[:5000]
         if color:
-            ET.SubElement(prod_elem, "color").text = color
-
-        if sizes_list:
-            if isinstance(sizes_list, list):
-                sizes_str = ','.join(str(s) for s in sizes_list if s)
-            else:
-                sizes_str = str(sizes_list)
-            if sizes_str:
-                ET.SubElement(prod_elem, "size").text = sizes_str
-
+            ET.SubElement(p, "color").text = color
+        if sizes_available:
+            ET.SubElement(p, "size").text = ','.join(sizes_available)
         if material:
-            ET.SubElement(prod_elem, "material").text = material
+            ET.SubElement(p, "material").text = material
 
         count += 1
 
-    print(f"✅ {count} produse adăugate în feed")
-    print(f"⚠️  {skipped} produse sărite (date lipsă)")
-
+    print(f"✅ {count} produse în feed | ⚠️ {skipped} sărite")
     return store
 
 # ================================
-# PASUL 3: Salvăm XML-ul
+# PASUL 3: Salvăm XML
 # ================================
 
 
 def save_feed(store_elem, output_path):
-    """Salvează și formatează XML-ul frumos"""
-
-    # Creăm directorul dacă nu există
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
 
-    # Convertim în string și formatăm
-    xml_string = ET.tostring(store_elem, encoding='unicode')
+    xml_bytes = ET.tostring(store_elem, encoding='unicode')
 
-    # Pretty print cu minidom
     try:
         pretty = minidom.parseString(
-            xml_string.encode('utf-8')
+            xml_bytes.encode('utf-8')
         ).toprettyxml(indent="  ", encoding='UTF-8')
-
         with open(output_path, 'wb') as f:
             f.write(pretty)
     except Exception as e:
-        # Fallback fără pretty print
-        print(f"⚠️ Pretty print failed ({e}), salvez raw...")
+        print(f"⚠️ Pretty print failed: {e}, salvez raw...")
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
-            f.write(xml_string)
+            f.write(xml_bytes)
 
     size_kb = Path(output_path).stat().st_size // 1024
-    print(f"💾 Feed salvat: {output_path} ({size_kb} KB)")
+    print(f"💾 Salvat: {output_path} ({size_kb} KB)")
 
 
 # ================================
@@ -247,24 +199,21 @@ def save_feed(store_elem, output_path):
 # ================================
 if __name__ == "__main__":
     print(
-        f"\n🚀 Skroutz Feed Generator - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+        f"\n🚀 Skroutz Feed Generator — {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print("=" * 50)
 
-    # Preim produsele
     products = get_products()
 
     if not products:
-        print("❌ Nu s-au găsit produse. Ieșire.")
+        print("❌ Zero produse. Ieșire.")
         sys.exit(1)
 
-    # Generăm feed-ul
-    print("\n🔄 Generez XML feed Skroutz...")
+    print("\n🔄 Generez XML...")
     store = generate_skroutz_feed(products)
 
-    # Salvăm
-    print(f"\n💾 Salvez feed-ul...")
+    print("\n💾 Salvez...")
     save_feed(store, OUTPUT_PATH)
 
     print(f"\n✅ GATA!")
-    print(f"🌐 Feed disponibil la: https://ejolie.ro/skroutz_feed.xml")
-    print(f"🔍 Validează la: https://validator.skroutz.gr")
+    print(f"🌐 https://ejolie.ro/skroutz_feed.xml")
+    print(f"🔍 Validează: https://validator.skroutz.gr")
