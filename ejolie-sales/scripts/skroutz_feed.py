@@ -49,19 +49,27 @@ CACHE_FILE = SCRIPT_DIR / "../scripts/stock_cache.json"
 
 def get_products():
     """
-    Citim din stock_cache.json (deja actualizat la 4h de cron-ul existent)
-    MULT mai rapid decât să facem API calls noi
+    Citim din stock_cache.json
+    Structura: {"updated": "...", "total_products": 689, "products": {"12415": {...}}}
     """
-    print(f"📦 Citesc produse din cache: {CACHE_FILE}")
+    cache_path = SCRIPT_DIR / "stock_cache.json"
+    print(f"📦 Citesc produse din cache: {cache_path}")
 
-    if not CACHE_FILE.exists():
+    if not cache_path.exists():
         print("⚠️ Cache nu există, fac API call direct...")
         return get_products_from_api()
 
-    with open(CACHE_FILE) as f:
+    with open(cache_path) as f:
         cache = json.load(f)
 
-    products = list(cache.values()) if isinstance(cache, dict) else cache
+    # Structura cache: {"products": {"id": {...}, ...}}
+    if "products" in cache:
+        products = list(cache["products"].values())
+    elif isinstance(cache, dict):
+        products = list(cache.values())
+    else:
+        products = cache
+
     print(f"✅ {len(products)} produse din cache")
     return products
 
