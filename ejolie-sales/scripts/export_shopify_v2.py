@@ -12,9 +12,7 @@ Utilizare:
 """
 
 import csv
-import json
 import re
-import os
 import time
 import argparse
 import requests
@@ -50,6 +48,51 @@ SHOPIFY_COLUMNS = [
     "Google Shopping / Custom label 2", "Google Shopping / Custom label 3",
     "Google Shopping / Custom label 4",
 ]
+
+LUNGIME_MAP = {
+    'lungi': 'rochie-lunga',
+    'lunga': 'rochie-lunga',
+    'scurte': 'rochie-scurta',
+    'scurta': 'rochie-scurta',
+    'midi': 'rochie-midi',
+    'mini': 'rochie-mini',
+}
+
+CROI_MAP = {
+    'lunga': 'rochie-lunga',
+    'scurta': 'rochie-scurta',
+    'sirena': 'sirena',
+    'lunga-sirena': 'sirena',
+    'lunga sirena': 'sirena',
+    'scurta-evazata': 'evazat',
+    'evazat': 'evazat',
+    'evazata': 'evazat',
+    'mulat': 'mulat',
+    'cambrat': 'cambrat',
+    'cambrata': 'cambrat',
+    'lejer': 'lejer',
+    'dreapta': 'dreapta',
+    'clos': 'clos',
+    'trapez': 'trapez',
+    'clos': 'clos',
+    'princess': 'princess',
+}
+
+CAT_MAP = {
+    'rochii elegante femei 40+': 'rochii-40-plus',
+    'rochii cununie civila': 'rochii-cununie',
+    'rochii pentru nunta': 'rochii-nunta',
+    'rochii de ocazie': 'rochii-ocazie',
+    'rochii elegante': 'rochii-elegante',
+    'rochii de zi': 'rochii-zi',
+    'rochii scurte': 'rochii-scurte',
+    'rochii lungi': 'rochii-lungi',
+    'rochii mulate': 'rochii-mulate',
+    'rochii de seara': 'rochii-seara',
+    'rochii office': 'rochii-office',
+    'rochii de banchet': 'rochii-banchet',
+    'rochii premium': 'premium',
+}
 
 
 def slugify(text):
@@ -101,40 +144,26 @@ def build_tags(product):
             if not val_clean:
                 continue
 
-            # FIX 1: Lungime normalizata
             if nume_spec == 'lungime':
-                LUNGIME_MAP = {
-                    'lungi': 'rochie-lunga',
-                    'lunga': 'rochie-lunga',
-                    'scurte': 'rochie-scurta',
-                    'scurta': 'rochie-scurta',
-                    'midi': 'rochie-midi',
-                    'mini': 'rochie-mini',
-                }
                 tag = LUNGIME_MAP.get(
                     val_clean, f"rochie-{slugify(val_clean)}")
                 tags.add(tag)
 
-            # FIX 2: Croi separat in parti
             elif nume_spec == 'croi':
-                parts = val_clean.replace('-', ' ').split()
-                CROI_MAP = {
-                    'lunga': 'rochie-lunga',
-                    'scurta': 'rochie-scurta',
-                    'sirena': 'sirena',
-                    'evazat': 'evazat',
-                    'mulat': 'mulat',
-                    'cambrat': 'cambrat',
-                    'lejer': 'lejer',
-                    'dreapta': 'dreapta',
-                    'clos': 'clos',
-                    'trapez': 'trapez',
-                }
-                for part in parts:
-                    part_slug = slugify(part)
-                    mapped = CROI_MAP.get(part_slug, part_slug)
-                    if len(mapped) > 2:
+                val_slug = slugify(val_clean)
+                # Incearca match direct mai intai
+                if val_slug in CROI_MAP:
+                    mapped = CROI_MAP[val_slug]
+                    if mapped:
                         tags.add(mapped)
+                else:
+                    # Separa in parti individuale
+                    parts = val_clean.replace('-', ' ').split()
+                    for part in parts:
+                        part_slug = slugify(part)
+                        mapped = CROI_MAP.get(part_slug, part_slug)
+                        if len(mapped) > 2:
+                            tags.add(mapped)
 
             elif nume_spec == 'culoare':
                 tags.add(slugify(val_clean))
@@ -145,23 +174,7 @@ def build_tags(product):
             elif nume_spec == 'material':
                 tags.add(slugify(val_clean))
 
-    # 3. Categorii - FIX 3: simplifica numele
-    CAT_MAP = {
-        'rochii elegante femei 40+': 'rochii-40-plus',
-        'rochii cununie civila': 'rochii-cununie',
-        'rochii pentru nunta': 'rochii-nunta',
-        'rochii de ocazie': 'rochii-ocazie',
-        'rochii elegante': 'rochii-elegante',
-        'rochii de zi': 'rochii-zi',
-        'rochii scurte': 'rochii-scurte',
-        'rochii lungi': 'rochii-lungi',
-        'rochii mulate': 'rochii-mulate',
-        'rochii de seara': 'rochii-seara',
-        'rochii office': 'rochii-office',
-        'rochii de banchet': 'rochii-banchet',
-        'rochii premium': 'premium',
-    }
-
+    # 3. Categorii
     categorii = product.get('categorii', [])
     for cat in categorii:
         cat_nume = cat.get('nume', '').lower().strip()
